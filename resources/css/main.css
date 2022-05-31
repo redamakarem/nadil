@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'DIN-Medium';
+
+    src: url(/fonts/DIN-Medium.ttf );
+
+    font-weight: bold;
+}
+@font-face {
+    font-family: 'Ahlan-Regular';
+
+    src: url(/fonts/Ahlan-Regular.ttf );
+
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'Ahlan-Bold';
+
+    src: url(/fonts/Ahlan-Bold.ttf );
+
+    font-weight: bold;
+}
+@font-face {
+    font-family: 'Cairo-Regular';
+
+    src: url(/fonts/Cairo-Regular.ttf );
+
+    font-weight: bold;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

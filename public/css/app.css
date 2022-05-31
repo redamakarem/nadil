@@ -1,0 +1,403 @@
+@font-face {
+    font-family: Lato;
+
+    src: url(/fonts/Lato-Heavy.ttf?1cbcbe8a9e03f131de04baf682d4b44f);
+
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: Lato;
+
+    src: url('/fonts/Lato-Bold.ttf');
+
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: Lato;
+
+    src: url('/fonts/Lato-Thin.ttf');
+
+    font-weight: 200;
+}
+
+@font-face {
+    font-family: DIN-Mediun;
+
+    src: url(/fonts/DIN-Medium.ttf );
+
+    font-weight: bold;
+}
+
+/*Generic*/
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: blue orange;
+}
+
+/* Works on Chrome, Edge, and Safari */
+
+*::-webkit-scrollbar {
+    width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+    background: orange;
+    border-radius: 20px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: blue;
+    border-radius: 20px;
+    border: 3px solid orange;
+}
+
+body{
+    min-height: 100vh;
+}
+
+.btn-nadil {
+    background-color: #fff;
+    border: 1px solid #707070;
+    padding: 15px 25px !important;
+}
+
+header,footer {
+    background-color: #000;
+    color: #fff;
+}
+
+.full-height { display: flex; flex-direction: column; height: 100%; }
+
+.fill-height { flex-grow: 1; width: 100%; }
+
+footer a {
+    text-decoration: none;
+    color: #fff;
+    margin: 5px;
+}
+
+footer .insta{
+    max-width: 75px;
+}
+
+#logo img {
+    max-width: 225px;
+    height: auto;
+    margin: 15px;
+}
+
+.menu-link {
+    background-color: lightgray;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: Lato;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #000;
+    letter-spacing: 2px;
+    font-size: 0.65rem;
+}
+
+/*Home*/
+
+.owl-item {
+    background-color: antiquewhite;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: white;
+}
+
+.owl-item .item{
+    background-size: cover;
+    background-position: center center;
+    padding: 40px 0px;
+    width: 100%;
+}
+
+.owl-item .item a{
+    text-decoration: none;
+    color: #fff;
+}
+
+/*Login*/
+
+.page-login .v-middle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+}
+
+.page-login #logo img{
+    max-width: 350px;
+    margin: 15px 7px;
+}
+
+.page-login #login-form{
+    margin: 12px 6px;
+}
+
+.page-login #login-form input{
+    min-height: 50px;
+    border-radius: 10px;
+}
+
+.page-login .card{
+    background-color: #EFEFEF;
+}
+
+.page-login input::-moz-placeholder{
+    font-family: Lato;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #000;
+    letter-spacing: 2px;
+    font-size: 0.65rem;
+    padding: 0px 25px;
+}
+
+.page-login input:-ms-input-placeholder{
+    font-family: Lato;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #000;
+    letter-spacing: 2px;
+    font-size: 0.65rem;
+    padding: 0px 25px;
+}
+
+.page-login input,.page-login input::placeholder, .btn-nadil{
+    font-family: Lato;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #000;
+    letter-spacing: 2px;
+    font-size: 0.65rem;
+    padding: 0px 25px;
+}
+
+/*Restaurant registration*/
+
+.buttons-container{
+    padding: 50px 0px;
+}
+
+.buttons-container .btn {
+    font-family: Lato;
+    font-weight: bold;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    border-radius: 10px;
+    padding: 15px 0px;
+    background-color: #f8f8f8;
+    color: #000000;
+    border-color: #f8f8f8;
+    margin-bottom: 25px;
+}
+
+.form-container{
+    background-color: #f0f0f0;
+    padding: 50px 25px;
+    border-radius: 15px;
+}
+
+.form-container .form-control{
+    font-family: Lato;
+    font-weight: bold;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    border-radius: 10px;
+    padding: 20px 20px;
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #000;
+    margin-bottom: 25px;
+}
+
+.input-container{
+    border-radius: 10px;
+}
+
+.mobile-toggle .btn{
+    background-color: #fafafa;
+    color: #000000;
+    border-radius: 1.50rem !important;
+}
+
+.form-container .form-control::-moz-placeholder{
+    font-family: Lato;
+    font-weight: bold;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    padding: 15px 0px;
+    color: #666666;
+}
+
+.form-container .form-control:-ms-input-placeholder{
+    font-family: Lato;
+    font-weight: bold;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    padding: 15px 0px;
+    color: #666666;
+}
+
+.form-container .form-control::placeholder{
+    font-family: Lato;
+    font-weight: bold;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    padding: 15px 0px;
+    color: #666666;
+}
+
+.form-container input[type="text"], textarea {
+    background-color : #ffffff;
+}
+
+/*Restaurants*/
+
+/*.container.restaurant-show{*/
+
+/*  background-color: #ccc;*/
+
+/*}*/
+
+.menu-wrapper {
+    height: 500px;
+    background-color: #fefefe;
+    box-shadow: 5px 5px #e1e1e1;
+    margin: 75px 10px;
+    border-radius: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.menu-inner{
+    height: calc(100% - 10px);
+    overflow-y: scroll;
+}
+
+.restaurant-info-wrapper{
+    padding: 16px 16px;
+}
+
+.restaurant-info-wrapper h3,.restaurant-info-wrapper h5{
+    font-family: Lato;
+    text-align: center;
+}
+
+.book-wrapper{
+    display: flex;
+    justify-content: center;
+}
+
+.booking-slots {
+    height: 175px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.booking-slots::-webkit-scrollbar {
+    display: none;
+}
+
+.booking-slots .btn.btn-secondary.rounded-pill {
+    background-color: #000;
+}
+
+.booking-slots .btn.btn-secondary.rounded-pill:hover {
+    background-color: #727272;
+}
+
+div#inlinePicker {
+    font-family: 'Lato';
+    font-size: 12px;
+}
+
+div#inlinePicker td.day {
+    padding: 4px;
+    border-radius: 50%;
+}
+
+.datepicker td.active.day {
+    background-image: none !important;
+    background-color: #000 !important;
+}
+
+.datepicker.datepicker-inline{
+    background-color: #e0e0e0;
+    box-shadow: 4px 5px #efefef;
+}
+
+.contact-wrapper{
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn-restaurant{
+    background-color: #e0e0e0;
+    font-family: Lato;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding: 10px 40px;
+    border-radius: 15px;
+}
+
+a.btn-restaurant{
+    color: #000;
+    text-decoration: none;
+}
+
+.menu-grid{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.menu-item {
+    min-height: 125px;
+    background-color: #eeeeee;
+    width: 31.5%;
+    margin: 10px 0px;
+    border-radius: 15px;
+}
+
+.map-container{
+    background-color: #eee;
+    min-height: 300px;
+    margin: 20px 4px;
+    border-radius: 20px;
+}
+
+.dish{
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 3px 5px #9999;
+    font-family: Lato;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.dish-title{
+    font-size: 12px;
+}
+
+.menu-category{
+    padding: 20px 40px;
+}
+
+
+
+
