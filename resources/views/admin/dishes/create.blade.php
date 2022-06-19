@@ -1,4 +1,4 @@
 @extends('layouts.admin')
 @section('content')
-    @livewire('admin.dishes.create',[$cuisines])
+    @livewire('admin.dishes.create',[$restaurant])
 @endsection

@@ -7,34 +7,85 @@
     <form wire:submit.prevent="submit">
         <div class="card-body">
             <div class="form-group">
-                <label for="name">Dish Name</label>
-                <input wire:model="name"
-                       type="text" class="form-control" id="name" placeholder="Enter Dish name">
-                @error('name')<span class="error">{{ $message }}</span>@enderror
+                @if($errors->any())
+                    <div class="alert alert-danger">
+                        <p><strong>Opps Something went wrong</strong></p>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
             </div>
             <div class="form-group">
+                <label for="name">Dish English Name</label>
+                <input wire:model="dish.name_en"
+                       type="text" class="form-control" id="dish.name_en" placeholder="Enter Dish English name">
+                @error('dish.name_en')<span class="error">{{ $message }}</span>@enderror
+            </div>
+            <div class="form-group">
+                <label for="name">Dish Arabic Name</label>
+                <input wire:model="dish.name_ar"
+                       type="text" class="form-control" id="name" placeholder="Enter Arabic Dish name">
+                @error('dish.name_ar')<span class="error">{{ $message }}</span>@enderror
+            </div>
+            <div class="form-group">
+                <label for="name">Dish Price</label>
+                <input wire:model="dish.price"
+                       type="text" class="form-control" id="price" placeholder="Enter Dish price">
+            </div>
+            <div class="form-group">
+                <label>{{__('Dish Image')}}</label>
                 <x-media-library-attachment name="dish_image"/>
             </div>
             <div class="form-group">
-                <textarea name="" id="" class="form-control" rows="5"></textarea>
+                <label>{{__('Description')}}</label>
+                <textarea name="" id="description"  wire:model="dish.description" class="form-control" rows="5"></textarea>
             </div>
 
-            <div class="form-group" wire:ignore>
+            <div class="form-group">
                 <label>Cuisines</label>
-                <select class="select2" style="width: 100%;"
-                        id="cuisines" multiple="multiple" wire:model.defer="form_data.cuisines"
+                <select class="form-control" style="width: 100%;"
+                        id="cuisines" wire:model="selected_cuisine"
                         data-placeholder="Select cuisine(s)" >
+                    <option value="0">{{__('Select Cuisine')}}</option>
                     @foreach($cuisines as $cuisine)
-                        <option value="{{$cuisine->id}}">{{$cuisine->name}}</option>
+                        <option value="{{$cuisine->id}}">{{$cuisine->name_en}}</option>
                     @endforeach
                 </select>
             </div>
 
             <div class="form-group">
+                <label>Menu</label>
+                <select  style="width: 100%;" class="form-control"
+                        id="menus"  wire:model="selected_menu"
+                        data-placeholder="Select menu" >
+                    <option value="0">{{__('Select Menu')}}</option>
+                    @foreach($menus as $menu)
+                        <option value="{{$menu->id}}">{{$menu->name}}</option>
+                    @endforeach
+                </select>
+            </div>
+            @if($selected_menu)
+            <div class="form-group" >
+                <label>Category</label>
+                <select  style="width: 100%;" class="form-control"
+                        id="categories"  wire:model="selected_category"
+                        data-placeholder="Select menu" >
+                    <option value="0">{{__('Select Category')}}</option>
+                    @foreach($categories as $category)
+                        <option value="{{$category->id}}">{{$category->name}}</option>
+                    @endforeach
+                </select>
+            </div>
+            @endif
+
+            <div class="form-group">
                 <label for="name">Preparation Time</label>
-                <input wire:model="prep_time"
+                <input wire:model="dish.prep_time"
                        type="text" class="form-control" id="name" placeholder="Enter Preparation Time">
-                @error('name')<span class="error">{{ $message }}</span>@enderror
+                @error('dish.prep_time')<span class="error">{{ $message }}</span>@enderror
             </div>
         </div>
 
@@ -51,12 +102,6 @@
 @push('scripts')
     <script>
         jQuery(document).ready(function () {
-
-            jQuery('#cuisines').select2().on('change', function () {
-            @this.set('form_data.cuisines',jQuery(this).val());
-                console.log('Cuisines : ' + @this.form_data.cuisines)
-            });
-
 
             window.addEventListener('alert', ({detail: {type, message}}) => {
                 if (type === 'success') {

@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Cuisine;
+use App\Models\Dish;
+use App\Models\Restaurant;
 use Illuminate\Http\Request;
 
 class DishesController extends Controller
@@ -15,9 +17,7 @@ class DishesController extends Controller
      */
     public function index()
     {
-        if (auth()->user()->hasRole('restaurant-admin')){
 
-        }
     }
 
     /**
@@ -25,10 +25,10 @@ class DishesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($restaurant_id)
     {
-        $cuisines = Cuisine::all();
-        return view('admin.dishes.create',compact('cuisines'));
+        $restaurant = Restaurant::findOrFail($restaurant_id);
+        return view('admin.dishes.create',compact(['restaurant']));
     }
 
     /**
@@ -85,5 +85,11 @@ class DishesController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function restaurant_dishes($restaurant_id)
+    {
+        $restaurant = Restaurant::findOrFail($restaurant_id);
+        return view('admin.restaurants.restaurant_dishes',compact(['restaurant']));
     }
 }

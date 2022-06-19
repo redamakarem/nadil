@@ -35,6 +35,17 @@
                         <label for="email">Email address</label>
                         <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" wire:model="restaurant.email">
                     </div>
+                    <div class="form-group" wire:ignore>
+                        <label>Owner</label>
+                        <select class="form-control" style="width: 100%;"
+                                id="owner" wire:model="owner"
+                                data-placeholder="Select Owner" >
+                            <option value="">{{__('Select Owner')}}</option>
+                            @foreach($ownerss as $owners)
+                                <option value="{{$owners->id}}">{{$owners->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                     <div class="form-group">
                         <label for="coordinates">Coordinates</label>
                         <div id="googleMap" style="width:100%;height:400px;" wire:ignore></div>
@@ -65,17 +76,13 @@
                         @error('phone')<p class="error">{{$message}}</p>@enderror
                     </div>
                     <div class="form-group">
+                        <label>{{__('Active')}}</label>
                         <livewire:components.toggle-button
                             :model="$restaurant"
                             field="is_active"
                             key="{{ $restaurant->id }}"/>
                     </div>
-{{--                    <div class="form-group {{ $errors->has('cuisines') ? 'invalid' : '' }}">--}}
-{{--                        <label class="form-label" for="authors">Cuisines</label>--}}
-{{--                        <x-select-list class="form-control" id="cuisines" name="cuisines" wire:model="cuisines" :options="$this->listsForFields['cuisines']" multiple />--}}
-{{--                        <div class="validation-message">--}}
-{{--                            {{ $errors->first('cuisines') }}--}}
-{{--                        </div>--}}
+
 
                     <div class="form-group" wire:ignore>
                         <label>Cuisines</label>

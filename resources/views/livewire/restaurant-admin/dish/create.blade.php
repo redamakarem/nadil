@@ -37,7 +37,7 @@
             </div>
             <div class="form-group">
                 <label for="name">Restaurant</label>
-                <input type="text" class="form-control" id="restaurant_id" placeholder="{{$restaurant->name}}" disabled>
+                <input type="text" class="form-control" id="restaurant_id" placeholder="{{$restaurant->name_en}}" disabled>
             </div>
             <div class="form-group">
                 <label for="name">Prep Time</label>

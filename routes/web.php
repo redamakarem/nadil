@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\PermissionsController;
 use App\Http\Controllers\Admin\RestaurantsController;
+use App\Http\Controllers\Admin\RolesController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CuisineController;
 use App\Http\Controllers\GoogleSocialiteController;
@@ -68,7 +70,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 
-Route::group(['prefix' => 'admin', 'middleware'=>['auth','role:admin']],function(){
+Route::group(['prefix' => 'admin', 'middleware'=>['auth','role:super-admin']],function(){
     Route::get('/',[\App\Http\Controllers\Admin\AdminController::class,'index'])->name('admin.index');
 
     Route::get('user/{user}/impersonate', [UserController::class,'impersonate'])->name('users.impersonate');
@@ -84,6 +86,8 @@ Route::group(['prefix' => 'admin', 'middleware'=>['auth','role:admin']],function
 
     Route::get('/restaurants/create/',[RestaurantsController::class,'create'])
         ->name('admin.restaurants.create');
+    Route::get('/restaurants/wizard-create/',[RestaurantsController::class,'wizard_create'])
+        ->name('admin.restaurants.create');
 
     Route::post('/restaurants/store/',[RestaurantsController::class,'store'])
         ->name('admin.restaurants.store');
@@ -95,6 +99,23 @@ Route::group(['prefix' => 'admin', 'middleware'=>['auth','role:admin']],function
     Route::get('/users/edit/{id}',[UserController::class,'edit'])
         ->name('admin.users.edit');
 
+//Roles
+
+    Route::get('/roles',[RolesController::class,'index'])
+        ->name('admin.roles.index');
+    Route::get('/roles/create/',[RolesController::class,'create'])
+        ->name('admin.roles.create');
+    Route::get('/roles/edit/{id}',[RolesController::class,'edit'])
+        ->name('admin.role.edit');
+
+    //Permissions
+
+    Route::get('/permissions',[PermissionsController::class,'index'])
+        ->name('admin.permissions.index');
+    Route::get('/permissions/create/',[PermissionsController::class,'create'])
+        ->name('admin.permissions.create');
+    Route::get('/permissions/edit/{id}',[PermissionsController::class,'edit'])
+        ->name('admin.permission.edit');
 
 //    Schedules
 
@@ -168,13 +189,13 @@ Route::group(['prefix' => 'admin', 'middleware'=>['auth','role:admin']],function
 
 
 //    Dishes
-    Route::get('/restaurant/{restaurant}/menu/{menu}/categories/{category}/dishes/',
-        [\App\Http\Controllers\Admin\DishesController::class,'index'])
-        ->name('admin.dishes.index');
+    Route::get('/restaurant/{restaurant}/dishes/',
+        [\App\Http\Controllers\Admin\DishesController::class,'restaurant_dishes'])
+        ->name('admin.restaurant.dishes.index');
 
-    Route::get('/restaurant/{restaurant}/menu/{menu}/categories/{category}/dishes/create',
+    Route::get('/restaurant/{restaurant}/dishes/create',
         [\App\Http\Controllers\Admin\DishesController::class,'create'])
-        ->name('admin.dishes.create');
+        ->name('admin.restaurant.dishes.create');
 
     Route::get('contact-messages',[\App\Http\Controllers\Admin\ContactMessagesController::class,'index'])
         ->name('admin.contact-messages.index');
@@ -185,7 +206,7 @@ Route::group(['prefix' => 'admin', 'middleware'=>['auth','role:admin']],function
 
 
 
-Route::group(['prefix' => 'restaurant-admin', 'middleware'=>['auth','role:restaurant-admin']],function(){
+Route::group(['prefix' => 'restaurant-admin', 'middleware'=>['auth','role:restaurant-super-admin']],function(){
     Route::get('/',[App\Http\Controllers\RestaurantAdmin\RestaurantAdminController::class,'index'])
     ->name('restaurant-admin.index');
 

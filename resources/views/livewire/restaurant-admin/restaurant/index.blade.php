@@ -30,7 +30,7 @@
                     <tbody>
                     @forelse($restaurants as $restaurant)
                         <tr>
-                            <td>{{$restaurant->name}}</td>
+                            <td>{{$restaurant->name_en}}</td>
                             <td>{{$restaurant->email}}</td>
                             <td>{{$restaurant->address}}</td>
                             <td>{{$restaurant->phone}}</td>

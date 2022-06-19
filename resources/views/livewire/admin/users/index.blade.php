@@ -48,7 +48,7 @@
                                         <a class="dropdown-item" href="{{route('admin.users.edit',$user->id)}}">Edit</a>
                                         <a class="dropdown-item" href="#"
                                            wire:click.prevent="confirmRestaurantDeletion({{$user->id}})">Delete</a>
-                                        @role('admin')
+                                        @role('super-admin')
                                         @if($user->id != auth()->id())
                                                 <a class="dropdown-item" href="{{route('users.impersonate',$user->id)}}">Impersonate</a>
                                             @endif

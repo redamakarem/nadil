@@ -39,7 +39,7 @@ class RestaurantsController extends Controller
     public function create()
     {
         $cuisines = Cuisine::all();
-        $users = User::role('restaurant-admin')->get();
+        $users = User::role('restaurant-super-admin')->get();
         return view('admin.restaurants.create',compact('cuisines','users'));
 
     }
@@ -113,5 +113,12 @@ class RestaurantsController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function wizard_create()
+    {
+        $cuisines = Cuisine::all();
+        $users = User::role('restaurant-super-admin')->get();
+        return view('admin.restaurants.wizard-create',compact('cuisines','users'));
     }
 }

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use App\Models\Dish;
 
 class Restaurant extends Model implements HasMedia
 {
@@ -42,6 +43,11 @@ class Restaurant extends Model implements HasMedia
     public function menus()
     {
         return $this->hasMany(DishesMenu::class,'restaurant_id','id');
+    }
+
+    public function dishes()
+    {
+        return $this->hasMany(Dish::class);
     }
 
     public function schedules()

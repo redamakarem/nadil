@@ -55,6 +55,15 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{route('admin.roles.index')}}" class="nav-link">
+                        <i class="fas fa-shield-alt"></i>
+                        <p>
+                            Roles
+
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{route('admin.restaurants.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-utensils"></i>
                         <p>

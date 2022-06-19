@@ -23,7 +23,8 @@ class RestaurantFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name(),
+            'name_en' => $this->faker->name(),
+            'name_ar' => $this->faker->name(),
             'email' => $this->faker->safeEmail(),
             'address' => $this->faker->address(),
             'coordinates' => strval(rand(0,50)+(mt_rand() / mt_getrandmax())).','.strval(rand(0,50)+(mt_rand() / mt_getrandmax())),

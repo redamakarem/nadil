@@ -17,4 +17,9 @@ class DishesCategory extends Model
             'catalogue_categories_dishes',
             'catalogue_category_id','dish_id');
     }
+
+    public function menu()
+    {
+        return $this->belongsTo(DishesMenu::class);
+    }
 }

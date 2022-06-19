@@ -49,6 +49,7 @@
                                            wire:click.prevent="confirmRestaurantDeletion({{$restaurant->id}})">Delete</a>
                                         <a class="dropdown-item" href="{{route('admin.restaurants.menus',['restaurant' => $restaurant->id])}}">Menus</a>
                                         <a class="dropdown-item" href="{{route('admin.restaurant.schedules.index',['restaurant' => $restaurant->id])}}">Schedules</a>
+                                        <a class="dropdown-item" href="{{route('admin.restaurant.dishes.index',['restaurant' => $restaurant->id])}}">Dishes</a>
                                     </div>
                                 </div>
                             </td>

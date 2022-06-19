@@ -88,7 +88,7 @@ class UserController extends Controller
     public function impersonate(User $user)
     {
         auth()->user()->impersonate($user);
-        if ($user->hasRole([2]))
+        if ($user->hasRole([3,4,5,6,7]))
         {
             return redirect()->route('restaurant-admin.index');
         }

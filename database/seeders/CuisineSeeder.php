@@ -14,10 +14,10 @@ class CuisineSeeder extends Seeder
      */
     public function run()
     {
-        Cuisine::create(['name' => 'Arabic']);
-        Cuisine::create(['name' => 'Indian']);
-        Cuisine::create(['name' => 'Italian']);
-        Cuisine::create(['name' => 'American']);
-        Cuisine::create(['name' => 'Lebanese']);
+        Cuisine::create(['name_en' => 'Arabic']);
+        Cuisine::create(['name_en' => 'Indian']);
+        Cuisine::create(['name_en' => 'Italian']);
+        Cuisine::create(['name_en' => 'American']);
+        Cuisine::create(['name_en' => 'Lebanese']);
     }
 }

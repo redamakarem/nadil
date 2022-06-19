@@ -19,6 +19,7 @@ class Edit extends Component
     public $restaurant_image;
     public $restaurant_bg;
     public $coordinates;
+    public $owner;
 
 
     protected $listeners = ['restaurant-updated' => 'goToRestaurants'];
@@ -41,6 +42,7 @@ class Edit extends Component
             'restaurant.estimated_dining_time' => 'required|numeric',
             'restaurant.is_active' => 'sometimes',
             'cuisines' => 'required',
+            'owner' => 'required',
         ];
     }
     public function mount($restaurant, $cuisines)
@@ -48,6 +50,7 @@ class Edit extends Component
 
         $this->restaurant = $restaurant;
         $this->coordinates= $restaurant->coordinates;
+        $this->owner= $restaurant->user_id;
         $this->cuisines = $this->restaurant->cuisines->pluck('id')->toArray();
         $this->meal_types = $this->restaurant->meal_types->pluck('id')->toArray();
 //        dd($this->cuisines);
@@ -56,9 +59,10 @@ class Edit extends Component
     public function render()
     {
         $cuisiness = Cuisine::all();
+        $ownerss=User::role('restaurant-super-admin')->get();
         $meal_typess = MealType::all();
         $users = User::role('restaurant-admin')->get();
-        return view('livewire.admin.restaurants.edit',compact(['cuisiness','users','meal_typess']));
+        return view('livewire.admin.restaurants.edit',compact(['cuisiness','users','meal_typess','ownerss']));
     }
 
 
@@ -66,6 +70,7 @@ class Edit extends Component
     {
         $this->validate();
         $this->restaurant->coordinates=$this->coordinates;
+        $this->restaurant->user_id = $this->owner;
         $edited_restaurant = $this->restaurant->save();
         $this->restaurant->cuisines()->sync($this->cuisines);
         $this->restaurant->meal_types()->sync($this->meal_types);

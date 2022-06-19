@@ -24,7 +24,7 @@ class MealTypeSeeder extends Seeder
                 'name_ar' =>'الغداء',
             ],
             [
-                'name_en' =>'Lunch',
+                'name_en' =>'Dinner',
                 'name_ar' =>'العشاء',
             ],
         ];
