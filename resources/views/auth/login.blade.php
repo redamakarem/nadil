@@ -81,6 +81,18 @@
 {{--    </div>--}}
     <div class="flex flex-col w-full h-full justify-center">
         <div class="w-1/3 rounded-[64px] border-2 bg-[#EFEFEF] my-12 px-16 py-12 mx-auto ">
+            <div class="form-group">
+                @if($errors->any())
+                    <div class="alert alert-danger">
+                        <p><strong>Opps Something went wrong</strong></p>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+            </div>
             <form action="{{route('login')}}" method="POST" class="space-y-8">
                 @csrf
                 <div class="w-full">
