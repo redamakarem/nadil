@@ -10,6 +10,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 
 class Create extends Component
 {
@@ -19,9 +20,12 @@ class Create extends Component
     public Booking $booking;
     public $schedule;
     public  $slots;
+    public $selected_user;
+    public $selected_restaurant;
     public $selected_date;
     public $selected_time;
     public $slot_options;
+    public $seats;
     public $available_tables;
     public array $listsForFields = [];
 
@@ -30,15 +34,15 @@ class Create extends Component
     public function mount()
     {
         $this->slot_options = [];
-//        $this->users = User::role('user')->get();
         $this->restaurants = Restaurant::all();
+        $this->users = User::role('user')->get();
         $this->booking = new Booking();
         $this->initListsForFields();
     }
 
 
     protected $rules = [
-        'booking.restaurant_id' => 'required|unique:restaurants,id',
+        'selected_restaurant' => 'required|exists:restaurants,id',
         'booking.user_id' => 'unique:users,id',
         'booking.phone' => 'required',
 //        'booking.booking_date' => 'required',
@@ -46,6 +50,7 @@ class Create extends Component
         'booking.seats' => ['required','numeric','min:1'],
         'selected_date' => ['required', 'date'],
         'selected_time' => ['required'],
+        'selected_user' => ['required'],
     ];
 
 
@@ -69,24 +74,15 @@ class Create extends Component
         $this->validate();
         $input_time =  Carbon::parse($this->selected_time)->format('H:i:s');
         if ($this->getAvailableSeats($input_time) >= $this->seats){
-            $this->booking->restaurant_id = $this->restaurant->id;
-            if (Auth::check()){
-                $this->booking->user_id = auth()->user()->id;
-            }
-            if (Auth::check()){
-                $this->booking->phone = auth()->user()->profile->phone;
-            }else{
-                $this->booking->phone = 'aaaaaaa';
-            }
+            $this->booking->restaurant_id = $this->selected_restaurant;           
             $this->booking->booking_date = Carbon::parse($this->selected_date)->format('Y-m-d');
             $this->booking->booking_time = Carbon::parse($this->selected_time)->format('H:i:s');
-            $this->booking->seats = $this->seats;
             $this->booking->booking_end_time = Carbon::parse($this->selected_time)->addMinutes($this->restaurant->estimated_dining_time)->format('H:i:s');
             $new_booking = $this->booking->save();
-            $seat_num = $this->seats;
+            $seat_num = $this->booking->seats;
             $tables_to_book = array();
 
-            foreach ($available_tables as $available_table){
+            foreach ($this->available_tables as $available_table){
                 array_push($tables_to_book,$available_table->id);
                 $seat_num -=$available_table->capacity;
                 if ($seat_num<=0)
@@ -111,11 +107,20 @@ class Create extends Component
 
 
     }
+    public function getAvailableTables($date,$time)
+    {
+        $reserved_tables = BookingsTables::where('booking_date',$date)
+            ->where(function ($query) use($time){
+                $query->where('booking_time','<=',$time);
+                $query->where('booking_end_time','>=',$time);
+            })->pluck('table_id');
+        $this->available_tables = $this->restaurant->diningTables->whereNotIn('id',$reserved_tables);
+    }
 
     protected function initListsForFields(): void
     {
-        $this->listsForFields['restaurant'] = Restaurant::pluck('name', 'id')->toArray();
-        $this->listsForFields['user'] = User::role('user')->pluck('name', 'id')->toArray();
+        // $this->listsForFields['restaurant'] = Restaurant::pluck('name_en', 'id')->toArray();
+        // $this->listsForFields['user'] = User::role('user')->pluck('name', 'id')->toArray();
         $this->listsForFields['slots'] = collect($this->slots)->map(function ($slot){
             return [
                 'slot' => $slot,
@@ -164,7 +169,7 @@ class Create extends Component
 
     public function updatedSelectedDate($value)
     {
-        $this->restaurant = Restaurant::findOrFail($this->booking->restaurant_id);
+        $this->restaurant = Restaurant::findOrFail($this->selected_restaurant);
         if ($this->restaurant){
             $this->getSlotsForSchedules();
         }

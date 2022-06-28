@@ -162,7 +162,7 @@ class Show extends Component
             $seat_num = $this->seats;
             $tables_to_book = array();
 
-            foreach ($available_tables as $available_table){
+            foreach ($this->available_tables as $available_table){
                 array_push($tables_to_book,$available_table->id);
                 $seat_num -=$available_table->capacity;
                 if ($seat_num<=0)

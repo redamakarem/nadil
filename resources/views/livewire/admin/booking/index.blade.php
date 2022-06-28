@@ -29,7 +29,7 @@
                     <tbody>
                     @forelse($bookings as $booking)
                         <tr>
-                            <td>{{$booking->restaurant->name}}</td>
+                            <td>{{$booking->restaurant->name_en}}</td>
                             <td>{{$booking->booking_date}}</td>
                             <td>{{$booking->booking_time}}</td>
                             <td>{{$booking->seats}}</td>

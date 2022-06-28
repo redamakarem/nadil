@@ -4,14 +4,6 @@
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title">Nadil Roles</h3>
-
-                <div class="card-tools">
-                    <div class="input-group input-group-sm" >
-                        <a href="{{route('admin.roles.create')}}" class="btn btn-primary">Add</a>
-
-
-                    </div>
-                </div>
             </div>
             <!-- /.card-header -->
             <div class="card-body table-responsive p-0">

@@ -1,5 +1,5 @@
 @extends('layouts.admin')
 @section('content')
-    @livewire('admin.users.edit')
+    @livewire('admin.users.edit',[$user])
 
 @endsection

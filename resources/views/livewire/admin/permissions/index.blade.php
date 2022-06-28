@@ -37,7 +37,7 @@
                                         <a class="dropdown-item" href="#">View</a>
                                         <a class="dropdown-item" href="{{route('admin.permission.edit',['id' => $permission->id])}}">Edit</a>
                                         <a class="dropdown-item" href="#"
-                                           wire:click.prevent="confirmCuisineDeletion({{$permission->id}})">Delete</a>
+                                           wire:click.prevent="confirmPermissionDeletion({{$permission->id}})">Delete</a>
                                     </div>
                                 </div>
                             </td>

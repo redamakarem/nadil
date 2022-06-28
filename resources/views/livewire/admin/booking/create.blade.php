@@ -23,13 +23,25 @@
                     </div>
                     <div class="form-group">
                         <label for="restaurant">Restaurant</label>
-                        <x-select-list id="restaurant" wire:model="booking.restaurant_id"
-                                       :options="$this->listsForFields['restaurant']"></x-select-list>
+                        <select class="select2 form-control"
+                                id="restaurant" wire:model="selected_restaurant"
+                                data-placeholder="Select owner" style="width: 100%">
+                            <option value="">{{__('Select Restaurant')}}</option>
+                            @foreach($restaurants as $restaurant)
+                                <option value="{{$restaurant->id}}">{{$restaurant->name_en}}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="user">User</label>
-                        <x-select-list id="user" wire:model="booking.user_id"
-                                       :options="$this->listsForFields['user']"></x-select-list>
+                        <select class="select2 form-control"
+                                id="user" wire:model="selected_user"
+                                data-placeholder="Select owner" style="width: 100%">
+                            <option value="">Select User</option>
+                            @foreach($users as $user)
+                                <option value="{{$user->id}}">{{$user->name}}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="booking_date">Booking Date</label>
@@ -59,6 +71,7 @@
                         <input wire:model="booking.seats"
                                type="text" class="form-control" id="booking_seats" placeholder="Enter number of seats">
                     </div>
+                    
                 </div>
 
                 <div class="card-footer">
@@ -90,6 +103,11 @@
 
     <script>
         jQuery(document).ready(function () {
+            jQuery('#cuisines').select2().on('change', function () {
+                @this.set('form_data.cuisines',jQuery(this).val());
+                console.log('Cuisines : ' + @this.form_data.cuisines)
+            });
+
             jQuery('#booking_date').pickadate({
                 onSet: function () {
                     console.log(this.get('select', 'yyyy-mm-dd'));
@@ -114,15 +132,7 @@
                 @this.set('end_time', this.get('select', 'HH:i'));
                 }
             });
-            // var booking_date = flatpickr("#booking-date", {
-            //     inline: true,
-            //     dateFormat: 'y-m-d',
-            //     minDate:'today'
-            // });
-            // booking_date.config.onChange.push(function(selectedDates,dateStr,instance) {
-            //     console.log(dateStr);
-            // @this.selected_date = dateStr;
-            // } );
+            
             window.addEventListener('alert', ({detail: {type, message}}) => {
                 if (type === 'success') {
                     toastr.success(message);

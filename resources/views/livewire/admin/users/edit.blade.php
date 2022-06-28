@@ -2,7 +2,7 @@
     <div class="col-12">
         <div class="card card-primary">
             <div class="card-header">
-                <h3 class="card-title">Create User</h3>
+                <h3 class="card-title">{{__('Create User')}}</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
@@ -21,20 +21,20 @@
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" name="name" class="form-control"
-                               id="name" placeholder="Enter name" wire:model.defer="form_data.name">
+                               id="name" placeholder="Enter name" wire:model.defer="user.name">
                         @error('name')<p class="error">{{$message}}</p>@enderror
                     </div>
                     <div class="form-group">
                         <label for="email">Email address</label>
                         <input type="email" name="email" class="form-control"
-                               id="email" placeholder="Enter email" wire:model.defer="form_data.email">
+                               id="email" placeholder="Enter email" wire:model.defer="user.email">
                         @error('name')<p class="error">{{$message}}</p>@enderror
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
                         <input type="password" name="password" class="form-control"
                                id="coordinates" placeholder="Password"
-                               wire:model.defer="form_data.password">
+                               wire:model.defer="password">
                     </div>
 
                     <div class="form-group">
@@ -44,26 +44,17 @@
                                wire:model.defer="form_data.password_confirmation">
                     </div>
 
-                    <div class="form-group">
-                        {{--                        <label>Cuisines</label>--}}
-                        {{--                        <select class="select2" style="width: 100%;"--}}
-                        {{--                                id="cuisines" multiple="multiple"--}}
-                        {{--                                wire:model="cuisine_options">--}}
-                        {{--                            @foreach($cuisines as $cuisine)--}}
-                        {{--                                <option value="{{$cuisine->id}}">{{$cuisine->name}}</option>--}}
-                        {{--                            @endforeach--}}
-                        {{--                        </select>--}}
-                        <h3>Roles</h3>
-                        @foreach($roles as $role)
-                            <div class="mt-1">
-                                <label class="inline-flex items-center">
-                                    <input type="checkbox" value="{{ $role->id }}" wire:model="form_data.roles"  class="form-checkbox h-6 w-6 text-green-500">
-                                    <span class="ml-3 text-sm">{{ $role->name }}</span>
-                                </label>
-                            </div>
-                        @endforeach
+                    <div class="form-group " wire:ignore>
+                        <label>{{__('Role')}}</label>
+                        <select class="select2 form-control"
+                                id="owner" name="user_id" wire:model="selected_role"
+                                data-placeholder="Select role" style="width: 100%">
+                            <option value="">Select Role</option>
+                            @foreach($roles as $role)
+                                <option value="{{$role->id}}">{{$role->name}}</option>
+                            @endforeach
+                        </select>
                     </div>
-
                 </div>
                 <!-- /.card-body -->
 

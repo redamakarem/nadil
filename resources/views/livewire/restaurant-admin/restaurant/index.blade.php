@@ -3,7 +3,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Responsive Hover Table</h3>
+                <h3 class="card-title">{{__('Your Restaurants')}}</h3>
 
                 <div class="card-tools">
                     <div class="input-group input-group-sm" >
@@ -46,6 +46,7 @@
                                         <a class="dropdown-item" href="#">View</a>
                                         <a class="dropdown-item" href="{{route('restaurant-admin.restaurant.menus',['restaurant' => $restaurant->id])}}">Menus</a>
                                         <a class="dropdown-item" href="{{route('restaurant-admin.restaurant.tables.index',['restaurant' => $restaurant->id])}}">Tables</a>
+                                        <a class="dropdown-item" href="{{route('restaurant-admin.restaurant.staff',['restaurant' => $restaurant->id])}}">Staff</a>
                                     </div>
                                 </div>
                             </td>
@@ -84,4 +85,12 @@
             })
         })
     </script>
+@endpush
+
+@push('styles')
+    <style>
+        tbody{
+            height: 300px;
+        }
+    </style>
 @endpush

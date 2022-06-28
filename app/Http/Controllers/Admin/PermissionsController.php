@@ -20,6 +20,7 @@ class PermissionsController extends Controller
     }
     public function edit($id)
     {
-        return view('admin.permissions.edit');
+        $permission = Permission::findOrFail($id);
+        return view('admin.permissions.edit',compact(['permission']));
     }
 }

@@ -43,14 +43,17 @@ namespace App\Models{
  * @property int $seats
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string $booking_end_time
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\DiningTable[] $reserved_tables
+ * @property-read int|null $reserved_tables_count
  * @property-read \App\Models\Restaurant $restaurant
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\DiningTable[] $tables
- * @property-read int|null $tables_count
+ * @property-read \App\Models\User|null $user
  * @method static \Database\Factories\BookingFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Booking newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Booking newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Booking query()
  * @method static \Illuminate\Database\Eloquent\Builder|Booking whereBookingDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Booking whereBookingEndTime($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Booking whereBookingTime($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Booking whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Booking whereId($value)
@@ -65,12 +68,46 @@ namespace App\Models{
 
 namespace App\Models{
 /**
+ * App\Models\BookingsTables
+ *
+ * @property int $booking_id
+ * @property int $table_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string $booking_date
+ * @property string $booking_time
+ * @property int $id
+ * @property int $restaurant_id
+ * @property string $booking_end_time
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Booking[] $bookings
+ * @property-read int|null $bookings_count
+ * @property-read \App\Models\Restaurant $restaurant
+ * @property-read \App\Models\DiningTable|null $table
+ * @method static \Illuminate\Database\Eloquent\Builder|BookingsTables newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|BookingsTables newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|BookingsTables query()
+ * @method static \Illuminate\Database\Eloquent\Builder|BookingsTables whereBookingDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BookingsTables whereBookingEndTime($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BookingsTables whereBookingId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BookingsTables whereBookingTime($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BookingsTables whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BookingsTables whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BookingsTables whereRestaurantId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BookingsTables whereTableId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BookingsTables whereUpdatedAt($value)
+ */
+	class BookingsTables extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\Cuisine
  *
  * @property int $id
- * @property string $name
+ * @property string $name_en
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string|null $name_ar
  * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection|\Spatie\MediaLibrary\MediaCollections\Models\Media[] $media
  * @property-read int|null $media_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Restaurant[] $restaurants
@@ -81,7 +118,8 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Cuisine query()
  * @method static \Illuminate\Database\Eloquent\Builder|Cuisine whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Cuisine whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Cuisine whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Cuisine whereNameAr($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Cuisine whereNameEn($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Cuisine whereUpdatedAt($value)
  */
 	class Cuisine extends \Eloquent implements \Spatie\MediaLibrary\HasMedia {}
@@ -119,7 +157,7 @@ namespace App\Models{
  * App\Models\Dish
  *
  * @property int $id
- * @property string $name
+ * @property string $name_en
  * @property string $description
  * @property int $price
  * @property string $prep_time
@@ -129,6 +167,7 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property int|null $cuisine_id
  * @property int $is_featured
+ * @property string|null $name_ar
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\DishesCategory[] $categories
  * @property-read int|null $categories_count
  * @property-read \App\Models\Cuisine|null $cuisine
@@ -145,7 +184,8 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Dish whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Dish whereIsFeatured($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Dish whereMenuId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Dish whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Dish whereNameAr($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Dish whereNameEn($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Dish wherePrepTime($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Dish wherePrice($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Dish whereRestaurantId($value)
@@ -165,6 +205,7 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Dish[] $dishes
  * @property-read int|null $dishes_count
+ * @property-read \App\Models\DishesMenu $menu
  * @method static \Database\Factories\DishesCategoryFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|DishesCategory newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|DishesCategory newQuery()
@@ -213,6 +254,30 @@ namespace App\Models{
 
 namespace App\Models{
 /**
+ * App\Models\MealType
+ *
+ * @property int $id
+ * @property string $name_en
+ * @property string $name_ar
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Restaurant[] $restaurants
+ * @property-read int|null $restaurants_count
+ * @method static \Database\Factories\MealTypeFactory factory(...$parameters)
+ * @method static \Illuminate\Database\Eloquent\Builder|MealType newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|MealType newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|MealType query()
+ * @method static \Illuminate\Database\Eloquent\Builder|MealType whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MealType whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MealType whereNameAr($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MealType whereNameEn($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MealType whereUpdatedAt($value)
+ */
+	class MealType extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\Profile
  *
  * @property int $id
@@ -246,7 +311,7 @@ namespace App\Models{
  * App\Models\Restaurant
  *
  * @property int $id
- * @property string $name
+ * @property string $name_en
  * @property string $email
  * @property string $address
  * @property string $coordinates
@@ -256,17 +321,30 @@ namespace App\Models{
  * @property int $is_featured
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property int $max_party_size
+ * @property int $estimated_dining_time
+ * @property string $name_ar
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Booking[] $bookings
+ * @property-read int|null $bookings_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Cuisine[] $cuisines
  * @property-read int|null $cuisines_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\DiningTable[] $diningTables
  * @property-read int|null $dining_tables_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Dish[] $dishes
+ * @property-read int|null $dishes_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\MealType[] $meal_types
+ * @property-read int|null $meal_types_count
  * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection|\Spatie\MediaLibrary\MediaCollections\Models\Media[] $media
  * @property-read int|null $media_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\DishesMenu[] $menus
  * @property-read int|null $menus_count
  * @property-read \App\Models\User $owner
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\BookingsTables[] $reserved_tables
+ * @property-read int|null $reserved_tables_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Schedule[] $schedules
  * @property-read int|null $schedules_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\User[] $staff
+ * @property-read int|null $staff_count
  * @method static \Database\Factories\RestaurantFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant newQuery()
@@ -275,10 +353,13 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereCoordinates($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereEstimatedDiningTime($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereIsActive($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereIsFeatured($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereMaxPartySize($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereNameAr($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereNameEn($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant wherePhone($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereUserId($value)
@@ -323,7 +404,6 @@ namespace App\Models{
  * @property int $id
  * @property string $name
  * @property int $slot_length
- * @property int $slot_capacity
  * @property string $from_date
  * @property string $to_date
  * @property string $from_time
@@ -341,7 +421,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereRestaurantId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereSlotCapacity($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereSlotLength($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereToDate($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereToTime($value)
@@ -391,6 +470,9 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property int|null $area_id
+ * @property string|null $social_id
+ * @property string|null $social_type
+ * @property int $restaurant_id
  * @property-read string $initials
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read int|null $notifications_count
@@ -403,6 +485,7 @@ namespace App\Models{
  * @property-read int|null $roles_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\Laravel\Sanctum\PersonalAccessToken[] $tokens
  * @property-read int|null $tokens_count
+ * @property-read \App\Models\Restaurant|null $workplace
  * @method static \Database\Factories\UserFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|User newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|User newQuery()
@@ -419,6 +502,9 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|User whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User wherePassword($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereRememberToken($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereRestaurantId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereSocialId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereSocialType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
  */
 	class User extends \Eloquent {}

@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\RestaurantAdmin\Restaurant;
 
 use App\Http\Controllers\Controller;
+use App\Models\Restaurant;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RestaurantController extends Controller
 {
@@ -81,5 +84,31 @@ class RestaurantController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function showStaff($id)
+    {
+        $restaurant = Restaurant::findOrFail($id);
+        return view('restaurant-admin.staff.index',compact(['restaurant']));
+    }
+    public function createStaff($id)
+    {
+        $restaurant = Restaurant::findOrFail($id);
+        return view('restaurant-admin.staff.create',compact(['restaurant']));
+    }
+    public function editStaff($restaurant_id, $staff_id)
+    {
+        if(!Auth::user()->hasAnyRole(['super-admin','nadil-admin','restaurant-super-admin'])){
+            abort(403,__('Unauthorized'));
+        }
+        $restaurant = Restaurant::findOrFail($restaurant_id);
+        if(Auth::user()->hasRole('restaurant-super-admin') && $restaurant->owner->id==Auth::user()->id)
+        {
+            $staff = User::findOrFail($staff_id);
+            return view('restaurant-admin.staff.edit',compact(['restaurant','staff']));
+        }
+        
+        
+        
     }
 }

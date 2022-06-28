@@ -1,26 +1,18 @@
 <div class="card card-primary">
     <div class="card-header">
-        <h3 class="card-title">Add Cuisine</h3>
+        <h3 class="card-title">{{__('Add Permission')}}</h3>
     </div>
     <!-- /.card-header -->
     <!-- form start -->
     <form wire:submit.prevent="submit">
         <div class="card-body">
             <div class="form-group">
-                <label for="name_en">Cuisine Name</label>
-                <input wire:model="name_en"
-                       type="text" class="form-control" id="name_en" placeholder="Enter permission">
-                @error('permission_name')<span class="error">{{ $message }}</span>@enderror
+                <label for="name_en">{{__('Permission Name')}}</label>
+                <input wire:model="permission.name"
+                       type="text" class="form-control" id="name_en" placeholder="{{__('Enter permission')}}">
+                @error('permission.name')<span class="error">{{ $message }}</span>@enderror
             </div>
-            <div class="form-group">
-                <label for="name_ar">Cuisine Arabic Name</label>
-                <input wire:model="name_ar"
-                       type="text" class="form-control" id="name_ar" placeholder="Enter cuisine arabic name">
-                @error('name_ar')<span class="error">{{ $message }}</span>@enderror
-            </div>
-            <div class="form-group">
-                <x-media-library-attachment name="cuisine_image"/>
-            </div>
+            
         </div>
 
 
