@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Site\Booking;
 
+use App;
 use App\Models\Booking;
 use App\Models\BookingsTables;
 use App\Models\DiningTable;
@@ -178,6 +179,7 @@ class Show extends Component
                     'booking_end_time' => Carbon::parse($this->selected_time)->addMinutes($this->restaurant->estimated_dining_time)->format('H:i:s'),
                 ]);
              }
+             event(new App\Events\NewBookingEvent($this->restaurant->owner, $this->booking));
         }
         else{
             $this->addError('booking_seats','Not enough seats for selected date and time');

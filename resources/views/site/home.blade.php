@@ -1,44 +1,25 @@
 @extends('layouts.site-tw')
 @section('content')
 
-
-    {{--    <div class="container">--}}
-    {{--        <p>So Reda, What's the plan</p>--}}
-    {{--        <div class="owl-carousel owl-theme">--}}
-    {{--            @foreach($restaurants as $restaurant)--}}
-    {{--                <div class="item" style="background-image:url('{{$restaurant->getFirstMediaUrl('restaurant_images')}}'); background-size: cover">--}}
-    {{--                    <a href="{{route('site.restaurants.view',['id'=>$restaurant->id])}}">--}}
-    {{--                        <h4 class="text-center">{{ $restaurant->name }}</h4>--}}
-    {{--                        <div class="address text-center">{{ $restaurant->address }}</div>--}}
-    {{--                    </a>--}}
-    {{--                </div>--}}
-    {{--            @endforeach--}}
-    {{--        </div>--}}
-
-    {{--        <div class="owl-carousel owl-theme">--}}
-    {{--            @foreach($cuisines as $cuisine)--}}
-
-    {{--                <div class="item" style="background-image:url('{{$cuisine->getFirstMediaUrl('cuisine_images')}}'); background-size: cover">--}}
-    {{--                    <h4 class="text-center">{{ $cuisine->name }}</h4>--}}
-    {{--                    <div class="address text-center">{{ $cuisine->address }}</div>--}}
-    {{--                </div>--}}
-    {{--            @endforeach--}}
-    {{--        </div>--}}
-    {{--    </div>--}}
-
-
-
     <div id="main-content" class="h-full">
         <div class="flex flex-col px-24 py-[80px]">
-            <div class="greeting uppercase">So Reda, What is the plan</div>
-            {{--        <div class="flex mt-8 justify-between">--}}
-            {{--            <div class="uppercase bg-nadilBg-100 px-20 py-6 rounded-lg shadow-lg">Search</div>--}}
-            {{--            <div class="uppercase bg-nadilBg-100 px-20 py-6 rounded-lg shadow-lg">Search</div>--}}
-            {{--            <div class="uppercase bg-nadilBg-100 px-20 py-6 rounded-lg shadow-lg">Search</div>--}}
-            {{--            <div class="uppercase bg-nadilBg-100 px-20 py-6 rounded-lg shadow-lg">Search</div>--}}
-            {{--        </div>--}}
-
-
+            <div class="greeting uppercase">So, What is the plan</div>
+            <div>
+                <form action="#">
+                    <div class="flex justify-between my-4">
+                        <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg" 
+                        type="text" name="restaurant_name" id="restaurant_name" placeholder="Search">
+                        <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg" 
+                        type="text" name="restaurant_name" id="restaurant_name" placeholder="# of people">
+                        <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg" 
+                        type="text" name="restaurant_name" id="restaurant_name" placeholder="Date">
+                        <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg" 
+                        type="text" name="restaurant_name" id="restaurant_name" placeholder="Time">
+                        <button class="font-lato border-none px-4 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg" 
+                        type="submit">{{__('Search')}}</button>
+                    </div>
+                </form>
+            </div>
             <div class="owl-carousel owl-theme mb-8">
                 @foreach($restaurants as $restaurant)
                     <div class="item flex flex-col justify-center rounded-xl border-2 h-32 shadow-md font-lato"
@@ -53,6 +34,8 @@
             </div>
 
             {{--   Restaurants by meal types     --}}
+            <div class="greeting uppercase">Browse by meal type</div>
+
             @foreach($meal_types as $meal_type)
                 <h2>{{$meal_type->{'name_'.app()->getLocale()} }}</h2>
                 <div class="owl-carousel owl-theme mb-8">

@@ -2062,11 +2062,6 @@ module.exports = {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // require('alpinejs');
 
-
-Echo.channel('public.nadilNotification').listen('.nadilNotification', function (e) {
-  toastr.success(e.message);
-});
-
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":

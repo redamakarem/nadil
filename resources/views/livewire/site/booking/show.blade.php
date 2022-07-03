@@ -1,44 +1,4 @@
-{{--<div class="row">--}}
-{{--    <div class="col-md-6">--}}
-{{--        <div class="row">--}}
-{{--            <div class="selected-date btn-restaurant">--}}
-{{--                {{$display_date}}--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--        <div class="row">--}}
-{{--            <div id='inlinePicker' class="d-flex justify-content-center mt-5"  wire:ignore>--}}
-{{--        </div>--}}
 
-{{--        </div>--}}
-{{--    </div>--}}
-{{--    <div class="col-md-6">--}}
-{{--        <div class="row">--}}
-{{--            <div class="selected-date btn-restaurant">--}}
-{{--                Time--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--        @if($slots)--}}
-{{--            <div class="booking-slots mt-5">--}}
-{{--                @foreach(array_chunk($slots,2,true) as $chunk)--}}
-{{--                    <div class="row my-3">--}}
-{{--                        @foreach($chunk as $key => $timeSlot)--}}
-{{--                            <div class="col-md-6 text-center">--}}
-{{--                                <div>--}}
-{{--                                    <input type="radio" class="btn-check" wire:click="setSelectedTime('{{$timeSlot}}')" name="options" id="{{$key}}" autocomplete="off">--}}
-{{--                                    <label class="btn btn-secondary rounded-pill" for="{{$key}}">{{$timeSlot}}</label>--}}
-{{--                                    <button type="button" class="btn btn-primary btn-time-slot" wire:click="setSelectedTime('{{$timeSlot}}')">{{$timeSlot}}</button>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        @endforeach--}}
-{{--                    </div>--}}
-{{--                @endforeach--}}
-
-{{--            </div>--}}
-{{--        @else--}}
-{{--            <p>The restaurant does not have any active schedules for the selected date</p>--}}
-{{--        @endif--}}
-{{--    </div>--}}
-{{--</div>--}}
 
 
 <div class="flex flex-col items-center w-full ">
@@ -86,7 +46,7 @@
     </div>
     <div class="flex my-8 flex-col">
         <div class="font-lato uppercase text-md text-center">How many seats?</div>
-        <div class="font-lato uppercase text-md text-center">{{$restaurant->max_party_size}}</div>
+        {{-- <div class="font-lato uppercase text-md text-center">{{$restaurant->max_party_size}}</div> --}}
     </div>
     <div class="flex w-full">
         <div class="w-1/2 flex flex-col items-center">

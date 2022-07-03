@@ -1,70 +1,40 @@
 @extends('layouts.site-tw')
 @section('content')
-{{--<div class="content-wrapper" style="background-image:url('{{$restaurant->getFirstMediaUrl('restaurant_bgs')}}'); background-size: cover">--}}
-{{--    {{dd($slots)}}--}}
-{{--    <div class="container restaurant-show" >--}}
-{{--        <div class="row">--}}
-{{--            <div class="col-md-4">--}}
-{{--                <div class="restaurant-info-wrapper menu-wrapper">--}}
-{{--                    <h3>{{$restaurant->name}}</h3>--}}
-{{--                    <h5>City</h5>--}}
-{{--                    <div class="book-wrapper">--}}
 
-{{--                        <a href="{{route('site.restaurants.book',$restaurant->id)}}" class="btn btn-restaurant">Book Now</a>--}}
-{{--                    </div>--}}
-{{--                    <div id="googleMap" class="map-container">--}}
-
-{{--                    </div>--}}
-{{--                    <div class="contact-wrapper">--}}
-{{--                        <a href="" class="btn-restaurant">Phone</a>--}}
-{{--                        <a href="mailto:{{$restaurant->email}}" class="btn-restaurant">Email</a>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="col-md-8">--}}
-{{--                <div class="menu-wrapper container ">--}}
-
-{{--                    @livewire('site.restaurant.menu',[$restaurant])--}}
-
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</div>--}}
-
-
-
-<div id="page-content" class="flex flex-grow flex-col w-[80%] max-w-12xl mx-auto py-[80px] " style="background-image:url('{{$restaurant->getFirstMediaUrl('restaurant_bgs')}}'); background-size: cover">
-    <div class="flex">
-        <div id="restaurant-details"
-             class="flex flex-col items-center w-1/4 rounded-[64px] border-2 bg-white">
-            <h2 class="text-4xl tracking-widest mt-16 uppercase text-center">{{ $restaurant->{'name_'.app()->getLocale()}  }}</h2>
-            <hr class="h-1 w-48 mt-4" />
-            <h3 class="uppercase font-din text-xl tracking-[6px] mt-3">Kuwait City</h3>
-            <a href="{{route('site.restaurants.book',$restaurant->id)}}" class="uppercase mt-12 px-16 py-6 bg-nadilBtn-100 tracking-[6px] rounded-[19px]"> Book Now</a>
-            <div class="uppercase mt-12 text-center tracking-[6px]">Kuwait City</div>
-            <div class="uppercase  text-center font-din text-[10px] tracking-[3px]">Abu Bakr ST Matzouk Tower</div>
-            <div class="px-8 flex w-full">
-                <div id="googleMap" class="flex mt-6 flex-grow rounded-[64px] h-[183px] shadow-md"></div>
+<div id="page-wrapper" style="background-image:url('{{$restaurant->getFirstMediaUrl('restaurant_bgs')}}'); background-size: cover">
+    <div id="page-content" class="flex flex-grow flex-col w-[80%] max-w-12xl mx-auto py-[80px] ">
+        <div class="flex">
+            <div id="restaurant-details"
+                 class="flex flex-col items-center w-1/4 rounded-[64px] border-2 bg-white">
+                <h2 class="text-4xl tracking-widest mt-16 uppercase text-center">{{ $restaurant->{'name_'.app()->getLocale()}  }}</h2>
+                <hr class="h-1 w-48 mt-4" />
+                <h3 class="uppercase font-din text-xl tracking-[6px] mt-3">Kuwait City</h3>
+                <a href="{{route('site.restaurants.book',$restaurant->id)}}" class="uppercase mt-12 px-16 py-6 bg-nadilBtn-100 tracking-[6px] rounded-[19px]"> Book Now</a>
+                <div class="uppercase mt-12 text-center tracking-[6px]">Kuwait City</div>
+                <div class="uppercase  text-center font-din text-[10px] tracking-[3px]">Abu Bakr ST Matzouk Tower</div>
+                <div class="px-8 flex w-full">
+                    <div id="googleMap" class="flex mt-6 flex-grow rounded-[64px] h-[183px] shadow-md"></div>
+                </div>
+                <div class="flex flex-grow w-full px-4 mt-12 space-x-8">
+    
+                        <a href="#" class="uppercase px-8 py-4 bg-nadilBtn-100 tracking-[6px] rounded-[19px]">Phone</a>
+                        <a href="#" class="uppercase px-8 py-4 bg-nadilBtn-100 tracking-[6px] rounded-[19px]">Email</a>
+    
+                </div>
+    
+                <div class="mt-16 pb-28 uppercase font-lato font-italic">&quot;Curated to unlock <br> new culinary moments &quot;</div>
             </div>
-            <div class="flex flex-grow w-full px-12 mt-12 space-x-8">
-
-                    <a href="#" class="uppercase px-8 py-4 bg-nadilBtn-100 tracking-[6px] rounded-[19px]">Phone</a>
-                    <a href="#" class="uppercase px-8 py-4 bg-nadilBtn-100 tracking-[6px] rounded-[19px]">Email</a>
-
+    
+            <div class="w-12"></div>
+    
+            <div id="menu"
+                 class="flex flex-1 px-16 py-16 min-h-80 rounded-[64px] border-2 bg-white">
+                @livewire('site.restaurant.menu',[$restaurant])
             </div>
-
-            <div class="mt-16 pb-28 uppercase font-lato font-italic">&quot;Curated to unlock <br> new culinary moments &quot;</div>
-        </div>
-
-        <div class="w-12"></div>
-
-        <div id="menu"
-             class="flex flex-1 px-16 py-16 min-h-80 rounded-[64px] border-2 bg-white">
-            @livewire('site.restaurant.menu',[$restaurant])
         </div>
     </div>
 </div>
+
 @endsection
 
 @push('scripts')

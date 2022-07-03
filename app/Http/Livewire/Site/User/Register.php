@@ -49,10 +49,10 @@ class Register extends Component
             ]);
             $this->profile->dob = $this->date_of_birth;
             $this->profile->user_id = $new_user->id;
-            $new_user->assignRole(Role::findById(3));
+            $new_user->assignRole('user');
             $new_user->save();
             $this->profile->save();
-            event(new UserRegistered(User::latest()->first()));
+            // event(new UserRegistered(User::latest()->first()));
             $this->resetFields();
             session()->flash('success','Registered Successfully');
         });

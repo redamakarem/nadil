@@ -33,6 +33,7 @@ class Create extends Component
 
     public function mount()
     {
+        $this->restaurant = null;
         $this->slot_options = [];
         $this->restaurants = Restaurant::all();
         $this->users = User::role('user')->get();
@@ -51,6 +52,7 @@ class Create extends Component
         'selected_date' => ['required', 'date'],
         'selected_time' => ['required'],
         'selected_user' => ['required'],
+        'restaurant' => ['required'],
     ];
 
 
@@ -73,7 +75,7 @@ class Create extends Component
 
         $this->validate();
         $input_time =  Carbon::parse($this->selected_time)->format('H:i:s');
-        if ($this->getAvailableSeats($input_time) >= $this->seats){
+        if ($this->getAvailableSeats($input_time) >= $this->booking->seats){
             $this->booking->restaurant_id = $this->selected_restaurant;           
             $this->booking->booking_date = Carbon::parse($this->selected_date)->format('Y-m-d');
             $this->booking->booking_time = Carbon::parse($this->selected_time)->format('H:i:s');
@@ -119,8 +121,6 @@ class Create extends Component
 
     protected function initListsForFields(): void
     {
-        // $this->listsForFields['restaurant'] = Restaurant::pluck('name_en', 'id')->toArray();
-        // $this->listsForFields['user'] = User::role('user')->pluck('name', 'id')->toArray();
         $this->listsForFields['slots'] = collect($this->slots)->map(function ($slot){
             return [
                 'slot' => $slot,
@@ -169,11 +169,18 @@ class Create extends Component
 
     public function updatedSelectedDate($value)
     {
-        $this->restaurant = Restaurant::findOrFail($this->selected_restaurant);
+
+        
         if ($this->restaurant){
             $this->getSlotsForSchedules();
         }
         $this->slot_options = $this->mapSlots();
+    }
+
+    public function updatedSelectedRestaurant($value)
+    {
+        $this->restaurant = Restaurant::find($value);
+        
     }
 
     public function render()

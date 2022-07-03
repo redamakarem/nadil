@@ -50,13 +50,17 @@
                         </div>
                     </div>
                     <div class="form-group">
-
-                            @foreach($slot_options as $key =>$value)
+                        <label>{{__('Booking Time')}}</label>
+                        <div>
+                            @forelse($slot_options as $key =>$value)
                                 <label class="btn btn-secondary {{$slot_options[$key]==$selected_time?'active':''}}">
                                     <input type="radio" wire:model="selected_time" value="{{$value}}"> {{$value}}
                                 </label>
-                            @endforeach
+                                @empty
+                                <p>Please select Restaurant and Booking date</p>
+                            @endforelse
 
+                        </div>
 
                     </div>
 
