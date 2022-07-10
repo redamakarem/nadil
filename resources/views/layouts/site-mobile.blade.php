@@ -18,7 +18,7 @@
     <main>
         <div id="mobile-wrapper" class="relative lg:hidden min-h-screen"
              x-data="{isOpen:false}">
-            <div class="sidebar flex-col absolute bg-slate-600 inset-y-0 left-0 z-10 w-2/3 max-w-md transform transition duration-200" :class="isOpen?'':'-translate-x-full'"
+            <div class="sidebar flex-col fixed bg-slate-600 inset-y-0 left-0 z-10 w-2/3 max-w-md transform transition duration-200" :class="isOpen?'':'-translate-x-full'"
             >
 
                 <div class="flex justify-center">
