@@ -7,10 +7,16 @@
     <form wire:submit.prevent="submit">
         <div class="card-body">
             <div class="form-group">
-                <label for="name">Category Name</label>
-                <input wire:model="name"
-                       type="text" class="form-control" id="name" placeholder="Enter category name">
-                @error('name')<span class="error">{{ $message }}</span>@enderror
+                <label for="name_en">Category English Name</label>
+                <input wire:model="name_en"
+                       type="text" class="form-control" id="name_en" placeholder="Enter category English name">
+                @error('name_en')<span class="error">{{ $message }}</span>@enderror
+            </div>
+            <div class="form-group">
+                <label for="name_ar">Category Arabic Name</label>
+                <input wire:model="name_ar"
+                       type="text" class="form-control" id="name_ar" placeholder="Enter category Arabic name">
+                @error('name_ar')<span class="error">{{ $message }}</span>@enderror
             </div>
 
         </div>

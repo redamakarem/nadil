@@ -29,9 +29,9 @@
                         @error('name_en')<p class="error">{{$message}}</p>@enderror
                     </div>
                     <div class="form-group">
-                        <label for="name_ar">Name</label>
+                        <label for="name_ar">Arabic Name</label>
                         <input type="text" name="name_ar" class="form-control"
-                               id="name_ar" placeholder="Enter name" wire:model.defer="form_data.name_ar">
+                               id="name_ar" placeholder="Enter Arabic name" wire:model.defer="form_data.name_ar">
                         @error('name_ar')<p class="error">{{$message}}</p>@enderror
                     </div>
                     <div class="form-group">
@@ -112,6 +112,18 @@
                         <input type="text" name="name" class="form-control"
                                id="estimated_dining_time" placeholder="Eg: 45" wire:model.defer="form_data.estimated_dining_time">
                         @error('form_data.estimated_dining_time')<p class="error">{{$message}}</p>@enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="facebook">Facebook</label>
+                        <input type="text" name="facebook" class="form-control"
+                               id="facebook" placeholder="Eg: www.facebook.com" wire:model.defer="form_data.facebook">
+                        @error('form_data.facebook')<p class="error">{{$message}}</p>@enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="instagram">Instagram</label>
+                        <input type="text" name="instagram" class="form-control"
+                               id="instagram" placeholder="Eg: www.instagram.com" wire:model.defer="form_data.instagram">
+                        @error('form_data.facebook')<p class="error">{{$message}}</p>@enderror
                     </div>
                 </div>
                 <!-- /.card-body -->

@@ -36,9 +36,7 @@
                             <td>{{$booking->phone}}</td>
                             <td>
 
-{{--                                @foreach($booking->reserved_tables as $table)--}}
-{{--                                    <div>{{$table->name ,}}</div>--}}
-{{--                                @endforeach--}}
+
                                 {{ $booking->reserved_tables->pluck('name')->implode(', ') }}
                             </td>
                             <td>

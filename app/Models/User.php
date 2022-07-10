@@ -53,6 +53,11 @@ class User extends Authenticatable
         return $this->hasMany(Restaurant::class);
     }
 
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class);
+    }
+
     public function profile()
     {
         return $this->hasOne(Profile::class);

@@ -24,9 +24,10 @@ class ScheduleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($restaurant_id)
     {
-        //
+        $restaurant = Restaurant::with('schedules')->findOrFail($restaurant_id);
+        return view('restaurant-admin.schedule.create',compact(['restaurant']));
     }
 
     /**

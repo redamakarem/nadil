@@ -27,7 +27,6 @@ class Create extends Component
         'end_date' => 'required',
         'start_time' => 'required',
         'end_time' => 'required',
-        'slot_capacity' => 'required',
         'slot_length' => 'required',
     ];
 
@@ -58,7 +57,7 @@ class Create extends Component
             'from_time' => $this->start_time,
             'to_time' => $this->end_time,
             'slot_length' => $this->slot_length,
-            'slot_capacity' => $this->slot_capacity,
+            'slot_capacity' => 0,
         ]);
         $this->reset_form();
         $this->dispatchBrowserEvent('alert', [

@@ -5,7 +5,7 @@
         <div class="flex flex-col px-24 py-[80px]">
             <div class="greeting uppercase">So, What is the plan</div>
             <div>
-                <form action="#">
+                <form action="#" class="mb-6">
                     <div class="flex justify-between my-4">
                         <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg" 
                         type="text" name="restaurant_name" id="restaurant_name" placeholder="Search">
@@ -34,10 +34,10 @@
             </div>
 
             {{--   Restaurants by meal types     --}}
-            <div class="greeting uppercase">Browse by meal type</div>
+            <div class="greeting uppercase font-lato">Browse by meal type</div>
 
             @foreach($meal_types as $meal_type)
-                <h2>{{$meal_type->{'name_'.app()->getLocale()} }}</h2>
+                <h2 class="mt-6 uppercase ltr:font-lato rtl:font-ahlan text-[#454545]">{{$meal_type->{'name_'.app()->getLocale()} }}</h2>
                 <div class="owl-carousel owl-theme mb-8">
                     @foreach($meal_type->restaurants as $meal_restaurant)
                         <div class="item flex flex-col justify-center rounded-xl border-2 h-32 shadow-md font-lato"
@@ -51,7 +51,7 @@
                     @endforeach
                 </div>
             @endforeach
-
+            <div class="greeting uppercase font-lato text-[#454545]">{{__('Pick the cuisine')}}</div>
             <div class="owl-carousel owl-theme">
                 @foreach($cuisines as $cuisine)
 

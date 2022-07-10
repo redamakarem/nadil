@@ -19,13 +19,19 @@
                         <thead>
                         <tr>
                             <th>Name</th>
+                            <th>Cuisine</th>
+                            <th>Menu</th>
+                            <th>Prep time</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
                         <tbody>
                         @forelse($dishes as $dish)
                             <tr>
-                                <td>{{$dish->name}}</td>
+                                <td>{{$dish->name_en}}</td>
+                                <td>{{$dish->cuisine->name_en}}</td>
+                                <td>{{$dish->menu->name}}</td>
+                                <td>{{$dish->prep_time}}</td>
 
                                 <td>
                                     <div class="btn-group">
@@ -35,7 +41,9 @@
                                         </button>
                                         <div aria-labelledby="dropdownSubMenu1" class="dropdown-menu" role="menu">
                                             <a class="dropdown-item" href="#">View</a>
-                                            <a class="dropdown-item" href="#">Edit</a>
+                                            <a class="dropdown-item" href="{{route('restaurant-admin.restaurant.menu.categories.dishes.edit',
+                                            ['restaurant' => $restaurant,'menu' => $menu,
+                                             'category' => $category,'dish' => $dish])}}">Edit</a>
                                             <a class="dropdown-item" href="#"
                                             >Delete</a>
                                             <a class="dropdown-item" href="{{route('restaurant-admin.restaurant.menu.categories.dishes',

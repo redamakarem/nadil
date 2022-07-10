@@ -20,9 +20,14 @@
             </div>
 
             <div class="form-group">
-                <label for="name">Dish Name</label>
-                <input wire:model="dish.name"
-                       type="text" class="form-control" id="name" placeholder="Enter Dish name">
+                <label for="name">Dish English Name</label>
+                <input wire:model="dish.name_en"
+                       type="text" class="form-control" id="name" placeholder="Enter Dish English name">
+            </div>
+            <div class="form-group">
+                <label for="name">Dish Arabic Name</label>
+                <input wire:model="dish.name_ar"
+                       type="text" class="form-control" id="name" placeholder="Enter Dish Arabic name">
             </div>
             <div class="form-group">
                 <label for="name">Dish Description</label>
@@ -54,9 +59,15 @@
             </div>
 
             <div class="form-group">
-                <label>Custom Select</label>
-                <x-select-list class="form-control" required id="cuisine" name="cuisine" :options="$this->listsForFields['cuisine']" wire:model="dish.cuisine_id" />
-
+                <label>Cuisines</label>
+                <select class="form-control" style="width: 100%;"
+                        id="cuisines" wire:model="selected_cuisine"
+                        data-placeholder="Select cuisine(s)" >
+                    <option value="0">{{__('Select Cuisine')}}</option>
+                    @foreach($cuisines as $cuisine)
+                        <option value="{{$cuisine->id}}">{{$cuisine->name_en}}</option>
+                    @endforeach
+                </select>
             </div>
 
 

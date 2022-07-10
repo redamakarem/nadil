@@ -23,6 +23,8 @@ class Restaurant extends Model implements HasMedia
         'user_id',
         'is_active',
         'estimated_dining_time',
+        'facebook',
+        'instagram',
     ];
 
     public function owner()

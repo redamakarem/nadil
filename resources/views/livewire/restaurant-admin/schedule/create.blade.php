@@ -1,6 +1,6 @@
 <div class="card card-primary">
     <div class="card-header">
-        <h3 class="card-title">Add Menu for restaurant {{$restaurant->name}} (ID: {{$restaurant->id}})</h3>
+        <h3 class="card-title">Add Schedule for restaurant {{$restaurant->name_en}} (ID: {{$restaurant->id}})</h3>
     </div>
     <!-- /.card-header -->
     <!-- form start -->
@@ -20,7 +20,7 @@
             </div>
 
             <div class="form-group">
-                <label for="name">Menu Name</label>
+                <label for="name">Schedule Name</label>
                 <input wire:model="name"
                        type="text" class="form-control" id="name" placeholder="Enter cuisine name">
             </div>
@@ -49,12 +49,6 @@
                 <label for="end_time">Slot Length</label>
                 <input wire:model="slot_length"
                        type="text" class="form-control ptime" id="end_time" placeholder="Enter Slot Length in minutes">
-            </div>
-
-            <div class="form-group">
-                <label for="end_time">Slot Capacity</label>
-                <input wire:model="slot_capacity"
-                       type="text" class="form-control ptime" id="end_time" placeholder="Enter the capacity for one slot">
             </div>
 
         </div>

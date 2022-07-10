@@ -168,6 +168,7 @@ namespace App\Models{
  * @property int|null $cuisine_id
  * @property int $is_featured
  * @property string|null $name_ar
+ * @property int $isActive
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\DishesCategory[] $categories
  * @property-read int|null $categories_count
  * @property-read \App\Models\Cuisine|null $cuisine
@@ -182,6 +183,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Dish whereCuisineId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Dish whereDescription($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Dish whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Dish whereIsActive($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Dish whereIsFeatured($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Dish whereMenuId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Dish whereNameAr($value)
@@ -199,10 +201,11 @@ namespace App\Models{
  * App\Models\DishesCategory
  *
  * @property int $id
- * @property string $name
+ * @property string $name_en
  * @property int $catalogue_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string $name_ar
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Dish[] $dishes
  * @property-read int|null $dishes_count
  * @property-read \App\Models\DishesMenu $menu
@@ -213,7 +216,8 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|DishesCategory whereCatalogueId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|DishesCategory whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|DishesCategory whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|DishesCategory whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|DishesCategory whereNameAr($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|DishesCategory whereNameEn($value)
  * @method static \Illuminate\Database\Eloquent\Builder|DishesCategory whereUpdatedAt($value)
  */
 	class DishesCategory extends \Eloquent {}
@@ -289,10 +293,13 @@ namespace App\Models{
  * @property int $user_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string $address
+ * @property-read string $initials
  * @method static \Database\Factories\ProfileFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Profile newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Profile query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Profile whereAddress($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereDob($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereEmail($value)
@@ -324,6 +331,8 @@ namespace App\Models{
  * @property int $max_party_size
  * @property int $estimated_dining_time
  * @property string $name_ar
+ * @property string|null $facebook
+ * @property string|null $instagram
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Booking[] $bookings
  * @property-read int|null $bookings_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Cuisine[] $cuisines
@@ -354,7 +363,9 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereEmail($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereEstimatedDiningTime($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereFacebook($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereInstagram($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereIsActive($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereIsFeatured($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereMaxPartySize($value)
@@ -472,7 +483,9 @@ namespace App\Models{
  * @property int|null $area_id
  * @property string|null $social_id
  * @property string|null $social_type
- * @property int $restaurant_id
+ * @property int|null $restaurant_id
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Booking[] $bookings
+ * @property-read int|null $bookings_count
  * @property-read string $initials
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read int|null $notifications_count

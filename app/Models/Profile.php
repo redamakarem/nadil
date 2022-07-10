@@ -22,4 +22,9 @@ class Profile extends Model
     {
         $this->belongsTo(User::class);
     }
+
+    public function getInitialsAttribute(): string
+    {
+        return \Illuminate\Support\Str::initials($this->name);
+    }
 }

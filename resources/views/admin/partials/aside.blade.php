@@ -108,6 +108,21 @@
                         </p>
                     </a>
                 </li>
+                @role('super-admin')
+                <li class="nav-item">
+                    <form action="{{route('logout')}}" method="POST">
+                        @csrf
+                        <a href="#" class="nav-link" onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                            <i class="nav-icon fas fa-power-off"></i>
+                            <p>
+                                Logout
+                                <span class="right badge badge-danger">New</span>
+                            </p>
+                        </a>
+                    </form>
+                </li>
+                @endrole
 
             </ul>
         </nav>

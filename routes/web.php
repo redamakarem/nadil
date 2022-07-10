@@ -10,6 +10,7 @@ use App\Http\Controllers\RestaurantAdmin\CatalogueCategory\CatalogueCategoryCont
 use App\Http\Controllers\RestaurantAdmin\Dish\DishesController as RADishesController;
 use App\Http\Controllers\RestaurantAdmin\Restaurant\RestaurantController;
 use App\Http\Controllers\RestaurantAdmin\ScheduleController as RAScheduleController;
+use App\Http\Controllers\RestaurantAdmin\Booking\BookingController as RABookingController;
 use App\Http\Controllers\RestaurantAdmin\Table\TableController;
 use Illuminate\Support\Facades\Route;
 
@@ -89,7 +90,7 @@ Route::group(['prefix' => 'admin', 'middleware'=>['auth','role:super-admin']],fu
     Route::get('/restaurants/create/',[RestaurantsController::class,'create'])
         ->name('admin.restaurants.create');
     Route::get('/restaurants/wizard-create/',[RestaurantsController::class,'wizard_create'])
-        ->name('admin.restaurants.create');
+        ->name('admin.restaurants.wizard-create');
 
     Route::post('/restaurants/store/',[RestaurantsController::class,'store'])
         ->name('admin.restaurants.store');
@@ -214,6 +215,8 @@ Route::group(['prefix' => 'restaurant-admin', 'middleware'=>['auth','role:restau
     // Restaurants
     Route::get('/restaurants',[\App\Http\Controllers\RestaurantAdmin\Restaurant\RestaurantController::class,'index'])
         ->name('restaurant-admin.restaurants.index');
+    Route::get('/restaurant/{id}/edit',[\App\Http\Controllers\RestaurantAdmin\Restaurant\RestaurantController::class,'edit'])
+        ->name('restaurant-admin.restaurants.edit');
     // Menus
     Route::get('restaurant/{restaurant}/menus/',
         [\App\Http\Controllers\RestaurantAdmin\Catalogue\CatalogueController::class,'index'])
@@ -244,11 +247,17 @@ Route::group(['prefix' => 'restaurant-admin', 'middleware'=>['auth','role:restau
     Route::get('/restaurant/{restaurant}/menu/{menu}/categories/{category}/dishes/create',
         [RADishesController::class,'create'])
         ->name('restaurant-admin.restaurant.menu.categories.dishes.create');
+    Route::get('/restaurant/{restaurant}/menu/{menu}/categories/{category}/dishes/{dish}/edit',
+        [RADishesController::class,'edit'])
+        ->name('restaurant-admin.restaurant.menu.categories.dishes.edit');
 
     //    Schedules
     Route::get('/restaurant/{restaurant}/schedules',
         [RAScheduleController::class,'index'])
         ->name('restaurant-admin.restaurant.schedules.index');
+    Route::get('/restaurant/{restaurant}/schedules/create',
+        [RAScheduleController::class,'create'])
+        ->name('restaurant-admin.restaurant.schedules.create');
     // Tables
     Route::get('restaurant/{restaurant}/tables',[TableController::class,'index'])->name('restaurant-admin.restaurant.tables.index');
     Route::get('restaurant/{restaurant}/tables/create',[TableController::class,'create'])->name('restaurant-admin.restaurant.tables.create');
@@ -260,11 +269,18 @@ Route::group(['prefix' => 'restaurant-admin', 'middleware'=>['auth','role:restau
     ->name('restaurant-admin.restaurant.staff.create');
     Route::get('restaurant/{restaurant}/staff/{staff}/edit', [RestaurantController::class,'editStaff'])
     ->name('restaurant-admin.restaurant.staff.edit');
+
+    // Booking
+
+    Route::get('bookings',[RABookingController::class,'index'])->name('restaurant-admin.bookings');
+    Route::get('bookings/create',[RABookingController::class,'create'])->name('restaurant-admin.bookings.create');
 });
 
 
 Route::group(['prefix' => 'user', 'middleware'=>['auth','role:user']],function(){
-    Route::get('/profile',[\App\Http\Controllers\SiteController::class,'profile'])->name('user.profile.show');
+    Route::get('/profile',[\App\Http\Controllers\Site\UserController::class,'profile'])->name('user.profile.show');
+    Route::get('/profile/edit',[\App\Http\Controllers\Site\UserController::class,'profile_edit'])->name('user.profile.edit');
+    Route::get('/history',[\App\Http\Controllers\Site\UserController::class,'history'])->name('user.history.show');
 });
 
 

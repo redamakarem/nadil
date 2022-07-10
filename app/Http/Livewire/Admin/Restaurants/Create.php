@@ -39,6 +39,8 @@ class Create extends Component
         'form_data.estimated_dining_time' => 'required|numeric',
         'restaurant_image' => 'required',
         'coordinates' => 'required',
+        'form_data.facebook' => 'sometimes',
+        'form_data.instagram' => 'sometimes',
         'is_active' => 'sometimes',
 
     ];
@@ -58,13 +60,14 @@ class Create extends Component
         $this->form_data['name_en'] = '';
         $this->form_data['name_ar'] = '';
         $this->form_data['email'] = '';
-//        $this->form_data['coordinates'] = '';
         $this->form_data['address'] = '';
         $this->form_data['max_party_size'] = 4;
         $this->form_data['phone'] = '';
         $this->form_data['user_id'] = null;
         $this->form_data['cuisines'] = [];
         $this->form_data['meal_types'] = [];
+        $this->form_data['facebook'] = '';
+        $this->form_data['instagram'] = '';
         $this->users = User::role('restaurant-admin')->get();
     }
 
@@ -91,6 +94,8 @@ class Create extends Component
                 'user_id' => $this->form_data['user_id'],
                 'max_party_size' => $this->form_data['max_party_size'],
                 'estimated_dining_time' => $this->form_data['estimated_dining_time'],
+                'facebook' => $this->form_data['facebook'],
+                'instagram' => $this->form_data['instagram'],
             ]
         );
         $new_restaurant->cuisines()->attach($this->form_data['cuisines']);
@@ -99,10 +104,9 @@ class Create extends Component
             ->toMediaCollection('restaurant_images');
         $new_restaurant->addFromMediaLibraryRequest($this->restaurant_bg)
             ->toMediaCollection('restaurant_bgs');
-//        dd($this->users,$this->cuisines);
         $this->dispatchBrowserEvent('alert', [
             'type' => 'success',
-            'message' => "Cuisine created Successfully!!"
+            'message' => "Restaurant created Successfully!!"
         ]);
     }
     public function render()

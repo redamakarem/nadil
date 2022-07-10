@@ -44,6 +44,8 @@
                                     </button>
                                     <div aria-labelledby="dropdownSubMenu1" class="dropdown-menu" role="menu">
                                         <a class="dropdown-item" href="#">View</a>
+                                        <a class="dropdown-item" href="{{route('restaurant-admin.restaurants.edit',['id' => $restaurant->id])}}">Edit</a>
+                                        <a class="dropdown-item" href="{{route('restaurant-admin.restaurant.schedules.index',['restaurant' => $restaurant->id])}}">Schedules</a>
                                         <a class="dropdown-item" href="{{route('restaurant-admin.restaurant.menus',['restaurant' => $restaurant->id])}}">Menus</a>
                                         <a class="dropdown-item" href="{{route('restaurant-admin.restaurant.tables.index',['restaurant' => $restaurant->id])}}">Tables</a>
                                         <a class="dropdown-item" href="{{route('restaurant-admin.restaurant.staff',['restaurant' => $restaurant->id])}}">Staff</a>

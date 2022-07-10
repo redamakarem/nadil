@@ -48,7 +48,7 @@
                     </div>
                     <div class="flex flex-col w-1/3 py-8 justify-start items-end h-full w-full">
                         <div class="flex justify-end px-6">
-                            <a href="#"
+                            <a href="{{ route('user.profile.edit') }}"
                                class="font-lato font-bold uppercase bg-nadilBtn-100 px-12 py-6  rounded-[19px] border-1 shadow-md text-xs tracking-[6px]">Edit Details</a>
                         </div>
                     </div>

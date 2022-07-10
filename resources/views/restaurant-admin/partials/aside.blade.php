@@ -53,6 +53,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{route('restaurant-admin.bookings')}}" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Bookings
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{route('restaurant-admin.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>

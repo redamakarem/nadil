@@ -2,9 +2,10 @@
 
 namespace App\Http\Livewire\Admin\Users;
 
-use Livewire\Component;
-use Spatie\Permission\Models\Role;
 use App\Models\User;
+use Livewire\Component;
+use Illuminate\Validation\Rule;
+use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Hash;
 
 class Edit extends Component
@@ -15,12 +16,15 @@ class Edit extends Component
     public $password;
     public $password_confirmation;
 
-    protected $rules = [
-        'user.name' => ['required'],
-        'user.email' => ['required','unique:users,email'],
-        'password' => ['required','min:5','confirmed'],
-        'selected_role' => ['required']
-    ];
+    public function rules()
+    {
+        return [
+            'user.name' => ['required'],
+            'user.email' => ['required','email',Rule::unique('users','email')->ignore($this->user->id)],
+            'password' => ['nullable','min:5','confirmed'],
+            'selected_role' => ['required']
+        ];
+    }
 
     public function mount($user)
     {
@@ -31,5 +35,12 @@ class Edit extends Component
     public function render()
     {
         return view('livewire.admin.users.edit');
+    }
+
+    public function submit()
+    {
+        $this->validate();
+        $this->user->save();
+        $this->user->roles()->sync($this->selected_role);
     }
 }

@@ -17,20 +17,24 @@ class SiteController extends Controller
     public function index()
     {
         $agent = new Agent();
-//        dd($agent->isMobile());
+        //        dd($agent->isMobile());
         $restaurants = Restaurant::all();
         $cuisines = Cuisine::all();
         $meal_types = MealType::with('restaurants')->get();
         if ($agent->isMobile()) {
-            return view('site.mobile.home', ['restaurants' => $restaurants,
-                'cuisines' => $cuisines]);
+            return view('site.mobile.home', [
+                'restaurants' => $restaurants,
+                'cuisines' => $cuisines,
+                'meal_types' => $meal_types,
+            ]);
         }
 
 
-        return view('site.home', ['restaurants' => $restaurants,
-                                        'cuisines' => $cuisines,
-                                        'meal_types' => $meal_types,
-            ]);
+        return view('site.home', [
+            'restaurants' => $restaurants,
+            'cuisines' => $cuisines,
+            'meal_types' => $meal_types,
+        ]);
     }
 
     public function show_restaurant($restaurant_id)
@@ -44,11 +48,9 @@ class SiteController extends Controller
         $restaurant = Restaurant::with('menus')->findOrFail($restaurant_id);
         if ($agent->isMobile()) {
             return view('site.mobile.restaurant-menu', compact('restaurant'));
-
         } else {
             return view('site.restaurant-menu', compact('restaurant'));
         }
-
     }
 
     public function book_restaurant($restaurant_id)
@@ -71,7 +73,6 @@ class SiteController extends Controller
         } else {
             return view('site.restaurant-booking', compact('restaurant'));
         }
-
     }
 
     public function getTimeSlots($start_time, $end_time, $slot_length)
@@ -87,7 +88,6 @@ class SiteController extends Controller
 
     public function restaurants()
     {
-
     }
 
 
@@ -95,17 +95,10 @@ class SiteController extends Controller
     {
 
         return view('site.user-register');
-
     }
 
     public function contact()
     {
         return view('site.contact');
-    }
-
-    public function profile()
-    {
-        $profile = Auth::user()->profile->firstOrFail();
-        return view('site.user.profile', compact('profile'));
     }
 }

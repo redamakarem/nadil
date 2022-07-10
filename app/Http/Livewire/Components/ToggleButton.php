@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Components;
 
+use App\Models\Restaurant;
 use Illuminate\Database\Eloquent\Model;
 use Livewire\Component;
 
@@ -15,6 +16,7 @@ class ToggleButton extends Component
     public function mount()
     {
         $this->is_checked = (bool) $this->model->getAttribute($this->field);
+        dd($this->model);
     }
 
     public function render()
@@ -26,5 +28,10 @@ class ToggleButton extends Component
     public function updating($field, $value)
     {
         $this->model->setAttribute($this->field, $value)->save();
+    }
+
+    private function validate_restaurant(Restaurant $restaurant)
+    {
+        
     }
 }

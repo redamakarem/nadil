@@ -9,7 +9,10 @@ class DishesCategory extends Model
 {
     use HasFactory;
     protected $table = 'catalogue_categories';
-    protected $fillable = ['name','catalogue_id'];
+    protected $fillable = [
+        'name_en',
+        'name_ar',
+        'catalogue_id'];
 
     public function dishes()
     {

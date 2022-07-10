@@ -9,12 +9,14 @@ use Livewire\Component;
 
 class Create extends Component
 {
-    public $name;
+    public $name_en;
+    public $name_ar;
     public  $menu;
     public  $restaurant;
 
     protected $rules = [
-        'name' =>'required'
+        'name_en' =>'required',
+        'name_ar' =>'required'
     ];
 
     protected $listeners = ['categoryAdded' => 'goToCategories'];
@@ -31,7 +33,8 @@ class Create extends Component
     {
         $this->validate();
         DishesCategory::create([
-            'name' => $this->name,
+            'name_en' => $this->name_en,
+            'name_ar' => $this->name_ar,
             'catalogue_id' => $this->menu->id
         ]);
 

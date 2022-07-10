@@ -22,18 +22,21 @@ class Create extends Component
 
     public array $listsForFields = [];
     public Dish $dish;
-
+    public $cuisines;
+    public $selected_cuisine;
     public $mediaComponentNames = ['dish_image'];
     public $dish_image;
 
     protected $rules = [
-        'dish.name' => ['required'],
+        'dish.name_en' => ['required'],
+        'dish.name_ar' => ['required'],
         'dish.description' => ['required'],
         'dish.price' => ['required','numeric'],
         'dish.prep_time' => ['required'],
         'dish.restaurant_id' => ['required'],
         'dish.menu_id' => ['required'],
         'dish.cuisine_id' => ['required'],
+        'selected_cuisine' => ['required'],
     ];
 
 
@@ -44,6 +47,7 @@ class Create extends Component
         $this->dishesMenu = $menu;
         $this->category = $category;
         $this->dish = $dish;
+        $this->cuisines = Cuisine::all();
         $this->initSelects();
 
     }
@@ -52,6 +56,7 @@ class Create extends Component
     {
         $this->dish->restaurant_id = $this->restaurant->id;
         $this->dish->menu_id = $this->dishesMenu->id;
+        $this->dish->cuisine_id = $this->selected_cuisine;
         $this->validate();
         $this->dish->save();
         $this->dish->categories()->sync($this->category->id);

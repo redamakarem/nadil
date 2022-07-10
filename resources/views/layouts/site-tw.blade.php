@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css"/>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{{asset('css/main.css')}}"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
           integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
@@ -23,36 +25,36 @@
     </style>
     <title>Nadil</title>
 </head>
-<body class="ltr:font-lato rtl:font-ahlan">
+<body class="ltr:font-lato rtl:font-ahlan rtl:tracking-normal rtl:font-normal">
 {{--    <div id="dev" class="bg-cover w-[1920px] h-[1301px] mx-auto bg-slate-100 flex flex-col"--}}
 {{--         style="background-image:url('{{asset('images/profile-bg.png')}}'); background-size:cover;"--}}
 {{--    >--}}
 <div id="desktop-wrapper" class="hidden lg:flex h-screen flex-col">
     <header class="h-[270px]">
-        <div id="header-wrapper" class="bg-black h-full">
-            <div id="header-content" class="mx-auto bg-black h-36 h-full">
+        <div id="header-wrapper" class="bg-black h-full flex items-center">
+            <div id="header-content" class="mx-auto bg-black h-36 h-full w-full">
                 @guest
                     <div
                         id="nav-wrapper"
                         class="hidden lg:flex justify-between items-center h-full w-[80%] max-w-12xl mx-auto"
                     >
                         <div id="logo" class="w-1/3 h-full flex justify-start items-center py-4">
-                            <img src="{{asset('/images/logo@2x.png')}}" alt="" class="h-32 w-auto"/>
+                            <a href="{{route('home')}}"><img src="{{asset('/images/logo@2x.png')}}" alt="" class="h-32 w-auto"/></a>
                         </div>
                         <div class="flex space-x-2 mx-2 w-2/3 h-full justify-center items-center">
                             <a
                                 href="{{route('home')}}"
-                                class="bg-gray-400 px-11 rounded-md uppercase ltr:font-lato rtl:font-ahlan text-sm font-semibold py-4 px-16 tracking-[4px] rtl:tracking-normal rounded-[19px]"
+                                class="bg-gray-400 rtl:ml-2 px-11 rounded-md uppercase ltr:font-lato rtl:font-ahlan rtl:tracking-normal rtl:font-normal text-sm ltr:font-semibold py-4 px-16 tracking-[4px] rtl:tracking-normal rounded-[19px]"
                             >{{__('nadil.menu.discover')}}</a
                             >
                             <a
                                 href="{{route('site.contact')}}"
-                                class="bg-gray-400 px-11 rounded-md uppercase ltr:font-lato rtl:font-ahlan text-sm font-semibold py-4 px-16 tracking-[4px] rtl:tracking-normal rounded-[19px]"
+                                class="bg-gray-400 px-11 rounded-md uppercase ltr:font-lato rtl:font-ahlan rtl:tracking-normal rtl:font-normal text-sm ltr:font-semibold py-4 px-16 tracking-[4px] rtl:tracking-normal rounded-[19px]"
                             >{{__('nadil.menu.contact')}}</a
                             >
                             <a
                                 href="{{route('login')}}"
-                                class="bg-gray-400 px-11 rounded-md uppercase ltr:font-lato rtl:font-ahlan text-sm font-semibold py-4 px-16 tracking-[4px] rtl:tracking-normal rounded-[19px]"
+                                class="bg-gray-400 px-11 rounded-md uppercase ltr:font-lato rtl:font-ahlan rtl:tracking-normal rtl:font-normal text-sm ltr:font-semibold py-4 px-16 tracking-[4px] rtl:tracking-normal rounded-[19px]"
                             >{{__('nadil.menu.login')}}</a
                             >
 
@@ -80,28 +82,39 @@
                     <div class="flex space-x-2 mx-2 w-2/3 h-full justify-center items-center">
                         <a
                             href="{{route('home')}}"
-                            class="bg-gray-400 px-11  rounded-md uppercase font-lato text-sm font-semibold py-4 px-16 tracking-[4px] rounded-[19px]"
-                        >Discover</a
+                            class="bg-gray-400 px-11  rounded-md uppercase font-lato rtl:font-ahlan rtl:tracking-normal rtl:font-normal text-sm ltr:font-semibold py-4 px-16 tracking-[4px] rounded-[19px]"
+                        >{{__('nadil.menu.discover')}}</a
                         >
                         <a
-                            href=""
-                            class="bg-gray-400 px-11  rounded-md uppercase font-lato text-sm font-semibold py-4 px-16 tracking-[4px] rounded-[19px]"
-                        >Reservations</a
+                            href="{{route('user.history.show')}}"
+                            class="bg-gray-400 px-11  rounded-md uppercase rtl:font-ahlan rtl:tracking-normal rtl:font-normal font-lato text-sm ltr:font-semibold py-4 px-16 ltr:tracking-[4px] rtl:tracking-normal rounded-[19px]"
+                        >{{__('nadil.menu.reservations')}}</a
                         >
                         <a
                             href="{{route('user.profile.show')}}"
-                            class="bg-gray-400 px-11  rounded-md uppercase font-lato text-sm font-semibold py-4 px-16 tracking-[4px] rounded-[19px]"
-                        >Profile</a
+                            class="bg-gray-400 px-11  rounded-md uppercase font-lato rtl:font-ahlan rtl:tracking-normal rtl:font-normal text-sm ltr:font-semibold py-4 px-16 tracking-[4px] rounded-[19px]"
+                        >{{__('nadil.menu.profile')}}</a
                         >
                         <form action="{{route('logout')}}" method="POST" onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                             @csrf
                             <a
                                 href="#"
-                                class="bg-gray-400 px-11  rounded-md uppercase font-lato text-sm font-semibold py-4 px-16 tracking-[4px] rounded-[19px]"
-                            >Logout</a>
+                                class="bg-gray-400 px-11  rounded-md uppercase font-lato rtl:font-ahlan rtl:tracking-normal rtl:font-normal text-sm ltr:font-semibold py-4 px-16 tracking-[4px] rounded-[19px]"
+                            >{{__('nadil.menu.logout')}}</a>
                         </form>
+                        <div>
+                            @foreach (config('app.available_locales') as $locale)
+                                @if (app()->getLocale() != $locale)
+                                <a href="{{ request()->url() }}?language={{ $locale }}"
+                                   class="inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium leading-5 focus:outline-none transition duration-150 ease-in-out text-white">
+                                    [{{ strtoupper($locale) }}]
+                                </a>
+                                @endif
+                            @endforeach
+                        </div>
                     </div>
+                    
                 </div>
                 @endrole
             </div>

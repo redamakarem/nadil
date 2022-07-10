@@ -25,7 +25,7 @@
                     <tbody>
                     @forelse($categories as $category)
                         <tr>
-                            <td>{{$category->name}}</td>
+                            <td>{{$category->name_en}}</td>
 
                             <td>
                                 <div class="btn-group">
@@ -34,7 +34,6 @@
                                         <span class="sr-only">Toggle Dropdown</span>
                                     </button>
                                     <div aria-labelledby="dropdownSubMenu1" class="dropdown-menu" role="menu">
-                                        <a class="dropdown-item" href="#">View</a>
                                         <a class="dropdown-item" href="#">Edit</a>
                                         <a class="dropdown-item" href="#">Delete</a>
                                         <a class="dropdown-item" href="#">Dishes</a>

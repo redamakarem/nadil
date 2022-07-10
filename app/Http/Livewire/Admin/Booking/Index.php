@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\Admin\Booking;
 
-use App\Http\Resources\BookingResource;
 use App\Models\Booking;
 use Livewire\Component;
 
@@ -61,7 +60,6 @@ class Index extends Component
 
     public function render()
     {
-        $this->events = 'HEY';
 
         return view('livewire.admin.booking.index');
     }

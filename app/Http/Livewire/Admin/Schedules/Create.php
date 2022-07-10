@@ -28,7 +28,6 @@ class Create extends Component
         'end_date' => 'required',
         'start_time' => 'required',
         'end_time' => 'required',
-        'slot_length' => 'required',
     ];
 
     public function mount(Restaurant $restaurant)
@@ -48,8 +47,6 @@ class Create extends Component
     public function submit()
     {
         $this->validate();
-//        dd($this->restaurant->id);
-
         Schedule::create([
             'name' => $this->name,
             'restaurant_id' => $this->restaurant->id,
@@ -57,7 +54,7 @@ class Create extends Component
             'to_date' => $this->end_date,
             'from_time' => $this->start_time,
             'to_time' => $this->end_time,
-            'slot_length' => $this->slot_length,
+            'slot_length' => 0
         ]);
         $this->reset_form();
         $this->dispatchBrowserEvent('alert', [

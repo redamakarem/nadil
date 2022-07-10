@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\RestaurantAdmin\Dish;
 
 use App\Http\Controllers\Controller;
+use App\Models\Dish;
 use App\Models\DishesCategory;
 use App\Models\DishesMenu;
 use App\Models\Restaurant;
@@ -79,10 +80,18 @@ class DishesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Restaurant $restaurant,DishesMenu $menu,DishesCategory $category, Dish $dish)
     {
-        //
+        if ($restaurant->owner->id==auth()->id())
+        {
+            return view('restaurant-admin.dish.edit',
+                ['restaurant' => $restaurant, 'catalogue' => $menu, 'category' => $category, 'dish' => $dish]);
+        }
+        else{
+            abort(403);
+        }
     }
+    
 
     /**
      * Update the specified resource in storage.
