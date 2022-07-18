@@ -1,6 +1,6 @@
 <div id="booking-container"
 class="flex flex-col px-4 pt-8">
-    <div class="uppercase text-center tracking-[6px] underline underline-offset-4">{{ $restaurant->name_en}}</div>
+    <div class="uppercase text-center tracking-[6px] underline underline-offset-[10px] mb-3">{{ $restaurant->name_en}}</div>
     <div class="uppercase text-center tracking-[6px]">{{ $restaurant->address}}</div>
     <div class="uppercase text-center tracking-[6px]">Curated to unlock new culinary moments</div>
     <div class="uppercase text-center mt-12 mb-4 px-8 py-6 bg-nadilBtn-100 tracking-[6px] rounded-[19px]">Pick your day and time</div>
