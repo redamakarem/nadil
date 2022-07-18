@@ -1,17 +1,15 @@
 <?php
 
-namespace App\Http\Livewire\Site\Booking;
+namespace App\Http\Livewire\Site\Mobile\Booking;
 
-use App;
-use App\Models\Booking;
-use App\Models\BookingsTables;
-use App\Models\DiningTable;
-use App\Models\Restaurant;
 use Carbon\Carbon;
-use Carbon\CarbonPeriod;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Booking;
 use Livewire\Component;
-use Illuminate\Database\Eloquent\Builder;
+use Carbon\CarbonPeriod;
+use App\Models\BookingsTables;
+use App\Events\NewBookingEvent;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
 
 class Show extends Component
 {
@@ -170,14 +168,16 @@ class Show extends Component
                     'booking_end_time' => Carbon::parse($this->selected_time)->addMinutes($this->restaurant->estimated_dining_time)->format('H:i:s'),
                 ]);
             }
-            event(new App\Events\NewBookingEvent($this->restaurant->owner, $this->booking));
+            event(new NewBookingEvent($this->restaurant->owner, $this->booking));
         } else {
             $this->addError('booking_seats', 'Not enough seats for selected date and time');
         }
     }
-
+    
+    
+    
     public function render()
     {
-        return view('livewire.site.booking.show');
+        return view('livewire.site.mobile.booking.show');
     }
 }

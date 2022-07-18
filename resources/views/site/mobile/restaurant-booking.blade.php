@@ -1,8 +1,6 @@
 @extends('layouts.site-mobile')
 @section('content')
-    <div class="container">
-
-
-        </div>
-    </div>
+    @livewire('site.mobile.booking.show',[$restaurant])
 @endsection
+
+

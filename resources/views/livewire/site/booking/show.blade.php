@@ -28,8 +28,6 @@
                         <div class="flex justify-between">
                             @foreach($chunk as $key => $timeSlot)
                                 <div role="group">
-{{--                                    <input type="radio" class="btn-check" wire:click="setSelectedTime('{{$timeSlot}}')" name="options" id="{{$key}}" autocomplete="off">--}}
-{{--                                    <label for="{{$key}}">{{$timeSlot}}</label>--}}
                                     <button type="button" wire:click="setSelectedTime('{{$timeSlot}}')" {{$this->slot_bookable($timeSlot)?'':'disabled'}} class="mb-4 inline-block px-8 py-6 bg-nadilBtn-100 tracking-[6px] rounded-[19px] disabled:text-gray-400 hover:bg-grey-500 focus:bg-black focus:text-white focus:outline-none focus:ring-0 active:bg-black active:text-white transition duration-150 ease-in-out">{{$timeSlot}}</button>
                                 </div>
                             @endforeach
