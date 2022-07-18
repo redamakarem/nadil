@@ -17,7 +17,8 @@ class Dish extends Model implements HasMedia
     protected $fillable = [
         'name_en',
         'name_ar',
-        'description',
+        'description_en',
+        'description_ar',
         'price',
         'prep_time',
         'restaurant_id',

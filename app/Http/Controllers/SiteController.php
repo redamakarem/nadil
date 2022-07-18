@@ -8,6 +8,7 @@ use App\Models\Restaurant;
 use App\Models\Schedule;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Jenssegers\Agent\Agent;
@@ -17,7 +18,6 @@ class SiteController extends Controller
     public function index()
     {
         $agent = new Agent();
-        //        dd($agent->isMobile());
         $restaurants = Restaurant::all();
         $cuisines = Cuisine::all();
         $meal_types = MealType::with('restaurants')->get();
@@ -100,5 +100,11 @@ class SiteController extends Controller
     public function contact()
     {
         return view('site.contact');
+    }
+
+    public function restaurants_by_cuisine($cuisine)
+    {
+        $restaurants = Cuisine::findOrFail($cuisine)->restaurants;
+        return view('site.restaurants-by-cuisine',compact(['restaurants']));
     }
 }

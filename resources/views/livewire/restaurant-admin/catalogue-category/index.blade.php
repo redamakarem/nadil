@@ -23,7 +23,7 @@
                     <tbody>
                     @forelse($categories as $category)
                         <tr>
-                            <td>{{$category->name}}</td>
+                            <td>{{$category->name_en}}</td>
 
                             <td>
                                 <div class="btn-group">

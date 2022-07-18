@@ -27,10 +27,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[\App\Http\Controllers\SiteController::class,'index']);
 Route::get('/restaurants',[\App\Http\Controllers\SiteController::class,'restaurants']);
+Route::get('/restaurants/cuisine/{cuisine}',[\App\Http\Controllers\SiteController::class,'restaurants_by_cuisine'])
+    ->name('site.restaurants.cuisine');
 Route::get('/restaurant/{id}',[\App\Http\Controllers\SiteController::class,'show_restaurant'])
     ->name('site.restaurants.view');
 Route::get('/restaurant/{id}/book',[\App\Http\Controllers\SiteController::class,'book_restaurant'])
     ->name('site.restaurants.book');
+
 Route::get('/contact',[\App\Http\Controllers\SiteController::class,'contact'])
     ->name('site.contact');
 Route::get('/user-register',[\App\Http\Controllers\SiteController::class,'userRegister'])

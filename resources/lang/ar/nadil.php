@@ -25,6 +25,7 @@ return array (
     'logout' => 'تسجيل خروج',
     'profile' => 'البيانات الشخصية',
     'reservations' => 'الحجوزات',
+    'settings' => 'الاعدادات',
     'signup' => 'انشاء حساب',
   ),
 );

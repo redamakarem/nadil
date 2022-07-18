@@ -158,7 +158,7 @@ namespace App\Models{
  *
  * @property int $id
  * @property string $name_en
- * @property string $description
+ * @property string $description_en
  * @property int $price
  * @property string $prep_time
  * @property int $restaurant_id
@@ -169,6 +169,7 @@ namespace App\Models{
  * @property int $is_featured
  * @property string|null $name_ar
  * @property int $isActive
+ * @property string $description_ar
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\DishesCategory[] $categories
  * @property-read int|null $categories_count
  * @property-read \App\Models\Cuisine|null $cuisine
@@ -181,7 +182,8 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Dish query()
  * @method static \Illuminate\Database\Eloquent\Builder|Dish whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Dish whereCuisineId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Dish whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Dish whereDescriptionAr($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Dish whereDescriptionEn($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Dish whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Dish whereIsActive($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Dish whereIsFeatured($value)
@@ -354,10 +356,14 @@ namespace App\Models{
  * @property-read int|null $schedules_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\User[] $staff
  * @property-read int|null $staff_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant active()
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant byCuisine($cuisine)
  * @method static \Database\Factories\RestaurantFactory factory(...$parameters)
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant hasScheduleForDate($date)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant slotBookable()
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereAddress($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereCoordinates($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereCreatedAt($value)

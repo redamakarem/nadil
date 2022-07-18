@@ -31,7 +31,8 @@ class Edit extends Component
     protected $rules = [
         'dish.name_en' => ['required'],
         'dish.name_ar' => ['required'],
-        'dish.description' => ['required'],
+        'dish.description_en' => ['required'],
+        'dish.description_ar' => ['required'],
         'dish.price' => ['required','numeric'],
         'dish.prep_time' => ['required'],
         'dish.restaurant_id' => ['required'],

@@ -40,8 +40,12 @@
                 <x-media-library-attachment name="dish_image"/>
             </div>
             <div class="form-group">
-                <label>{{__('Description')}}</label>
-                <textarea name="" id="description"  wire:model="dish.description" class="form-control" rows="5"></textarea>
+                <label>{{__('English Description')}}</label>
+                <textarea name="" id="description_en"  wire:model="dish.description_en" class="form-control" rows="5"></textarea>
+            </div>
+            <div class="form-group">
+                <label>{{__('Arabic Description')}}</label>
+                <textarea name="" id="description_ar"  wire:model="dish.description_ar" class="form-control" rows="5"></textarea>
             </div>
 
             <div class="form-group">

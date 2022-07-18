@@ -11,7 +11,7 @@ class Menu extends Component
     public Restaurant $restaurant;
     public function render()
     {
-        return view('livewire.site.restaurant.menu');
+            return view('livewire.site.restaurant.menu');
     }
 
     public function mount($restaurant)

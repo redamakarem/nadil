@@ -30,9 +30,14 @@
                        type="text" class="form-control" id="name" placeholder="Enter Dish Arabic name">
             </div>
             <div class="form-group">
-                <label for="name">Dish Description</label>
-                <textarea wire:model="dish.description"
-                          type="text" class="form-control" id="description" rows="3" placeholder="Enter Dish description"></textarea>
+                <label for="name">English Description</label>
+                <textarea wire:model="dish.description_en"
+                          type="text" class="form-control" id="description_en" rows="3" placeholder="Enter Dish description"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="name">Arabic Description</label>
+                <textarea wire:model="dish.description_ar"
+                          type="text" class="form-control" id="description_ar" rows="3" placeholder="Enter Dish description"></textarea>
             </div>
 
             <div class="form-group">

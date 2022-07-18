@@ -55,10 +55,12 @@
             <div class="owl-carousel owl-theme">
                 @foreach($cuisines as $cuisine)
 
-                    <div class="item rounded-xl border-2 h-28 flex justify-center items-center"
+                    <a href="{{route('site.restaurants.cuisine',['cuisine' => $cuisine->id])}}">
+                        <div class="item rounded-xl border-2 h-28 flex justify-center items-center"
                          style="background-image:url('{{$cuisine->getFirstMediaUrl('cuisine_images')}}'); background-size: cover">
                         <h4 class="text-center text-white lg:text-2xl uppercase">{{ $cuisine->{'name_'.app()->getLocale()} }}</h4>
                     </div>
+                    </a>
                 @endforeach
             </div>
         </div>

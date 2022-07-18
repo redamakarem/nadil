@@ -8,6 +8,7 @@
             'signup' => 'sign up',
             'reservations' => 'Reservations',
             'profile' => 'Profile',
+            'settings' => 'Settings',
             'logout' => 'Logout',
         ],
         'footer' =>[

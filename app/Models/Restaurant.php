@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Spatie\MediaLibrary\HasMedia;
-use Spatie\MediaLibrary\InteractsWithMedia;
+use Carbon\Carbon;
 use App\Models\Dish;
+use Spatie\MediaLibrary\HasMedia;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Restaurant extends Model implements HasMedia
 {
@@ -76,5 +78,31 @@ class Restaurant extends Model implements HasMedia
     public function meal_types()
     {
         return $this->belongsToMany(MealType::class);
+    }
+
+    public function scopeActive(Builder $query)
+    {
+        return $query->where('is_active',1);
+    }
+
+    public function scopeSlotBookable(Builder $query)
+    {
+        $this->dd('YAAS');
+        return $query;
+    }
+
+    public function scopeHasScheduleForDate(Builder $query, $date)
+    {
+        $query->whereHas('schedules',function(Builder $q)use($date){
+            $q->where('from_date','<',$date)
+            ->where('to_date','>',$date);
+        });
+    }
+    
+    public function scopeByCuisine(Builder $query, $cuisine)
+    {
+        $query->whereHas('cuisines',function($q)use($cuisine){
+            return $q->where('id',$cuisine);
+        });
     }
 }
