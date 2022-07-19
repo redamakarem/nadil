@@ -406,8 +406,8 @@
     <div class="bg-black flex flex-col h-screen">
         <header class="h-[200px] bg-black text-white py-24">
             <div class="flex justify-between w-5/6 mx-auto h-full items-center">
-                <div><img src="http://nadil.test:8885/images/nadil.png" alt=""></div>
-                <div class="bg-contain bg-no-repeat w-[200px] h-full" style="background-image: url('http://nadil.test:8885/images/nadil-cutlery.png');"></div>
+                <div><img src="{{asset('/images/nadil.png')}}" alt=""></div>
+                <div class="bg-contain bg-no-repeat w-[200px] h-full" style="background-image: url('{{asset('/images/nadil-cutlery.png')}}');"></div>
             </div>
         </header>
         <main class="flex-1 flex flex-col bg-white rounded-[96px] justify-center items-center ">
