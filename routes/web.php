@@ -31,8 +31,7 @@ Route::get('/restaurants/cuisine/{cuisine}',[\App\Http\Controllers\SiteControlle
     ->name('site.restaurants.cuisine');
 Route::get('/restaurant/{id}',[\App\Http\Controllers\SiteController::class,'show_restaurant'])
     ->name('site.restaurants.view');
-Route::get('/restaurant/{id}/book',[\App\Http\Controllers\SiteController::class,'book_restaurant'])
-    ->name('site.restaurants.book');
+
 
 Route::get('/contact',[\App\Http\Controllers\SiteController::class,'contact'])
     ->name('site.contact');
@@ -284,6 +283,9 @@ Route::group(['prefix' => 'user', 'middleware'=>['auth','role:user']],function()
     Route::get('/profile',[\App\Http\Controllers\Site\UserController::class,'profile'])->name('user.profile.show');
     Route::get('/profile/edit',[\App\Http\Controllers\Site\UserController::class,'profile_edit'])->name('user.profile.edit');
     Route::get('/history',[\App\Http\Controllers\Site\UserController::class,'history'])->name('user.history.show');
+
+    Route::get('/restaurant/{id}/book',[\App\Http\Controllers\SiteController::class,'book_restaurant'])
+    ->name('site.restaurants.book');
 });
 
 

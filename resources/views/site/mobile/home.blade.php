@@ -26,6 +26,17 @@
                 </div>
             </form>
         </div>
+        <div class="uppercase font-lato text-center">{{__('Pick the cuisine')}}</div>
+        @foreach ($cuisines->chunk(2) as $row )
+            <div class="flex justify-between space-x-4 rtl:flex-row-reverse">
+            @foreach ($row as $item)
+                <a 
+                class="my-4 w-1/2 rounded-[64px] py-4 bg-[#E0E0E0] text-center uppercase font-lato"
+                href="{{route('site.restaurants.cuisine',['cuisine' => $item->id])}}">{{$item->{'name_' . app()->getLocale()} }}</a>  
+            @endforeach
+        </div>
+        @endforeach
+        <div class="uppercase font-lato text-center mb-4">{{__('Pick the spot')}}</div>
         <div class="owl-carousel owl-theme">
             @foreach ($restaurants as $restaurant)
                 <div class="item rounded-xl py-12 shadow-lg filter grayscale"
@@ -39,10 +50,10 @@
         </div>
 
         {{-- Restaurants by meal types --}}
-        <div class="greeting uppercase font-lato">Browse by meal type</div>
+        <div class="greeting uppercase font-lato text-center">Browse by meal type</div>
 
         @foreach ($meal_types as $meal_type)
-            <h2 class="mt-6 uppercase ltr:font-lato rtl:font-ahlan text-[#454545]">
+            <h2 class="mt-6 uppercase ltr:font-lato rtl:font-ahlan ltr:text-left rtl:text-right text-[#454545]">
                 {{ $meal_type->{'name_' . app()->getLocale()} }}</h2>
             <div class="owl-carousel owl-theme mb-8">
                 @foreach ($meal_type->restaurants as $meal_restaurant)

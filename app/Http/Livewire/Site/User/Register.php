@@ -52,7 +52,7 @@ class Register extends Component
             $new_user->assignRole('user');
             $new_user->save();
             $this->profile->save();
-            // event(new UserRegistered(User::latest()->first()));
+            event(new UserRegistered(User::latest()->first()));
             $this->resetFields();
             session()->flash('success','Registered Successfully');
         });

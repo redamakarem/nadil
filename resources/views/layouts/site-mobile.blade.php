@@ -3,6 +3,7 @@
 @role('user')
 class="{{auth()->user()->is_dark_mode?'dark':''}}"
 @endrole
+dir="{{ app()->getLocale()=='en'?'ltr':'rtl' }}"
 >
 
 <head>
@@ -17,6 +18,9 @@ class="{{auth()->user()->is_dark_mode?'dark':''}}"
         integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    <style>
+        [x-cloak] { display: none !important; }
+    </style>
     @stack('styles')
     <title>Nadil</title>
 </head>
@@ -53,6 +57,7 @@ class="{{auth()->user()->is_dark_mode?'dark':''}}"
                     <a href="#" class=" block uppercase text-black dark:text-white py-3 px-8">{{__('nadil.menu.reservations')}}</a>
                     <a href="#" class=" block uppercase text-black dark:text-white py-3 px-8">{{__('nadil.menu.profile')}}</a>
                     <a href="#" class=" block uppercase text-black dark:text-white py-3 px-8">{{__('nadil.menu.settings')}}</a>
+                    
                     <form action="{{ route('logout') }}" method="POST"
                         onclick="event.preventDefault();
                                                 this.closest('form').submit();">
@@ -63,6 +68,16 @@ class="{{auth()->user()->is_dark_mode?'dark':''}}"
                 @guest
                     <a href="{{ route('login') }}" class=" block uppercase text-black dark:text-white py-3 px-8">Login</a>
                 @endguest
+                <div>
+                    @foreach (config('app.available_locales') as $locale)
+                        @if (app()->getLocale() != $locale)
+                        <a href="{{ request()->url() }}?language={{ $locale }}"
+                           class="flex items-center py-3 px-8  text-sm font-medium leading-5 focus:outline-none transition duration-150 ease-in-out text-black dark:to-white">
+                            [{{ strtoupper($locale) }}]
+                        </a>
+                        @endif
+                    @endforeach
+                </div>
             </div>
             @if (!empty($restaurant))
                 <div class="header h-80 bg-black flex-col justify-center bg-cover"
@@ -72,7 +87,7 @@ class="{{auth()->user()->is_dark_mode?'dark':''}}"
                         style="background-image:url('{{ asset('images/nadil@2x.png') }}'); background-size: cover">
             @endif
             <div
-                class="{{ app()->getLocale() == 'en' ? 'flex' : 'flex flex-row-reverse' }} justify-between px-8 pt-24 h-20">
+                class="flex justify-between px-8 pt-24 h-20">
                 <div class="avatar bg-black text-white dark:bg-nadilBg-100 dark:text-black h-12 w-12 rounded-full flex justify-center items-center">
                     @guest
                         <i class="fa fa-user"></i>
@@ -104,6 +119,7 @@ class="{{auth()->user()->is_dark_mode?'dark':''}}"
     <script src="//unpkg.com/alpinejs" defer></script>
     <script>
         $('.owl-carousel').owlCarousel({
+            rtl: document.getElementsByTagName('html')[0].getAttribute('lang') == 'ar',
             loop: true,
             margin: 15,
             responsive: {

@@ -1961,6 +1961,9 @@ select {
     --tw-text-opacity: 1;
     color: rgb(31 41 55 / var(--tw-text-opacity));
 }
+[dir="ltr"] .ltr\:text-left {
+    text-align: left;
+}
 [dir="ltr"] .ltr\:font-lato {
     font-family: Lato;
 }
@@ -1987,6 +1990,12 @@ select {
 }
 [dir="rtl"] .rtl\:ml-2 {
     margin-left: 0.5rem;
+}
+[dir="rtl"] .rtl\:flex-row-reverse {
+    flex-direction: row-reverse;
+}
+[dir="rtl"] .rtl\:text-right {
+    text-align: right;
 }
 [dir="rtl"] .rtl\:font-ahlan {
     font-family: Ahlan-Regular;
@@ -2025,6 +2034,9 @@ select {
 .dark .dark\:bg-gray-800 {
     --tw-bg-opacity: 1;
     background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+}
+.dark .dark\:to-white {
+    --tw-gradient-to: #fff;
 }
 .dark .dark\:text-white {
     --tw-text-opacity: 1;

@@ -1,14 +1,21 @@
 <div id="booking-container"
 class="flex flex-col px-4 pt-8">
-    <div class="uppercase text-center tracking-[6px] underline underline-offset-[10px] mb-3">{{ $restaurant->name_en}}</div>
-    <div class="uppercase text-center tracking-[6px]">{{ $restaurant->address}}</div>
-    <div class="uppercase text-center tracking-[6px]">Curated to unlock new culinary moments</div>
-    <div class="uppercase text-center mt-12 mb-4 px-8 py-6 bg-nadilBtn-100 tracking-[6px] rounded-[19px]">Pick your day and time</div>
+@if($errors->any())
+<div id="validation-errors" class="bg-red-600 mb-4 px-8 py-12 text-white font-lato uppercase text-md rounded-[19px]">
+@foreach ($errors->all() as $error)
+    <div>{{ $error }}</div>
+@endforeach
+</div>
+@endif
+    <div class="uppercase text-center tracking-[4px] underline underline-offset-[10px] mb-3">{{ $restaurant->name_en}}</div>
+    <div class="uppercase text-center tracking-[4px]">{{ $restaurant->address}}</div>
+    <div class="uppercase text-center tracking-[4px]">Curated to unlock new culinary moments</div>
+    <div class="uppercase text-center mt-12 mb-4 px-8 py-6 bg-nadilBtn-100 tracking-[4px] rounded-[19px]">Pick your day and time</div>
     <div wire:ignore class="flex justify-center">
         <div id="booking-date" ></div>
     </div>
 
-    <div class="uppercase text-center mt-12 mb-4 px-16 py-6 bg-nadilBtn-100 tracking-[6px] rounded-[19px]">{{$selected_time ?? 'Select Time'}}</div>
+    <div class="uppercase text-center mt-12 mb-4 px-16 py-6 bg-nadilBtn-100 tracking-[4px] rounded-[19px]">{{$selected_time ?? 'Select Time'}}</div>
     <div class="overflow-y-scroll scrollbar scrollbar-thumb-gray-600 scrollbar-track-gray-100 px-8">
         @if($slots)
             @foreach(array_chunk($slots,2,true) as $chunk)
@@ -28,6 +35,17 @@ class="flex flex-col px-4 pt-8">
                 <div class="w-full text-center">No reservable slots on the selected date</div>
             </div>
         @endif
+    </div>
+    <div class="uppercase text-center mt-12 mb-4 px-16 py-6 bg-nadilBtn-100 tracking-[6px] rounded-[19px]">{{__('How many seats')}}</div>
+    <div class="my-4 flex justify-center">
+        <input
+            class="rounded-[64px] bg-[#E0E0E0] outline-none border-none placeholder:text-center placeholder:font-lato placeholder:uppercase"
+            type="number" step="1" min="0" max="{{$restaurant->max_party_size}}" wire:model="seats" placeholder="{{ __('# of people') }}">
+    </div>
+    <div class="flex justify-center mb-6">
+        <button 
+        class="uppercase font-lato font-bold bg-[#F8F8F8] shadow-md rounded-lg py-4 w-2/3" 
+        wire:click="submit" type="button">{{ __('Book Now') }}</button>
     </div>
 </div>
 
