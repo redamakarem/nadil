@@ -49,6 +49,7 @@ class Register extends Component
             ]);
             $this->profile->dob = $this->date_of_birth;
             $this->profile->user_id = $new_user->id;
+            $this->profile->address = 'test';
             $new_user->assignRole('user');
             $new_user->save();
             $this->profile->save();
