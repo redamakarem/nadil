@@ -32,12 +32,12 @@ return [
     'google' => [
         'client_id' => '9474195396-kfg0fa6daoj8j6c4t10e6pfv0oo4rj72.apps.googleusercontent.com', //USE FROM Google DEVELOPER ACCOUNT
         'client_secret' => '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', //USE FROM Google DEVELOPER ACCOUNT
-        'redirect' => 'http://localhost:8000/callback/google'
+        'redirect' => 'https://nadil.generalsenses.com/callback/google'
     ],
     'facebook' => [
         'client_id' => '768663937841856',
         'client_secret' => 'e9d33c40fd0a601544c3721d92d10a12',
-        'redirect' => 'http://localhost:8000/callback/facebook',
+        'redirect' => 'https://nadil.generalsenses.com/callback/facebook',
     ],
     'twitter' => [
         'client_id' => 'eUJSZGxUNElwLXc1blBqU1d4TmM6MTpjaQ',
