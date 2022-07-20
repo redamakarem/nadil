@@ -41,7 +41,7 @@ class GoogleSocialiteController extends Controller
                     'social_type'=> 'google',
                     'password' => encrypt('my-google')
                 ]);
-                $newUser->assignRole(3);
+                $newUser->assignRole(8);
 
                 Auth::login($newUser);
 
