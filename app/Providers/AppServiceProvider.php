@@ -15,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        Blade::component('mail.base', \App\Views\Components\Base::class);
     }
 
     /**
@@ -28,6 +28,6 @@ class AppServiceProvider extends ServiceProvider
         Str::macro('initials', fn($value, $sep = ' ', $glue = ' ') => trim(collect(explode($sep, $value))->map(function ($segment) {
             return $segment[0] ?? '';
         })->join($glue)));
-        Blade::component('mail.base', \App\Views\Components\Base::class);
+        // Blade::component('mail.base', \App\Views\Components\Base::class);
     }
 }
