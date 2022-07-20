@@ -15,9 +15,5 @@ mix.js('resources/js/app.js', 'public/js').postCss('resources/css/main.css', 'pu
     require('postcss-import'),
     require('autoprefixer'),
     require('tailwindcss')
-])
-.postCss('resources/css/mail.css', 'public/css', [
-    tailwindcss('tailwind-mail.config.js')
-])
-.version();
+]);
 mix.disableSuccessNotifications();

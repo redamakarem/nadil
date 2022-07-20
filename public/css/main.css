@@ -1649,14 +1649,8 @@ select {
     -webkit-text-decoration-line: none;
             text-decoration-line: none;
 }
-.underline-offset-4 {
-    text-underline-offset: 4px;
-}
 .underline-offset-\[10px\] {
     text-underline-offset: 10px;
-}
-.underline-offset-\[20px\] {
-    text-underline-offset: 20px;
 }
 .antialiased {
     -webkit-font-smoothing: antialiased;
