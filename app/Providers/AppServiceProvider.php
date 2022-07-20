@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Providers;
-
+use App\View\Components\Base;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
@@ -15,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        Blade::component('mail.base', \App\Views\Components\Base::class);
+        Blade::component('mail.base', Base::class);
     }
 
     /**
