@@ -48,7 +48,7 @@
                     <a href="{{route('restaurant-admin.restaurants.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
-                            Restaurants
+                            Branches
                         </p>
                     </a>
                 </li>

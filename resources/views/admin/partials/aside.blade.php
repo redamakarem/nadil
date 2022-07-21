@@ -76,7 +76,7 @@
                     <a href="{{route('admin.restaurants.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-utensils"></i>
                         <p>
-                            Restaurants
+                            Branches
 
                         </p>
                     </a>
