@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Area;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class AreaController extends Controller
 {
@@ -14,7 +15,7 @@ class AreaController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.areas.index');
     }
 
     /**
@@ -24,7 +25,7 @@ class AreaController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.areas.create');
     }
 
     /**
@@ -55,9 +56,10 @@ class AreaController extends Controller
      * @param  \App\Models\Area  $area
      * @return \Illuminate\Http\Response
      */
-    public function edit(Area $area)
+    public function edit($id)
     {
-        //
+        $area = Area::findOrFail($id);
+        return view('admin.areas.edit',compact('area'));
     }
 
     /**

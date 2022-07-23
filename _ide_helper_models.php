@@ -15,16 +15,21 @@ namespace App\Models{
  * App\Models\Area
  *
  * @property int $id
- * @property string $name
+ * @property string $name_en
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string $name_ar
+ * @property int $governate_id
+ * @property-read \App\Models\Governate $governate
  * @method static \Database\Factories\AreaFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Area newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Area newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Area query()
  * @method static \Illuminate\Database\Eloquent\Builder|Area whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Area whereGovernateId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Area whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Area whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Area whereNameAr($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Area whereNameEn($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Area whereUpdatedAt($value)
  */
 	class Area extends \Eloquent {}
@@ -260,6 +265,29 @@ namespace App\Models{
 
 namespace App\Models{
 /**
+ * App\Models\Governate
+ *
+ * @property int $id
+ * @property string $name_en
+ * @property string $name_ar
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Area[] $areas
+ * @property-read int|null $areas_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Governate newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Governate newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Governate query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Governate whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Governate whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Governate whereNameAr($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Governate whereNameEn($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Governate whereUpdatedAt($value)
+ */
+	class Governate extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\MealType
  *
  * @property int $id
@@ -335,6 +363,7 @@ namespace App\Models{
  * @property string $name_ar
  * @property string|null $facebook
  * @property string|null $instagram
+ * @property int|null $area
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Booking[] $bookings
  * @property-read int|null $bookings_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Cuisine[] $cuisines
@@ -365,6 +394,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant query()
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant slotBookable()
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereAddress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereArea($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereCoordinates($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereEmail($value)
@@ -490,6 +520,7 @@ namespace App\Models{
  * @property string|null $social_id
  * @property string|null $social_type
  * @property int|null $restaurant_id
+ * @property int $is_dark_mode
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Booking[] $bookings
  * @property-read int|null $bookings_count
  * @property-read string $initials
@@ -516,6 +547,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|User whereEmail($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereEmailVerifiedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereIsDarkMode($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereLandline($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereMobile($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereName($value)

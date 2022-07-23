@@ -73,6 +73,15 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{route('admin.areas.index')}}" class="nav-link">
+                        <i class="nav-icon fas fa-map"></i>
+                        <p>
+                            Areas
+
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{route('admin.restaurants.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-utensils"></i>
                         <p>

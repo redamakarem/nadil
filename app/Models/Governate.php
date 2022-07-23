@@ -5,18 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Area extends Model
+class Governate extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'name_en',
         'name_ar',
-        'governate_id',
     ];
 
 
-    public function governate()
+    public function areas()
     {
-        return $this->belongsTo(Governate::class);
+        return $this->hasMany(Area::class);
     }
 }

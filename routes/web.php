@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\RestaurantsController;
 use App\Http\Controllers\Admin\RolesController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CuisineController;
+use App\Http\Controllers\Admin\AreaController;
 use App\Http\Controllers\GoogleSocialiteController;
 use App\Http\Controllers\RestaurantAdmin\CatalogueCategory\CatalogueCategoryController;
 use App\Http\Controllers\RestaurantAdmin\Dish\DishesController as RADishesController;
@@ -12,6 +13,7 @@ use App\Http\Controllers\RestaurantAdmin\Restaurant\RestaurantController;
 use App\Http\Controllers\RestaurantAdmin\ScheduleController as RAScheduleController;
 use App\Http\Controllers\RestaurantAdmin\Booking\BookingController as RABookingController;
 use App\Http\Controllers\RestaurantAdmin\Table\TableController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -204,6 +206,12 @@ Route::group(['prefix' => 'admin', 'middleware'=>['auth','role:super-admin']],fu
 
     Route::get('contact-messages',[\App\Http\Controllers\Admin\ContactMessagesController::class,'index'])
         ->name('admin.contact-messages.index');
+
+    // Areas
+
+    Route::get('areas',[AreaController::class,'index'])->name('admin.areas.index');
+    Route::get('areas/create',[AreaController::class,'create'])->name('admin.areas.create');
+    Route::get('areas/edit/{id}',[AreaController::class,'edit'])->name('admin.areas.edit');
 });
 
 

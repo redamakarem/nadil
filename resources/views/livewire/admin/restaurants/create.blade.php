@@ -48,6 +48,21 @@
                                wire:model="coordinates">
                         @error('coordinates')<p class="error">{{$message}}</p>@enderror
                     </div>
+                    <div class="form-group">
+                        <label for="area">{{__('Area')}}</label>
+                        <select name="area" id="area" wire:model='form_data.area' class="form-control">
+                            <option value="">{{__('Select Area')}}</option>
+                            @foreach ($governates as $governate )
+                                <optgroup label="{{$governate->name_en}}">
+                                    @foreach ($governate->areas as $area )
+                            <option value="{{$area->id}}">{{$area->name_en}}</option>
+                            @endforeach
+                                </optgroup>
+                            @endforeach
+                            
+                        </select>
+                        @error('form_data.area')<p class="error">{{$message}}</p>@enderror
+                    </div>
 
                     <div class="form-group">
                         <label for="restaurant_image">Restaurant Image</label>
@@ -92,7 +107,7 @@
                     </div>
                     <div class="form-group " wire:ignore>
                         <label>Owner</label>
-                        <select class="select2"
+                        <select class="form-control"
                                 id="owner" name="user_id" wire:model.defer="form_data.user_id"
                                 data-placeholder="Select owner" style="width: 100%">
                             <option value="">Select User</option>

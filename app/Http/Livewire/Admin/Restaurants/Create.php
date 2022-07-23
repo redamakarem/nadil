@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin\Restaurants;
 
 use App\Models\Cuisine;
+use App\Models\Governate;
 use App\Models\MealType;
 use App\Models\Restaurant;
 use App\Models\User;
@@ -20,6 +21,7 @@ class Create extends Component
     public $users;
     public $cuisines;
     public $meal_types;
+    public $governates;
     public $coordinates= '';
     public $is_active = false;
 
@@ -68,7 +70,9 @@ class Create extends Component
         $this->form_data['meal_types'] = [];
         $this->form_data['facebook'] = '';
         $this->form_data['instagram'] = '';
+        $this->form_data['area'] = '';
         $this->users = User::role('restaurant-admin')->get();
+        $this->governates = Governate::all();
     }
 
 
@@ -76,13 +80,9 @@ class Create extends Component
     public function submit()
     {
 
-//        dd($this->form_data);
 
         $coords_json = json_decode($this->coordinates);
-//        dd($coords_json->lat);
         $this->validate();
-
-
         $new_restaurant = Restaurant::create(
             [
                 'name_en' => $this->form_data['name_en'],
