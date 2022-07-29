@@ -63,6 +63,42 @@
                         </select>
                         @error('form_data.area')<p class="error">{{$message}}</p>@enderror
                     </div>
+                    <div class="form-group">
+                        <label for="block">{{__('Enter block')}}</label>
+                        <input type="number" step="1" name="block" class="form-control"
+                               id="block" placeholder="Enter block" wire:model.defer="form_data.block">
+                        @error('form_data.block')<p class="error">{{$message}}</p>@enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="street_en">{{__('Enter Street (English)')}}</label>
+                        <input type="text" name="street_en" class="form-control"
+                               id="street_en" placeholder="{{__('Enter Street (English)')}}" wire:model.defer="form_data.street_en">
+                        @error('form_data.street_en')<p class="error">{{$message}}</p>@enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="street_ar">{{__('Enter Street (Arabic)')}}</label>
+                        <input type="text" name="street_ar" class="form-control"
+                               id="street_ar" placeholder="{{__('Enter Street (Arabic)')}}" wire:model.defer="form_data.street_ar">
+                        @error('form_data.street_ar')<p class="error">{{$message}}</p>@enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="building">{{__('Enter building')}}</label>
+                        <input type="number" name="building" class="form-control"
+                               id="building" placeholder="Enter building" wire:model.defer="form_data.building">
+                        @error('form_data.building')<p class="error">{{$message}}</p>@enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="floor">{{__('Enter floor')}}</label>
+                        <input type="number" name="floor" class="form-control"
+                               id="floor" placeholder="Enter floor" wire:model.defer="form_data.floor">
+                        @error('form_data.floor')<p class="error">{{$message}}</p>@enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="flat">{{__('Enter flat')}}</label>
+                        <input type="number" name="flat" class="form-control"
+                               id="flat" placeholder="Enter flat" wire:model.defer="form_data.flat">
+                        @error('form_data.flat')<p class="error">{{$message}}</p>@enderror
+                    </div>
 
                     <div class="form-group">
                         <label for="restaurant_image">Restaurant Image</label>

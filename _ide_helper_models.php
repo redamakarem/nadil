@@ -364,6 +364,12 @@ namespace App\Models{
  * @property string|null $facebook
  * @property string|null $instagram
  * @property int|null $area
+ * @property int|null $block
+ * @property string|null $street_en
+ * @property string|null $street_ar
+ * @property int|null $building
+ * @property int|null $floor
+ * @property int|null $flat
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Booking[] $bookings
  * @property-read int|null $bookings_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Cuisine[] $cuisines
@@ -395,11 +401,15 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant slotBookable()
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereAddress($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereArea($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereBlock($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereBuilding($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereCoordinates($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereEmail($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereEstimatedDiningTime($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereFacebook($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereFlat($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereFloor($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereInstagram($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereIsActive($value)
@@ -408,6 +418,8 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereNameAr($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereNameEn($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant wherePhone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereStreetAr($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereStreetEn($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereUserId($value)
  */
