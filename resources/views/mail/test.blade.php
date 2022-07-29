@@ -16,7 +16,7 @@
                         <td colspan="2"  style="padding: 40px 0px; text-align: center;">
                             <table id="grey-part" width="90%" style="background-color: #EDEFF0;margin:auto;border-radius: 96px;min-height: 200px;">
                                 <tr>
-                                    <td colspan="2" style="text-align: center;">Hello</td>
+                                    <td colspan="2" style="text-align: center;">Hello {{$user->name}}</td>
                                 </tr>
                             </table>
                         </td>
