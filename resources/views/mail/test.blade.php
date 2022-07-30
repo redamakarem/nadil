@@ -10,7 +10,7 @@
     <table id="outer" width="100%" style="margin: 0 auto; background-color: #000;">
         <tr style="">
             <td style="text-align: center;"><img style="margin: auto;" src="https://nadil.generalsenses.com/images/logo@2x.png" alt=""></td>
-            <td></td>
+            
         </tr>
         <tr>
             <td colspan="2">
