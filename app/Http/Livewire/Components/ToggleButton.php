@@ -16,7 +16,6 @@ class ToggleButton extends Component
     public function mount()
     {
         $this->is_checked = (bool) $this->model->getAttribute($this->field);
-        dd($this->model);
     }
 
     public function render()

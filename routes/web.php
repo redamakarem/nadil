@@ -40,12 +40,6 @@ Route::get('/contact',[\App\Http\Controllers\SiteController::class,'contact'])
 Route::get('/user-register',[\App\Http\Controllers\SiteController::class,'userRegister'])
     ->name('site.user-register');
 
-Route::get('/test-mail', function (){
-    \Illuminate\Support\Facades\Mail::to('test@test.com')->send(new \App\Mail\RestaurantRegistered());
-
-});
-
-
 
 Route::get('/test-map', function (){
     return view('site.test-map');
@@ -81,6 +75,7 @@ Route::group(['prefix' => 'admin', 'middleware'=>['auth','role:super-admin']],fu
     Route::get('/',[\App\Http\Controllers\Admin\AdminController::class,'index'])->name('admin.index');
 
     Route::get('user/{user}/impersonate', [UserController::class,'impersonate'])->name('users.impersonate');
+   
 
     //Restaurants
     Route::get('/restaurants',[\App\Http\Controllers\Admin\RestaurantsController::class,'index'])
@@ -105,6 +100,8 @@ Route::group(['prefix' => 'admin', 'middleware'=>['auth','role:super-admin']],fu
         ->name('admin.users.create');
     Route::get('/users/edit/{id}',[UserController::class,'edit'])
         ->name('admin.users.edit');
+    Route::get('/users/role/{id}',[UserController::class,'byRole'])
+        ->name('admin.users.roles');
 
     //Roles
 

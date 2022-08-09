@@ -38,6 +38,7 @@ class Edit extends Component
         'dish.restaurant_id' => ['required'],
         'dish.menu_id' => ['required'],
         'dish.cuisine_id' => ['required'],
+        'dish.isActive' => ['sometimes'],
         'selected_cuisine' => ['required'],
     ];
 

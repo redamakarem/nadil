@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -16,6 +17,14 @@ class UserController extends Controller
     public function index()
     {
         return view('admin.users.index');
+    }
+
+
+    public function byRole($role_id)
+    {
+
+        $users = Role::with('users')->findOrFail($role_id)->users;
+        return view('admin.users.roles',compact(['users']));
     }
 
     /**

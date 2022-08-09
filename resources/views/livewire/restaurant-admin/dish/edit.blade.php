@@ -74,6 +74,13 @@
                     @endforeach
                 </select>
             </div>
+            <div class="form-group">
+                <label>{{__('Active')}}</label>
+                <livewire:components.toggle-button
+                    :model="$dish"
+                    field="isActive"
+                    key="{{ $dish->id }}"/>
+            </div>
 
 
         </div>
