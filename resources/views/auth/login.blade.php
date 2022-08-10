@@ -25,7 +25,7 @@
                            class="flex items-center w-full ltr:font-lato rtl:font-ahlan ltr:placeholder:font-bold text-[19px] rtl:placeholder:font-normal ltr:tracking-[4px] rtl:tracking-normal uppercase border-[#707070] border-2 p-4 rounded-[19px]">
                 </div>
                 <div class="w-full">
-                    <a href="{{route('password.reset')}}">{{__('Forgot Password')}}</a>
+                    <a href="{{route('password.request')}}">{{__('Forgot Password')}}</a>
                 </div>
                 <div class="flex w-full justify-end">
                     <button type="submit"
