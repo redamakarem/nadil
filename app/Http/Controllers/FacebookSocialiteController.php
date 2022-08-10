@@ -41,7 +41,7 @@ class FacebookSocialiteController extends Controller
                     'social_type' => 'facebook',
                     'password' => encrypt('my-facebook')
                 ]);
-                $newUser->assignRole(3);
+                $newUser->assignRole(8);
 
                 Auth::login($newUser);
 
