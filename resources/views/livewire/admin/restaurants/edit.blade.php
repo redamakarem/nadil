@@ -55,6 +55,57 @@
                         @error('coordinates')<p class="error">{{$message}}</p>@enderror
                     </div>
                     <div class="form-group">
+                        <label for="area">{{__('Area')}}</label>
+                        <select name="area" id="area" wire:model='area' class="form-control">
+                            <option value="">{{__('Select Area')}}</option>
+                            @foreach ($governates as $governate )
+                                <optgroup label="{{$governate->name_en}}">
+                                    @foreach ($governate->areas as $area )
+                            <option value="{{$area->id}}">{{$area->name_en}}</option>
+                            @endforeach
+                                </optgroup>
+                            @endforeach
+                            
+                        </select>
+                        @error('area')<p class="error">{{$message}}</p>@enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="block">{{__('Enter block')}}</label>
+                        <input type="number" step="1" name="block" class="form-control"
+                               id="block" placeholder="Enter block" wire:model.defer="restaurant.block">
+                        @error('restaurant.block')<p class="error">{{$message}}</p>@enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="street_en">{{__('Enter Street (English)')}}</label>
+                        <input type="text" name="street_en" class="form-control"
+                               id="street_en" placeholder="{{__('Enter Street (English)')}}" wire:model.defer="restaurant.street_en">
+                        @error('restaurant.street_en')<p class="error">{{$message}}</p>@enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="street_ar">{{__('Enter Street (Arabic)')}}</label>
+                        <input type="text" name="street_ar" class="form-control"
+                               id="street_ar" placeholder="{{__('Enter Street (Arabic)')}}" wire:model.defer="restaurant.street_ar">
+                        @error('restaurant.street_ar')<p class="error">{{$message}}</p>@enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="building">{{__('Enter building')}}</label>
+                        <input type="number" name="building" class="form-control"
+                               id="building" placeholder="Enter building" wire:model.defer="restaurant.building">
+                        @error('restaurant.building')<p class="error">{{$message}}</p>@enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="floor">{{__('Enter floor')}}</label>
+                        <input type="number" name="floor" class="form-control"
+                               id="floor" placeholder="Enter floor" wire:model.defer="restaurant.floor">
+                        @error('restaurant.floor')<p class="error">{{$message}}</p>@enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="flat">{{__('Enter flat')}}</label>
+                        <input type="number" name="flat" class="form-control"
+                               id="flat" placeholder="Enter flat" wire:model.defer="restaurant.flat">
+                        @error('restaurant.flat')<p class="error">{{$message}}</p>@enderror
+                    </div>
+                    <div class="form-group">
                         <label>Image</label>
                         <x-media-library-attachment name="restaurant_image"/>
                     </div>
