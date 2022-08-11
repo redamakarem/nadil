@@ -10,14 +10,15 @@ use Spatie\MediaLibraryPro\Http\Livewire\Concerns\WithMedia;
 class Create extends Component
 {
     use WithMedia;
-    public $name;
+    public $name_en;
     public $name_ar;
     public $mediaComponentNames = ['cuisine_image'];
     public $cuisine_image;
 
 
     protected $rules = [
-        'name' => ['required'],
+        'name_en' => ['required'],
+        'name_ar' => ['required'],
         'cuisine_image' => ['required'],
 
     ];
@@ -38,7 +39,7 @@ class Create extends Component
     {
         $this->validate();
         $new_cuisine = Cuisine::create([
-            'name_en' => $this->name,
+            'name_en' => $this->name_en,
             'name_ar' => $this->name_ar,
         ]);
         $new_cuisine->addFromMediaLibraryRequest($this->cuisine_image)->toMediaCollection('cuisine_images');
