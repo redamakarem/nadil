@@ -1641,6 +1641,9 @@ select {
     --tw-text-opacity: 1;
     color: rgb(67 56 202 / var(--tw-text-opacity));
 }
+.text-opacity-100 {
+    --tw-text-opacity: 1;
+}
 .underline {
     -webkit-text-decoration-line: underline;
             text-decoration-line: underline;
@@ -1661,6 +1664,9 @@ select {
 }
 .opacity-100 {
     opacity: 1;
+}
+.opacity-50 {
+    opacity: 0.5;
 }
 .bg-blend-darken {
     background-blend-mode: darken;
