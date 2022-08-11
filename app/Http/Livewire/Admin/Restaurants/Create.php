@@ -108,6 +108,13 @@ class Create extends Component
                 'estimated_dining_time' => $this->form_data['estimated_dining_time'],
                 'facebook' => $this->form_data['facebook'],
                 'instagram' => $this->form_data['instagram'],
+                'area' => $this->form_data['area'],
+                'block' => $this->form_data['block'],
+                'street_en' => $this->form_data['street_en'],
+                'street_ar' => $this->form_data['street_ar'],
+                'building' => $this->form_data['building'],
+                'floor' => $this->form_data['floor'],
+                'flat' => $this->form_data['flat'],
             ]
         );
         $new_restaurant->cuisines()->attach($this->form_data['cuisines']);
