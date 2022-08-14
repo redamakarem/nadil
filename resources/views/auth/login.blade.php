@@ -24,8 +24,9 @@
                     <input type="password" placeholder="{{__('nadil.auth.password')}}" name="password"
                            class="flex items-center w-full ltr:font-lato rtl:font-ahlan ltr:placeholder:font-bold text-[19px] rtl:placeholder:font-normal ltr:tracking-[4px] rtl:tracking-normal uppercase border-[#707070] border-2 p-4 rounded-[19px]">
                 </div>
-                <div class="w-full">
+                <div class="w-full flex justify-between">
                     <a href="{{route('password.request')}}">{{__('Forgot Password')}}</a>
+                    <a href="{{route('site.user-register')}}">{{__('Register')}}</a>
                 </div>
                 <div class="flex w-full justify-end">
                     <button type="submit"
