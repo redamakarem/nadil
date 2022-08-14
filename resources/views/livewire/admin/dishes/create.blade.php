@@ -79,7 +79,7 @@
                         data-placeholder="Select menu" >
                     <option value="0">{{__('Select Category')}}</option>
                     @foreach($categories as $category)
-                        <option value="{{$category->id}}">{{$category->name}}</option>
+                        <option value="{{$category->id}}">{{$category->name_en}}</option>
                     @endforeach
                 </select>
             </div>
