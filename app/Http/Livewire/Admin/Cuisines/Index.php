@@ -12,7 +12,7 @@ class Index extends Component
     public $idToRemove;
 
 
-    protected $listeners = ['deleteConfirmed' => 'deleteCuisine'];
+    protected $listeners = ['cuisineDeleteConfirmed' => 'deleteCuisine'];
 
 
 

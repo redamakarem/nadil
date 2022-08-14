@@ -38,7 +38,7 @@
                                         <a class="dropdown-item" href="#">View</a>
                                         <a class="dropdown-item" href="#">Edit</a>
                                         <a class="dropdown-item" href="#"
-                                           wire:click.prevent="confirmRestaurantDeletion({{$restaurant->id}})">Delete</a>
+                                           wire:click.prevent="confirmDishDeletion({{$dish->id}})">Delete</a>
                                         <a class="dropdown-item" href="#">Menus</a>
                                     </div>
                                 </div>
@@ -73,7 +73,7 @@
                 confirmButtonText: 'Yes, delete it!'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    Livewire.emit('deleteConfirmed')
+                    Livewire.emit('dishDeleteConfirmed')
                 }
             })
         })
