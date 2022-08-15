@@ -58,16 +58,16 @@ class SiteController extends Controller
         $agent = new Agent();
         $restaurant = Restaurant::with('schedules')->findOrFail($restaurant_id);
 
-        $schedule = $restaurant->schedules->filter(function ($item) {
-            if (Carbon::now()->between($item->from_date, $item->to_date)) {
-                return $item;
-            }
-        })->first();
-        if ($schedule) {
-            $slots = $this->getTimeSlots($schedule->from_time, "{$schedule->slot_length} minutes", $schedule->to_time);
-        } else {
-            $slots = [];
-        }
+        // $schedule = $restaurant->schedules->filter(function ($item) {
+        //     if (Carbon::now()->between($item->from_date, $item->to_date)) {
+        //         return $item;
+        //     }
+        // })->first();
+        // if ($schedule) {
+        //     $slots = $this->getTimeSlots($schedule->from_time, "{$schedule->slot_length} minutes", $schedule->to_time);
+        // } else {
+        //     $slots = [];
+        // }
         if ($agent->isMobile()) {
             return view('site.mobile.restaurant-booking', compact('restaurant'));
         } else {
