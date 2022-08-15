@@ -2,6 +2,7 @@
 
 namespace App\Listeners;
 
+use App\Mail\TestMail;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Facades\Mail;
@@ -27,6 +28,6 @@ class UserRegisteredListener
      */
     public function handle(\App\Events\UserRegistered $event)
     {
-        Mail::to($event->user->email)->send(new UserRegisteredMail($event->user));
+        Mail::to($event->user->email)->send(new TestMail($event->user));
     }
 }
