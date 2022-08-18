@@ -922,6 +922,9 @@ select {
 .w-\[1920px\] {
     width: 1920px;
 }
+.w-\[400px\] {
+    width: 400px;
+}
 .max-w-md {
     max-width: 28rem;
 }

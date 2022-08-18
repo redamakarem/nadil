@@ -5,7 +5,7 @@
     <div id="page-content" class="flex flex-grow flex-col w-[80%] max-w-12xl mx-auto py-[80px] ">
         <div class="flex">
             <div id="restaurant-details"
-                 class="flex flex-col items-center w-1/4 rounded-[64px] border-2 bg-white">
+                 class="flex flex-col items-center w-[400px] rounded-[64px] border-2 bg-white">
                 <h2 class="text-4xl tracking-widest mt-16 uppercase text-center">{{ $restaurant->{'name_'.app()->getLocale()}  }}</h2>
                 <hr class="h-1 w-48 mt-4" />
                 <h3 class="uppercase font-din text-xl tracking-[6px] mt-3">Kuwait City</h3>
