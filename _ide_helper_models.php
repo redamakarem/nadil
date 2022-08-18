@@ -370,6 +370,7 @@ namespace App\Models{
  * @property int|null $building
  * @property int|null $floor
  * @property int|null $flat
+ * @property-read \App\Models\Area|null $areaa
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Booking[] $bookings
  * @property-read int|null $bookings_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Cuisine[] $cuisines

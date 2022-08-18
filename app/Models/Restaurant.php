@@ -56,6 +56,11 @@ class Restaurant extends Model implements HasMedia
         return $this->hasMany(DishesMenu::class,'restaurant_id','id');
     }
 
+    public function areaa()
+    {
+        return $this->belongsTo(Area::class,'area','id');
+    }
+
     public function dishes()
     {
         return $this->hasMany(Dish::class);
