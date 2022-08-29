@@ -6,9 +6,9 @@
         <div class="flex">
             <div id="restaurant-details"
                  class="flex flex-col items-center w-[400px] rounded-[64px] border-2 bg-white">
-                <h2 class="text-4xl tracking-widest mt-16 uppercase text-center">{{ $restaurant->{'name_'.app()->getLocale()}  }}</h2>
+                <h2 class="ltr:font-lato rtl:font-ahlan text-4xl ltr:tracking-widest rtl:tracking-normal mt-16 uppercase text-center">{{ $restaurant->{'name_'.app()->getLocale()}  }}</h2>
                 <hr class="h-1 w-48 mt-4" />
-                <h3 class="uppercase font-din text-xl tracking-[6px] mt-3">{{$restaurant->areaa->governate->{'name_'.app()->getLocale()} }}</h3>
+                <h3 class="uppercase ltr:font-din rtl:font-ahlan text-xl ltr:tracking-[6px] rtl:tracking-normal mt-3">{{$restaurant->areaa->governate->{'name_'.app()->getLocale()} }}</h3>
                 <a href="{{route('site.restaurants.book',$restaurant->id)}}" class="uppercase mt-12 px-16 py-6 bg-nadilBtn-100 ltr:tracking-[6px] rtl:tracking-normal rounded-[19px]">{{__('nadil.booking.book_now')}}</a>
                 <div class="uppercase mt-12 text-center tracking-[6px]">{{$restaurant->areaa->governate->{'name_'.app()->getLocale()} }}</div>
                 <div class="uppercase  text-center font-din text-[10px] tracking-[3px]">{{$restaurant->areaa->{'name_'.app()->getLocale()} }}</div>
