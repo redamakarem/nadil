@@ -10,8 +10,8 @@
                 <hr class="h-1 w-48 mt-4" />
                 <h3 class="uppercase ltr:font-din rtl:font-ahlan text-xl ltr:tracking-[6px] rtl:tracking-normal mt-3">{{$restaurant->areaa->governate->{'name_'.app()->getLocale()} }}</h3>
                 <a href="{{route('site.restaurants.book',$restaurant->id)}}" class="uppercase mt-12 px-16 py-6 bg-nadilBtn-100 ltr:tracking-[6px] rtl:tracking-normal rounded-[19px]">{{__('nadil.booking.book_now')}}</a>
-                <div class="uppercase mt-12 text-center tracking-[6px]">{{$restaurant->areaa->governate->{'name_'.app()->getLocale()} }}</div>
-                <div class="uppercase  text-center font-din text-[10px] tracking-[3px]">{{$restaurant->areaa->{'name_'.app()->getLocale()} }}</div>
+                <div class="uppercase mt-12 text-center tracking-[6px] rtl:font-ahlan rtl:tracking-normal">{{$restaurant->areaa->governate->{'name_'.app()->getLocale()} }}</div>
+                <div class="uppercase  text-center font-din text-[10px] tracking-[3px] rtl:font-ahlan rtl:tracking-normal">{{$restaurant->areaa->{'name_'.app()->getLocale()} }}</div>
                 <div class="px-8 flex w-full">
                     <div id="googleMap" class="flex mt-6 flex-grow rounded-[64px] h-[183px] shadow-md"></div>
                 </div>
