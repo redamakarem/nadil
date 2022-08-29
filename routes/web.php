@@ -291,7 +291,7 @@ Route::group(['prefix' => 'user', 'middleware'=>['auth','role:user']],function()
 
     Route::get('/restaurant/{id}/book',[\App\Http\Controllers\SiteController::class,'book_restaurant'])
     ->name('site.restaurants.book');
-    Route::get('/booking/thanks',[\App\Http\Controllers\SiteController::class,'show_booking_confirmation'])
+    Route::get('/booking/{id}/thanks',[\App\Http\Controllers\SiteController::class,'show_booking_confirmation'])
     ->name('site.bookings.confirmation');
 });
 
