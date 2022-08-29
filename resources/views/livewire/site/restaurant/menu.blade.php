@@ -11,8 +11,8 @@
             @foreach($category->dishes  as $dish)
                 @if (!$dish->is_featured)
                 <div class="dish-container my-4 ">
-                    <div class="flex flex-col font-lato font-bold uppercase tracking-[4px] text-2xl text-center">{{ $dish->{'name_'.app()->getLocale()} }}</div>
-                    <div class="flex flex-col font-lato tracking-[4px] text-[22px] text-center">{{$dish->description}}</div>
+                    <div class="flex flex-col ltr:font-lato rtl:font-ahlan font-bold uppercase ltr:tracking-[4px] rtl:tracking-normal text-2xl text-center">{{ $dish->{'name_'.app()->getLocale()} }}</div>
+                    <div class="flex flex-col ltr:font-lato rtl:font-ahlan ltr:tracking-[4px] rtl:tracking-normal text-[22px] text-center">{{$dish->description}}</div>
                 </div>
 
                 @else
