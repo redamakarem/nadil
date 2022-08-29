@@ -45,7 +45,7 @@
                             <a href="{{route('site.restaurants.view',['id'=>$meal_restaurant->id])}}">
                                 <h4 class="text-center text-white text-[18px] ltr:tracking-[2px] rtl:tracking-normal ltr:font-lato rtl:font-ahlan text-opacity-100">{{ $meal_restaurant->{'name_'.app()->getLocale()}  }}</h4>
                                 <div
-                                    class="address text-center text-white text-[18px] ltr:tracking-[2px] rtl:tracking-normal ltr:font-lato rtl:font-ahlan text-opacity-100">{{ $meal_restaurant->{'name_'.app()->getLocale()}  }}</div>
+                                    class="address text-center text-white text-[18px] ltr:tracking-[2px] rtl:tracking-normal ltr:font-lato rtl:font-ahlan text-opacity-100">{{ $meal_restaurant->areaa->{'name_'.app()->getLocale()}  }}</div>
                             </a>
                         </div>
                     @endforeach
