@@ -12,7 +12,7 @@
                 @if (!$dish->is_featured)
                 <div class="dish-container my-4 ">
                     <div class="flex flex-col ltr:font-lato rtl:font-ahlan font-bold uppercase ltr:tracking-[4px] rtl:tracking-normal text-2xl text-center">{{ $dish->{'name_'.app()->getLocale()} }}</div>
-                    <div class="flex flex-col ltr:font-lato rtl:font-ahlan ltr:tracking-[4px] rtl:tracking-normal text-[22px] text-center">{{$dish->description}}</div>
+                    <div class="flex flex-col ltr:font-lato rtl:font-ahlan ltr:tracking-[4px] rtl:tracking-normal text-[22px] text-center">{{$dish->{'description_'.app()->getLocale()}}}</div>
                 </div>
 
                 @else
@@ -22,7 +22,7 @@
                     </div>
                     <div class="w-3/4 flex flex-col ">
                         <div class="flex flex-col ltr:font-lato rtl:font-ahlan font-bold uppercase ltr:tracking-[4px] rtl:tracking-normal text-[22px] text-center">{{ $dish->{'name_'.app()->getLocale()} }}</div>
-                        <div class="flex flex-col ltr:font-lato rtl:font-ahlan ltr:tracking-[4px] rtl:tracking-normal text-[22px] text-center">{{$dish->description}}</div>
+                        <div class="flex flex-col ltr:font-lato rtl:font-ahlan ltr:tracking-[4px] rtl:tracking-normal text-[22px] text-center">{{$dish->{'description_'.app()->getLocale()}}}</div>
                     </div>
                 </div>
                 @endif
