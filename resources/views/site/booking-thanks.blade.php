@@ -38,7 +38,7 @@
                  class="flex flex-col space-y-12 items-center flex-1 px-16 py-16 min-h-80 rounded-[64px] border-2 bg-white">
                 <div class="h-24 flex justify-center items-center uppercase font-lato font-bold mt-12 px-16 py-6 bg-nadilBtn-100 ltr:tracking-[6px] rtl:tracking-normal rounded-[19px]">Your order has been placed</div>
                 <img src="{{asset('/images/booking-thanks.png')}}" alt="booking thanks">
-                <div>Order #456789</div>
+                <div>Order #{{ $booking->id }}</div>
                 <div class="flex w-full justify-end">
                     <a href="#" class="uppercase mt-12 px-16 py-6 bg-nadilBg-100 shadow-md ltr:tracking-[6px] rtl:tracking-normal rounded-[19px]">Back to menu</a>
                 </div>
