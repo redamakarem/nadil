@@ -21,8 +21,8 @@
                         <img src="{{$dish->getFirstMediaUrl('dish_images')}}" alt="" class="rounded-full h-24 w-24 shadow-md">
                     </div>
                     <div class="w-3/4 flex flex-col ">
-                        <div class="flex flex-col font-lato font-bold uppercase tracking-[4px] text-[22px] text-center">{{ $dish->{'name_'.app()->getLocale()} }}</div>
-                        <div class="flex flex-col font-lato tracking-[4px] text-[22px] text-center">{{$dish->description}}</div>
+                        <div class="flex flex-col ltr:font-lato rtl:font-ahlan font-bold uppercase ltr:tracking-[4px] rtl:tracking-normal text-[22px] text-center">{{ $dish->{'name_'.app()->getLocale()} }}</div>
+                        <div class="flex flex-col ltr:font-lato rtl:font-ahlan ltr:tracking-[4px] rtl:tracking-normal text-[22px] text-center">{{$dish->description}}</div>
                     </div>
                 </div>
                 @endif
