@@ -171,7 +171,7 @@ class Show extends Component
                 ]);
             }
             // event(new App\Events\NewBookingEvent($this->restaurant->owner, $this->booking));
-            $this->redirect(route('admin.cuisines.index',$this->booking));
+            $this->redirect(route('site.bookings.confirmation',$this->booking));
         } else {
             $this->addError('booking_seats', 'Not enough seats for selected date and time');
         }
