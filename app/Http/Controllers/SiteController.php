@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booking;
 use App\Models\Cuisine;
 use App\Models\MealType;
 use App\Models\Restaurant;
@@ -57,17 +58,6 @@ class SiteController extends Controller
     {
         $agent = new Agent();
         $restaurant = Restaurant::with('schedules')->findOrFail($restaurant_id);
-
-        // $schedule = $restaurant->schedules->filter(function ($item) {
-        //     if (Carbon::now()->between($item->from_date, $item->to_date)) {
-        //         return $item;
-        //     }
-        // })->first();
-        // if ($schedule) {
-        //     $slots = $this->getTimeSlots($schedule->from_time, "{$schedule->slot_length} minutes", $schedule->to_time);
-        // } else {
-        //     $slots = [];
-        // }
         if ($agent->isMobile()) {
             return view('site.mobile.restaurant-booking', compact('restaurant'));
         } else {
@@ -106,5 +96,11 @@ class SiteController extends Controller
     {
         $restaurants = Cuisine::findOrFail($cuisine)->restaurants;
         return view('site.restaurants-by-cuisine',compact(['restaurants']));
+    }
+
+    public function show_booking_confirmation($booking_id)
+    {
+        $booking = Booking::findOrFail($booking_id);
+        return view('site.booking-thanks',compact('booking'));
     }
 }

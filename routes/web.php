@@ -13,7 +13,7 @@ use App\Http\Controllers\RestaurantAdmin\Restaurant\RestaurantController;
 use App\Http\Controllers\RestaurantAdmin\ScheduleController as RAScheduleController;
 use App\Http\Controllers\RestaurantAdmin\Booking\BookingController as RABookingController;
 use App\Http\Controllers\RestaurantAdmin\Table\TableController;
-
+use App\Models\Restaurant;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -291,6 +291,8 @@ Route::group(['prefix' => 'user', 'middleware'=>['auth','role:user']],function()
 
     Route::get('/restaurant/{id}/book',[\App\Http\Controllers\SiteController::class,'book_restaurant'])
     ->name('site.restaurants.book');
+    Route::get('/booking/thanks',[\App\Http\Controllers\SiteController::class,'show_booking_confirmation'])
+    ->name('site.bookings.confirmation');
 });
 
 
