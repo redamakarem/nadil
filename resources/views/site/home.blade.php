@@ -24,7 +24,7 @@
                 @foreach($restaurants as $restaurant)
                     <div class="item flex flex-col justify-center rounded-xl border-2 h-32 font-lato"
                          style="background-image:url('{{$restaurant->getFirstMediaUrl('restaurant_images')}}'); background-size: cover">
-                        <a href="{{route('site.restaurants.view',['id'=>$restaurant->id])}}" class="flex flex-col justify-center w-full h-full bg-black rounded-xl bg-opacity-75">
+                        <a href="{{route('site.restaurants.view',['id'=>$restaurant->id])}}" class="flex flex-col justify-center w-full h-full bg-black rounded-xl bg-opacity-50">
                             <h4 class="text-center font-bold ltr:font-lato rtl:font-ahlan text-white uppercase text-[26px] ltr:tracking-[2px] rtl:tracking-normal text-opacity-100">{{ $restaurant->{'name_'.app()->getLocale()}  }}</h4>
                             <div
                                 class="address text-center text-white uppercase text-[18px] ltr:tracking-[2px] rtl:tracking-normal ltr:font-lato rtl:font-ahlan text-opacity-100">{{ $restaurant->areaa->{'name_'.app()->getLocale()}  }}</div>
@@ -42,7 +42,7 @@
                     @foreach($meal_type->restaurants as $meal_restaurant)
                         <div class="item flex flex-col justify-center rounded-xl border-2 h-32 shadow-md font-lato"
                              style="background-image:url('{{$meal_restaurant->getFirstMediaUrl('restaurant_images')}}'); background-size: cover">
-                            <a href="{{route('site.restaurants.view',['id'=>$meal_restaurant->id])}}">
+                            <a href="{{route('site.restaurants.view',['id'=>$meal_restaurant->id])}}" class="flex flex-col justify-center w-full h-full bg-black rounded-xl bg-opacity-50">
                                 <h4 class="text-center uppercase text-white text-[18px] ltr:tracking-[2px] rtl:tracking-normal ltr:font-lato rtl:font-ahlan text-opacity-100">{{ $meal_restaurant->{'name_'.app()->getLocale()}  }}</h4>
                                 <div
                                     class="address text-center uppercase text-white text-[18px] ltr:tracking-[2px] rtl:tracking-normal ltr:font-lato rtl:font-ahlan text-opacity-100">{{ $meal_restaurant->areaa->{'name_'.app()->getLocale()}  }}</div>
