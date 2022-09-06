@@ -53,11 +53,11 @@ Route::get('restaurant-registration',[\App\Http\Controllers\RestaurantRegistrati
 Route::mediaLibrary();
 
 
-Route::get('auth/google', [GoogleSocialiteController::class, 'redirectToGoogle']);
-Route::get('callback/google', [GoogleSocialiteController::class, 'handleCallback']);
+Route::get('auth/google', [GoogleSocialiteController::class, 'redirectToGoogle'])->name('site.auth.google');
+Route::get('callback/google', [GoogleSocialiteController::class, 'handleCallback'])->name('site.auth.google-callback');
 
-Route::get('auth/facebook', [\App\Http\Controllers\FacebookSocialiteController::class, 'redirectToFacebook']);
-Route::get('callback/facebook', [\App\Http\Controllers\FacebookSocialiteController::class, 'handleCallback']);
+Route::get('auth/facebook', [\App\Http\Controllers\FacebookSocialiteController::class, 'redirectToFacebook'])->name('site.auth.facebook');
+Route::get('callback/facebook', [\App\Http\Controllers\FacebookSocialiteController::class, 'handleCallback'])->name('site.auth.facebook-callback');
 
 Route::get('auth/twitter', [\App\Http\Controllers\TwitterSocialiteController::class, 'redirectToTwitter']);
 Route::get('callback/twitter', [\App\Http\Controllers\TwitterSocialiteController::class, 'handleCallback']);

@@ -36,5 +36,10 @@
             </form>
         </div>
     </div> --}}
-@livewire('site.auth.login')
+
+    <div class="flex space-x-8 w-[80%] mx-auto">
+        <div class="flex flex-col justify-center flex-1">@livewire('site.auth.login')</div>
+        <div class="flex flex-col justify-center flex-1">@livewire('site.user.register')</div>
+    </div>
+
 @endsection
