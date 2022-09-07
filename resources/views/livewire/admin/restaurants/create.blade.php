@@ -114,12 +114,12 @@
                                id="phone" placeholder="Ex: 25555555" wire:model.defer="form_data.phone">
                         @error('phone')<p class="error">{{$message}}</p>@enderror
                     </div>
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <label>Address</label>
                         <textarea class="form-control"
                                   rows="3" name="address" wire:model.defer="form_data.address"
                                   placeholder="Address..."></textarea>
-                    </div>
+                    </div> --}}
 
                     <div class="form-group" wire:ignore>
                         <label>Cuisines</label>

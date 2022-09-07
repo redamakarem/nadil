@@ -34,7 +34,7 @@ class Login extends Component
             }
             return redirect()->intended(RouteServiceProvider::HOME);
     }else{
-        session()->flash('error', 'email and password are wrong.');
+        $this->addError('bad_credentials', 'Wrong username or password');
     }
     }
 }

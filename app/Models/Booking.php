@@ -20,6 +20,7 @@ class Booking extends Model
         'booking_time',
         'seats',
         'booking_end_time',
+        'booking_code',
     ];
 
 
