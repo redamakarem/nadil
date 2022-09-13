@@ -19,7 +19,7 @@ class SiteController extends Controller
     public function index()
     {
         $agent = new Agent();
-        $restaurants = Restaurant::all();
+        $restaurants = Restaurant::publishable()->get();
         $cuisines = Cuisine::all();
         $meal_types = MealType::with('restaurants')->get();
         if ($agent->isMobile()) {

@@ -284,7 +284,7 @@ Route::group(['prefix' => 'restaurant-admin', 'middleware'=>['auth','role:restau
 });
 
 
-Route::group(['prefix' => 'user', 'middleware'=>['auth','role:user']],function(){
+Route::group(['prefix' => 'user', 'middleware'=>['auth','role:user','ensure_password_changed']],function(){
     Route::get('/profile',[\App\Http\Controllers\Site\UserController::class,'profile'])->name('user.profile.show');
     Route::get('/profile/edit',[\App\Http\Controllers\Site\UserController::class,'profile_edit'])->name('user.profile.edit');
     Route::get('/history',[\App\Http\Controllers\Site\UserController::class,'history'])->name('user.history.show');

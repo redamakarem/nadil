@@ -26,7 +26,6 @@ class Restaurant extends Model implements HasMedia
         'street_ar',
         'building',
         'floor',
-        'flat',
         'image',
         'phone',
         'user_id',
@@ -101,6 +100,10 @@ class Restaurant extends Model implements HasMedia
     {
         $this->dd('YAAS');
         return $query;
+    }
+    public function scopePublishable(Builder $query)
+    {
+        return $query->whereHas('menus')->whereHas('menus');
     }
 
     public function scopeHasScheduleForDate(Builder $query, $date)

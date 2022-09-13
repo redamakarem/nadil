@@ -10,18 +10,7 @@
             <form method="POST" wire:submit.prevent="submit">
                 @csrf
                 <div class="card-body">
-                    <div class="form-group">
-                        @if($errors->any())
-                            <div class="alert alert-danger">
-                                <p><strong>Opps Something went wrong</strong></p>
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
-                    </div>
+                    
                     <div class="form-group">
                         <label for="name_en">Name</label>
                         <input type="text" name="name_en" class="form-control"
@@ -114,6 +103,18 @@
                         <input type="text" name="instagram" class="form-control"
                                id="instagram" placeholder="Eg: www.instagram.com" wire:model.defer="restaurant.instagram">
                         @error('restaurant.facebook')<p class="error">{{$message}}</p>@enderror
+                    </div>
+                    <div class="form-group">
+                        @if($errors->any())
+                            <div class="alert alert-danger">
+                                <p><strong>Opps Something went wrong</strong></p>
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                     </div>
                 </div>
                 <!-- /.card-body -->

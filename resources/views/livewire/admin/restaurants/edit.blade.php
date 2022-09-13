@@ -11,18 +11,7 @@
 
             <form wire:submit.prevent = "submit">
                 <div class="card-body">
-                    <div class="form-group">
-                        @if($errors->any())
-                            <div class="alert alert-danger">
-                                <p><strong>Opps Something went wrong</strong></p>
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
-                    </div>
+                    
                     <div class="form-group">
                         <label for="name_en">English Name</label>
                         <input type="text" name="name_en" class="form-control" id="name_en" placeholder="Enter name" wire:model="restaurant.name_en">
@@ -99,12 +88,12 @@
                                id="floor" placeholder="Enter floor" wire:model.defer="restaurant.floor">
                         @error('restaurant.floor')<p class="error">{{$message}}</p>@enderror
                     </div>
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <label for="flat">{{__('Enter flat')}}</label>
                         <input type="number" name="flat" class="form-control"
                                id="flat" placeholder="Enter flat" wire:model.defer="restaurant.flat">
                         @error('restaurant.flat')<p class="error">{{$message}}</p>@enderror
-                    </div>
+                    </div> --}}
                     <div class="form-group">
                         <label>Image</label>
                         <x-media-library-attachment name="restaurant_image"/>
@@ -159,9 +148,26 @@
                         <label for="name">Max Party Size</label>
                         <input type="text" name="name" class="form-control" id="name" placeholder="Enter name" wire:model="restaurant.max_party_size">
                     </div>
+                    <div class="form-group" wire:ignore>
+                        <label>{{__('Estimated Dining Time')}}</label>
+                        <select class="select2 form-control" style="width: 100%;"
+                                id="estimated_dining_time" wire:model.defer="restaurant.estimated_dining_time"
+                                data-placeholder="Select cuisine(s)" >
+                            <option value="5">5 min</option>
+                            <option value="15">15 min</option>
+                        </select>
+                    </div>
                     <div class="form-group">
-                        <label for="name">Estimated Dining Time</label>
-                        <input type="text" name="name" class="form-control" id="name" placeholder="Eg: 45" wire:model="restaurant.estimated_dining_time">
+                        @if($errors->any())
+                            <div class="alert alert-danger">
+                                <p><strong>Opps Something went wrong</strong></p>
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                     </div>
 
                     </div>

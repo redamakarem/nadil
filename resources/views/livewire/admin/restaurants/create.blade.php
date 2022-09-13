@@ -10,18 +10,7 @@
             <form method="POST" wire:submit.prevent="submit">
                 @csrf
                 <div class="card-body">
-                    <div class="form-group">
-                        @if($errors->any())
-                            <div class="alert alert-danger">
-                                <p><strong>Opps Something went wrong</strong></p>
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
-                    </div>
+                    
                     <div class="form-group">
                         <label for="name_en">Name</label>
                         <input type="text" name="name_en" class="form-control"
@@ -93,12 +82,12 @@
                                id="floor" placeholder="Enter floor" wire:model.defer="form_data.floor">
                         @error('form_data.floor')<p class="error">{{$message}}</p>@enderror
                     </div>
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <label for="flat">{{__('Enter flat')}}</label>
                         <input type="number" name="flat" class="form-control"
                                id="flat" placeholder="Enter flat" wire:model.defer="form_data.flat">
                         @error('form_data.flat')<p class="error">{{$message}}</p>@enderror
-                    </div>
+                    </div> --}}
 
                     <div class="form-group">
                         <label for="restaurant_image">Restaurant Image</label>
@@ -158,11 +147,14 @@
                                id="name" placeholder="Enter name" wire:model.defer="form_data.max_party_size">
                         @error('form_data.max_party_size')<p class="error">{{$message}}</p>@enderror
                     </div>
-                    <div class="form-group">
-                        <label for="name">Estimated Dining Time</label>
-                        <input type="text" name="name" class="form-control"
-                               id="estimated_dining_time" placeholder="Eg: 45" wire:model.defer="form_data.estimated_dining_time">
-                        @error('form_data.estimated_dining_time')<p class="error">{{$message}}</p>@enderror
+                    <div class="form-group" wire:ignore>
+                        <label>{{__('Estimated Dining Time')}}</label>
+                        <select class="select2 form-control" style="width: 100%;"
+                                id="estimated_dining_time" wire:model.defer="form_data.estimated_dining_time"
+                                data-placeholder="Select cuisine(s)" >
+                            <option value="5">5 min</option>
+                            <option value="15">15 min</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="facebook">Facebook</label>
@@ -175,6 +167,18 @@
                         <input type="text" name="instagram" class="form-control"
                                id="instagram" placeholder="Eg: www.instagram.com" wire:model.defer="form_data.instagram">
                         @error('form_data.facebook')<p class="error">{{$message}}</p>@enderror
+                    </div>
+                    <div class="form-group">
+                        @if($errors->any())
+                            <div class="alert alert-danger">
+                                <p><strong>Opps Something went wrong</strong></p>
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                     </div>
                 </div>
                 <!-- /.card-body -->

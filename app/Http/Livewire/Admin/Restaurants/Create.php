@@ -46,7 +46,6 @@ class Create extends Component
         'form_data.street_ar' => 'required',
         'form_data.building' => 'sometimes|numeric',
         'form_data.floor' => 'sometimes|numeric',
-        'form_data.flat' => 'sometimes|numeric',
         'form_data.facebook' => 'sometimes',
         'form_data.instagram' => 'sometimes',
         'is_active' => 'sometimes',
@@ -82,7 +81,7 @@ class Create extends Component
         $this->form_data['street_ar'] = '';
         $this->form_data['building'] = '';
         $this->form_data['floor'] = '';
-        $this->form_data['flat'] = '';
+        $this->form_data['estimated_dining_time'] = 5;
         $this->users = User::role('restaurant-admin')->get();
         $this->governates = Governate::all();
     }
@@ -114,7 +113,6 @@ class Create extends Component
                 'street_ar' => $this->form_data['street_ar'],
                 'building' => $this->form_data['building'],
                 'floor' => $this->form_data['floor'],
-                'flat' => $this->form_data['flat'],
             ]
         );
         $new_restaurant->cuisines()->attach($this->form_data['cuisines']);

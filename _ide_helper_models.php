@@ -49,6 +49,7 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string $booking_end_time
+ * @property string $booking_code
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\DiningTable[] $reserved_tables
  * @property-read int|null $reserved_tables_count
  * @property-read \App\Models\Restaurant $restaurant
@@ -57,6 +58,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Booking newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Booking newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Booking query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Booking whereBookingCode($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Booking whereBookingDate($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Booking whereBookingEndTime($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Booking whereBookingTime($value)
@@ -398,6 +400,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant hasScheduleForDate($date)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant publishable()
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant query()
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant slotBookable()
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereAddress($value)

@@ -14,7 +14,7 @@
                         <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg" 
                         type="text" name="restaurant_name" id="restaurant_name" placeholder="Date">
                         <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg" 
-                        type="text" name="restaurant_name" id="restaurant_name" placeholder="Time">
+                        type="text" name="search_time" id="search_time" placeholder="Time">
                         <button class="font-lato border-none px-4 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg" 
                         type="submit">{{__('Search')}}</button>
                     </div>
@@ -66,6 +66,30 @@
         </div>
     </div>
 @endsection
+
+
+@push('styles')
+    <link rel="stylesheet" href="{{asset('pickadate/lib/themes/default.css')}}">
+    <link rel="stylesheet" href="{{asset('pickadate/lib/themes/default.date.css')}}">
+    <link rel="stylesheet" href="{{asset('pickadate/lib/themes/default.time.css')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+@endpush
+@push('scripts')
+
+    <script src="{{asset('pickadate/lib/compressed/picker.js')}}"></script>
+    <script src="{{asset('pickadate/lib/compressed/picker.date.js')}}"></script>
+    <script src="{{asset('pickadate/lib/compressed/picker.time.js')}}"></script>
+    <script src="{{asset('pickadate/lib/compressed/legacy.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <script>
+        jQuery('#search_time').pickatime({
+  interval: 15
+})
+    </script>
+
+    @endpush
 
 
 

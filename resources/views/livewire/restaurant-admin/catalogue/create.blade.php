@@ -6,18 +6,7 @@
     <!-- form start -->
     <form wire:submit.prevent="submit">
         <div class="card-body">
-            <div class="form-group">
-                @if($errors->any())
-                    <div class="alert alert-danger">
-                        <p><strong>Opps Something went wrong</strong></p>
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-            </div>
+            
 
             <div class="form-group">
                 <label for="name">Menu Name</label>
@@ -43,6 +32,18 @@
                 <label for="end_time">End Time</label>
                 <input wire:model="end_time"
                        type="text" class="form-control ptime" id="end_time" placeholder="Choose end time">
+            </div>
+            <div class="form-group">
+                @if($errors->any())
+                    <div class="alert alert-danger">
+                        <p><strong>Opps Something went wrong</strong></p>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
             </div>
 
         </div>

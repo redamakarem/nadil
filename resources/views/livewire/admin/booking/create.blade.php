@@ -34,7 +34,7 @@
                     </div>
                     <div class="form-group">
                         <label for="user">User</label>
-                        <select class="select2 form-control"
+                        <select class="select2 form-control" 
                                 id="user" wire:model="selected_user"
                                 data-placeholder="Select owner" style="width: 100%">
                             <option value="">Select User</option>
