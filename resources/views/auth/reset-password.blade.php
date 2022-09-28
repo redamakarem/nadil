@@ -48,7 +48,7 @@
 {{--</x-guest-layout>--}}
 
 
-@extends('layouts.site')
+@extends('layouts.site-tw')
 @section('content')
     <div class="container page-login">
         <div class="v-middle">

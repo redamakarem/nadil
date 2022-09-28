@@ -2,13 +2,14 @@
 
 namespace App\Http\Livewire\Site\User;
 
-use App\Events\UserRegistered;
-use App\Models\Profile;
 use App\Models\User;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
+use App\Models\Profile;
 use Livewire\Component;
+use App\Events\UserRegistered;
+use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Password;
 
 class Register extends Component
 {
@@ -30,10 +31,7 @@ class Register extends Component
         return [
             'profile.name' =>['required'],
             'profile.email' =>['required','unique:users,email','email'],
-            'profile.phone' =>['required'],
-            'profile.gender' =>['sometimes','integer'],
-            'password' =>['required','confirmed'],
-            'date_of_birth' =>['required'],
+            
 
         ];
     }
@@ -45,17 +43,17 @@ class Register extends Component
             $new_user = User::create([
                 'name' => $this->profile->name,
                 'email' => $this->profile->email,
-                'password' => Hash::make($this->password)
+                'password' => Hash::make('passw0rd')
             ]);
-            $this->profile->dob = $this->date_of_birth;
             $this->profile->user_id = $new_user->id;
-            $this->profile->address = 'test';
+            $this->profile->gender = 1;
             $new_user->assignRole('user');
             $new_user->save();
             $this->profile->save();
+            $this->perform_password_reset();
             event(new UserRegistered($new_user));
             $this->resetFields();
-            session()->flash('success','Registered Successfully');
+            session()->flash('success','Check your email to set your password');
         });
 
 
@@ -65,7 +63,6 @@ class Register extends Component
 
     private function resetFields()
     {
-        $this->reset(['password','password_confirmation','date_of_birth']);
         $this->user = new User();
         $this->profile = new Profile();
     }
@@ -75,5 +72,15 @@ class Register extends Component
         return view('livewire.site.user.register');
     }
 
+    private function perform_password_reset()
+    {
+        $status = Password::sendResetLink(
+            ['email' => $this->profile->email]
+        );
+     
+        return $status === Password::RESET_LINK_SENT
+                    ? back()->with(['status' => __($status)])
+                    : back()->withErrors(['email' => __($status)]);
+    }
 
 }

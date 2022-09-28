@@ -39,6 +39,18 @@
     })();
   </script>
   <!-- End Matomo Code -->
+
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DYHE5KYQK3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DYHE5KYQK3');
+</script>
+
   
 </head>
 <body class="ltr:font-lato rtl:font-ahlan rtl:tracking-normal rtl:font-normal">

@@ -100,7 +100,7 @@
                     <input type="text" placeholder="Name" wire:model.lazy="profile.name"
                            class="flex items-center w-full font-lato placeholder:font-bold text-[19px] tracking-[4px] uppercase border-[#707070] border-2 p-4 rounded-[19px]">
                 </div>
-                <div class="w-full">
+                {{-- <div class="w-full">
                     <div
                         class="flex items-center w-full bg-white font-lato placeholder:font-bold text-[19px] tracking-[4px] uppercase border-[#707070] border-2 p-4 rounded-[19px] space-x-4">
                         <div>
@@ -117,28 +117,27 @@
                 <div class="w-full" wire:ignore>
                     <input id="dob" type="text" placeholder="Date of Birth" wire:model.lazy="date_of_birth"
                            class="flex items-center w-full font-lato placeholder:font-bold text-[19px] tracking-[4px] uppercase border-[#707070] border-2 p-4 rounded-[19px]">
-                </div>
+                </div> --}}
                 <div class="w-full">
                     <input type="text" placeholder="Email" wire:model.lazy="profile.email"
                            class="flex items-center w-full font-lato placeholder:font-bold text-[19px] tracking-[4px] uppercase border-[#707070] border-2 p-4 rounded-[19px]">
                 </div>
 
-                <div class="w-full">
+                {{-- <div class="w-full">
                     <input type="text" placeholder="Your Mobile Number" wire:model.lazy="profile.phone"
                            class="flex items-center w-full font-lato placeholder:font-bold text-[19px] tracking-[4px] uppercase border-[#707070] border-2 p-4 rounded-[19px]">
-                </div>
-                <div class="w-full">
+                </div> --}}
+                {{-- <div class="w-full">
                     <input type="password" placeholder="Password" wire:model.lazy="password"
                            class="flex items-center w-full font-lato placeholder:font-bold text-[19px] tracking-[4px] uppercase border-[#707070] border-2 p-4 rounded-[19px]">
                 </div>
                 <div class="w-full">
                     <input type="password" placeholder="Confirm Password" wire:model.lazy="password_confirmation"
                            class="flex items-center w-full font-lato placeholder:font-bold text-[19px] tracking-[4px] uppercase border-[#707070] border-2 p-4 rounded-[19px]">
-                </div>
+                </div> --}}
                 <div class="flex w-full justify-end">
                     <button type="submit"
-                            class="font-lato uppercase px-12 py-4 bg-white shadow-md rounded-[12px] tracking-[4px] font-bold">All
-                        Done!
+                            class="font-lato uppercase px-12 py-4 bg-white shadow-md rounded-[12px] tracking-[4px] font-bold">Register!
                     </button>
                 </div>
             </form>
