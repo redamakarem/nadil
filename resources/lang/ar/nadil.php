@@ -28,4 +28,7 @@ return array (
     'settings' => 'الاعدادات',
     'signup' => 'انشاء حساب',
   ),
+  'lang' => array(
+    'en' => 'En'
+  )
 );

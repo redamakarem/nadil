@@ -91,8 +91,8 @@
                             @foreach (config('app.available_locales') as $locale)
                                 @if (app()->getLocale() != $locale)
                                 <a href="{{ request()->url() }}?language={{ $locale }}"
-                                   class="inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium leading-5 focus:outline-none transition duration-150 ease-in-out text-white">
-                                    [{{ strtoupper($locale) }}]
+                                   class="inline-flex items-center px-1 pt-1 text-sm font-medium leading-5 focus:outline-none transition duration-150 ease-in-out text-white ltr:font-ahlan rtl:font-lato text-xl">
+                                    {{__('nadil.lang.'.$locale)}}
                                 </a>
                                 @endif
                             @endforeach

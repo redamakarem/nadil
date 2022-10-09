@@ -1981,6 +1981,9 @@ select {
 [dir="ltr"] .ltr\:font-din {
     font-family: DIN-Medium;
 }
+[dir="ltr"] .ltr\:font-ahlan {
+    font-family: Ahlan-Regular;
+}
 [dir="ltr"] .ltr\:font-bold {
     font-weight: 700;
 }
@@ -2019,6 +2022,9 @@ select {
 }
 [dir="rtl"] .rtl\:font-ahlan {
     font-family: Ahlan-Regular;
+}
+[dir="rtl"] .rtl\:font-lato {
+    font-family: Lato;
 }
 [dir="rtl"] .rtl\:font-normal {
     font-weight: 400;

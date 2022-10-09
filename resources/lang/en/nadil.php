@@ -24,6 +24,10 @@
             'email' => 'Email',
             'password' => 'Password',
             'login' => 'Login',
+        ],
+        'lang' => [
+            'ar' =>'ع'
         ]
+
 
     ];
