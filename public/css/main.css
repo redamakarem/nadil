@@ -1264,9 +1264,6 @@ select {
     --tw-bg-opacity: 1;
     background-color: rgb(241 245 249 / var(--tw-bg-opacity));
 }
-.bg-opacity-75 {
-    --tw-bg-opacity: 0.75;
-}
 .bg-opacity-50 {
     --tw-bg-opacity: 0.5;
 }
@@ -1527,11 +1524,11 @@ select {
 .font-medium {
     font-weight: 500;
 }
-.font-thin {
-    font-weight: 100;
-}
 .font-bold {
     font-weight: 700;
+}
+.font-thin {
+    font-weight: 100;
 }
 .font-semibold {
     font-weight: 600;

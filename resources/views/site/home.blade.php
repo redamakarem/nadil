@@ -20,17 +20,21 @@
                     </div>
                 </form>
             </div>
-            <div class="owl-carousel owl-theme mb-8">
-                @foreach($restaurants as $restaurant)
-                    <div class="item flex flex-col justify-center rounded-xl border-2 h-32 font-lato"
-                         style="background-image:url('{{$restaurant->getFirstMediaUrl('restaurant_images')}}'); background-size: cover">
-                        <a href="{{route('site.restaurants.view',['id'=>$restaurant->id])}}" class="flex flex-col justify-center w-full h-full bg-black rounded-xl bg-opacity-50">
-                            <h4 class="text-center font-bold ltr:font-lato rtl:font-ahlan text-white uppercase text-[26px] ltr:tracking-[2px] rtl:tracking-normal text-opacity-100">{{ $restaurant->{'name_'.app()->getLocale()}  }}</h4>
-                            <div
-                                class="address text-center text-white uppercase text-[18px] ltr:tracking-[2px] rtl:tracking-normal ltr:font-lato rtl:font-ahlan text-opacity-100">{{ $restaurant->areaa->{'name_'.app()->getLocale()}  }}</div>
-                        </a>
-                    </div>
-                @endforeach
+            <div class="carousel-container flex items-center">
+                <div class="carousel-nav prev w-12 h-8"><i class="fa-solid fa-chevron-left"></i></div>
+                <div class="restaurant-carousel owl-carousel owl-theme mb-8">
+                    @foreach($restaurants as $restaurant)
+                        <div class="item flex flex-col justify-center rounded-xl border-2 h-32 font-lato"
+                             style="background-image:url('{{$restaurant->getFirstMediaUrl('restaurant_images')}}'); background-size: cover">
+                            <a href="{{route('site.restaurants.view',['id'=>$restaurant->id])}}" class="flex flex-col justify-center w-full h-full bg-black rounded-xl bg-opacity-50">
+                                <h4 class="text-center font-bold ltr:font-lato rtl:font-ahlan text-white uppercase text-[26px] ltr:tracking-[2px] rtl:tracking-normal text-opacity-100">{{ $restaurant->{'name_'.app()->getLocale()}  }}</h4>
+                                <div
+                                    class="address text-center text-white uppercase text-[18px] ltr:tracking-[2px] rtl:tracking-normal ltr:font-lato rtl:font-ahlan text-opacity-100">{{ $restaurant->areaa->{'name_'.app()->getLocale()}  }}</div>
+                            </a>
+                        </div>
+                    @endforeach
+                </div>
+                <div class="carousel-nav next w-12 h-8"><i class="fa-solid fa-chevron-right"></i></div>
             </div>
 
             {{--   Restaurants by meal types     --}}
