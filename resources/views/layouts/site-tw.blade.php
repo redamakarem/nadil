@@ -206,7 +206,7 @@
         }
     });
     $('.next').click(function() {
-    owl.trigger('next.owl.carousel');
+        res_carousel.trigger('next.owl.carousel');
 })
 
     $('.owl-carousel-mobile').owlCarousel({
