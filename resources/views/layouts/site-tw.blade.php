@@ -189,7 +189,7 @@
 
 <script>
     $('.owl-carousel').owlCarousel({
-        loop: false,
+        loop: true,
         rtl:{{app()->getLocale()=='ar'?'true':'false'}},
         margin: 10,
         responsive: {
