@@ -188,7 +188,8 @@
 <script src="//unpkg.com/alpinejs" defer></script>
 
 <script>
-    $('.owl-carousel').owlCarousel({
+    var res_carousel = $('.owl-carousel');
+    res_carousel.owlCarousel({
         loop: true,
         rtl:{{app()->getLocale()=='ar'?'true':'false'}},
         margin: 10,
