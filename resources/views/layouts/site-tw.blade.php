@@ -204,7 +204,10 @@
                 items: 4
             }
         }
-    })
+    });
+    $('.next').click(function() {
+    owl.trigger('next.owl.carousel');
+})
 
     $('.owl-carousel-mobile').owlCarousel({
         loop: true,
