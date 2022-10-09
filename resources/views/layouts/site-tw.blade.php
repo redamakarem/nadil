@@ -208,6 +208,9 @@
     $('.next').click(function() {
         res_carousel.trigger('next.owl.carousel');
 })
+    $('.prev').click(function() {
+        res_carousel.trigger('prev.owl.carousel');
+})
 
     $('.owl-carousel-mobile').owlCarousel({
         loop: true,
