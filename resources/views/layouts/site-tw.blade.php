@@ -113,11 +113,11 @@
                             class="bg-gray-400 px-11  rounded-md uppercase font-lato rtl:font-ahlan rtl:tracking-normal rtl:font-normal text-sm ltr:font-semibold py-4 px-16 tracking-[4px] rounded-[19px]"
                         >{{__('nadil.menu.discover')}}</a
                         >
-                        <a
+                        {{-- <a
                             href="{{route('user.history.show')}}"
                             class="bg-gray-400 px-11  rounded-md uppercase rtl:font-ahlan rtl:tracking-normal rtl:font-normal font-lato text-sm ltr:font-semibold py-4 px-16 ltr:tracking-[4px] rtl:tracking-normal rounded-[19px]"
                         >{{__('nadil.menu.reservations')}}</a
-                        >
+                        > --}}
                         <a
                             href="{{route('user.profile.show')}}"
                             class="bg-gray-400 px-11  rounded-md uppercase font-lato rtl:font-ahlan rtl:tracking-normal rtl:font-normal text-sm ltr:font-semibold py-4 px-16 tracking-[4px] rounded-[19px]"
@@ -167,6 +167,16 @@
 </div>
 {{--    </div>--}}
 
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DYHE5KYQK3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DYHE5KYQK3');
+</script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
         integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="

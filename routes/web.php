@@ -39,6 +39,8 @@ Route::get('/contact',[\App\Http\Controllers\SiteController::class,'contact'])
     ->name('site.contact');
 Route::get('/user-register',[\App\Http\Controllers\SiteController::class,'userRegister'])
     ->name('site.user-register');
+Route::get('/about',[\App\Http\Controllers\SiteController::class,'about'])
+    ->name('site.about');
 
 
 Route::get('/test-map', function (){

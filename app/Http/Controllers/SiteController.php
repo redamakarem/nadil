@@ -98,6 +98,11 @@ class SiteController extends Controller
         return view('site.restaurants-by-cuisine',compact(['restaurants']));
     }
 
+    public function about()
+    {
+        return view('site.about');
+    }
+
     public function show_booking_confirmation($booking_id)
     {
         $booking = Booking::findOrFail($booking_id);

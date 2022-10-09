@@ -12,7 +12,7 @@
                class="py-6 px-12 flex flex-1 justify-center rounded-xl shadow-md w-full bg-nadilBtn-100 font-lato font-bold uppercase tracking-[6px]">Account Details</a>
         </div>
         <div class="">
-            <a href="#"
+            <a href="{{ route('user.history.show') }}"
                class="py-6 px-12 flex flex-1 justify-center rounded-xl shadow-md w-full bg-nadilBtn-100 font-lato font-bold uppercase tracking-[6px]">History</a>
         </div>
         <div class="">

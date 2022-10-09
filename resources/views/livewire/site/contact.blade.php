@@ -60,7 +60,7 @@
     <div class="w-[31%] flex flex-col justify-center px-12 space-y-8">
         <h2 class="font-din text-[20px] uppercase tracking-[6px] text-center">Contact Us</h2>
         <a href="#" class="font-lato font-bold uppercase text-md text-center tracking-[6px] p-8 font-bold shadow-md rounded-[19px] bg-[#f8f8f8] border-[#707070]">Contact Us</a>
-        <a href="#" class="font-lato font-bold uppercase text-md text-center tracking-[6px] p-8 font-bold shadow-md rounded-[19px] bg-[#f8f8f8] border-[#707070]">Join Us</a>
+        <a href="{{route('site.about')}}" class="font-lato font-bold uppercase text-md text-center tracking-[6px] p-8 font-bold shadow-md rounded-[19px] bg-[#f8f8f8] border-[#707070]">Join Us</a>
     </div>
     <div class="w-2/3 flex-1 flex-col items-center ">
         <div class="flex flex-col w-full rounded-[64px] border-2 bg-[#EFEFEF] my-12 px-16 py-12 space-y-8">
