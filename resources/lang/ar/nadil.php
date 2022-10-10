@@ -29,6 +29,6 @@ return array (
     'signup' => 'انشاء حساب',
   ),
   'lang' => array(
-    'en' => 'En'
+    'en' => 'English'
   )
 );
