@@ -188,35 +188,7 @@
 <script src="//unpkg.com/alpinejs" defer></script>
 
 <script>
-    var res_carousel = $('.owl-carousel');
-    res_carousel.owlCarousel({
-        loop: true,
-        rtl:{{app()->getLocale()=='ar'?'true':'false'}},
-        margin: 10,
-        responsive: {
-            0: {
-                items: 1
-            },
-            600: {
-                items: 3
-            },
-            1000: {
-                items: 4
-            }
-        }
-    });
-    $('.next').click(function() {
-        res_carousel.trigger('next.owl.carousel');
-})
-    $('.prev').click(function() {
-        res_carousel.trigger('prev.owl.carousel');
-})
-
-    $('.owl-carousel-mobile').owlCarousel({
-        loop: true,
-        margin: 10,
-        items: 1
-    })
+    
 </script>
 @livewireScripts
 @stack('scripts')
