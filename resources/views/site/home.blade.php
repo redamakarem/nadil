@@ -24,13 +24,19 @@
                 <form action="#" class="mb-6">
                     <div class="flex my-4">
                         <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg" 
-                        type="text" name="restaurant_name" id="restaurant_name" placeholder="Search">
-                        <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg" 
-                        type="text" name="restaurant_name" id="restaurant_name" placeholder="# of people">
-                        <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg" 
                         type="text" name="restaurant_name" id="restaurant_name" placeholder="Date">
+
                         <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg" 
                         type="text" name="search_time" id="search_time" placeholder="Time">
+
+                        <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg" 
+                        type="text" name="restaurant_name" id="restaurant_name" placeholder="# of people">
+
+                        <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg" 
+                        type="text" name="restaurant_name" id="restaurant_name" placeholder="Search">
+                        
+                        
+                        
                         <button class="font-lato border-none px-4 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg" 
                         type="submit">{{__('Search')}}</button>
                     </div>
