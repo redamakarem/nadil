@@ -92,7 +92,7 @@
   interval: 15
 })
 
-var res_carousel = $('.owl-carousel');
+var res_carousel = $('.restaurant-carousel');
     res_carousel.owlCarousel({
         loop: true,
         rtl:{{app()->getLocale()=='ar'?'true':'false'}},
