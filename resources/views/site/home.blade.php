@@ -21,7 +21,7 @@
                 </form>
             </div>
             <div class="relative carousel-container flex rtl:flex-row-reverse items-center">
-                <div class="absolute bg-blue-100 carousel-nav p-4 prev rounded-full top-0 z-10 -left-4"><i class="fa-solid fa-chevron-left"></i></div>
+                <div class="absolute bg-blue-100 carousel-nav p-4 prev rounded-full z-10 -left-4 top-[40%]"><i class="fa-solid fa-chevron-left"></i></div>
                 <div class="restaurant-carousel owl-carousel owl-theme mb-8">
                     @foreach($restaurants as $restaurant)
                         <div class="item flex flex-col justify-center rounded-xl border-2 h-32 font-lato"
@@ -34,7 +34,7 @@
                         </div>
                     @endforeach
                 </div>
-                <div class="absolute bg-blue-100 carousel-nav p-4 next rounded-full top-0 z-10 -right-4"><i class="fa-solid fa-chevron-right"></i></div>
+                <div class="absolute bg-blue-100 carousel-nav p-4 next rounded-full z-10 -right-4 top-[40%]"><i class="fa-solid fa-chevron-right"></i></div>
             </div>
 
             {{--   Restaurants by meal types     --}}
