@@ -148,7 +148,7 @@ meals_carousel = $('.meals-carousel');
         meals_carousel.trigger('prev.owl.carousel');
 })
 
-var cuisines_carousel = $('.restaurant-carousel');
+var cuisines_carousel = $('.cuisines-carousel');
     cuisines_carousel.owlCarousel({
         loop: true,
         rtl:{{app()->getLocale()=='ar'?'true':'false'}},
