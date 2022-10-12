@@ -20,7 +20,7 @@
                     </div>
                 </form>
             </div>
-            <div class="carousel-container flex rtl:flex-row-reverse items-center">
+            <div class="relative carousel-container flex rtl:flex-row-reverse items-center">
                 <div class="absolute bg-blue-100 carousel-nav p-4 prev rounded-full top-0 z-10"><i class="fa-solid fa-chevron-left"></i></div>
                 <div class="restaurant-carousel owl-carousel owl-theme mb-8">
                     @foreach($restaurants as $restaurant)
