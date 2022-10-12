@@ -20,6 +20,22 @@
                     </div>
                 </form>
             </div>
+            <div>
+                <form action="#" class="mb-6">
+                    <div class="flex my-4">
+                        <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg" 
+                        type="text" name="restaurant_name" id="restaurant_name" placeholder="Search">
+                        <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg" 
+                        type="text" name="restaurant_name" id="restaurant_name" placeholder="# of people">
+                        <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg" 
+                        type="text" name="restaurant_name" id="restaurant_name" placeholder="Date">
+                        <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg" 
+                        type="text" name="search_time" id="search_time" placeholder="Time">
+                        <button class="font-lato border-none px-4 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg" 
+                        type="submit">{{__('Search')}}</button>
+                    </div>
+                </form>
+            </div>
             <div class="relative carousel-container flex rtl:flex-row-reverse items-center">
                 <div class="absolute bg-nadilBtn-100 carousel-nav p-4 prev rounded-full z-10 -left-4 top-[30%] w-12 h-12 flex justify-center items-center shadow-md"><i class="fa-solid fa-chevron-left"></i></div>
                 <div class="restaurant-carousel owl-carousel owl-theme mb-8">
