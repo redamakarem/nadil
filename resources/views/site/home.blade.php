@@ -60,7 +60,9 @@
                 </div>
             @endforeach
             <div class="greeting uppercase font-lato text-[#454545]">{{__('Pick the cuisine')}}</div>
-            <div class="owl-carousel owl-theme">
+            <div class="relative carousel-container flex rtl:flex-row-reverse items-center">
+                <div class="absolute bg-nadilBtn-100 carousel-nav p-4 cuisines-prev rounded-full z-10 -left-4 top-[30%] w-12 h-12 flex justify-center items-center shadow-md"><i class="fa-solid fa-chevron-left"></i></div>
+            <div class="owl-carousel owl-theme cuisines-carousel">
                 @foreach($cuisines as $cuisine)
 
                     <a href="{{route('site.restaurants.cuisine',['cuisine' => $cuisine->id])}}">
@@ -70,6 +72,8 @@
                     </div>
                     </a>
                 @endforeach
+            </div>
+            <div class="absolute bg-nadilBtn-100 carousel-nav p-4 cuisines-next rounded-full z-10 -right-4 top-[30%] w-12 h-12 flex justify-center items-center shadow-md"><i class="fa-solid fa-chevron-right"></i></div>
             </div>
         </div>
     </div>
@@ -142,6 +146,30 @@ meals_carousel = $('.meals-carousel');
 })
     $('.meals-prev').click(function() {
         meals_carousel.trigger('prev.owl.carousel');
+})
+
+var cuisines_carousel = $('.restaurant-carousel');
+    cuisines_carousel.owlCarousel({
+        loop: true,
+        rtl:{{app()->getLocale()=='ar'?'true':'false'}},
+        margin: 10,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 3
+            },
+            1000: {
+                items: 4
+            }
+        }
+    });
+    $('.cuisines-next').click(function() {
+        cuisines_carousel.trigger('next.owl.carousel');
+})
+    $('.cuisines-prev').click(function() {
+        cuisines_carousel.trigger('prev.owl.carousel');
 })
 
     $('.owl-carousel-mobile').owlCarousel({
