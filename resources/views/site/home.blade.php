@@ -32,8 +32,12 @@
                         <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg" 
                         type="text" name="restaurant_name" id="restaurant_name" placeholder="# of people">
 
+                        <div class="w-48"></div>
+
                         <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg" 
                         type="text" name="restaurant_name" id="restaurant_name" placeholder="Search">
+
+                        <div class="w-48"></div>
                         
                         
                         
@@ -57,6 +61,8 @@
 
                         <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg" 
                         type="text" name="restaurant_name" id="restaurant_name" placeholder="Search">
+
+                        <div class="w-48"></div>
                         
                         
                         
