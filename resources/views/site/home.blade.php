@@ -42,7 +42,9 @@
 
             @foreach($meal_types as $meal_type)
                 <h2 class="mt-6 uppercase ltr:font-lato rtl:font-ahlan text-[#454545]">{{$meal_type->{'name_'.app()->getLocale()} }}</h2>
-                <div class="owl-carousel owl-theme mb-8">
+                <div class="relative carousel-container flex rtl:flex-row-reverse items-center">
+                    <div class="absolute bg-nadilBtn-100 carousel-nav p-4 meals-prev rounded-full z-10 -left-4 top-[30%] w-12 h-12 flex justify-center items-center shadow-md"><i class="fa-solid fa-chevron-left"></i></div>
+                <div class="owl-carousel owl-theme mb-8 meals-carousel">
                     @foreach($meal_type->restaurants as $meal_restaurant)
                         <div class="item flex flex-col justify-center rounded-xl border-2 h-32 shadow-md font-lato"
                              style="background-image:url('{{$meal_restaurant->getFirstMediaUrl('restaurant_images')}}'); background-size: cover">
@@ -53,6 +55,8 @@
                             </a>
                         </div>
                     @endforeach
+                </div>
+                <div class="absolute bg-nadilBtn-100 carousel-nav p-4 meals-next rounded-full z-10 -right-4 top-[30%] w-12 h-12 flex justify-center items-center shadow-md"><i class="fa-solid fa-chevron-right"></i></div>
                 </div>
             @endforeach
             <div class="greeting uppercase font-lato text-[#454545]">{{__('Pick the cuisine')}}</div>
@@ -114,6 +118,30 @@ var res_carousel = $('.restaurant-carousel');
 })
     $('.prev').click(function() {
         res_carousel.trigger('prev.owl.carousel');
+})
+
+meals_carousel = $('.meals-carousel');
+    meals_carousel.owlCarousel({
+        loop: true,
+        rtl:{{app()->getLocale()=='ar'?'true':'false'}},
+        margin: 10,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 3
+            },
+            1000: {
+                items: 4
+            }
+        }
+    });
+    $('.meals-next').click(function() {
+        meals_carousel.trigger('next.owl.carousel');
+})
+    $('.meals-prev').click(function() {
+        meals_carousel.trigger('prev.owl.carousel');
 })
 
     $('.owl-carousel-mobile').owlCarousel({
