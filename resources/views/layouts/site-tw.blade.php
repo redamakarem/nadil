@@ -88,7 +88,7 @@
                             
 
                         </div>
-                        <div class="flex justify-end items-end">
+                        <div class="flex justify-end items-end ">
                             <a
                                 href="#"
                                 class=" rounded-md uppercase ltr:font-lato rtl:font-ahlan rtl:font-normal text-sm ltr:font-semibold  text-[12px] text-white"
