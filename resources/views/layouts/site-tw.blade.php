@@ -87,7 +87,7 @@
                             >
                             <a
                                 href="#"
-                                class="bg-gray-400 px-11 rounded-md uppercase ltr:font-lato rtl:font-ahlan rtl:tracking-normal rtl:font-normal text-sm ltr:font-semibold py-4 px-16 tracking-[4px] rtl:tracking-normal rounded-[19px] text-[12px]"
+                                class=" rounded-md uppercase ltr:font-lato rtl:font-ahlan rtl:font-normal text-sm ltr:font-semibold  text-[12px] text-white"
                             >For Businesses</a
                             >
 
