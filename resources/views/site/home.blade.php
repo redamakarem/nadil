@@ -67,7 +67,7 @@
 
                         <div class="w-48"></div>                      
                         
-                        <button class="font-lato border-none px-12 py-6 uppercase bg-nadilBtn-100 shadow-md outline-none" 
+                        <button class="font-lato border-none px-12 py-6 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg" 
                         type="submit">{{__('Search')}}</button>
                     </div>
                 </form>
@@ -93,7 +93,7 @@
 
                         <div class="w-48"></div>                      
                         
-                        <button class="font-lato border-none px-12 py-6 uppercase bg-nadilBtn-100 shadow-md outline-none" 
+                        <button class="font-lato border-none px-12 py-6 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg" 
                         type="submit">{{__('Search')}}</button>
                     </div>
                 </form>
