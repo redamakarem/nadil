@@ -50,21 +50,19 @@
             <div>
                 <form action="#" class="mb-6">
                     <div class="flex my-4">
-                        <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg" 
+                        <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 outline-none rounded-lg" 
                         type="text" name="restaurant_name" id="restaurant_name" placeholder="Date">
 
-                        <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg" 
+                        <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 outline-none rounded-lg" 
                         type="text" name="search_time" id="search_time" placeholder="Time">
 
-                        <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg" 
+                        <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 outline-none rounded-lg" 
                         type="text" name="restaurant_name" id="restaurant_name" placeholder="# of people">
 
-                        <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg" 
+                        <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 outline-none rounded-lg" 
                         type="text" name="restaurant_name" id="restaurant_name" placeholder="Search">
 
-                        <div class="w-48"></div>
-                        
-                        
+                        <div class="w-48"></div>                      
                         
                         <button class="font-lato border-none px-4 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg" 
                         type="submit">{{__('Search')}}</button>
