@@ -67,11 +67,38 @@
 
                         <div class="w-48"></div>                      
                         
-                        <button class="font-lato border-none px-4 uppercase bg-nadilBtn-100 shadow-md outline-none" 
+                        <button class="font-lato border-none px-12 py-6 uppercase bg-nadilBtn-100 shadow-md outline-none" 
                         type="submit">{{__('Search')}}</button>
                     </div>
                 </form>
             </div>
+
+            <div>
+                <form action="#" class="mb-6">
+                    <div class="flex my-4 items-center">
+                        <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 outline-none rounded-l-lg" 
+                        type="text" name="restaurant_name" id="restaurant_name" placeholder="Date">
+                        <div class="bg-gray-600 w-[1px] h-[50px] opacity-30"></div>
+
+                        <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 outline-none" 
+                        type="text" name="search_time" id="search_time" placeholder="Time">
+                        <div class="bg-gray-600 w-[1px] h-[50px] opacity-30"></div>
+
+                        <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 outline-none mx-6" 
+                        type="text" name="restaurant_name" id="restaurant_name" placeholder="# of people">
+                        
+
+                        <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 outline-none rounded-r-lg" 
+                        type="text" name="restaurant_name" id="restaurant_name" placeholder="Search">
+
+                        <div class="w-48"></div>                      
+                        
+                        <button class="font-lato border-none px-12 py-6 uppercase bg-nadilBtn-100 shadow-md outline-none" 
+                        type="submit">{{__('Search')}}</button>
+                    </div>
+                </form>
+            </div>
+
             <div class="relative carousel-container flex rtl:flex-row-reverse items-center">
                 <div class="absolute bg-nadilBtn-100 carousel-nav p-4 prev rounded-full z-10 -left-4 top-[30%] w-12 h-12 flex justify-center items-center shadow-md"><i class="fa-solid fa-chevron-left"></i></div>
                 <div class="restaurant-carousel owl-carousel owl-theme mb-8">
