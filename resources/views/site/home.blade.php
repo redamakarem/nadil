@@ -84,11 +84,11 @@
                         type="text" name="search_time" id="search_time" placeholder="Time">
                         <div class="bg-gray-600 w-[1px] h-[50px] opacity-30"></div>
 
-                        <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 outline-none mx-6" 
+                        <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 outline-none rounded-r-lg" 
                         type="text" name="restaurant_name" id="restaurant_name" placeholder="# of people">
                         
 
-                        <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 outline-none rounded-r-lg" 
+                        <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 outline-none rounded-lg mx-6" 
                         type="text" name="restaurant_name" id="restaurant_name" placeholder="Search">
 
                         <div class="w-48"></div>                      
