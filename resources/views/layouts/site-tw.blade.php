@@ -92,8 +92,7 @@
                             <a
                                 href="#"
                                 class=" rounded-md uppercase ltr:font-lato rtl:font-ahlan rtl:font-normal text-sm ltr:font-semibold  text-[12px] text-white"
-                            >For Businesses</a
-                            >
+                            >For Businesses</a>
                             @foreach (config('app.available_locales') as $locale)
                                 @if (app()->getLocale() != $locale)
                                 <a href="{{ request()->url() }}?language={{ $locale }}"
