@@ -853,6 +853,9 @@ select {
 .h-\[1301px\] {
     height: 1301px;
 }
+.h-\[8px\] {
+    height: 8px;
+}
 .max-h-\[296px\] {
     max-height: 296px;
 }
@@ -936,6 +939,9 @@ select {
 }
 .w-\[1920px\] {
     width: 1920px;
+}
+.w-\[1px\] {
+    width: 1px;
 }
 .max-w-12xl {
     max-width: 120rem;
@@ -1276,6 +1282,10 @@ select {
 .bg-slate-100 {
     --tw-bg-opacity: 1;
     background-color: rgb(241 245 249 / var(--tw-bg-opacity));
+}
+.bg-gray-600 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(75 85 99 / var(--tw-bg-opacity));
 }
 .bg-opacity-50 {
     --tw-bg-opacity: 0.5;
