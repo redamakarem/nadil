@@ -4,75 +4,9 @@
     <div id="main-content" class="h-full">
         <div class="flex flex-col px-24 py-[80px]">
             <div class="greeting uppercase">So, What is the plan</div>
-            <div>
-                <form action="#" class="mb-6">
-                    <div class="flex justify-between my-4">
-                        <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg" 
-                        type="text" name="restaurant_name" id="restaurant_name" placeholder="Search">
-                        <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg" 
-                        type="text" name="restaurant_name" id="restaurant_name" placeholder="# of people">
-                        <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg" 
-                        type="text" name="restaurant_name" id="restaurant_name" placeholder="Date">
-                        <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg" 
-                        type="text" name="search_time" id="search_time" placeholder="Time">
-                        <button class="font-lato border-none px-4 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg" 
-                        type="submit">{{__('Search')}}</button>
-                    </div>
-                </form>
-            </div>
-            <div>
-                <form action="#" class="mb-6">
-                    <div class="flex my-4">
-                        <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg" 
-                        type="text" name="restaurant_name" id="restaurant_name" placeholder="Date">
+            
 
-                        <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg" 
-                        type="text" name="search_time" id="search_time" placeholder="Time">
-
-                        <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg" 
-                        type="text" name="restaurant_name" id="restaurant_name" placeholder="# of people">
-
-                        <div class="w-48"></div>
-
-                        <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg" 
-                        type="text" name="restaurant_name" id="restaurant_name" placeholder="Search">
-
-                        <div class="w-48"></div>
-                        
-                        
-                        
-                        <button class="font-lato border-none px-4 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg" 
-                        type="submit">{{__('Search')}}</button>
-                    </div>
-                </form>
-            </div>
-
-            <div>
-                <form action="#" class="mb-6">
-                    <div class="flex my-4 items-center">
-                        <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 outline-none rounded-l-lg" 
-                        type="text" name="restaurant_name" id="restaurant_name" placeholder="Date">
-                        <div class="bg-gray-600 w-[1px] h-[50px] opacity-30"></div>
-
-                        <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 outline-none" 
-                        type="text" name="search_time" id="search_time" placeholder="Time">
-                        <div class="bg-gray-600 w-[1px] h-[50px] opacity-30"></div>
-
-                        <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 outline-none" 
-                        type="text" name="restaurant_name" id="restaurant_name" placeholder="# of people">
-                        <div class="bg-gray-600 w-[1px] h-[50px] opacity-30"></div>
-
-                        <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 outline-none rounded-r-lg" 
-                        type="text" name="restaurant_name" id="restaurant_name" placeholder="Search">
-
-                        <div class="w-48"></div>                      
-                        
-                        <button class="font-lato border-none px-12 py-6 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg" 
-                        type="submit">{{__('Search')}}</button>
-                    </div>
-                </form>
-            </div>
-
+            
             <div>
                 <form action="#" class="mb-6">
                     <div class="flex my-4 items-center">
