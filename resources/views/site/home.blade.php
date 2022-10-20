@@ -16,7 +16,7 @@
 
                         <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 outline-none" 
                         type="text" name="search_time" id="search_time" placeholder="Time">
-                        
+                        <div class="bg-gray-600 w-[1px] h-[72px] opacity-40"></div>
 
                         <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 outline-none rounded-r-lg" 
                         type="text" name="restaurant_name" id="restaurant_name" placeholder="# of people">
