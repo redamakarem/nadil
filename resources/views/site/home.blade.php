@@ -12,7 +12,7 @@
                     <div class="flex my-4 items-center">
                         <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 outline-none rounded-l-lg" 
                         type="text" name="restaurant_name" id="restaurant_name" placeholder="Date">
-                        <div class="bg-gray-600 w-[1px] opacity-40"></div>
+                        <div class="bg-gray-600 w-[1px] h-[72px] opacity-40"></div>
 
                         <input class="font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 outline-none" 
                         type="text" name="search_time" id="search_time" placeholder="Time">
