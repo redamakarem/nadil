@@ -10,7 +10,7 @@
             <div>
                 <form action="#" class="mb-6">
                     <div class="flex my-4 items-center">
-                        <input class="font-lato flex text-center border-r-gray-700/50 py-6 uppercase bg-nadilBtn-100 outline-none rounded-l-lg" 
+                        <input class="font-lato flex text-center border-none border-r-gray-700/50 py-6 uppercase bg-nadilBtn-100 outline-none rounded-l-lg" 
                         type="text" name="restaurant_name" id="restaurant_name" placeholder="Date">
                         
 
