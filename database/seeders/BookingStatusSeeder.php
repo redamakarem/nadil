@@ -17,6 +17,10 @@ class BookingStatusSeeder extends Seeder
 
         $booking_statuses = [
             [
+                'name_en' =>'Booked',
+                'name_ar' =>'تم الحجز',
+            ],
+            [
                 'name_en' =>'Expected',
                 'name_ar' =>'المتوقع',
             ],
