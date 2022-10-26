@@ -179,9 +179,11 @@
             }
         });
         $( this ).closest('.carousel-container').find('.meals-prev').click(function() {
+            console.log('PREV');
         meal_slider.trigger('prev.owl.carousel');
     })
     $( this ).closest('.carousel-container').find('.meals-next').click(function() {
+        console.log('MEXT');
         meal_slider.trigger('next.owl.carousel');
     })
     });
