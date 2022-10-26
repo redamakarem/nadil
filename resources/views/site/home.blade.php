@@ -184,6 +184,7 @@
         $(this).find('.meals-prev').click(function() {
             meal_slider.trigger('prev.owl.carousel');
         });
+    });
         
         
 
