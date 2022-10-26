@@ -178,12 +178,12 @@
                 }
             }
         });
-        $(this).find('.meals-next').click(function() {
-            meal_slider.trigger('next.owl.carousel');
-        });
-        $(this).find('.meals-prev').click(function() {
-            meal_slider.trigger('prev.owl.carousel');
-        });
+        $( this ).closest('.carousel-container').find('.meals-prev').click(function() {
+        meal_slider.trigger('prev.owl.carousel');
+    })
+    $( this ).closest('.carousel-container').find('.meals-next').click(function() {
+        meal_slider.trigger('next.owl.carousel');
+    })
     });
         
         
