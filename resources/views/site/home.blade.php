@@ -162,7 +162,7 @@
         })
 
         $('.meals-carousel').each(function(index){
-            this.owlCarousel({
+            var meal_slider=$(this).owlCarousel({
             loop: true,
             rtl: {{ app()->getLocale() == 'ar' ? 'true' : 'false' }},
             margin: 10,
@@ -178,11 +178,11 @@
                 }
             }
         });
-        this.find('.meals-next').click(function() {
-            this.trigger('next.owl.carousel');
+        $(this).find('.meals-next').click(function() {
+            meal_slider.trigger('next.owl.carousel');
         });
-        this.find('.meals-prev').click(function() {
-            this.trigger('prev.owl.carousel');
+        $(this).find('.meals-prev').click(function() {
+            meal_slider.trigger('prev.owl.carousel');
         });
         
         
