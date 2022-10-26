@@ -161,8 +161,8 @@
             res_carousel.trigger('prev.owl.carousel');
         })
 
-        meals_carousel = $('.meals-carousel');
-        meals_carousel.owlCarousel({
+        $('.meals-carousel').each(function(index){
+            this.owlCarousel({
             loop: true,
             rtl: {{ app()->getLocale() == 'ar' ? 'true' : 'false' }},
             margin: 10,
@@ -178,12 +178,14 @@
                 }
             }
         });
-        $('.meals-next').click(function() {
-            meals_carousel.trigger('next.owl.carousel');
-        })
-        $('.meals-prev').click(function() {
-            meals_carousel.trigger('prev.owl.carousel');
-        })
+        this.find('.meals-next').click(function() {
+            this.trigger('next.owl.carousel');
+        });
+        this.find('.meals-prev').click(function() {
+            this.trigger('prev.owl.carousel');
+        });
+        
+        
 
         var cuisines_carousel = $('.cuisines-carousel');
         cuisines_carousel.owlCarousel({
