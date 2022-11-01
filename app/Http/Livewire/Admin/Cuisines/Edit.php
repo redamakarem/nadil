@@ -15,6 +15,7 @@ class Edit extends Component
     public function mount(Cuisine $cuisine)
     {
         $this->cuisine= $cuisine;
+        // dd($this->cuisine->getFirstMediaUrl('cuisine_images'));
     }
 
     public function render()

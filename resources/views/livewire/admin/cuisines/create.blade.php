@@ -19,6 +19,7 @@
                 @error('name_ar')<span class="error">{{ $message }}</span>@enderror
             </div>
             <div class="form-group">
+                
                 <x-media-library-attachment name="cuisine_image"/>
             </div>
         </div>

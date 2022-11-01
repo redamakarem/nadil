@@ -20,6 +20,9 @@
                 @error('name')<span class="error">{{ $message }}</span>@enderror
             </div>
             <div class="form-group">
+                @if ($cuisine->getFirstMediaUrl('cuisine_images') && !$cuisine_image)
+                    <img src="{{$cuisine->getFirstMediaUrl('cuisine_images')}}" style="width: 125px;height:auto"/>
+                @endif
                 <x-media-library-attachment name="cuisine_image"/>
             </div>
         </div>

@@ -50,9 +50,11 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string $booking_end_time
  * @property string $booking_code
+ * @property int $booking_status_id
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\DiningTable[] $reserved_tables
  * @property-read int|null $reserved_tables_count
  * @property-read \App\Models\Restaurant $restaurant
+ * @property-read \App\Models\BookingStatus|null $status
  * @property-read \App\Models\User|null $user
  * @method static \Database\Factories\BookingFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Booking newModelQuery()
@@ -61,6 +63,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Booking whereBookingCode($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Booking whereBookingDate($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Booking whereBookingEndTime($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Booking whereBookingStatusId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Booking whereBookingTime($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Booking whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Booking whereId($value)
@@ -71,6 +74,28 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Booking whereUserId($value)
  */
 	class Booking extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\BookingStatus
+ *
+ * @property int $id
+ * @property string $name_en
+ * @property string $name_ar
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Database\Factories\BookingStatusFactory factory(...$parameters)
+ * @method static \Illuminate\Database\Eloquent\Builder|BookingStatus newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|BookingStatus newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|BookingStatus query()
+ * @method static \Illuminate\Database\Eloquent\Builder|BookingStatus whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BookingStatus whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BookingStatus whereNameAr($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BookingStatus whereNameEn($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BookingStatus whereUpdatedAt($value)
+ */
+	class BookingStatus extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -318,14 +343,14 @@ namespace App\Models{
  *
  * @property int $id
  * @property string $name
- * @property string $dob
- * @property string $phone
+ * @property string|null $dob
+ * @property string|null $phone
  * @property string $email
  * @property int $gender
  * @property int $user_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property string $address
+ * @property string|null $address
  * @property-read string $initials
  * @method static \Database\Factories\ProfileFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile newModelQuery()
