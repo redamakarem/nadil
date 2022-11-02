@@ -118,6 +118,6 @@ class DishesController extends Controller
 
     public function new_dish()
     {
-        return view('restaurant-admin.dish.create-new')
+        return view('restaurant-admin.dish.create-new');
     }
 }
