@@ -8,7 +8,7 @@
         <div class="card-body">
             <div class="form-group">
                 <label for="name_en">Restaurant</label>
-                <select class="form-control" wire:model='selected_restaurant'>
+                <select class="form-control" wire:model='selected_restaurant_id'>
                     <option value="">{{__('Select Restaurant')}}</option>
                     @foreach ($restaurants as $restaurant)
                         <option value="{{$restaurant->id}}">{{$restaurant->name_en}}</option>
