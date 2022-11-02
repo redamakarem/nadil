@@ -15,6 +15,7 @@
                     @endforeach
                 </select>
             </div>
+            @if ($menus)
             <div class="form-group">
                 <label for="name_en">Menu</label>
                 <select class="form-control" wire:model='selected_menu'>
@@ -24,6 +25,7 @@
                     @endforeach
                 </select>
             </div>
+            @endif
             
             <div class="form-group">
                 
