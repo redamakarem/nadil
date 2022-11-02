@@ -21,7 +21,7 @@ class Create extends Component
     public function updatedSelectedRestaurant($value)
     {
         $this->selected_restaurant->load('menus');
-        $this->menus = $this->selected_restaurant->menus
+        $this->menus = $this->selected_restaurant->menus;
     }
 
     public function render()
