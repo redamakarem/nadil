@@ -68,6 +68,12 @@
                 <input type="text" class="form-control" wire:model='new_dish.prep_time'>
             </div>
             @endif
+            @if ($menus)
+            <div class="form-group">
+                <label for="name_en">Price</label>
+                <input type="text" class="form-control" wire:model='new_dish.price'>
+            </div>
+            @endif
             
             <div class="form-group">
                 
