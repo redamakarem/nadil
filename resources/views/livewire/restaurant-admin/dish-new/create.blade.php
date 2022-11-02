@@ -7,11 +7,20 @@
     <form wire:submit.prevent="submit">
         <div class="card-body">
             <div class="form-group">
-                <label for="name_en">Cuisine Name</label>
+                <label for="name_en">Restaurant</label>
                 <select class="form-control" wire:model='selected_restaurant'>
                     <option value="">{{__('Select Restaurant')}}</option>
                     @foreach ($restaurants as $restaurant)
                         <option value="{{$restaurant->id}}">{{$restaurant->name_en}}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="name_en">Menu</label>
+                <select class="form-control" wire:model='selected_menu'>
+                    <option value="">{{__('Select Menu')}}</option>
+                    @foreach ($menus as $menu)
+                        <option value="{{$menu->id}}">{{$menu->name_en}}</option>
                     @endforeach
                 </select>
             </div>
