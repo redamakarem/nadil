@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\RestaurantAdmin\DishNew;
 
 use App\Models\Cuisine;
+use App\Models\Dish;
 use App\Models\Restaurant;
 use Auth;
 use Livewire\Component;
@@ -17,11 +18,13 @@ class Create extends Component
     public $selected_menu;
     public $cuisines;
     public $selected_cuisine;
+    public $new_dish;
 
     public function mount()
     {
         $this->restaurants = Auth::user()->restaurants;
         $this->cuisines = Cuisine::all();
+        $this->new_dish = new Dish();
     }
 
     public function updatedSelectedRestaurantId($value)
