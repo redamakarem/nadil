@@ -1,6 +1,6 @@
 <div class="card card-primary">
     <div class="card-header">
-        <h3 class="card-title">Add Cuisine</h3>
+        <h3 class="card-title">Add Dish</h3>
     </div>
     <!-- /.card-header -->
     <!-- form start -->
@@ -35,6 +35,37 @@
                         <option value="{{$cuisine->id}}">{{$cuisine->name_en}}</option>
                     @endforeach
                 </select>
+            </div>
+            @endif
+
+            @if ($menus)
+            <div class="form-group">
+                <label for="name_en">English Name</label>
+                <input type="text" class="form-control" wire:model='new_dish.name_en'>
+            </div>
+            @endif
+            @if ($menus)
+            <div class="form-group">
+                <label for="name_en">Arabic Name</label>
+                <input type="text" class="form-control" wire:model='new_dish.name_ar'>
+            </div>
+            @endif
+            @if ($menus)
+            <div class="form-group">
+                <label for="name_en">English Description</label>
+                <input type="text" class="form-control" wire:model='new_dish.description_en'>
+            </div>
+            @endif
+            @if ($menus)
+            <div class="form-group">
+                <label for="name_en">Arabic Description</label>
+                <input type="text" class="form-control" wire:model='new_dish.description_ar'>
+            </div>
+            @endif
+            @if ($menus)
+            <div class="form-group">
+                <label for="name_en">Prep Time</label>
+                <input type="text" class="form-control" wire:model='new_dish.prep_time'>
             </div>
             @endif
             
