@@ -53,13 +53,13 @@
             @if ($menus)
             <div class="form-group">
                 <label for="name_en">English Description</label>
-                <input type="text" class="form-control" wire:model='new_dish.description_en'>
+                <textarea type="text" class="form-control" wire:model='new_dish.description_en' rows="3"></textarea>
             </div>
             @endif
             @if ($menus)
             <div class="form-group">
                 <label for="name_en">Arabic Description</label>
-                <input type="text" class="form-control" wire:model='new_dish.description_ar'>
+                <textarea type="text" class="form-control" wire:model='new_dish.description_ar' rows="3"></textarea>
             </div>
             @endif
             @if ($menus)

@@ -18,7 +18,7 @@ class Create extends Component
     public $selected_menu;
     public $cuisines;
     public $selected_cuisine;
-    public $new_dish;
+    public Dish $new_dish;
 
     public function mount()
     {
@@ -26,6 +26,14 @@ class Create extends Component
         $this->cuisines = Cuisine::all();
         $this->new_dish = new Dish();
     }
+
+    protected $rules = [
+        'new_dish.name_en' =>['required'],
+        'new_dish.name_ar' =>['required'],
+        'new_dish.description_en' =>['required'],
+        'new_dish.description_ar' =>['required'],
+        'new_dish.prep_time' =>['required'],
+    ];
 
     public function updatedSelectedRestaurantId($value)
     {
