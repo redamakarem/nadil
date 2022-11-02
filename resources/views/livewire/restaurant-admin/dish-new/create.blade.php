@@ -21,7 +21,7 @@
                 <select class="form-control" wire:model='selected_menu'>
                     <option value="">{{__('Select Menu')}}</option>
                     @foreach ($menus as $menu)
-                        <option value="{{$menu->id}}">{{$menu->name_en}}</option>
+                        <option value="{{$menu->id}}">{{$menu->name}}</option>
                     @endforeach
                 </select>
             </div>
