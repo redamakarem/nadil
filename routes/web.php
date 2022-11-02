@@ -260,6 +260,8 @@ Route::group(['prefix' => 'restaurant-admin', 'middleware'=>['auth','role:restau
         [RADishesController::class,'edit'])
         ->name('restaurant-admin.restaurant.menu.categories.dishes.edit');
 
+        Route::get('dishes/new',[RADishesController::class,'new_dish'])->name('restaurant-admin.new-dish');
+
     //    Schedules
     Route::get('/restaurant/{restaurant}/schedules',
         [RAScheduleController::class,'index'])
