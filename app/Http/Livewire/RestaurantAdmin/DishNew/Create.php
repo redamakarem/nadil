@@ -46,4 +46,13 @@ class Create extends Component
     {
         return view('livewire.restaurant-admin.dish-new.create');
     }
+
+    public function submit()
+    {
+        $this->validate();
+        $this->new_dish->restaurant_id = $this->selected_restaurant_id;
+        $this->new_dish->menu_id = $this->selected_menu;
+        $this->new_dish->cuisine_id = $this->selected_cuisine;
+        $this->new_dish->save();
+    }
 }

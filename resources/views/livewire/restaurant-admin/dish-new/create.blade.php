@@ -73,6 +73,18 @@
                 
                 <x-media-library-attachment name="cuisine_image"/>
             </div>
+            <div class="form-group">
+                @if($errors->any())
+                    <div class="alert alert-danger">
+                        <p><strong>Opps Something went wrong</strong></p>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+            </div>
         </div>
 
 
