@@ -26,6 +26,17 @@
                 </select>
             </div>
             @endif
+            @if ($menus)
+            <div class="form-group">
+                <label for="name_en">Cuisine</label>
+                <select class="form-control" wire:model='selected_cuisine'>
+                    <option value="">{{__('Select Cuisine')}}</option>
+                    @foreach ($cuisines as $cuisine)
+                        <option value="{{$cuisine->id}}">{{$cuisine->name_en}}</option>
+                    @endforeach
+                </select>
+            </div>
+            @endif
             
             <div class="form-group">
                 
