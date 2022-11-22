@@ -18,11 +18,7 @@ class TestMail extends Mailable
      * @return void
      */
 
-     public User $user;
-    public function __construct(User $user)
-    {
-        $this->user = $user;
-    }
+    
 
     /**
      * Build the message.
