@@ -34,6 +34,9 @@ Route::get('/restaurants/cuisine/{cuisine}',[\App\Http\Controllers\SiteControlle
 Route::get('/restaurant/{id}',[\App\Http\Controllers\SiteController::class,'show_restaurant'])
     ->name('site.restaurants.view');
 
+    Route::post('/restaurants/search',[\App\Http\Controllers\SiteController::class,'check_booking'])
+    ->name('site.restaurants.search');
+
 
 Route::get('/contact',[\App\Http\Controllers\SiteController::class,'contact'])
     ->name('site.contact');
@@ -298,6 +301,9 @@ Route::group(['prefix' => 'user', 'middleware'=>['auth','role:user','ensure_pass
     Route::get('/booking/{id}/thanks',[\App\Http\Controllers\SiteController::class,'show_booking_confirmation'])
     ->name('site.bookings.confirmation');
 });
+
+Route::get('/restaurant/{id}/book',[\App\Http\Controllers\SiteController::class,'book_restaurant'])
+    ->name('site.restaurants.book');
 
 
 

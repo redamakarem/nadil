@@ -157,6 +157,22 @@
                             <option value="15">15 min</option>
                         </select>
                     </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="accessible" wire:model="restaurant.accessible">
+                        <label class="form-check-label" for="accessible">{{ __('Accessible') }}</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="private_rooms" wire:model="restaurant.private_rooms">
+                        <label class="form-check-label" for="private_rooms">{{ __('Private Rooms') }}</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="instagram">Opening Hours</label>
+                        <input type="text" name="instagram" class="form-control" id="instagram"
+                            placeholder="Eg: 10 am to 11pm" wire:model="restaurant.opening_hours">
+                        @error('form_data.facebook')
+                            <p class="error">{{ $message }}</p>
+                        @enderror
+                    </div>
                     <div class="form-group">
                         @if($errors->any())
                             <div class="alert alert-danger">

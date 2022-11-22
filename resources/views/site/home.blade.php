@@ -3,16 +3,29 @@
     <div id="main-content" class="h-full">
         <div class="flex flex-col px-24 py-[80px]">
             <div class="greeting uppercase">So, What is the plan</div>
+            <div>
+                @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <p><strong>Opps Something went wrong</strong></p>
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+            </div>
 
 
 
             <div>
-                <form action="#" class="mb-6">
+                <form action="{{ route('site.restaurants.search') }}" method="POST" class="mb-6">
+                    @csrf
                     <div class="flex my-4 items-center">
                         <div class="w-1/2 flex">
                             <input
                                 class="flex-1 font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 outline-none rounded-l-lg"
-                                type="text" name="restaurant_name" id="restaurant_name" placeholder="Date">
+                                type="text" name="search_date" id="restaurant_name" placeholder="Date">
                             <div class="bg-gray-600 w-[1px] h-[72px] opacity-40"></div>
 
                             <input
@@ -22,14 +35,14 @@
 
                             <input
                                 class="flex-1 font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 outline-none rounded-r-lg"
-                                type="text" name="restaurant_name" id="restaurant_name" placeholder="# of people">
+                                type="text" name="search_seats" id="restaurant_name" placeholder="# of people">
                         </div>
 
 
                         <div class="w-1/2 flex">
                             <input
                             class=" flex-1 font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 outline-none rounded-lg mx-6"
-                            type="text" name="restaurant_name" id="restaurant_name" placeholder="Search">
+                            type="text" name="search_name" id="restaurant_name" placeholder="Search">
                         <button
                             class="font-lato border-none px-12 py-6 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg"
                             type="submit">{{ __('Book Now') }}</button>

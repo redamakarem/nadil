@@ -18,6 +18,9 @@ class SiteController extends Controller
 {
     public function index()
     {
+        if(session('target_route','') != ''){
+            return redirect(route(session('target_route',''),session('booking_restaurant')));
+        }
         $agent = new Agent();
         $restaurants = Restaurant::publishable()->get();
         $cuisines = Cuisine::all();
@@ -63,6 +66,25 @@ class SiteController extends Controller
         } else {
             return view('site.restaurant-booking', compact('restaurant'));
         }
+    }
+
+    public function check_booking(Request $request)
+    {
+        
+        $validated_data = $request->validate(
+            [
+                'search_date' => ['required'],
+                'search_time' => ['required'],
+                'search_seats' => ['required'],
+                // 'search_name' => ['required']
+             ]
+        );
+        // dd($validated_data);
+        $result = Restaurant::all()->filter(function ($value, $key) use($validated_data) {
+            return $value->getAvailableSeats($validated_data['search_date'],$validated_data['search_time']) > $validated_data['search_seats'];
+        });
+
+        return view('site.search',compact('result'));
     }
 
     public function getTimeSlots($start_time, $end_time, $slot_length)

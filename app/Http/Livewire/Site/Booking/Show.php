@@ -42,6 +42,9 @@ class Show extends Component
         $this->selected_date = Carbon::now()->format('Y-m-d');
         $this->display_date = Carbon::now()->format('M d Y');
         $this->getSlotsForSchedules($this->restaurant);
+        $this->selected_date = session('booking_date');
+        $this->selected_time = session('booking_time');
+        $this->seats = session('booking_seats');
         $this->restaurant->load(['bookings', 'bookings.reserved_tables']);
     }
 
@@ -133,6 +136,14 @@ class Show extends Component
 
     public function submit()
     {
+        if (!Auth::check()) {
+            session(['booking_date' => $this->selected_date]);
+            session(['booking_time' => $this->selected_time]);
+            session(['booking_restaurant' => $this->restaurant->id]);
+            session(['booking_seats' => $this->seats]);
+            session(['target_route' => 'site.restaurants.book']);
+            return redirect(route('login'));
+        }
 
         $this->validate();
         $input_time =  Carbon::parse($this->selected_time)->format('H:i:s');
@@ -172,7 +183,7 @@ class Show extends Component
                 ]);
             }
             // event(new App\Events\NewBookingEvent($this->restaurant->owner, $this->booking));
-            $this->redirect(route('site.bookings.confirmation',$this->booking));
+            $this->redirect(route('site.bookings.confirmation', $this->booking));
         } else {
             $this->addError('booking_seats', 'Not enough seats for selected date and time');
         }

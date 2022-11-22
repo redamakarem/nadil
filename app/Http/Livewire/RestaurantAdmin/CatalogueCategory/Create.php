@@ -26,7 +26,10 @@ class Create extends Component
     public function submit()
     {
         $this->validate();
-        $this->menu->categories()->create(['name' =>$this->name]);
+        $this->menu->categories()->create([
+            'name_en' =>$this->name,
+            'name_ar' =>$this->name,
+        ]);
     }
     public function render()
     {
