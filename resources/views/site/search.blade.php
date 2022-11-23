@@ -15,7 +15,7 @@
                             </div>
                         @endif
             </div>
-            <div class="restaurant-search-results mb-8">
+            <div class="restaurant-search-results mb-8 grid grid-cols-4 gap-4">
                 @foreach ($result as $restaurant)
                     <div class="item flex flex-col justify-center rounded-xl border-2 h-32 font-lato"
                         style="background-image:url('{{ $restaurant->getFirstMediaUrl('restaurant_images') }}'); background-size: cover">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\DishesCategory;
 use App\Models\DishesMenu;
+use App\Models\Restaurant;
 use Illuminate\Http\Request;
 
 class DishesCategoryController extends Controller
@@ -26,9 +27,9 @@ class DishesCategoryController extends Controller
      */
     public function create($restaurant,$menu)
     {
-
         $menu = DishesMenu::findOrfail($menu);
-        $restaurant = DishesMenu::findOrfail($restaurant);
+        $restaurant = Restaurant::findOrfail($restaurant);
+        
         return view('admin.dishes-categories.create', ['restaurant' =>$restaurant, 'menu' =>$menu]);
     }
 

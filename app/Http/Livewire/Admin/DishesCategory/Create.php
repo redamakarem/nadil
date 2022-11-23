@@ -26,7 +26,7 @@ class Create extends Component
     {
         $this->menu = $menu;
         $this->restaurant = $restaurant;
-//        dd($this->restaurant, $this->menu);
+       
     }
 
     public function submit()
