@@ -25,7 +25,7 @@
                         <div class="w-1/2 flex">
                             <input
                                 class="flex-1 font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 outline-none rounded-l-lg"
-                                type="text" name="search_date" id="restaurant_name" placeholder="Date">
+                                type="text" name="search_date" id="search_date" placeholder="Date">
                             <div class="bg-gray-600 w-[1px] h-[72px] opacity-40"></div>
 
                             <input
@@ -35,14 +35,14 @@
 
                             <input
                                 class="flex-1 font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 outline-none rounded-r-lg"
-                                type="text" name="search_seats" id="restaurant_name" placeholder="# of people">
+                                type="text" name="search_seats" id="search_seats" placeholder="# of people">
                         </div>
 
 
                         <div class="w-1/2 flex">
                             <input
                             class=" flex-1 font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 outline-none rounded-lg mx-6"
-                            type="text" name="search_name" id="restaurant_name" placeholder="Search">
+                            type="text" name="search_name" id="search_name" placeholder="Search">
                         <button
                             class="font-lato border-none px-12 py-6 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg"
                             type="submit">{{ __('Book Now') }}</button>
@@ -137,6 +137,11 @@
     <link rel="stylesheet" href="{{ asset('pickadate/lib/themes/default.date.css') }}">
     <link rel="stylesheet" href="{{ asset('pickadate/lib/themes/default.time.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <style>
+        .flatpickr-day.selected {
+    background: #0a0e14;
+}
+    </style>
 @endpush
 @push('scripts')
     <script src="{{ asset('pickadate/lib/compressed/picker.js') }}"></script>
@@ -146,9 +151,19 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
     <script>
-        jQuery('#search_time').pickatime({
-            interval: 15
-        })
+       var booking_time = flatpickr("#search_time", {
+    enableTime: true,
+    noCalendar: true,
+    dateFormat: "G:i K",
+    minuteIncrement: 15,
+    minTime: "08:00",
+    maxTime: "22:30",
+});
+
+        var booking_date = flatpickr("#search_date", {
+        dateFormat: 'Y-m-d',
+        minDate:'today'
+    });
 
         var res_carousel = $('.restaurant-carousel');
         res_carousel.owlCarousel({

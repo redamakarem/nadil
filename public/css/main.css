@@ -1617,6 +1617,9 @@ select {
 .tracking-\[10px\] {
     letter-spacing: 10px;
 }
+.tracking-\[2px\] {
+    letter-spacing: 2px;
+}
 .tracking-\[1\.0rem\] {
     letter-spacing: 1.0rem;
 }
@@ -1625,9 +1628,6 @@ select {
 }
 .tracking-\[0\.5rem\] {
     letter-spacing: 0.5rem;
-}
-.tracking-\[2px\] {
-    letter-spacing: 2px;
 }
 .tracking-\[14px\] {
     letter-spacing: 14px;
@@ -2200,6 +2200,9 @@ select {
     }
 }
 @media (min-width: 1024px) {
+    .lg\:block {
+        display: block;
+    }
     .lg\:flex {
         display: flex;
     }

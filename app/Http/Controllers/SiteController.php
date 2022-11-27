@@ -25,8 +25,8 @@ class SiteController extends Controller
         $restaurants = Restaurant::publishable()->get();
         $cuisines = Cuisine::all();
         $meal_types = MealType::with('restaurants')->get();
-        if ($agent->isMobile()) {
-            return view('site.mobile.home', [
+        if ($agent->isDesktop()) {
+            return view('site.home', [
                 'restaurants' => $restaurants,
                 'cuisines' => $cuisines,
                 'meal_types' => $meal_types,
@@ -34,7 +34,7 @@ class SiteController extends Controller
         }
 
 
-        return view('site.home', [
+        return view('site.mobile.home', [
             'restaurants' => $restaurants,
             'cuisines' => $cuisines,
             'meal_types' => $meal_types,

@@ -221,7 +221,7 @@ Route::group(['prefix' => 'admin', 'middleware'=>['auth','role:super-admin']],fu
 
 
 
-Route::group(['prefix' => 'restaurant-admin', 'middleware'=>['auth','role:restaurant-super-admin']],function(){
+Route::group(['prefix' => 'restaurant-admin', 'middleware'=>['auth','role:restaurant-super-admin|restaurant-admin']],function(){
     Route::get('/',[App\Http\Controllers\RestaurantAdmin\RestaurantAdminController::class,'index'])
     ->name('restaurant-admin.index');
     // Restaurants

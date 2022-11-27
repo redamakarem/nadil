@@ -1,6 +1,6 @@
 @extends('layouts.site-mobile')
 @section('content')
-    <div class="container px-8">
+    <div class="lg:hidden container px-8">
         <p class="uppercase font-lato tracking-[4px] text-center py-6">So, What's the plan</p>
         <div class="flex flex-col items-center">
             <form>

@@ -43,6 +43,16 @@
                                id="coordinates" placeholder="Password"
                                wire:model.defer="form_data.password_confirmation">
                     </div>
+                    <div class="form-group">
+                                               <label>Restaurant</label>
+                       <select class="select2 form-control" style="width: 100%;"
+                               id="restaurants" 
+                               wire:model="form_data.restaurant_id">
+                           @foreach($restaurants as $restaurant)
+                               <option value="{{$restaurant->id}}">{{$restaurant->name_en}}</option>
+                           @endforeach
+                       </select>
+                    </div>
 
                     <div class="form-group">
 {{--                        <label>Cuisines</label>--}}

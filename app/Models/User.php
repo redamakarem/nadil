@@ -65,7 +65,7 @@ class User extends Authenticatable
 
     public function workplace()
     {
-        return $this->hasOne(Restaurant::class);
+        return $this->belongsTo(Restaurant::class,'restaurant_id');
     }
 
     public function getInitialsAttribute(): string

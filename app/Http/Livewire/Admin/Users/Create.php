@@ -12,11 +12,13 @@ class Create extends Component
 {
     public $form_data =[];
     public $users;
+    public $restaurants;
     public $cuisine_options='';
     protected $rules = [
         'form_data.name' => 'required',
         'form_data.email' => 'required|email',
         'form_data.password' => 'required',
+        'form_data.restaurant_id' => 'required',
         'form_data.password_confirmation' => 'required|same:form_data.password',
 
 
@@ -27,10 +29,11 @@ class Create extends Component
         $this->form_data['name'] = '';
         $this->form_data['email'] = '';
         $this->form_data['password'] = '';
+        $this->form_data['restaurant_id'] = '';
         $this->form_data['password_confirmation'] = '';
         $this->form_data['roles'] = [];
         $this->form_data['cuisines'] = [];
-
+        $this->restaurants = Restaurant::all();
 
     }
 
@@ -45,6 +48,7 @@ class Create extends Component
         $new_user = User::create([
             'name' => $this->form_data['name'],
             'email' => $this->form_data['email'],
+            'restaurant_id' => $this->form_data['restaurant_id'],
             'password' => bcrypt($this->form_data['password']),
         ]);
         $new_user->roles()->attach($this->form_data['roles']);

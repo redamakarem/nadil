@@ -15,6 +15,7 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body table-responsive p-0">
+                @role('super-admin')
                 <table class="table table-hover text-nowrap">
                     <thead>
                     <tr>
@@ -62,6 +63,53 @@
 
                     </tbody>
                 </table>
+                @endrole
+
+                @role('restaurant-admin')
+                <table class="table table-hover text-nowrap">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Phone</th>
+                        <th>Max Party Size</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    
+                        <tr>
+                            <td>{{$restaurants->name_en}}</td>
+                            <td>{{$restaurants->email}}</td>
+                            <td>{{$restaurants->address}}</td>
+                            <td>{{$restaurants->phone}}</td>
+                            <td>{{$restaurants->max_party_size}}</td>
+                            <td>{{$restaurants->is_active ? "Active" : "Inactive"}}</td>
+                            <td>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default">Action</button>
+                                    <button type="button" id="dropdownSubMenu1" class="btn btn-default dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <div aria-labelledby="dropdownSubMenu1" class="dropdown-menu" role="menu">
+                                        <a class="dropdown-item" href="#">View</a>
+                                        <a class="dropdown-item" href="{{route('restaurant-admin.restaurants.edit',['id' => $restaurants->id])}}">Edit</a>
+                                        <a class="dropdown-item" href="{{route('restaurant-admin.restaurant.schedules.index',['restaurant' => $restaurants->id])}}">Schedules</a>
+                                        <a class="dropdown-item" href="{{route('restaurant-admin.restaurant.menus',['restaurant' => $restaurants->id])}}">Menus</a>
+                                        <a class="dropdown-item" href="{{route('restaurant-admin.restaurant.tables.index',['restaurant' => $restaurants->id])}}">Tables</a>
+                                        <a class="dropdown-item" href="{{route('restaurant-admin.restaurant.staff',['restaurant' => $restaurants->id])}}">Staff</a>
+                                    </div>
+                                </div>
+                            </td>
+
+                        </tr>
+                    
+
+                    </tbody>
+                </table>
+                @endrole
             </div>
             <!-- /.card-body -->
         </div>
