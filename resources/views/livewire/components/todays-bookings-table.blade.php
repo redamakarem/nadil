@@ -5,6 +5,7 @@
             <th>Name</th>
             <th>Time</th>
             <th>Party Size</th>
+            <th>Status</th>
         </tr>
         </thead>
         <tbody>
@@ -13,6 +14,15 @@
                 <td>{{$booking->user->name}}</td>
                 <td>{{$booking->booking_time}}</td>
                 <td>{{$booking->seats}}</td>
+                <td>
+                    <select class="form-control" wire:change='updateBookingStatus({{$booking}},$event.target.value)'>
+                        <option value="">Select Status</option>
+                        @foreach ($bookingStatuses as $bookingStatus)
+                        <option value="{{ $bookingStatus->id }}" {{$booking->booking_status_id == $bookingStatus->id ? 'selected':''}}>{{$bookingStatus->name_en}}</option>
+                        @endforeach
+                        
+                    </select>
+                </td>
                 <td>
                     <div class="btn-group">
                         <button type="button" class="btn btn-default">Action</button>

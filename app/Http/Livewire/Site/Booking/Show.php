@@ -24,6 +24,7 @@ class Show extends Component
     public $seats;
     public Booking $booking;
     public $available_tables;
+    public $booking_enabled;
 
 
     protected $rules = [
@@ -46,6 +47,7 @@ class Show extends Component
         $this->selected_time = session('booking_time');
         $this->seats = session('booking_seats');
         $this->restaurant->load(['bookings', 'bookings.reserved_tables']);
+        $this->booking_enabled = true;
     }
 
     public function getSlotsForSchedules()
@@ -187,6 +189,7 @@ class Show extends Component
         } else {
             $this->addError('booking_seats', 'Not enough seats for selected date and time');
         }
+        $this->booking_enabled=false;
     }
 
     public function render()

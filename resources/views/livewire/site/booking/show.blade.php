@@ -51,7 +51,7 @@
             <input type="number" step="1" min="0" max="{{$restaurant->max_party_size}}" wire:model="seats">
         </div>
         <div class="w-1/2 flex flex-col items-center">
-            <button wire:loading.attr="disabled" type="button" wire:click="submit" class="mb-4 inline-block px-8 py-6 bg-nadilBtn-100 tracking-[6px] rounded-[19px] hover:bg-grey-500 focus:bg-black focus:text-white focus:outline-none focus:ring-0 active:bg-black active:text-white transition duration-150 ease-in-out">Book Now</button>
+            <button {{!$booking_enabled?'disabled':''}} type="button" wire:click="submit" class="mb-4 inline-block px-8 py-6 bg-nadilBtn-100 tracking-[6px] rounded-[19px] hover:bg-grey-500 focus:bg-black focus:text-white focus:outline-none focus:ring-0 active:bg-black active:text-white transition duration-150 ease-in-out">Book Now</button>
         </div>
     </div>
 
