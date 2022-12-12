@@ -33,9 +33,23 @@
                                 type="text" name="search_time" id="search_time" placeholder="Time">
                             <div class="bg-gray-600 w-[1px] h-[72px] opacity-40"></div>
 
-                            <input
+                            <input list="seat-options"
                                 class="flex-1 font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 outline-none rounded-r-lg"
                                 type="text" name="search_seats" id="search_seats" placeholder="# of people">
+                                <datalist id="seat-options">
+                                    <option value="1" />
+                                    <option value="2" />
+                                    <option value="3" />
+                                    <option value="4" />
+                                    <option value="5" />
+                                    <option value="6" />
+                                    <option value="7" />
+                                    <option value="8" />
+                                    <option value="9" />
+                                    <option value="10" />
+                                    <option value="10+" />
+                                    
+                                </datalist>
                         </div>
 
 
