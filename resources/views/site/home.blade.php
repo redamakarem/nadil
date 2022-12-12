@@ -155,6 +155,7 @@
     enableTime: true,
     noCalendar: true,
     dateFormat: "G:i K",
+    defaultDate: "18:00",
     minuteIncrement: 15,
     minTime: "08:00",
     maxTime: "22:30",
@@ -162,7 +163,8 @@
 
         var booking_date = flatpickr("#search_date", {
         dateFormat: 'Y-m-d',
-        minDate:'today'
+        minDate:'today',
+        defaultDate:'today',
     });
 
         var res_carousel = $('.restaurant-carousel');
