@@ -79,6 +79,7 @@ class Create extends Component
             $this->booking->booking_date = Carbon::parse($this->selected_date)->format('Y-m-d');
             $this->booking->booking_time = Carbon::parse($this->selected_time)->format('H:i:s');
             $this->booking->booking_end_time = Carbon::parse($this->selected_time)->addMinutes($this->restaurant->estimated_dining_time)->format('H:i:s');
+            $this->booking->booking_code = substr(str_shuffle("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890"), -5);
             $new_booking = $this->booking->save();
             $seat_num = $this->booking->seats;
             $tables_to_book = array();
@@ -147,7 +148,7 @@ class Create extends Component
         })->first();
         if ($schedule) {
             $this->schedule = $schedule;
-            $this->slots = $this->getTimeSlots($schedule->from_time, "{$schedule->slot_length} minutes", $schedule->to_time);
+            $this->slots = $this->getTimeSlots($schedule->from_time, "{$this->restaurant->estimated_dining_time} minutes", $schedule->to_time);
 
         } else {
             $this->slots = [];
