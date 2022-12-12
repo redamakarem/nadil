@@ -50,7 +50,14 @@
 
   gtag('config', 'G-DYHE5KYQK3');
 </script>
-
+<script type='text/javascript'>
+    window.smartlook||(function(d) {
+      var o=smartlook=function(){ o.api.push(arguments)},h=d.getElementsByTagName('head')[0];
+      var c=d.createElement('script');o.api=new Array();c.async=true;c.type='text/javascript';
+      c.charset='utf-8';c.src='https://web-sdk.smartlook.com/recorder.js';h.appendChild(c);
+      })(document);
+      smartlook('init', '4e7293959597c22a1f3d3c9aeb97e9e5fa5d704e', { region: 'eu' });
+  </script>
   
 </head>
 <body class="ltr:font-lato rtl:font-ahlan rtl:tracking-normal rtl:font-normal">
@@ -173,14 +180,7 @@
 {{--    </div>--}}
 
 {{-- Smartlook --}}
-<script type='text/javascript'>
-    window.smartlook||(function(d) {
-      var o=smartlook=function(){ o.api.push(arguments)},h=d.getElementsByTagName('head')[0];
-      var c=d.createElement('script');o.api=new Array();c.async=true;c.type='text/javascript';
-      c.charset='utf-8';c.src='https://web-sdk.smartlook.com/recorder.js';h.appendChild(c);
-      })(document);
-      smartlook('init', '4e7293959597c22a1f3d3c9aeb97e9e5fa5d704e', { region: 'eu' });
-  </script>
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DYHE5KYQK3"></script>
 <script>
