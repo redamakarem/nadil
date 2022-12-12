@@ -15,7 +15,7 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body table-responsive p-0">
-                @role('super-admin')
+                @role('restaurant-super-admin')
                 <table class="table table-hover text-nowrap">
                     <thead>
                     <tr>

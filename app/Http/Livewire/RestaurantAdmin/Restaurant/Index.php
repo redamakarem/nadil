@@ -13,9 +13,10 @@ class Index extends Component
     public function mount()
     {
         $this->restaurants = auth()->user()->restaurants;
-        if(auth()->user()->hasRole('restaurant-admin')){
-            $this->restaurants = auth()->user()->workplace;
-        }
+        // dd($this->restaurants);
+        // if(auth()->user()->hasRole('restaurant-admin')){
+        //     $this->restaurants = auth()->user()->workplace;
+        // }
     }
 
     public function render()

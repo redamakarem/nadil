@@ -61,10 +61,10 @@ class RestaurantController extends Controller
     public function edit($id)
     {
         $restaurant = Restaurant::findOrFail($id);
-        if(auth()->user()->workplace->id==$restaurant->id)
+        // if(auth()->user()->workplace->id==$restaurant->id)
         return view('restaurant-admin.restaurant.edit',compact('restaurant'));
-        else
-        abort(403,'Unauthorized');
+        // else
+        // abort(403,'Unauthorized');
     }
 
     /**
