@@ -35,7 +35,7 @@
 
                             <input list="seat-options"
                                 class="flex-1 font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 outline-none rounded-r-lg"
-                                type="text" name="search_seats" id="search_seats" placeholder="# of people">
+                                type="text" name="search_seats" id="search_seats" placeholder="# of people" value="2">
                                 <datalist id="seat-options">
                                     <option value="1" />
                                     <option value="2" />
