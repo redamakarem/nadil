@@ -23,12 +23,12 @@
                     </div>
                     <div class="form-group">
                         <label for="restaurant">Restaurant</label>
-                        <select class="select2 form-control"
+                        <select class="form-control"
                                 id="restaurant" wire:model="selected_restaurant"
                                 data-placeholder="Select owner" style="width: 100%">
                             <option value="">{{__('Select Restaurant')}}</option>
                             @foreach($restaurants as $restaurant)
-                                <option value="{{$restaurant->id}}">{{$restaurant->name_en}}</option>
+                                <option value="{{$restaurant->id}}" {{ $booking->restaurant_id== $restaurant->id ? 'selected': ''}}>{{$restaurant->name_en}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -46,7 +46,7 @@
                     <div class="form-group">
                         <label for="booking_date">Booking Date</label>
                         <div wire:ignore>
-                            <input type="text" id="booking_date" class="form-control">
+                            <input type="text" id="booking_date" class="form-control" wire:model='selected_date'>
                         </div>
                     </div>
                     <div class="form-group">
@@ -103,35 +103,18 @@
 
     <script>
         jQuery(document).ready(function () {
-            jQuery('#cuisines').select2().on('change', function () {
-                @this.set('form_data.cuisines',jQuery(this).val());
-                console.log('Cuisines : ' + @this.form_data.cuisines)
-            });
+            var bdate,selected_date;
+            bdate = @this.selected_date;
+            console.log({bdate});
+            selected_date = jQuery('#booking_date').pickadate({
 
-            jQuery('#booking_date').pickadate({
-                onSet: function () {
-                    console.log(this.get('select', 'yyyy-mm-dd'));
-                @this.set('selected_date', this.get('select', 'yyyy-mm-dd'));
+                onSet: function() {
+                    // bdate = this.get('select', 'yyyy-mm-dd');
+                    console.log({bdate});
+                @this.set('selected_date',this.get('select', 'yyyy-mm-dd'));
                 }
             });
-            jQuery('#end_date').pickadate({
-                onSet: function () {
-                    console.log(this.get('select', 'yyyy-mm-dd'));
-                @this.set('end_date', this.get('select', 'yyyy-mm-dd'));
-                }
-            });
-            jQuery('#booking_time').pickatime({
-                onSet: function () {
-                    console.log(this.get('select', 'HH:i'));
-                @this.set('booking_time', this.get('select', 'HH:i'));
-                }
-            });
-            jQuery('#end_time').pickatime({
-                onSet: function () {
-                    console.log(this.get('select', 'HH:i'));
-                @this.set('end_time', this.get('select', 'HH:i'));
-                }
-            });
+               selected_date.pickadate('set').set('select', new Date(bdate) , { format: 'yyyy-mm-dd' })
             
             window.addEventListener('alert', ({detail: {type, message}}) => {
                 if (type === 'success') {

@@ -30,12 +30,14 @@ class Edit extends Component
 
 
 
-    public function mount($booking_id)
+    public function mount(Booking $booking)
     {
         $this->slot_options = [];
         $this->restaurants = Restaurant::all();
         $this->users = User::role('user')->get();
-        $this->booking = Booking::findOrFail($booking_id);
+        $this->booking = $booking;
+        $this->selected_user = $this->booking->user_id;
+        $this->selected_date = $this->booking->booking_date;
         $this->initListsForFields();
     }
 
@@ -44,8 +46,8 @@ class Edit extends Component
         'selected_restaurant' => 'required|exists:restaurants,id',
         'booking.user_id' => 'unique:users,id',
         'booking.phone' => 'required',
-//        'booking.booking_date' => 'required',
-//        'booking.booking_time' => 'required',
+       'booking.booking_date' => 'required',
+       'booking.booking_time' => 'required',
         'booking.seats' => ['required','numeric','min:1'],
         'selected_date' => ['required', 'date'],
         'selected_time' => ['required'],
@@ -166,14 +168,14 @@ class Edit extends Component
         return $slots;
     }
 
-    public function updatedSelectedDate($value)
-    {
-        $this->restaurant = Restaurant::findOrFail($this->selected_restaurant);
-        if ($this->restaurant){
-            $this->getSlotsForSchedules();
-        }
-        $this->slot_options = $this->mapSlots();
-    }
+    // public function updatedSelectedDate($value)
+    // {
+    //     $this->restaurant = Restaurant::findOrFail($this->selected_restaurant);
+    //     if ($this->restaurant){
+    //         $this->getSlotsForSchedules();
+    //     }
+    //     $this->slot_options = $this->mapSlots();
+    // }
 
     public function render()
     {

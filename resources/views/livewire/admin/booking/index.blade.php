@@ -47,7 +47,7 @@
                                     </button>
                                     <div aria-labelledby="dropdownSubMenu1" class="dropdown-menu" role="menu">
                                         <a class="dropdown-item" href="#">View</a>
-                                        <a class="dropdown-item" href="{{route('admin.cuisines.edit',['id' => $booking->id])}}">Edit</a>
+                                        <a class="dropdown-item" href="{{route('admin.bookings.edit', $booking)}}">Edit</a>
                                         <a class="dropdown-item" href="#"
                                            wire:click.prevent="confirmCuisineDeletion({{$booking->id}})">Delete</a>
                                     </div>

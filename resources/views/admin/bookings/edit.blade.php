@@ -1,4 +1,4 @@
 @extends('layouts.admin')
 @section('content')
-    @livewire('admin.bookings.edit',['$booking_id'])
+    @livewire('admin.booking.edit',[$booking])
 @endsection

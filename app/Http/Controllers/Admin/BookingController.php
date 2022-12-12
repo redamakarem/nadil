@@ -59,9 +59,10 @@ class BookingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Booking $booking)
     {
-        //
+        
+        return view('admin.bookings.edit',compact('booking'));
     }
 
     /**

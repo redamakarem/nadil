@@ -156,7 +156,7 @@ Route::group(['prefix' => 'admin', 'middleware'=>['auth','role:super-admin']],fu
     Route::get('/bookings/create',[\App\Http\Controllers\Admin\BookingController::class,'create'])
         ->name('admin.bookings.create');
 
-    Route::get('/bookings/{id}/edit',[\App\Http\Controllers\Admin\BookingController::class,'edit'])
+    Route::get('/bookings/{booking}/edit',[\App\Http\Controllers\Admin\BookingController::class,'edit'])
         ->name('admin.bookings.edit');
 
 
