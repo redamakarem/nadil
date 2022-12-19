@@ -48,7 +48,6 @@
                                     <option value="9" />
                                     <option value="10" />
                                     <option value="10+" />
-                                    
                                 </datalist>
                         </div>
 

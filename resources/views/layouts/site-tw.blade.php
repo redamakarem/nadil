@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{asset('admin-lte/plugins/fontawesome-free/css/all.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/main.css')}}"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
           integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
@@ -74,7 +75,7 @@
                         class="hidden lg:flex justify-between items-center h-full w-[80%] max-w-12xl mx-auto"
                     >
                         <div id="logo" class="w-1/3 h-full flex justify-start items-center py-4">
-                            <a href="{{route('home')}}"><img src="{{asset('/images/logo@2x.png')}}" alt="" class="h-32 w-auto"/></a>
+                            <a href="{{route('home')}}"><img src="{{asset('/images/logo@2x.png')}}" alt="" class="h-32 w-auto object-contain"/></a>
                         </div>
                         <div class="flex space-x-2 mx-2 w-2/3 h-full justify-center items-center">
                             <a
