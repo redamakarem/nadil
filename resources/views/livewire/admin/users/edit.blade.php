@@ -33,15 +33,15 @@
                     <div class="form-group">
                         <label for="password">Password</label>
                         <input type="password" name="password" class="form-control"
-                               id="coordinates" placeholder="Password"
+                               id="password" placeholder="Password"
                                wire:model.defer="password">
                     </div>
 
                     <div class="form-group">
                         <label for="password_confirmation">Password</label>
                         <input type="password" name="password_confirmation" class="form-control"
-                               id="coordinates" placeholder="Password"
-                               wire:model.defer="form_data.password_confirmation">
+                               id="password_confirmation" placeholder="Password"
+                               wire:model.defer="password_confirmation">
                     </div>
 
                     <div class="form-group " wire:ignore>
@@ -66,3 +66,21 @@
         <!-- /.card -->
     </div>
 </div>
+
+@push('scripts')
+    <script>
+        jQuery(document).ready(function () {
+            window.addEventListener('alert', ({detail: {type, message}}) => {
+                if (type === 'success') {
+                    toastr.success(message);
+                } else {
+                    toastr.error(message);
+                }
+            });
+
+            toastr.options.onHidden = function () {
+                Livewire.emit('userUpdated');
+            }
+        });
+    </script>
+@endpush

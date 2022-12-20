@@ -52,8 +52,8 @@
                     <div class="form-group">
 
                             @foreach($slot_options as $key =>$value)
-                                <label class="btn btn-secondary {{$slot_options[$key]==$selected_time?'active':''}}">
-                                    <input type="radio" wire:model="selected_time" value="{{$value}}"> {{$value}}
+                                <label class="btn btn-secondary {{$value==$display_time?'active':''}}">
+                                    <input type="radio" wire:model="selected_time" {{$value==$display_time?'checked':''}} value="{{$value}}"> {{$value}}
                                 </label>
                             @endforeach
 

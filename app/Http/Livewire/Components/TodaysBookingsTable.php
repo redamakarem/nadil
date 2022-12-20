@@ -18,6 +18,7 @@ class TodaysBookingsTable extends Component
     {
         $this->bookings = Booking::with(['user'])->where('booking_status_id',$status_id)->get();
         $this->bookingStatuses = BookingStatus::all();
+        // dd($this->bookings);
     }
 
     public function updateBookingStatus(Booking $booking, $status_id)

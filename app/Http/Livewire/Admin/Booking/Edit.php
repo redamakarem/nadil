@@ -23,6 +23,7 @@ class Edit extends Component
     public $selected_restaurant;
     public $selected_date;
     public $selected_time;
+    public $display_time;
     public $slot_options;
     public $seats;
     public $available_tables;
@@ -36,9 +37,13 @@ class Edit extends Component
         $this->restaurants = Restaurant::all();
         $this->users = User::role('user')->get();
         $this->booking = $booking;
+        $this->selected_restaurant = $this->booking->restaurant_id;
         $this->selected_user = $this->booking->user_id;
         $this->selected_date = $this->booking->booking_date;
+        $this->selected_time = $this->booking->booking_time;
+        $this->display_time = Carbon::parse($this->selected_time)->format("h:i A");
         $this->initListsForFields();
+        // dd($this->booking);
     }
 
 
@@ -149,7 +154,7 @@ class Edit extends Component
         })->first();
         if ($schedule) {
             $this->schedule = $schedule;
-            $this->slots = $this->getTimeSlots($schedule->from_time, "{$schedule->slot_length} minutes", $schedule->to_time);
+            $this->slots = $this->getTimeSlots($schedule->from_time, "{$this->restaurant->estimated_dining_time} minutes", $schedule->to_time);
 
         } else {
             $this->slots = [];
@@ -168,14 +173,20 @@ class Edit extends Component
         return $slots;
     }
 
-    // public function updatedSelectedDate($value)
-    // {
-    //     $this->restaurant = Restaurant::findOrFail($this->selected_restaurant);
-    //     if ($this->restaurant){
-    //         $this->getSlotsForSchedules();
-    //     }
-    //     $this->slot_options = $this->mapSlots();
-    // }
+    public function updatedSelectedDate($value)
+    {
+        $this->restaurant = Restaurant::findOrFail($this->selected_restaurant);
+        if ($this->restaurant){
+            $this->getSlotsForSchedules();
+        }
+        $this->slot_options = $this->mapSlots();
+        // dd($value);
+    }
+
+    public function updatedSelectedTime($value)
+    {
+        $this->display_time = Carbon::parse($this->selected_time)->format("h:i A");
+    }
 
     public function render()
     {

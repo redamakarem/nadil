@@ -16,6 +16,8 @@ class Edit extends Component
     public $password;
     public $password_confirmation;
 
+    protected $listeners = ['userUpdated' => 'goToUsers'];
+
     public function rules()
     {
         return [
@@ -32,6 +34,11 @@ class Edit extends Component
         $this->roles = Role::all();
         $this->selected_role = $this->user->roles->first()->id;
     }
+
+    public function goToUsers()
+    {
+        $this->redirect(route('admin.users.index'));
+    }
     public function render()
     {
         return view('livewire.admin.users.edit');
@@ -42,5 +49,9 @@ class Edit extends Component
         $this->validate();
         $this->user->save();
         $this->user->roles()->sync($this->selected_role);
+        $this->dispatchBrowserEvent('alert', [
+            'type' => 'success',
+            'message' => "User Updated Successfully!!"
+        ]);
     }
 }
