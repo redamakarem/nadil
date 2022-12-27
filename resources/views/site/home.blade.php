@@ -33,22 +33,21 @@
                                 type="text" name="search_time" id="search_time" placeholder="Time">
                             <div class="bg-gray-600 w-[1px] h-[72px] opacity-40"></div>
 
-                            <input list="seat-options"
+                            <select
                                 class="flex-1 font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 outline-none rounded-r-lg"
-                                type="text" name="search_seats" id="search_seats" placeholder="# of people" value="2">
-                                <datalist id="seat-options">
-                                    <option value="1" />
-                                    <option value="2" />
-                                    <option value="3" />
-                                    <option value="4" />
-                                    <option value="5" />
-                                    <option value="6" />
-                                    <option value="7" />
-                                    <option value="8" />
-                                    <option value="9" />
-                                    <option value="10" />
-                                    <option value="10+" />
-                                </datalist>
+                                type="text" name="search_seats" id="search_seats">
+                                    <option value="1">1 person</option>
+                                    <option value="2">2 people</option>
+                                    <option value="3" >3 people</option>
+                                    <option value="4" >4 people</option>
+                                    <option value="5" >5 people</option>
+                                    <option value="6">6 people</option>
+                                    <option value="7">7 people</option>
+                                    <option value="8">8 people</option>
+                                    <option value="9">9 people</option>
+                                    <option value="10">10 people</option>
+                                    <option value="10+">10+ people</option>
+                            </select>
                         </div>
 
 

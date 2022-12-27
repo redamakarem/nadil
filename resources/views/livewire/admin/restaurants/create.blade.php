@@ -207,6 +207,17 @@
                         @enderror
                     </div>
                     <div class="form-group">
+                        <label for="dress_code">Dress Code</label>
+                        <select name="dress_code" id="dress-code" class="form-control" wire:model.defer="form_data.dress_code">
+                            <option value="">None</option>
+                            <option value="Casual">Casual</option>
+                            <option value="Smart Casual">Smart Casual</option>
+                            <option value="Business Casual">Business Casual</option>
+                            <option value="Semi-Formal">Semi-Formal</option>
+                            <option value="Formal">Formal</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <p><strong>Opps Something went wrong</strong></p>

@@ -53,6 +53,7 @@ class Edit extends Component
             'restaurant.opening_hours' => 'sometimes',
             'restaurant.estimated_dining_time' => 'required|numeric',
             'restaurant.is_active' => 'sometimes',
+            'restaurant.dress_code' => 'sometimes',
             'cuisines' => 'required',
             'owner' => 'required',
         ];

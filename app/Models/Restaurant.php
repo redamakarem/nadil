@@ -36,7 +36,8 @@ class Restaurant extends Model implements HasMedia
         'instagram',
         'accessible',
         'private_rooms',
-        'opening_hours'
+        'opening_hours',
+        'dress_code'
     ];
 
     public function owner()
