@@ -9,7 +9,7 @@
         <div class="category-container my-4">
             <div class="font-lato font-bold uppercase tracking-widest text-4xl text-center">{{  $category->name  }}</div>
             @foreach($category->dishes  as $dish)
-            <div>{{ $category->{'name_'.app()->getLocale()} }}</div>
+            <div class="flex flex-col ltr:font-lato rtl:font-ahlan font-bold uppercase ltr:tracking-[4px] rtl:tracking-normal text-2xl text-center">{{ $category->{'name_'.app()->getLocale()} }}</div>
                 @if (!$dish->is_featured)
                 <div class="dish-container my-4 ">
                     <div class="flex flex-col ltr:font-lato rtl:font-ahlan font-bold uppercase ltr:tracking-[4px] rtl:tracking-normal text-2xl text-center">{{ $dish->{'name_'.app()->getLocale()} }}</div>
