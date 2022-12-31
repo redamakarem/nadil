@@ -56,13 +56,13 @@
                                     <tbody style="box-sizing: border-box;">
                                       <tr style="box-sizing: border-box;">
                                         <td id="iykbp" style="box-sizing: border-box; font-size: 12px; font-weight: 300; vertical-align: middle; color: rgb(111, 119, 125); margin: 0; padding: 0; width: 33.33%; text-align: center;" width="33.33%" valign="middle" align="center">
-                                          <a id="iuy3f" style="box-sizing: border-box; color: #ffffff; font-size: large;">CANCELATION POLICY</a>
+                                          <a id="iuy3f" style="box-sizing: border-box; color: #ffffff; font-size: medium;">CANCELATION POLICY</a>
                                         </td>
                                         <td id="i0uyv" style="box-sizing: border-box; font-size: 12px; font-weight: 300; vertical-align: middle; color: rgb(111, 119, 125); margin: 0; padding: 0; width: 33.33%; text-align: center;" width="33.33%" valign="middle" align="center">
-                                          <a id="i2z7h" style="box-sizing: border-box; color: #ffffff; font-size: large;">CONTACT US</a>
+                                          <a id="i2z7h" style="box-sizing: border-box; color: #ffffff; font-size: medium;">CONTACT US</a>
                                         </td>
                                         <td id="i9a1f" style="box-sizing: border-box; font-size: 12px; font-weight: 300; vertical-align: middle; color: rgb(111, 119, 125); margin: 0; padding: 0; width: 33.33%; text-align: center;" width="33.33%" valign="middle" align="center">
-                                          <a id="i92if" style="box-sizing: border-box; color: #ffffff; font-size: large;">FAQ</a>
+                                          <a id="i92if" style="box-sizing: border-box; color: #ffffff; font-size: medium;">FAQ</a>
                                         </td>
                                         <td id="i41zk" style="box-sizing: border-box; font-size: 12px; font-weight: 300; vertical-align: top; color: rgb(111, 119, 125); margin: 0; padding: 0; width: 50%;" width="50%" valign="top">
                                         </td>
