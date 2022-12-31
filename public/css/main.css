@@ -866,6 +866,12 @@ select {
 .max-h-\[296px\] {
     max-height: 296px;
 }
+.max-h-\[calc\(100vh-300px\)\] {
+    max-height: calc(100vh - 300px);
+}
+.max-h-\[calc\(100vh-400px\)\] {
+    max-height: calc(100vh - 400px);
+}
 .min-h-screen {
     min-height: 100vh;
 }
@@ -1663,6 +1669,10 @@ select {
     --tw-text-opacity: 1;
     color: rgb(0 0 0 / var(--tw-text-opacity));
 }
+.text-red-500 {
+    --tw-text-opacity: 1;
+    color: rgb(239 68 68 / var(--tw-text-opacity));
+}
 .text-\[\#454545\] {
     --tw-text-opacity: 1;
     color: rgb(69 69 69 / var(--tw-text-opacity));
@@ -1839,6 +1849,13 @@ select {
 }
 .scrollbar-thumb-gray-\36 00 {
     --scrollbar-thumb: #4b5563 !important;
+}
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
 }
 .placeholder\:text-center::-moz-placeholder {
     text-align: center;
