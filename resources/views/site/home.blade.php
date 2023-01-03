@@ -36,17 +36,17 @@
                             <select
                                 class="flex-1 font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 outline-none rounded-r-lg"
                                 type="text" name="search_seats" id="search_seats">
-                                    <option value="1">1 person</option>
-                                    <option value="2">2 people</option>
-                                    <option value="3" >3 people</option>
-                                    <option value="4" >4 people</option>
-                                    <option value="5" >5 people</option>
-                                    <option value="6">6 people</option>
-                                    <option value="7">7 people</option>
-                                    <option value="8">8 people</option>
-                                    <option value="9">9 people</option>
-                                    <option value="10">10 people</option>
-                                    <option value="10+">10+ people</option>
+                                    <option value="1">1 guest</option>
+                                    <option value="2">2 guests</option>
+                                    <option value="3" >3 guests</option>
+                                    <option value="4" >4 guests</option>
+                                    <option value="5" >5 guests</option>
+                                    <option value="6">6 guests</option>
+                                    <option value="7">7 guests</option>
+                                    <option value="8">8 guests</option>
+                                    <option value="9">9 guests</option>
+                                    <option value="10">10 guests</option>
+                                    <option value="10+">10+ guests</option>
                             </select>
                         </div>
 

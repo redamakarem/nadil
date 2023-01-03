@@ -3,21 +3,33 @@
     <div class="lg:hidden container px-8">
         <p class="uppercase font-lato tracking-[4px] text-center py-6">So, What's the plan</p>
         <div class="flex flex-col items-center">
-            <form>
+            <form action="{{ route('site.restaurants.search') }}" method="POST">
                 <div class="my-4">
-                    <input
-                        class="rounded-[64px] bg-[#E0E0E0] outline-none border-none placeholder:text-center placeholder:font-lato placeholder:uppercase"
-                        type="text" name="people" id="people" placeholder="{{ __('# of people') }}">
+                    <select
+                        class="rounded-[64px] bg-[#E0E0E0] outline-none border-none placeholder:text-center placeholder:font-lato placeholder:uppercase w-full"
+                        name="people" id="people">
+                        <option value="1">1 guest</option>
+                                    <option value="2">2 guests</option>
+                                    <option value="3" >3 guests</option>
+                                    <option value="4" >4 guests</option>
+                                    <option value="5" >5 guests</option>
+                                    <option value="6">6 guests</option>
+                                    <option value="7">7 guests</option>
+                                    <option value="8">8 guests</option>
+                                    <option value="9">9 guests</option>
+                                    <option value="10">10 guests</option>
+                                    <option value="10+">10+ guests</option>
+                    </select>
                 </div>
                 <div class="my-4">
                     <input
-                        class="rounded-[64px] bg-[#E0E0E0] outline-none border-none placeholder:text-center placeholder:font-lato placeholder:uppercase"
-                        type="text" name="date" id="date" placeholder="{{ __('Date') }}">
+                        class="rounded-[64px] bg-[#E0E0E0] outline-none border-none placeholder:text-center placeholder:font-lato placeholder:uppercase w-full"
+                        type="text" name="search_date" id="search_date" placeholder="{{ __('Date') }}">
                 </div>
                 <div class="my-4">
                     <input
-                        class="rounded-[64px] bg-[#E0E0E0] outline-none border-none placeholder:text-center placeholder:font-lato placeholder:uppercase"
-                        type="text" name="time" id="time" placeholder="{{ __('Time') }}">
+                        class="rounded-[64px] bg-[#E0E0E0] outline-none border-none placeholder:text-center placeholder:font-lato placeholder:uppercase w-full"
+                        type="text" name="search_time" id="search_time" placeholder="{{ __('Time') }}">
                 </div>
                 <div class="flex justify-center mb-6">
                     <button 
@@ -82,3 +94,42 @@
         </div>
     </div>
 @endsection
+
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('pickadate/lib/themes/default.css') }}">
+    <link rel="stylesheet" href="{{ asset('pickadate/lib/themes/default.date.css') }}">
+    <link rel="stylesheet" href="{{ asset('pickadate/lib/themes/default.time.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <style>
+        .flatpickr-day.selected {
+    background: #0a0e14;
+}
+    </style>
+@endpush
+@push('scripts')
+    <script src="{{ asset('pickadate/lib/compressed/picker.js') }}"></script>
+    <script src="{{ asset('pickadate/lib/compressed/picker.date.js') }}"></script>
+    <script src="{{ asset('pickadate/lib/compressed/picker.time.js') }}"></script>
+    <script src="{{ asset('pickadate/lib/compressed/legacy.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <script>
+       var booking_time = flatpickr("#search_time", {
+    enableTime: true,
+    noCalendar: true,
+    dateFormat: "G:i K",
+    defaultDate: "18:00",
+    minuteIncrement: 15,
+    minTime: "08:00",
+    maxTime: "22:30",
+});
+
+        var booking_date = flatpickr("#search_date", {
+        dateFormat: 'Y-m-d',
+        minDate:'today',
+        defaultDate:'today',
+    });
+
+        
+    </script>
+@endpush

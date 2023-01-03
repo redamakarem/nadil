@@ -3,6 +3,7 @@
     <div class="px-4">
         <div class="mx-2 bg-[#F5F5F5] shadow-md rounded-[16px] py-6 px-5 ">
             @forelse ($categories as $category )
+                @if ($category->dishes->count()>0)
                 <h2 class="text-center uppercase font-bold font-lato tracking-[4px] mb-4">
                     {{ $category->{'name_' . app()->getLocale()} }}</h2>
                 @forelse ($category->dishes as $dish)
@@ -36,6 +37,7 @@
                 @empty
                     <div class="text-center">No dishes</div>
                 @endforelse
+                @endif
             @empty
                 <div>Something went wrong</div>
             @endforelse

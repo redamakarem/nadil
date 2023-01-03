@@ -55,7 +55,7 @@ class Show extends Component
         })->first();
         if ($schedule) {
             $this->schedule = $schedule;
-            $this->slots = $this->getTimeSlots($schedule->from_time, "{$schedule->slot_length} minutes", $schedule->to_time);
+            $this->slots = $this->getTimeSlots($schedule->from_time, "{$this->restaurant->estimated_dining_time} minutes", $schedule->to_time);
         } else {
             $this->slots = [];
         }
