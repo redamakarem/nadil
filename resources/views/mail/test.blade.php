@@ -1,5 +1,5 @@
-<body id="idn9" style="box-sizing: border-box; margin: 0; background-color: #000000;">
-  <table id="iqcr8" width="90%" height="150" style="box-sizing: border-box; height: 150px; margin: 0 auto 10px auto; padding: 5px 5px 5px 5px; width: 90%; max-width: 1920px;">
+<body id="idn9" style="box-sizing: border-box; margin: 0; background-color: #ffffff;">
+  <table id="iqcr8" width="90%" height="150" style="box-sizing: border-box; height: 150px; margin: 0 auto 10px auto; padding: 5px 5px 5px 5px; width: 90%; max-width: 1920px; border: 2px solid black;">
     <tbody id="izik" style="box-sizing: border-box;">
       <tr id="ik5nh" style="box-sizing: border-box;">
         <td id="ink9g" valign="top" style="box-sizing: border-box; font-size: 12px; font-weight: 300; vertical-align: top; color: rgb(111, 119, 125); margin: 0; padding: 0;">
