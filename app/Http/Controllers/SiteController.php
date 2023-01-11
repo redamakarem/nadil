@@ -127,7 +127,13 @@ class SiteController extends Controller
 
     public function show_booking_confirmation($booking_id)
     {
+        $agent = new Agent();
         $booking = Booking::findOrFail($booking_id);
-        return view('site.booking-thanks',compact('booking'));
+        if ($agent->isDesktop()) {
+            return view('site.booking-thanks', compact('booking'));
+        } else {
+            return view('site.mobile.booking-thanks', compact('booking'));
+        }
+        
     }
 }

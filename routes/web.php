@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\RolesController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CuisineController;
 use App\Http\Controllers\Admin\AreaController;
+use App\Http\Controllers\Admin\DishesController;
 use App\Http\Controllers\GoogleSocialiteController;
 use App\Http\Controllers\RestaurantAdmin\CatalogueCategory\CatalogueCategoryController;
 use App\Http\Controllers\RestaurantAdmin\Dish\DishesController as RADishesController;
@@ -208,6 +209,11 @@ Route::group(['prefix' => 'admin', 'middleware'=>['auth','role:super-admin']],fu
 
     Route::get('contact-messages',[\App\Http\Controllers\Admin\ContactMessagesController::class,'index'])
         ->name('admin.contact-messages.index');
+
+    // Dishes New
+    Route::get('dishes-new/index',[DishesController::class,'new_index'])->name('admin.dishes-new.index');
+    Route::get('dishes-new/create',[DishesController::class,'new_create'])->name('admin.dishes-new.create');
+    Route::get('dishes-new/edit/{id}',[DishesController::class,'new_edit'])->name('admin.dishes-new.edit');
 
     // Areas
 

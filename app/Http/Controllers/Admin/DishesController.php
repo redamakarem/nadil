@@ -92,4 +92,18 @@ class DishesController extends Controller
         $restaurant = Restaurant::findOrFail($restaurant_id);
         return view('admin.restaurants.restaurant_dishes',compact(['restaurant']));
     }
+
+    public function new_create()
+    {
+        return view('admin.dishes-new.create');
+    }
+    public function new_index()
+    {
+        return view('admin.dishes-new.index');
+    }
+    public function new_edit($id)
+    {
+        $dish = Dish::findOrfail($id);
+        return view('admin.dishes-new.edit',compact('dish'));
+    }
 }

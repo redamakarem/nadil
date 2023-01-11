@@ -31,6 +31,7 @@ class Restaurant extends Model implements HasMedia
         'phone',
         'user_id',
         'is_active',
+        'is_featured',
         'estimated_dining_time',
         'facebook',
         'instagram',

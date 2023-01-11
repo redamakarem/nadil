@@ -12,7 +12,7 @@ class DishesMenu extends Model
     use HasFactory;
 
     protected $table = 'catalogues';
-    protected $fillable = ['name','restaurant_id','from_date','to_date','from_time','to_time'];
+    protected $fillable = ['name','restaurant_id','from_date','to_date','from_time','to_time','name_ar'];
     protected $casts = [
         'from_date' => 'date',
         'to_date' => 'date'

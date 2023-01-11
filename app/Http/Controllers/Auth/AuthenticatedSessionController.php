@@ -42,7 +42,7 @@ class AuthenticatedSessionController extends Controller
         if(auth()->user()->hasRole('admin')){
             return redirect()->intended(RouteServiceProvider::ADMIN_HOME);
         }
-        if(auth()->user()->hasRole('restaurant-admin')){
+        if(auth()->user()->hasRole(['restaurant-admin','restaurant-super-admin','restaurant-host','restaurant-manager'])){
             return redirect()->intended(RouteServiceProvider::RESTAURANT_HOME);
         }
         return redirect()->intended(RouteServiceProvider::HOME);

@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin\Booking;
 
 use App\Models\Booking;
 use App\Models\BookingsTables;
+use App\Models\DiningTable;
 use App\Models\Restaurant;
 use App\Models\Unit;
 use App\Models\User;
@@ -25,8 +26,10 @@ class Edit extends Component
     public $selected_time;
     public $display_time;
     public $slot_options;
-    public $seats;
     public $available_tables;
+    public $booking_tables;
+    public $seats;
+    public $selected_capacity;
     public array $listsForFields = [];
 
 
@@ -43,13 +46,14 @@ class Edit extends Component
         $this->selected_time = $this->booking->booking_time;
         $this->display_time = Carbon::parse($this->selected_time)->format("h:i A");
         $this->initListsForFields();
-        // dd($this->booking);
+        $this->booking_tables = Restaurant::find($this->selected_restaurant)->reserved_tables;
+        // dd($this->booking_tables);
     }
 
 
     protected $rules = [
         'selected_restaurant' => 'required|exists:restaurants,id',
-        'booking.user_id' => 'unique:users,id',
+        'booking.user_id' => 'required',
         'booking.phone' => 'required',
        'booking.booking_date' => 'required',
        'booking.booking_time' => 'required',
@@ -57,6 +61,7 @@ class Edit extends Component
         'selected_date' => ['required', 'date'],
         'selected_time' => ['required'],
         'selected_user' => ['required'],
+        'booking_tables' => ['sometimes'],
     ];
 
 
@@ -88,21 +93,27 @@ class Edit extends Component
             $seat_num = $this->booking->seats;
             $tables_to_book = array();
 
-            foreach ($this->available_tables as $available_table){
-                array_push($tables_to_book,$available_table->id);
-                $seat_num -=$available_table->capacity;
-                if ($seat_num<=0)
-                    break;
+            // foreach ($this->available_tables as $available_table){
+            //     array_push($tables_to_book,$available_table->id);
+            //     $seat_num -=$available_table->capacity;
+            //     if ($seat_num<=0)
+            //         break;
+            // }
+            $this->booking->reserved_tables()->detach();
+            if($this->booking->seats<=$this->selected_capacity){
+                foreach ($this->booking_tables as $item) {
+                    BookingsTables::create([
+                        'booking_id' => $this->booking->id,
+                        'table_id' => $item,
+                        'booking_date' => $this->booking->booking_date,
+                        'booking_time' => $this->booking->booking_time,
+                        'restaurant_id' => $this->restaurant->id,
+                        'booking_end_time' => Carbon::parse($this->selected_time)->addMinutes($this->restaurant->estimated_dining_time)->format('H:i:s'),
+                    ]);
+                }
             }
-            foreach ($tables_to_book as $item) {
-                BookingsTables::create([
-                    'booking_id' => $this->booking->id,
-                    'table_id' => $item,
-                    'booking_date' => $this->booking->booking_date,
-                    'booking_time' => $this->booking->booking_time,
-                    'restaurant_id' => $this->restaurant->id,
-                    'booking_end_time' => Carbon::parse($this->selected_time)->addMinutes($this->restaurant->estimated_dining_time)->format('H:i:s'),
-                ]);
+            else{
+                $this->addError('not_enough_seats_added','Not enough seats added for this booking');
             }
 //            $this->booking->reserved_tables()->sync($available_tables->first(),['booking_date' =>])
         }
@@ -187,10 +198,15 @@ class Edit extends Component
     {
         $this->display_time = Carbon::parse($this->selected_time)->format("h:i A");
     }
+    public function updatedBookingTables($value)
+    {
+        $this->selected_capacity = DiningTable::whereIn('id',$this->booking_tables)->sum('capacity');
+    }
 
     public function render()
     {
-        return view('livewire.admin.booking.edit');
+        $tables = Restaurant::find($this->selected_restaurant)->diningTables;
+        return view('livewire.admin.booking.edit',compact(['tables']));
     }
 
     

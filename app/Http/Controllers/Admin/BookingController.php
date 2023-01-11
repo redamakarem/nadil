@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Booking;
+use Auth;
 use Illuminate\Http\Request;
 
 class BookingController extends Controller

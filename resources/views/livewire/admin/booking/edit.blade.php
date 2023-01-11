@@ -60,6 +60,17 @@
 
                     </div>
 
+                    <div class="form-group" wire:ignore>
+                        <label>Tables</label>
+                        <select class="select2" style="width: 100%;"
+                                id="tables" multiple="multiple" wire:model="booking_tables"
+                                data-placeholder="Select table(s)" >
+                            @foreach($tables as $table)
+                                <option value="{{$table->id}}">{{$table->name }} ({{$table->capacity}})</option>
+                            @endforeach
+                        </select>
+                    </div>
+
 
                     <div class="form-group">
                         <label for="booking_phone">Phone</label>
@@ -127,6 +138,11 @@
             toastr.options.onHidden = function () {
                 Livewire.emit('ScheduleAdded');
             }
+
+            jQuery('#tables').select2().on('change', function () {
+            @this.set('booking_tables',jQuery(this).val());
+                console.log('Booking Tables : ' + @this.booking_tables)
+            });
         })
     </script>
 @endpush
