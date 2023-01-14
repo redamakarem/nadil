@@ -293,6 +293,7 @@ Route::group(['prefix' => 'restaurant-admin', 'middleware'=>['auth','role:restau
     // Booking
 
     Route::get('bookings',[RABookingController::class,'index'])->name('restaurant-admin.bookings');
+    Route::get('bookings/{id}/edit',[RABookingController::class,'edit'])->name('restaurant-admin.bookings.edit');
     Route::get('bookings/create',[RABookingController::class,'create'])->name('restaurant-admin.bookings.create');
 });
 
@@ -301,6 +302,7 @@ Route::group(['prefix' => 'user', 'middleware'=>['auth','role:user','ensure_pass
     Route::get('/profile',[\App\Http\Controllers\Site\UserController::class,'profile'])->name('user.profile.show');
     Route::get('/profile/edit',[\App\Http\Controllers\Site\UserController::class,'profile_edit'])->name('user.profile.edit');
     Route::get('/history',[\App\Http\Controllers\Site\UserController::class,'history'])->name('user.history.show');
+    Route::post('/cancel-booking',[\App\Http\Controllers\Site\UserController::class,'cancel_booking'])->name('user.cancel-booking');
 
     Route::get('/restaurant/{id}/book',[\App\Http\Controllers\SiteController::class,'book_restaurant'])
     ->name('site.restaurants.book');

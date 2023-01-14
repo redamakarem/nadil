@@ -12,11 +12,14 @@ class TodaysBookingsTable extends Component
     public $bookings;
     public $bookingStatuses;
 
+
     protected $listeners = ['refreshComponent' => '$refresh'];
 
     public function mount($status_id = 1)
     {
-        $this->bookings = Booking::with(['user'])->where('booking_status_id',$status_id)->get();
+        $ids= auth()->user()->restaurants->pluck('id');
+        $this->bookings = Booking::with(['user'])->where('booking_status_id',$status_id)
+        ->whereIn('restaurant_id',$ids)->get();
         $this->bookingStatuses = BookingStatus::all();
         // dd($this->bookings);
     }

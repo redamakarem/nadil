@@ -70,7 +70,7 @@ class SiteController extends Controller
 
     public function check_booking(Request $request)
     {
-        
+        $agent = new Agent();
         $validated_data = $request->validate(
             [
                 'search_date' => ['required'],
@@ -83,6 +83,9 @@ class SiteController extends Controller
         $result = Restaurant::all()->filter(function ($value, $key) use($validated_data) {
             return $value->getAvailableSeats($validated_data['search_date'],$validated_data['search_time']) > $validated_data['search_seats'];
         });
+        if ($agent->isMobile()) {
+            return view('site.mobile.search',compact('result'));
+        }
 
         return view('site.search',compact('result'));
     }

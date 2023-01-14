@@ -40,7 +40,7 @@ class Booking extends Model
     {
         return $this->belongsTo(User::class);
     }
-    public function status()
+    public function booking_status()
     {
         return $this->belongsTo(BookingStatus::class);
     }

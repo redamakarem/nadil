@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\RestaurantAdmin\Booking;
 
 use App\Http\Controllers\Controller;
+use App\Models\Booking;
 use Illuminate\Http\Request;
 
 class BookingController extends Controller
@@ -57,7 +58,8 @@ class BookingController extends Controller
      */
     public function edit($id)
     {
-        //
+        $booking = Booking::findOrFail($id);
+        return view('restaurant-admin.booking.edit',compact('booking'));
     }
 
     /**
