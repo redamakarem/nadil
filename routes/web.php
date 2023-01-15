@@ -28,7 +28,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[\App\Http\Controllers\SiteController::class,'index']);
+Route::get('/',[\App\Http\Controllers\SiteController::class,'index'])->name('site.home');
 Route::get('/restaurants',[\App\Http\Controllers\SiteController::class,'restaurants']);
 Route::get('/restaurants/cuisine/{cuisine}',[\App\Http\Controllers\SiteController::class,'restaurants_by_cuisine'])
     ->name('site.restaurants.cuisine');

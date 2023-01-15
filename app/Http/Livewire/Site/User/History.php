@@ -4,6 +4,8 @@ namespace App\Http\Livewire\Site\User;
 
 use App\Models\Booking;
 use Livewire\Component;
+use App\Models\BookingsTables;
+use Illuminate\Support\Facades\Auth;
 
 class History extends Component
 {
@@ -14,7 +16,7 @@ class History extends Component
 
     public function mount($bookings, $profile)
     {
-        $this->bookings = $bookings;
+        $this->bookings =  Booking::with('restaurant')->where('user_id',Auth::id())->orderBy('booking_date','desc')->where('booking_status_id','1')->get();
         $this->profile = $profile;
         $this->selected_booking = null;
     }
@@ -28,5 +30,17 @@ class History extends Component
     {
         $this->selected_booking = Booking::findOrFail($b);
         
+    }
+
+    public function cancel_booking()
+    {
+        if($this->selected_booking){
+            BookingsTables::where('booking_date',$this->selected_booking->booking_date)
+            ->where('booking_time',$this->selected_booking->booking_time)->delete();
+            $this->selected_booking->booking_status_id=5;
+            $this->selected_booking->save();
+            $bookings = Booking::with('restaurant')->where('user_id',Auth::id())->orderBy('booking_date','desc')->where('booking_status_id','1')->get();
+            $this->selected_booking=null;
+        }
     }
 }

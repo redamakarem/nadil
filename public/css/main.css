@@ -762,6 +762,9 @@ select {
 .-mr-2 {
     margin-right: -0.5rem;
 }
+.mt-24 {
+    margin-top: 6rem;
+}
 .block {
     display: block;
 }
@@ -869,6 +872,9 @@ select {
 }
 .max-h-\[calc\(100vh-400px\)\] {
     max-height: calc(100vh - 400px);
+}
+.max-h-\[500px\] {
+    max-height: 500px;
 }
 .min-h-screen {
     min-height: 100vh;

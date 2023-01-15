@@ -65,7 +65,7 @@ class UserController extends Controller
     {
         $agent = new Agent();
         $profile = Auth::user()->profile->firstOrFail();
-        $bookings = Booking::with('restaurant')->where('user_id',Auth::id())->orderBy('booking_date','desc')->take(3)->get();
+        $bookings = Booking::with('restaurant')->where('user_id',Auth::id())->orderBy('booking_date','desc')->where('booking_status_id','1')->get();
         if ($agent->isDesktop()) {
         return view('site.user.history',compact(['bookings','profile']));
         }
