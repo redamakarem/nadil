@@ -71,7 +71,6 @@ dir="{{ app()->getLocale()=='en'?'ltr':'rtl' }}"
 
                 @role('user')
                     <a href="{{route('user.profile.show')}}" class=" block uppercase text-black dark:text-white py-3 px-8">{{__('nadil.menu.profile')}}</a>
-                    <a href="#" class=" block uppercase text-black dark:text-white py-3 px-8">{{__('nadil.menu.settings')}}</a>
                     
                     <form action="{{ route('logout') }}" method="POST"
                         onclick="event.preventDefault();
