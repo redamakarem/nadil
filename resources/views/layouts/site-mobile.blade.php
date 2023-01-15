@@ -70,8 +70,7 @@ dir="{{ app()->getLocale()=='en'?'ltr':'rtl' }}"
                 <a href="{{route('site.home')}}" class=" block uppercase text-black dark:text-white py-3 px-8">{{__('nadil.menu.discover')}}</a>
 
                 @role('user')
-                    <a href="#" class=" block uppercase text-black dark:text-white py-3 px-8">{{__('nadil.menu.reservations')}}</a>
-                    <a href="#" class=" block uppercase text-black dark:text-white py-3 px-8">{{__('nadil.menu.profile')}}</a>
+                    <a href="{{route('user.profile.show')}}" class=" block uppercase text-black dark:text-white py-3 px-8">{{__('nadil.menu.profile')}}</a>
                     <a href="#" class=" block uppercase text-black dark:text-white py-3 px-8">{{__('nadil.menu.settings')}}</a>
                     
                     <form action="{{ route('logout') }}" method="POST"
