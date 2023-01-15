@@ -91,9 +91,9 @@
                     <div class="item flex flex-col justify-center rounded-xl border-2 h-32 shadow-md font-lato"
                         style="background-image:url('{{ $meal_restaurant->getFirstMediaUrl('restaurant_images') }}'); background-size: cover">
                         <a href="{{ route('site.restaurants.view', ['id' => $meal_restaurant->id]) }}" >
-                            <h4 class="text-center font-bold text-blue uppercase text-[26px] tracking-[2px]">
+                            <h4 class="text-center font-bold text-white uppercase text-[26px] tracking-[2px]">
                                 {{ $meal_restaurant->{'name_' . app()->getLocale()} }}</h4>
-                            <div class="address text-center text-blue uppercase text-[18px] tracking-[2px]">
+                            <div class="address text-center text-white uppercase text-[18px] tracking-[2px]">
                                 {{ $meal_restaurant->{'name_' . app()->getLocale()} }}</div>
                         </a>
                     </div>
