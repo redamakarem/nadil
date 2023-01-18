@@ -34,11 +34,11 @@
                         @endif
                     
                 </div>
-                <div class="flex flex-grow w-full px-4 mt-6 space-x-8 justify-center">
+                <div class="flex w-full px-4 mt-6 space-x-8 justify-center">
                         <a href="#" class="uppercase px-8 py-4 bg-nadilBtn-100 tracking-[6px] rounded-[19px]">Phone</a>
                         <a href="#" class="uppercase px-8 py-4 bg-nadilBtn-100 tracking-[6px] rounded-[19px]">Email</a>
                 </div>
-                <div class="flex flex-grow w-full px-4 mt-6 space-x-8 justify-center">
+                <div class="flex w-full px-4 mt-6 space-x-8 justify-center">
                         @if (!empty($restaurant->facebook))
                             <a href="{{$restaurant->facebook}}" class="uppercase px-4 py-4 bg-nadilBtn-100 tracking-[6px] rounded-[19px]"><i class="fa-brands fa-facebook-f"></i></a>
                         @endif
