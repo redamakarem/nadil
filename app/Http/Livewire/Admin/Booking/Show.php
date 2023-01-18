@@ -8,12 +8,13 @@ use Livewire\Component;
 
 class Show extends Component
 {
-    public $booking;
+    public Booking $booking;
 
 
     public function mount($booking)
     {
         $this->booking = $booking;
+        // dd($this->booking->reserved_tables);
     }
 
     public function render()

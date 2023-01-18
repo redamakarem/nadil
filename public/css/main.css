@@ -735,6 +735,9 @@ select {
 .mb-16 {
     margin-bottom: 4rem;
 }
+.mt-24 {
+    margin-top: 6rem;
+}
 .mb-2 {
     margin-bottom: 0.5rem;
 }
@@ -761,9 +764,6 @@ select {
 }
 .-mr-2 {
     margin-right: -0.5rem;
-}
-.mt-24 {
-    margin-top: 6rem;
 }
 .block {
     display: block;
@@ -959,6 +959,12 @@ select {
 }
 .w-\[1920px\] {
     width: 1920px;
+}
+.w-\[90\%\] {
+    width: 90%;
+}
+.w-\[375px\] {
+    width: 375px;
 }
 .min-w-max {
     min-width: -webkit-max-content;

@@ -2,10 +2,10 @@
 @section('content')
 
 <div id="page-wrapper" style="background-image:url('{{$restaurant->getFirstMediaUrl('restaurant_bgs')}}'); background-size: cover">
-    <div id="page-content" class="flex flex-grow flex-col w-[85%] max-w-12xl mx-auto py-[80px] ">
+    <div id="page-content" class="flex flex-grow flex-col w-[90%] mx-auto py-[80px] ">
         <div class="flex">
             <div id="restaurant-details"
-                 class="flex flex-col items-center w-[400px] rounded-[64px] border-2 bg-white">
+                 class="flex flex-col items-center w-[375px] rounded-[64px] border-2 bg-white">
                 <h2 class="ltr:font-lato rtl:font-ahlan text-4xl ltr:tracking-widest rtl:tracking-normal mt-16 uppercase text-center">{{ $restaurant->{'name_'.app()->getLocale()}  }}</h2>
                 <hr class="h-1 w-48 mt-4" />
                 <h3 class="uppercase ltr:font-din rtl:font-ahlan text-xl ltr:tracking-[6px] rtl:tracking-normal mt-3">{{$restaurant->areaa->governate->{'name_'.app()->getLocale()} }}</h3>

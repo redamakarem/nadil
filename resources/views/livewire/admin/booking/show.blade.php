@@ -19,7 +19,7 @@
 
                         <tr>
                             <th>Restaurant</th>
-                            <td>{{$booking->restaurant->name}}</td>
+                            <td>{{$booking->restaurant->name_en}}</td>
                         </tr>
                         <tr>
                             <th>Date</th>

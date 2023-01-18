@@ -4,7 +4,7 @@
 
 
 <div>
-    <div class="bg-[#f5f5f5] min-h-[500px] rounded-[64px] py-8 shadow-md scrollbar-hide max-h-[calc(100vh-400px)] overflow-y-scroll">
+    <div class="bg-[#f5f5f5] min-h-[500px] h-full rounded-[64px] py-8 shadow-md scrollbar-hide overflow-y-scroll">
         @foreach($restaurant->menus[0]->categories as $category)
         <div class="category-container my-4">
             <div class="font-lato font-bold uppercase tracking-widest text-4xl text-center">{{  $category->name  }}</div>
