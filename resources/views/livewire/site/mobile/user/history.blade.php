@@ -2,9 +2,9 @@
     <div class="w-full flex items-center flex-col space-y-8 my-8 px-6">
         @foreach ($bookings as $booking )
         <div class="shadow-md bg-red rounded-md py-8 mx-6 w-full mt-8 cursor-pointer" style="background-image:url('{{$booking->restaurant->getFirstMediaUrl('restaurant_bgs')}}'); background-size: cover">
-           <div class="text-3xl text-black text-center"> {{ $booking->restaurant->{'name_'.app()->getLocale()} }}</div>
-           <div class="text-black text-center"> {{ $booking->booking_date }}</div>
-           <div class="text-black text-center"> {{ $booking->booking_status->{'name_'.app()->getLocale()}  }}</div>
+           <div class="text-3xl text-white text-center"> {{ $booking->restaurant->{'name_'.app()->getLocale()} }}</div>
+           <div class="text-white text-center"> {{ $booking->booking_date }}</div>
+           <div class="text-white text-center"> {{ $booking->booking_status->{'name_'.app()->getLocale()}  }}</div>
            @if ($booking->booking_date > \Carbon\Carbon::now() && $booking->booking_status_id==1)
            <a href="#" wire:click.prevent="confirmBookingDeletion({{$booking->id}})" class="text-black" >{{__('Cancel Booking')}}</a>
            
