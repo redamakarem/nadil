@@ -885,6 +885,9 @@ select {
 .max-h-\[1030px\] {
     max-height: 1030px;
 }
+.max-h-\[900px\] {
+    max-height: 900px;
+}
 .min-h-screen {
     min-height: 100vh;
 }
