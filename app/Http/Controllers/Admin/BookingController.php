@@ -22,7 +22,7 @@ class BookingController extends Controller
 
     public function show($id)
     {
-        $booking = Booking::with(['reserved_tables','restaurant'])->findOrFail($id);
+        $booking = Booking::with(['reserved_tables','booking_status','restaurant'])->findOrFail($id);
 
 
         return view('admin.bookings.show',compact('booking'));

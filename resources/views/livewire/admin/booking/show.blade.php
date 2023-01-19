@@ -44,6 +44,12 @@
                                 {{ $booking->reserved_tables->pluck('name')->implode(', ') }}
                             </td>
                         </tr>
+                        <tr>
+                            <th>Status</th>
+                            <td>
+                                {{ $booking->booking_status->name_en }}
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
 
