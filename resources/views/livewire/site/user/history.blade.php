@@ -36,7 +36,7 @@
                         <div class="text-center">
                             <div class="text-black text-center"> {{ $booking->booking_status->{'name_'.app()->getLocale()}  }}</div>
                @if ($selected_booking->booking_date > \Carbon\Carbon::now() && $selected_booking->booking_status_id==1)
-               <button class="bg-nadilBtn-100 py-4 px-8 uppercase my-4 shadow md rounded-[19px]" wire:click="confirmBookingDeletion({{$booking->id}})">{{__('Cancel Booking')}}</button>
+               <button class="bg-nadilBtn-100 py-4 px-8 uppercase my-4 shadow md rounded-[19px]" wire:click="confirmBookingDeletion({{$selected_booking->id}})">{{__('Cancel Booking')}}</button>
                @endif
                         </div>
                     </div>
