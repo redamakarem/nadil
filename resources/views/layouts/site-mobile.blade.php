@@ -131,6 +131,7 @@ dir="{{ app()->getLocale()=='en'?'ltr':'rtl' }}"
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="{{asset('admin-lte/plugins/sweetalert2/sweetalert2.all.min.js')}}"></script>
     <script src="//unpkg.com/alpinejs" defer></script>
     <script>
         $('.owl-carousel').owlCarousel({
