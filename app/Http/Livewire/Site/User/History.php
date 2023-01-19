@@ -15,6 +15,8 @@ class History extends Component
     public $profile;
     public $idToRemove;
 
+    protected $listeners = ['bookingDeleteConfirmed' => 'deleteBooking'];
+
     public function mount($bookings, $profile)
     {
         $this->bookings =  Booking::with('restaurant')->where('user_id',Auth::id())->orderBy('booking_date','desc')->where('booking_status_id','1')->get();
