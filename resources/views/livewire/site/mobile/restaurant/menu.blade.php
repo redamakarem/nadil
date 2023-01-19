@@ -22,10 +22,7 @@
                                             {{ $dish->{'name_' . app()->getLocale()} }}</div>
                                     </div>
                                 </div>
-                                <div class="font-lato uppercase font-thin text-xs tracking-widest">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, quidem. Quasi corrupti
-                                    saepe expedita. Rerum repudiandae, sit molestiae nihil reprehenderit laborum.
-                                </div>
+                                
                             </div>
                         </div>
                     @else
