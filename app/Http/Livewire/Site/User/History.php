@@ -15,7 +15,7 @@ class History extends Component
     public $profile;
     public $idToRemove;
 
-    protected $listeners = ['bookingDeleteConfirmed' => 'deleteBooking'];
+    protected $listeners = ['bookingDeleteConfirmed' => 'deleteBooking','refreshComponent' => '$refresh'];
 
     public function mount($bookings, $profile)
     {
@@ -41,6 +41,7 @@ class History extends Component
             $this->selected_booking->save();
             $bookings = Booking::with('restaurant')->where('user_id',Auth::id())->orderBy('booking_date','desc')->where('booking_status_id','1')->get();
             $this->selected_booking=null;
+            $this->emit('refreshComponent');
         }
     }
 
