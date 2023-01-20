@@ -38,12 +38,12 @@ class History extends Component
     }
     public function render()
     {
-        $bookings = Booking::with('restaurant')->where('user_id',Auth::id())->orderBy('booking_date','desc')->where('booking_status_id','1')->get();
-        return view('livewire.site.mobile.user.history',compact('bookings'));
+        return view('livewire.site.mobile.user.history');
     }
 
     public function mount($bookings,$profile)
     {
+        $this->bookings =  Booking::with('restaurant')->where('user_id',Auth::id())->orderBy('booking_date','desc')->where('booking_status_id','1')->get();
         $this->profile = $profile;
     }
 }
