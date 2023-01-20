@@ -59,6 +59,7 @@ class History extends Component
             ->where('booking_time',$booking_to_delete->booking_time)->delete();
             $booking_to_delete->booking_status_id=5;
             $booking_to_delete->save();
+            $this->bookings =  Booking::with('restaurant')->where('user_id',Auth::id())->orderBy('booking_date','desc')->where('booking_status_id','1')->get();
             $this->emit('refreshComponent');
         }
     }
