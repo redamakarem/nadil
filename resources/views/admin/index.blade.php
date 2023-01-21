@@ -57,8 +57,9 @@
         <div class="row">
             @livewire('admin.booking.calendar')
         </div>
-        <div class="row">
-            @livewire('admin.reports.charts.all-bookings')
-        </div>
+        
+    </div>
+    <div class="row">
+        @livewire('admin.reports.charts.all-bookings')
     </div>
 @endsection

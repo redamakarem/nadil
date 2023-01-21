@@ -76,7 +76,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 
-Route::group(['prefix' => 'admin', 'middleware'=>['auth','role:super-admin']],function()
+Route::group(['prefix' => 'admin', 'middleware'=>['auth','role:super-admin|nadil-admin|nadil-support']],function()
 {
     Route::get('/',[\App\Http\Controllers\Admin\AdminController::class,'index'])->name('admin.index');
 
@@ -227,7 +227,7 @@ Route::group(['prefix' => 'admin', 'middleware'=>['auth','role:super-admin']],fu
 
 
 
-Route::group(['prefix' => 'restaurant-admin', 'middleware'=>['auth','role:restaurant-super-admin|restaurant-admin']],function(){
+Route::group(['prefix' => 'restaurant-admin', 'middleware'=>['auth','role:restaurant-super-admin|restaurant-admin|restaurant-host|restaurant-manager']],function(){
     Route::get('/',[App\Http\Controllers\RestaurantAdmin\RestaurantAdminController::class,'index'])
     ->name('restaurant-admin.index');
     // Restaurants

@@ -4,27 +4,24 @@ namespace App\Http\Livewire\Admin\Reports\Charts;
 
 use App\Models\Booking;
 use Livewire\Component;
+use App\Models\BookingStatus;
 use Illuminate\Support\Facades\DB;
 
 class AllBookings extends Component
 {
 
     public $bookings;
-    public $results;
+    public $result;
     public function mount()
     {
         $this->getAllBookings();
-        dd($this->results);
+        
     }
 
 
     public function getAllBookings()
     {
-        $this->results=DB::table('bookings')
-        ->join('booking_statuses', 'booking_status_id', '=', 'booking_statuses.id')
-            ->select('booking_status_id',DB::raw('booking_statuses.name_en as Status'),DB::raw('count(booking_status_id) as count'))
-        ->groupBy('booking_status_id','booking_statuses.name_en')
-        ->get();
+        $this->result= BookingStatus::withCount('bookings')->get()->toArray();
     }
     public function render()
     {

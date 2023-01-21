@@ -1,27 +1,27 @@
 <div>
-    
+    <div id="all-bookings"></div>
 </div>
 @push('scripts')
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-<script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script>
+        var options = null;
+        var bookings = null;
 
-var options=null;
-var top_products=null;
+        document.addEventListener('livewire:load', function() {
 
-document.addEventListener('livewire:load', function () {
 
-  
 
-        function initChart(data){
-           top_products = data;
-    console.log(top_products);
-    var series = [];
-    var labels = [];
-    top_products.map(product =>{
-        series.push(parseFloat(product['total']));
-        labels.push(product['name_ar']);
+            function initChart(data) {
+                console.log(data);
+                bookings = data;
+                var series = [];
+                var labels = [];
+                bookings.map(booking =>{
+        series.push(parseInt(booking['bookings_count']));
+        console.log(parseInt(booking['bookings_count']));
+        labels.push(booking['name_en']);
     });
-     options = {
+    options = {
           series: series,
           chart: {
           width: 750,
@@ -40,24 +40,20 @@ document.addEventListener('livewire:load', function () {
           }
         }]
         };
+            }
 
-        
-        }
+            initChart(@this.result);
+            var chart = new ApexCharts(document.querySelector("#all-bookings"), options);
+            chart.render();
 
-        initChart(@this.result);
-        var chart = new ApexCharts(document.querySelector("#top-products"), options);
-        chart.render();
+            @this.on('refreshChart',(chartData) =>{
+              console.log(chartData.seriesData);
+              console.log(@this.result);
+              initChart(@this.result);
 
-    @this.on('refreshChart',(chartData) =>{
-      console.log(chartData.seriesData);
-      console.log(@this.result);
-      initChart(@this.result);
+              chart.updateOptions (options)
+            })
 
-      chart.updateOptions (options)
-    })
-
-})
-    
-    
-</script>
+        })
+    </script>
 @endpush
