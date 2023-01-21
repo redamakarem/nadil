@@ -14,4 +14,9 @@ class BookingStatus extends Model
         'name_ar',
     ];
 
+    public function bookings()
+    {
+        return $this->belongsTo(Booking::class);
+    }
+
 }

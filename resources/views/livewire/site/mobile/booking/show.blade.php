@@ -45,7 +45,7 @@ class="flex flex-col px-4 pt-8">
     <div class="flex justify-center mb-6">
         <button 
         class="uppercase font-lato font-bold bg-[#F8F8F8] shadow-md rounded-lg py-4 w-2/3" 
-        wire:click="submit" type="button">{{ __('Book Now') }}</button>
+        wire:click="submit" type="button">{{ __('nadil.booking.book_now') }}</button>
     </div>
 </div>
 
