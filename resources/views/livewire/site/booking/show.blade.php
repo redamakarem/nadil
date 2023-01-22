@@ -48,7 +48,13 @@
         </div>
         <div class="flex w-full">
             <div class="w-1/2 flex flex-col items-center">
-                <input type="number" step="1" min="0" max="{{$restaurant->max_party_size}}" wire:model.defer="seats">
+                {{-- <input type="number" step="1" min="0" max="{{$restaurant->max_party_size}}" wire:model.defer="seats"> --}}
+                <select wire:model.defer="seats">
+                    <option value="">{{__('Select number of guests')}}</option>
+                    @for ($i = 1; $i < $restaurant->max_party_size-1; $i++)
+                        <option value="{{$i}}">{{$i}} guests</option>
+                    @endfor
+                </select>
             </div>
             <div class="w-1/2 flex flex-col items-center">
                 <button {{!$booking_enabled?'disabled':''}} type="button" wire:click="submit" class="mb-4 inline-block px-8 py-6 bg-nadilBtn-100 tracking-[6px] rounded-[19px] hover:bg-grey-500 focus:bg-black focus:text-white focus:outline-none focus:ring-0 active:bg-black active:text-white transition duration-150 ease-in-out">Book Now</button>
