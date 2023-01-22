@@ -51,7 +51,7 @@
                 {{-- <input type="number" step="1" min="0" max="{{$restaurant->max_party_size}}" wire:model.defer="seats"> --}}
                 <select wire:model.defer="seats">
                     <option value="">{{__('Select number of guests')}}</option>
-                    @for ($i = 1; $i < $restaurant->max_party_size-1; $i++)
+                    @for ($i = 1; $i <= $restaurant->max_party_size; $i++)
                         <option value="{{$i}}">{{$i}} guests</option>
                     @endfor
                 </select>
