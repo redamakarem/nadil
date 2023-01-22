@@ -11,7 +11,7 @@ class GoogleSocialiteController extends Controller
 {
     public function redirectToGoogle()
     {
-        return Socialite::driver('google')->redirect();
+        return Socialite::driver('google') ->setScopes(['email', 'profile'])->redirect();
     }
 
     /**
@@ -24,7 +24,7 @@ class GoogleSocialiteController extends Controller
         try {
 
             $user = Socialite::driver('google')->stateless()->user();
-
+            dd($user);
             $finduser = User::where('social_id', $user->id)->first();
 
             if($finduser){
