@@ -1,5 +1,5 @@
 
-<div>
+<div class="w-full">
     <x-loading-indicator-2 />
     <div class="flex flex-col items-center w-full ">
         @if($errors->any())
