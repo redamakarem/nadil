@@ -4,7 +4,7 @@
     <div class="w-1/3  flex-col space-y-8 px-8 items-center" >
         <div class="flex flex-col items-center space-y-4 my-4">
             <div class="w-32 h-32 rounded-full shadow-md bg-nadilBg-100
-            flex justify-center items-center font-lato text-3xl font-bold uppercase">{{auth()->user()->profile->initials}}</div>
+            flex justify-center items-center font-lato text-3xl font-bold uppercase">{{auth()->user()->profile->initials??'??'}}</div>
             <div class="font-lato uppercase tracking-[6px]"> Your Profile</div>
         </div>
         <div class="">
