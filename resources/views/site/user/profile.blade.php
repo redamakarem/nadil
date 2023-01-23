@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 @else
-                <div>Create Profile</div>
+                <div class="flex justify-center items-center"><a href="{{route('user.profile.edit')}}">{{__('Create Profile')}}</a></div>
                 @endif
                 
             </div>
