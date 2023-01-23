@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Exception;
 use App\Models\User;
+use App\Models\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
@@ -25,7 +26,7 @@ class GoogleSocialiteController extends Controller
         try {
 
             $user = Socialite::driver('google')->stateless()->user();
-            dd($user);
+            // dd($user);
             $finduser = User::where('social_id', $user->id)->first();
 
             if($finduser){
@@ -43,6 +44,14 @@ class GoogleSocialiteController extends Controller
                     'password' => encrypt('my-google')
                 ]);
                 $newUser->assignRole(8);
+                $newProfile = Profile::create(
+                    [
+                        'name' => $user->name,
+                        'email' => $user->email,
+                        'user_id' =>$newUser->id
+                    ]
+                    );
+                    $newProfile->save();
 
                 Auth::login($newUser);
 
