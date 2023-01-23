@@ -48,7 +48,8 @@ class GoogleSocialiteController extends Controller
                     [
                         'name' => $user->name,
                         'email' => $user->email,
-                        'user_id' =>$newUser->id
+                        'user_id' => $newUser->id,
+                        'gender' => 0
                     ]
                     );
                     $newProfile->save();
