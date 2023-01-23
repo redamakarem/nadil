@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -24,7 +25,7 @@ class GoogleSocialiteController extends Controller
         try {
 
             $user = Socialite::driver('google')->stateless()->user();
-            dd($user);
+            // dd($user);
             $finduser = User::where('social_id', $user->id)->first();
 
             if($finduser){
