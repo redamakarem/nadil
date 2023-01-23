@@ -24,6 +24,7 @@
 
         <div class="rounded-[64px] border-2 bg-nadilBtn-100 w-full h-full p-8">
             <div class="flex rounded-[64px] border-2 bg-white h-full w-full">
+                @if ($profile)
                 <div class="flex items-center w-full justify-between">
                     <div class="flex flex-col w-2/3 py-8 px-12">
                         <h3 class="font-lato font-italic uppercase text-[21px] tracking-[10px] mb-12">Account Details</h3>
@@ -53,6 +54,10 @@
                         </div>
                     </div>
                 </div>
+                @else
+                <div>Create Profile</div>
+                @endif
+                
             </div>
         </div>
     </div>
