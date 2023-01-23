@@ -1,5 +1,6 @@
 <div id="booking-container"
 class="flex flex-col px-4 pt-8">
+<x-loading-indicator-2 />
 @if($errors->any())
 <div id="validation-errors" class="bg-red-600 mb-4 px-8 py-12 text-white font-lato uppercase text-md rounded-[19px]">
 @foreach ($errors->all() as $error)
