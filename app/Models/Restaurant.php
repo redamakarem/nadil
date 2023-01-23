@@ -182,7 +182,7 @@ class Restaurant extends Model implements HasMedia
     }
     public function scopePublishable(Builder $query)
     {
-        return $query->whereHas('menus')->whereHas('menus');
+        return $query->whereHas('menus');
     }
 
     public function scopeHasScheduleForDate(Builder $query, $date)
