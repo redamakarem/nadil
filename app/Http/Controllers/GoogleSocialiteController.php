@@ -25,7 +25,7 @@ class GoogleSocialiteController extends Controller
         try {
 
             $user = Socialite::driver('google')->stateless()->user();
-            // dd($user);
+            dd($user);
             $finduser = User::where('social_id', $user->id)->first();
 
             if($finduser){
