@@ -61,6 +61,17 @@
                                id="exampleInputEmail1">
                         @error('email')<span class="error">{{$message}}</span>@enderror
                     </div>
+                    <div class="mb-3">
+                        <input type="password" class="form-control shadow-sm" placeholder="Password" name="password"
+                               >
+                        @error('password')<span class="error">{{$message}}</span>@enderror
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" class="form-control shadow-sm" placeholder="Confirm" name="password_confirmation"
+                               >
+                        @error('password_confirmation')<span class="error">{{$message}}</span>@enderror
+                    </div>
+                    <input type="hidden" name="token" value="{{ $request->route('token') }}">
 
                     <button type="submit" class="btn btn-primary btn-nadil shadow-sm d-flex align-self-end">Submit</button>
                 </form>
