@@ -52,7 +52,7 @@ class UserController extends Controller
     public function profile()
     {
         $agent = new Agent();
-        $profile = Auth::user()->profile->firstOrFail();
+        $profile = Auth::user()->profile;
         if ($agent->isDesktop()){
             return view('site.user.profile', compact('profile'));
         }
