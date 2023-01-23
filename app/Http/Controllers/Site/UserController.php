@@ -63,7 +63,7 @@ class UserController extends Controller
 
     public function profile_edit()
     {
-        $profile = Auth::user()->profile->firstOrFail();
+        $profile = Auth::user()->profile;
         return view('site.user.profile-edit', compact('profile'));
     }
 
