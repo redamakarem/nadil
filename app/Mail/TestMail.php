@@ -12,6 +12,8 @@ class TestMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $user;
+
     /**
      * Create a new message instance.
      *
@@ -19,7 +21,10 @@ class TestMail extends Mailable
      */
 
     
-
+     public function __construct(User $user)
+     {
+         $this->user = $user;
+     }
     /**
      * Build the message.
      *
