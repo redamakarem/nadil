@@ -38,9 +38,15 @@ class="flex flex-col px-4 pt-8">
     </div>
     <div class="uppercase text-center mt-12 mb-4 px-16 py-6 bg-nadilBtn-100 tracking-[6px] rounded-[19px]">{{__('How many seats')}}</div>
     <div class="my-4 flex justify-center">
-        <input
+        {{-- <input
             class="rounded-[64px] bg-[#E0E0E0] outline-none border-none placeholder:text-center placeholder:font-lato placeholder:uppercase text-center w-full h-12"
-            type="number" step="1" min="0" max="{{$restaurant->max_party_size}}" wire:model="seats" placeholder="{{ __('# of people') }}">
+            type="number" step="1" min="0" max="{{$restaurant->max_party_size}}" wire:model="seats" placeholder="{{ __('# of people') }}"> --}}
+            <select wire:model.defer="seats" class="rounded-[64px] bg-[#E0E0E0] outline-none border-none placeholder:text-center placeholder:font-lato placeholder:uppercase text-center w-full h-12">
+                <option value="">{{__('Select number of guests')}}</option>
+                @for ($i = 1; $i <= $restaurant->max_party_size; $i++)
+                    <option value="{{$i}}">{{$i}} guests</option>
+                @endfor
+            </select>
     </div>
     <div class="flex justify-center mb-6">
         <button 
