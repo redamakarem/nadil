@@ -21,7 +21,7 @@ class Edit extends Component
 
     public function mount()
     {
-        $this->profile = Auth::user()->profile;
+        $this->profile = Auth::user()->profile?? new Profile();
     }
 
     public function submit()
