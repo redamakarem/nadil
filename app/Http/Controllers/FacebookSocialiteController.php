@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -42,6 +43,15 @@ class FacebookSocialiteController extends Controller
                     'password' => encrypt('my-facebook')
                 ]);
                 $newUser->assignRole(8);
+                $newProfile = Profile::create(
+                    [
+                        'name' => $user->name,
+                        'email' => $user->email,
+                        'user_id' => $newUser->id,
+                        'gender' => 0
+                    ]
+                    );
+                    $newProfile->save();
 
                 Auth::login($newUser);
 
