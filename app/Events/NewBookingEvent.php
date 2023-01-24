@@ -39,18 +39,9 @@ class NewBookingEvent implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('RestaurantAdmin.'. $this->user['id']. '.Booking');
     }
 
-    public function broadcastAs()
-    {
-        return 'nadilBooking';
-    }
+    
 
-    public function broadcastWith()
-    {
-        return [
-            'message' => $this->booking->user->name . ' ' . 'made a booking on ' . Carbon::parse($this->booking->booking_date)->format('Y-m-d')
-        ];
-    }
+    
 }
