@@ -15,7 +15,7 @@ class Edit extends Component
         'profile.dob' => ['dob'],
         'profile.phone' => ['phone'],
         'profile.email' => ['email'],
-        'profile.gender' => ['gender'],
+        'profile.gender' => ['sometimes'],
         'profile.address' => ['address'],
     ];
 
