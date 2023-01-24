@@ -3,12 +3,12 @@
         class="bg-[#f5f5f5] min-h-[500px] h-full rounded-[64px] py-8 shadow-md scrollbar-hide max-h-[900px] overflow-y-scroll">
         @foreach ($restaurant->menus[0]->categories as $category)
             <div class="category-container my-4">
-                <div class="font-lato font-bold uppercase tracking-widest text-4xl text-center">{{ $category->name }}
+                @if ($category->dishes->count())
+                <div class="font-lato font-bold uppercase tracking-widest text-4xl text-center">{{ $category->{'name_' . app()->getLocale()} }}
                 </div>
+                @endif
                 @foreach ($category->dishes as $dish)
-                    <div
-                        class="flex flex-col ltr:font-lato rtl:font-ahlan font-bold uppercase ltr:tracking-[4px] rtl:tracking-normal text-2xl text-center">
-                        {{ $category->{'name_' . app()->getLocale()} }}</div>
+                    
                     @if ($dish->isActive)
                         @if (!$dish->is_featured)
                             <div class="dish-container my-4 ">
