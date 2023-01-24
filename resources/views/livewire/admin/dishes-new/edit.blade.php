@@ -98,8 +98,8 @@
                 </div>
                 <div class="form-group">
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="is_active" wire:model="dish.is_active">
-                        <label class="form-check-label" for="is_active">Active Dish</label>
+                        <input type="checkbox" class="form-check-input" id="isActive" wire:model="dish.isActive">
+                        <label class="form-check-label" for="isActive">Active Dish</label>
                     </div>
                 </div>
             @endif
