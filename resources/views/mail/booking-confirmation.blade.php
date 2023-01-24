@@ -191,7 +191,7 @@
                                             style="font-size:0px;padding:10px 25px;word-break:break-word;">
                                             <div
                                                 style="font-family:lato;font-size:13px;font-weight:bold;line-height:1;text-align:center;color:#000000;">
-                                                Hello </div>
+                                                Hello {{$user->profile->name}}</div>
                                         </td>
                                     </tr>
 
@@ -208,7 +208,7 @@
                                             style="font-size:0px;padding:10px 25px;word-break:break-word;">
                                             <div
                                                 style="font-family:lato;font-size:13px;font-weight:bold;line-height:1;text-align:center;color:#000000;">
-                                                Restaurant: </div>
+                                                Restaurant: {{ $booking->restaurant->name_en }}</div>
                                         </td>
                                     </tr>
                                     <tr>
@@ -216,7 +216,7 @@
                                             style="font-size:0px;padding:10px 25px;word-break:break-word;">
                                             <div
                                                 style="font-family:lato;font-size:13px;font-weight:bold;line-height:1;text-align:center;color:#000000;">
-                                                Date: </div>
+                                                Date: {{ $booking->booking_date }}</div>
                                         </td>
                                     </tr>
                                     <tr>
@@ -224,7 +224,7 @@
                                             style="font-size:0px;padding:10px 25px;word-break:break-word;">
                                             <div
                                                 style="font-family:lato;font-size:13px;font-weight:bold;line-height:1;text-align:center;color:#000000;">
-                                                Time: </div>
+                                                Time: {{ $booking->booking_time }}</div>
                                         </td>
                                     </tr>
                                     <tr>
@@ -232,7 +232,7 @@
                                             style="font-size:0px;padding:10px 25px;word-break:break-word;">
                                             <div
                                                 style="font-family:lato;font-size:13px;font-weight:bold;line-height:1;text-align:center;color:#000000;">
-                                                Booking Code: </div>
+                                                Booking Code: {{ $booking->booking_code }}</div>
                                         </td>
                                     </tr>
                                     
