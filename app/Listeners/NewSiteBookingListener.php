@@ -28,6 +28,7 @@ class NewSiteBookingListener
      */
     public function handle(\App\Events\NewBookingEvent $event)
     {
+        dd($event);
         Mail::to($event->user->email)->send(new BookingConfirnationMail($event->user,$event->booking));
     }
 }
