@@ -9,7 +9,7 @@
                     <div
                         class="flex flex-col ltr:font-lato rtl:font-ahlan font-bold uppercase ltr:tracking-[4px] rtl:tracking-normal text-2xl text-center">
                         {{ $category->{'name_' . app()->getLocale()} }}</div>
-                    @if (!$dish->is_active)
+                    @if (!$dish->isActive)
                         @if (!$dish->is_featured)
                             <div class="dish-container my-4 ">
                                 <div

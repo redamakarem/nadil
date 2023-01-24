@@ -25,6 +25,7 @@ class Dish extends Model implements HasMedia
         'menu_id',
         'cuisine_id',
         'is_featured',
+        'isActive',
     ];
 
 
