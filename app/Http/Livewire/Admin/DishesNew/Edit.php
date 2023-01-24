@@ -33,7 +33,7 @@ class Edit extends Component
         'dish.cuisine_id' => ['required'],
         'selected_menu' => ['required'],
         'dish.is_featured' => ['sometimes'],
-        'dish.is_active' => ['sometimes']
+        'dish.isActive ' => ['sometimes']
     ];
 
     public function mount($dish)
