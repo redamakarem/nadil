@@ -65,7 +65,7 @@
 {{--    <div id="dev" class="bg-cover w-[1920px] h-[1301px] mx-auto bg-slate-100 flex flex-col"--}}
 {{--         style="background-image:url('{{asset('images/profile-bg.png')}}'); background-size:cover;"--}}
 {{--    >--}}
-<div id="desktop-wrapper" class="hidden lg:flex h-screen flex-col">
+<div id="desktop-wrapper" class=" h-screen flex-col">
     <header class="h-[270px]">
         <div id="header-wrapper" class="bg-black h-full flex items-center">
             <div id="header-content" class="mx-auto bg-black h-36 h-full w-full">

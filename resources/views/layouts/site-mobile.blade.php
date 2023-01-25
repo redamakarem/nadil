@@ -43,7 +43,7 @@ dir="{{ app()->getLocale()=='en'?'ltr':'rtl' }}"
 
 <body class="">
     <main>
-        <div id="mobile-wrapper" class="relative lg:hidden min-h-screen" x-data="{ isOpen: false }">
+        <div id="mobile-wrapper" class="relative min-h-screen" x-data="{ isOpen: false }">
             <div class="sidebar flex-col fixed bg-white dark:bg-black inset-y-0 {{ app()->getLocale() == 'en' ? 'left-0' : 'right-0' }} z-10 w-2/3 max-w-md transform transition duration-200"
                 :class="isOpen ? '' : document.getElementsByTagName('html')[0].getAttribute('lang') == 'en' ?
                     '-translate-x-full' : 'translate-x-full'">
