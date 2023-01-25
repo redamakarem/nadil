@@ -146,7 +146,7 @@
             });
 
             toastr.options.onHidden = function () {
-                Livewire.emit('ScheduleAdded');
+                Livewire.emit('bookingAdded');
             }
         })
     </script>
