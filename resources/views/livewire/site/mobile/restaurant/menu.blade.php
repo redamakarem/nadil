@@ -8,7 +8,7 @@
                     {{ $category->{'name_' . app()->getLocale()} }}</h2>
                 @forelse ($category->dishes as $dish)
                     @if ($dish->is_featured)
-                        <div class="bg-[#E0E0E0] rounded-xl shadow-md py-5 px-4">
+                        <div class="bg-[#E0E0E0] rounded-xl shadow-md py-5 px-4 mb-4">
                             <div class="flex flex-col">
                                 <div class="flex">
                                     <div class="dish-img">
