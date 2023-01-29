@@ -16,7 +16,7 @@
                                             src="{{ $dish->getFirstMediaUrl('dish_images') }}"
                                             alt="{{ $dish->{'name_' . app()->getLocale()} }}">
                                     </div>
-                                    <div class="flex flex-col justify-center items-end">
+                                    <div class="flex flex-col justify-center items-center w-full">
                                         <div class="uppercase font-lato font-thin text-sm">Nadil recommends</div>
                                         <div class="uppercase font-lato font-semibold">
                                             {{ $dish->{'name_' . app()->getLocale()} }}</div>
