@@ -26,10 +26,12 @@
                             </div>
                         </div>
                     @else
-                        <h3 class="uppercase font-lato text-center text-xs">{{ $dish->{'name_' . app()->getLocale()} }}
-                        </h3>
-                        <div class="font-lato mx-3 font-thin text-center text-xs">
-                            {{ $dish->{'description_' . app()->getLocale()} }}</div>
+                        <div class="my-8">
+                            <h3 class="uppercase font-lato text-center text-xs">{{ $dish->{'name_' . app()->getLocale()} }}
+                            </h3>
+                            <div class="font-lato mx-3 font-thin text-center text-xs">
+                                {{ $dish->{'description_' . app()->getLocale()} }}</div>
+                        </div>
                     @endif
                 @empty
                     <div class="text-center">No dishes</div>
@@ -46,7 +48,11 @@
         class="bg-nadilBtn-100 rounded-xl shadow-lg px-6 py-2 uppercase font-lato" href="{{route('site.restaurants.book',$restaurant->id)}}">{{__('nadil.booking.book_now')}}</a>
     </div>
 
-    <div id="googleMap" class="min-h-[300px]"></div>
+    <div class="flex justify-center">
+        <div class="flex flex-col items-center w-full">
+            <div id="googleMap" class="min-h-[300px] w-[100%]"></div>
+        </div>
+    </div>
 
     <div class="flex flex-col items-center my-4">
         <div class="my-4 font-lato font-thin uppercase tracking-[0.6rem]">Contact Info</div>

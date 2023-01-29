@@ -1,6 +1,6 @@
 @extends('layouts.site-mobile',['restaurant' => $restaurant])
 @section('content')
-    <div class="container">
+    <div class="container mx-auto">
         <div class="flex flex-col justify-center">
             <div class="restaurant-header px-4 py-8">
                 <h1 class="text-center font-lato  font-medium font-light text-xl text-black uppercase tracking-[1.0rem]">{{$restaurant->{'name_' . app()->getLocale()} }}</h1>
