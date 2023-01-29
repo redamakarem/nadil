@@ -22,7 +22,7 @@ class="flex flex-col px-4 pt-8">
             @foreach(array_chunk($slots,2,true) as $chunk)
 
 
-                <div class="flex justify-between">
+                <div class="flex justify-center space-x-4">
                     @foreach($chunk as $key => $timeSlot)
                         <div role="group">
                             <button type="button" wire:click="setSelectedTime('{{$timeSlot}}')" {{$this->slot_bookable($timeSlot)?'':'disabled'}} class="mb-4 inline-block px-4 py-2 bg-nadilBtn-100 tracking-[4px] rounded-lg disabled:text-gray-400 hover:bg-grey-500 focus:bg-black focus:text-white focus:outline-none focus:ring-0 active:bg-black active:text-white transition duration-150 ease-in-out">{{$timeSlot}}</button>
