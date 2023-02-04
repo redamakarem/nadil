@@ -4,7 +4,7 @@
         @foreach ($restaurant->menus[0]->categories as $category)
             <div class="category-container my-4">
                 @if ($category->dishes->count())
-                <div class="font-lato font-bold uppercase tracking-widest text-4xl text-center">{{ $category->{'name_' . app()->getLocale()} }}
+                <div class="font-lato rtl:font-ahlan font-bold uppercase tracking-widest rtl:tracking-normal text-4xl text-center">{{ $category->{'name_' . app()->getLocale()} }}
                 </div>
                 @endif
                 @foreach ($category->dishes as $dish)
