@@ -48,7 +48,7 @@
                         
                 </div>
     
-                <div class="mt-16 pb-28 uppercase font-lato font-italic">&quot;{{__('nadil.general.slogan')}} &quot;</div>
+                <div class="mt-16 pb-28 uppercase font-lato rtl:tracking-normal rtl:font-lato font-italic">&quot;{{__('nadil.general.slogan')}} &quot;</div>
             </div>
     
             <div class="w-12"></div>
