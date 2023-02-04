@@ -55,7 +55,7 @@
         </form>
     </div>
     <div class="mx-4">
-        <div class="uppercase font-lato text-center">{{ __('Pick the cuisine') }}</div>
+        <div class="uppercase font-lato text-center tracking-widest">{{ __('Pick the cuisine') }}</div>
         @foreach ($cuisines->chunk(2) as $row)
             <div class="flex justify-between space-x-4 rtl:flex-row-reverse">
                 @foreach ($row as $item)
@@ -66,16 +66,16 @@
         @endforeach
     </div>
     <div class="mx-4">
-        <div class="uppercase font-lato text-center mb-4">{{ __('Pick the spot') }}</div>
+        <div class="uppercase font-lato text-center mb-4 tracking-widest">{{ __('Pick the spot') }}</div>
         <div class="owl-carousel owl-theme">
             @foreach ($restaurants as $restaurant)
                 <div class="item rounded-xl shadow-lg filter grayscale"
                     style="background-image:url('{{ $restaurant->getFirstMediaUrl('restaurant_images') }}'); background-size: cover">
                     <a href="{{ route('site.restaurants.view', ['id' => $restaurant->id]) }}"
                         class="flex flex-col justify-center py-12 w-full h-full bg-black rounded-xl bg-opacity-50">
-                        <h4 class="text-center font-bold text-white uppercase text-[26px] tracking-[2px]">
+                        <h4 class="text-center font-lato font-normal text-white uppercase text-[26px] tracking-[2px]">
                             {{ $restaurant->{'name_' . app()->getLocale()} }}</h4>
-                        <div class="address text-center text-white uppercase text-[18px] tracking-[2px]">
+                        <div class="address text-center font-lato text-white uppercase text-[18px] tracking-[2px]">
                             {{ $restaurant->areaa->{'name_' . app()->getLocale()} }}</div>
                     </a>
                 </div>
@@ -84,15 +84,15 @@
     </div>
 
     {{-- Restaurants by meal types --}}
-    <div class="greeting uppercase font-lato text-center">Browse by meal type</div>
+    <div class="greeting uppercase font-lato text-center text-xl">Browse by meal type</div>
 
     @foreach ($meal_types as $meal_type)
         <div class="mx-4">
-            <h2 class="mt-6 uppercase ltr:font-lato rtl:font-ahlan ltr:text-left rtl:text-right text-[#454545]">
+            <h2 class="mt-6 uppercase ltr:font-lato rtl:font-ahlan ltr:text-left rtl:text-right text-[#454545] text-lg">
                 {{ $meal_type->{'name_' . app()->getLocale()} }}</h2>
             <div class="owl-carousel owl-theme mb-8">
                 @foreach ($meal_type->restaurants as $meal_restaurant)
-                    <div class="item flex flex-col justify-center rounded-xl border-2 h-32 shadow-md font-lato"
+                    <div class="item flex flex-col justify-center rounded-xl border-2 h-32 shadow-md font-lato bg-gray-600"
                         style="background-image:url('{{ $meal_restaurant->getFirstMediaUrl('restaurant_images') }}'); background-size: cover">
                         <a href="{{ route('site.restaurants.view', ['id' => $meal_restaurant->id]) }}">
                             <h4 class="text-center font-bold text-white uppercase text-[26px] tracking-[2px]">

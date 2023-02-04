@@ -40,6 +40,7 @@ class Show extends Component
 
         $this->restaurant = $restaurant;
         $this->booking = new Booking();
+        
         $this->selected_date = Carbon::now()->format('Y-m-d');
         $this->display_date = Carbon::now()->format('M d Y');
         $this->getSlotsForSchedules($this->restaurant);
@@ -70,6 +71,7 @@ class Show extends Component
 
     public function getTimeSlots($start_time, $end_time, $slot_length)
     {
+        Carbon::setlocale(config('app.locale'));
         $period = CarbonPeriod::create($start_time, $slot_length, $end_time);
         $slots = [];
         foreach ($period as $item) {

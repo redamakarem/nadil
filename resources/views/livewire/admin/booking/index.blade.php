@@ -20,6 +20,7 @@
                         <th>Restaurant</th>
                         <th>Date</th>
                         <th>Time</th>
+                        <th>Status</th>
                         <th>Seats</th>
                         <th>Phone</th>
                         <th>Tables</th>
@@ -32,6 +33,7 @@
                             <td>{{$booking->restaurant->name_en}}</td>
                             <td>{{$booking->booking_date}}</td>
                             <td>{{$booking->booking_time}}</td>
+                            <td>{{$booking->booking_status->name_en}}</td>
                             <td>{{$booking->seats}}</td>
                             <td>{{$booking->phone}}</td>
                             <td>
@@ -49,7 +51,7 @@
                                         <a class="dropdown-item" href="#">View</a>
                                         <a class="dropdown-item" href="{{route('admin.bookings.edit', $booking)}}">Edit</a>
                                         <a class="dropdown-item" href="#"
-                                           wire:click.prevent="confirmCuisineDeletion({{$booking->id}})">Delete</a>
+                                           wire:click.prevent="confirmBookingDeletion({{$booking->id}})">Cancel Booking</a>
                                     </div>
                                 </div>
                             </td>
@@ -81,10 +83,10 @@
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
+                confirmButtonText: 'Yes, cancel booking!'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    Livewire.emit('deleteConfirmed')
+                    Livewire.emit('bookingDeleteConfirmed')
                 }
             })
         })

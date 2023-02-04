@@ -7,10 +7,22 @@ return array (
     'login' => 'تسجيل دخول',
     'password' => 'كلمة المرور',
   ),
-  'booking' => 
-  array (
-    'book_now' => 'احجز الآن',
-  ),
+  'general' =>[
+    'slogan' => 'مصمم ليوفر لك الأفضل',
+    'email' => 'البريد الالكتروني',
+    'phone' => 'الهاتف',
+],
+  'booking' => [
+    'book_now' => 'احجز الان',
+    'select_date_time' => 'الرجاء اختيار التاريخ و الوقت',
+    'how_many_seats' => 'عدد المقاعد',
+    'guest' => 'ضيف',
+    'num_guest' => 'عدد الضيوف',
+    'select_time' => 'اختر الوقت',
+    'select_date' => 'اختر التاريخ',
+
+],
+
   'footer' => 
   array (
     'cancellation_policy' => 'سياسة الالغاء',

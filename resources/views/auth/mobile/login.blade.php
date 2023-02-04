@@ -1,6 +1,6 @@
 @extends('layouts.site-mobile',['restaurant' => null])
 @section('content')
-    <div class="flex flex-col w-full h-full justify-center">
+    <div class="flex flex-col w-full h-full justify-center py-4 px-8">
         <div class="w-full rounded-lg border-2 bg-[#EFEFEF] px-4">
             <div class="form-group">
                 @if($errors->any())
@@ -30,6 +30,10 @@
                     </button>
                 </div>
             </form>
+            <div class="flex justify-center space-x-8 pb-4">
+                <a href="{{route('site.auth.google')}}"><i class="fa-brands fa-google text-3xl"></i></a>
+                <a href="{{route('site.auth.facebook')}}"><i class="fa-brands fa-facebook text-3xl"></i></a>
+            </div>
         </div>
     </div>
 
