@@ -48,6 +48,7 @@
             'email' => 'Email',
             'password' => 'Password',
             'login' => 'Login',
+            'register' => 'Register',
         ],
         'lang' => [
             'ar' =>'عربي'

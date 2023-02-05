@@ -63,14 +63,14 @@
 {{--</div>--}}
 
 
-<div class="flex px-16">
+<div class="flex lg:px-16">
     {{-- <div class="w-[31%] flex flex-col justify-center px-12 space-y-8">
         <h2 class="font-din text-[20px] uppercase tracking-[6px] text-center">Contact Us</h2>
         <a href="#" class="font-lato font-bold uppercase text-md text-center tracking-[6px] p-8 font-bold shadow-md rounded-[19px] bg-[#f8f8f8] border-[#707070]">Contact Us</a>
         <a href="#" class="font-lato font-bold uppercase text-md text-center tracking-[6px] p-8 font-bold shadow-md rounded-[19px] bg-[#f8f8f8] border-[#707070]">Join Us</a>
     </div> --}}
     <div class="flex-1 flex-col items-center ">
-        <div class="flex flex-col w-full rounded-[64px] border-2 bg-[#EFEFEF] my-12 px-16 py-12 space-y-8">
+        <div class="flex flex-col w-full rounded-lg p-4 lg:rounded-[64px] border-2 bg-[#EFEFEF] lg:my-12 lg:px-16 lg:py-12 lg:space-y-8">
             <form wire:submit.prevent="register" class="space-y-8">
                 @if($errors->any())
                     <div id="validation-errors"
@@ -94,7 +94,7 @@
 
                     </div>
                     <div class="w-full">
-                        <h2 class="ltr:font-lato rtl:font-ahlan text-center font-bold uppercase text-lg ltr:tracking-[4px] rtl:tracking-normal">Register</h2>
+                        <h2 class="ltr:font-lato rtl:font-ahlan text-center font-bold uppercase text-lg ltr:tracking-[4px] rtl:tracking-normal">{{__('nadil.auth.register')}}</h2>
                     </div>
                 <div class="w-full">
                     <input type="text" placeholder="Name" wire:model.lazy="profile.name"
@@ -135,7 +135,7 @@
                     <input type="password" placeholder="Confirm Password" wire:model.lazy="password_confirmation"
                            class="flex items-center w-full font-lato placeholder:font-bold text-[19px] tracking-[4px] uppercase border-[#707070] border-2 p-4 rounded-[19px]">
                 </div> --}}
-                <div class="flex w-full justify-end">
+                <div class="flex w-full justify-center lg:justify-end">
                     <button type="submit"
                             class="font-lato uppercase px-12 py-4 bg-white shadow-md rounded-[12px] tracking-[4px] font-bold">Register!
                     </button>

@@ -2268,6 +2268,10 @@ select {
     }
 }
 @media (min-width: 1024px) {
+    .lg\:my-12 {
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
     .lg\:flex {
         display: flex;
     }
@@ -2277,9 +2281,25 @@ select {
     .lg\:justify-end {
         justify-content: flex-end;
     }
+    .lg\:space-y-8 > :not([hidden]) ~ :not([hidden]) {
+        --tw-space-y-reverse: 0;
+        margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
+        margin-bottom: calc(2rem * var(--tw-space-y-reverse));
+    }
+    .lg\:rounded-\[64px\] {
+        border-radius: 64px;
+    }
     .lg\:px-8 {
         padding-left: 2rem;
         padding-right: 2rem;
+    }
+    .lg\:px-16 {
+        padding-left: 4rem;
+        padding-right: 4rem;
+    }
+    .lg\:py-12 {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
     }
     .lg\:text-2xl {
         font-size: 1.5rem;
