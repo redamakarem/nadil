@@ -4,7 +4,7 @@
         <div class="mx-2 bg-[#F5F5F5] shadow-md rounded-[16px] py-6 px-5 ">
             @forelse ($categories as $category )
                 @if ($category->dishes->count()>0)
-                <h2 class="text-center uppercase font-bold font-lato tracking-[4px] mb-4">
+                <h2 class="text-center uppercase font-bold font-lato rtl:font-ahlan rtl:tracking-normal tracking-[4px] mb-4">
                     {{ $category->{'name_' . app()->getLocale()} }}</h2>
                 @forelse ($category->dishes as $dish)
                     @if ($dish->is_featured)
@@ -18,7 +18,7 @@
                                     </div>
                                     <div class="flex flex-col justify-center items-center w-full">
                                         <div class="uppercase font-lato font-thin text-sm">Nadil recommends</div>
-                                        <div class="uppercase font-lato font-semibold">
+                                        <div class="uppercase font-lato font-semibold rtl:font-ahlan rtl:tracking-normal">
                                             {{ $dish->{'name_' . app()->getLocale()} }}</div>
                                     </div>
                                 </div>
@@ -27,7 +27,7 @@
                         </div>
                     @else
                         <div class="my-8">
-                            <h3 class="uppercase font-lato text-center text-xs">{{ $dish->{'name_' . app()->getLocale()} }}
+                            <h3 class="uppercase font-lato text-center text-xs rtl:font-ahlan rtl:tracking-normal">{{ $dish->{'name_' . app()->getLocale()} }}
                             </h3>
                             <div class="font-lato mx-3 font-thin text-center text-xs">
                                 {{ $dish->{'description_' . app()->getLocale()} }}</div>
@@ -45,7 +45,7 @@
 
     <div class="flex justify-center my-8">
         <a
-        class="bg-nadilBtn-100 rounded-xl shadow-lg px-6 py-2 uppercase font-lato" href="{{route('site.restaurants.book',$restaurant->id)}}">{{__('nadil.booking.book_now')}}</a>
+        class="bg-nadilBtn-100 rounded-xl shadow-lg px-6 py-2 uppercase font-lato rtl:font-ahlan rtl:tracking-normal" href="{{route('site.restaurants.book',$restaurant->id)}}">{{__('nadil.booking.book_now')}}</a>
     </div>
 
     <div class="flex justify-center">
@@ -57,8 +57,8 @@
     <div class="flex flex-col items-center my-4">
         <div class="my-4 font-lato font-thin uppercase tracking-[0.6rem]">Contact Info</div>
         <div class="flex justify-center w-full space-x-4">
-            <a class="bg-nadilBtn-100 rounded-xl shadow-lg px-6 py-2 uppercase font-lato" href="#">Email</a>
-            <a class="bg-nadilBtn-100 rounded-xl shadow-lg px-6 py-2 uppercase font-lato" href="#">Phone</a>
+            <a class="bg-nadilBtn-100 rounded-xl shadow-lg px-6 py-2 uppercase font-lato" href="#">{{__('nadil.general.email')}}</a>
+            <a class="bg-nadilBtn-100 rounded-xl shadow-lg px-6 py-2 uppercase font-lato" href="#">{{__('nadil.general.phone')}}</a>
         </div>
         <div class="my-4 font-lato font-thin uppercase tracking-[0.6rem]">Socials</div>
         <div class="flex justify-center w-full space-x-4">
