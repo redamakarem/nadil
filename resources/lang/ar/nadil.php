@@ -20,6 +20,7 @@ return array (
     'num_guest' => 'عدد الضيوف',
     'select_time' => 'اختر الوقت',
     'select_date' => 'اختر التاريخ',
+    'no_available_slots' => 'لا يوجد خانات قابلة للحجز',
 
 ],
 'dishes' =>[

@@ -8,15 +8,15 @@ class="flex flex-col px-4 pt-8">
 @endforeach
 </div>
 @endif
-    <div class="uppercase text-center tracking-[4px] underline underline-offset-[10px] mb-3">{{ $restaurant->name_en}}</div>
-    <div class="uppercase text-center tracking-[4px]">{{ $restaurant->address}}</div>
-    <div class="uppercase text-center tracking-[4px]">Curated to unlock new culinary moments</div>
-    <div class="uppercase text-center mt-12 mb-4 px-8 py-6 bg-nadilBtn-100 tracking-[4px] rounded-[19px]">Pick your day and time</div>
+    <div class="uppercase font-lato rtl:font-ahlan rtl:tracking-normal text-center tracking-[4px] underline underline-offset-[10px] mb-3">{{ $restaurant->name_en}}</div>
+    <div class="uppercase font-lato rtl:font-ahlan rtl:tracking-normal text-center tracking-[4px]">{{ $restaurant->address}}</div>
+    <div class="uppercase font-lato rtl:font-ahlan rtl:tracking-normal text-center tracking-[4px]">{{__('nadil.general.slogan')}}</div>
+    <div class="uppercase font-lato rtl:font-ahlan rtl:tracking-normal text-center mt-12 mb-4 px-8 py-6 bg-nadilBtn-100 tracking-[4px] rounded-[19px]">{{__('nadil.booking.select_date_time')}}</div>
     <div wire:ignore class="flex justify-center">
         <div id="booking-date" ></div>
     </div>
 
-    <div class="uppercase text-center mt-12 mb-4 px-16 py-6 bg-nadilBtn-100 tracking-[4px] rounded-[19px]">{{$selected_time ?? 'Select Time'}}</div>
+    <div class="uppercase text-center mt-12 mb-4 px-16 py-6 bg-nadilBtn-100 tracking-[4px] rounded-[19px]">{{$selected_time ?? {{__('nadil.booking.select_time')}}}}</div>
     <div class="overflow-y-scroll scrollbar scrollbar-thumb-gray-600 scrollbar-track-gray-100 px-8">
         @if($slots)
             @foreach(array_chunk($slots,2,true) as $chunk)
@@ -33,7 +33,7 @@ class="flex flex-col px-4 pt-8">
             @endforeach
         @else
             <div class="flex flex-col justify-center h-44">
-                <div class="w-full text-center">No reservable slots on the selected date</div>
+                <div class="w-full text-center">{{__('nadil.booking.no_available_slots')}}</div>
             </div>
         @endif
     </div>
@@ -43,9 +43,9 @@ class="flex flex-col px-4 pt-8">
             class="rounded-[64px] bg-[#E0E0E0] outline-none border-none placeholder:text-center placeholder:font-lato placeholder:uppercase text-center w-full h-12"
             type="number" step="1" min="0" max="{{$restaurant->max_party_size}}" wire:model="seats" placeholder="{{ __('# of people') }}"> --}}
             <select wire:model.defer="seats" class="rounded-[64px] bg-[#E0E0E0] outline-none border-none placeholder:text-center placeholder:font-lato placeholder:uppercase text-center w-full h-12">
-                <option value="">{{__('Select number of guests')}}</option>
+                <option value="">{{__('nadil.booking.num_guest')}}</option>
                 @for ($i = 1; $i <= $restaurant->max_party_size; $i++)
-                    <option value="{{$i}}">{{$i}} guests</option>
+                    <option value="{{$i}}">{{$i}} {{__('nadil.booking.guest')}}</option>
                 @endfor
             </select>
     </div>
@@ -72,10 +72,12 @@ class="flex flex-col px-4 pt-8">
 
 @push('scripts')
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/ar.js"></script>
 
 
 <script>
     var booking_date = flatpickr("#booking-date", {
+        "locale": "{{app()->getLocale()}}",
         inline: true,
         dateFormat: 'y-m-d',
         minDate:'today'

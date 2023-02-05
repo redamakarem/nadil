@@ -33,6 +33,7 @@
             'num_guest' => 'Select number of guest',
             'select_time' => 'Select time',
             'select_date' => 'Select date',
+            'no_available_slots' => 'No reservable slots on the selected date',
 
         ],
         'auth' => [

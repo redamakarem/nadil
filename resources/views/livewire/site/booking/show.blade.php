@@ -36,7 +36,7 @@
                         @endforeach
                     @else
                         <div class="flex flex-col justify-center h-44">
-                            <div class="w-full text-center">No reservable slots on the selected date</div>
+                            <div class="w-full text-center">{{__('nadil.booking.no_available_slots')}}</div>
                         </div>
                     @endif
                 </div>
@@ -50,9 +50,9 @@
             <div class="w-1/2 flex flex-col items-center">
                 {{-- <input type="number" step="1" min="0" max="{{$restaurant->max_party_size}}" wire:model.defer="seats"> --}}
                 <select wire:model.defer="seats">
-                    <option value="">{{__('Select number of guests')}}</option>
+                    <option value="">{{__('nadil.booking.num_guest')}}</option>
                     @for ($i = 1; $i <= $restaurant->max_party_size; $i++)
-                        <option value="{{$i}}">{{$i}} guests</option>
+                        <option value="{{$i}}">{{$i}} {{__('nadil.booking.guest')}}</option>
                     @endfor
                 </select>
             </div>
