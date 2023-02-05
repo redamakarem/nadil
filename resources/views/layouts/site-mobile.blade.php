@@ -58,9 +58,9 @@ dir="{{ app()->getLocale()=='en'?'ltr':'rtl' }}"
                         @endrole
                     </div>
                 </div>
-                <div class="uppercase text-black dark:text-white text-center mt-5 mb-24">Hi
+                <div class="uppercase text-black dark:text-white text-center mt-5 mb-24">{{__('nadil.general.hi')}}
                     @guest
-                        <span>There</span>
+                        <span>{{__('nadil.general.there')}}</span>
                     @endguest
                     @role('user')
                     <span>{{auth()->user()->name}}</span>

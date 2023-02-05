@@ -7,7 +7,7 @@
                 @csrf
                 <div class="my-4">
                     <select
-                        class="rounded-[64px] bg-[#E0E0E0] outline-none border-none placeholder:text-center placeholder:font-lato placeholder:uppercase w-full"
+                        class="text-center rounded-[64px] bg-[#E0E0E0] outline-none border-none placeholder:text-center placeholder:font-lato placeholder:uppercase w-full"
                         name="people" id="people">
                         <option value="1">1 {{__('nadil.booking.guest')}}</option>
                         <option value="2">2 {{__('nadil.booking.guest')}}</option>
@@ -24,17 +24,17 @@
                 </div>
                 <div class="my-4">
                     <input
-                        class="rounded-[64px] bg-[#E0E0E0] outline-none border-none placeholder:text-center placeholder:font-lato placeholder:uppercase w-full"
+                        class="text-center rounded-[64px] bg-[#E0E0E0] outline-none border-none placeholder:text-center placeholder:font-lato placeholder:uppercase w-full"
                         type="text" name="search_date" id="search_date" placeholder="{{ __('Date') }}">
                 </div>
                 <div class="my-4">
                     <input
-                        class="rounded-[64px] bg-[#E0E0E0] outline-none border-none placeholder:text-center placeholder:font-lato placeholder:uppercase w-full"
+                        class="text-center rounded-[64px] bg-[#E0E0E0] outline-none border-none placeholder:text-center placeholder:font-lato placeholder:uppercase w-full"
                         type="text" name="search_time" id="search_time" placeholder="{{ __('Time') }}">
                 </div>
                 <input
-                    class="rounded-[64px] bg-[#E0E0E0] outline-none border-none placeholder:text-center placeholder:font-lato placeholder:uppercase w-full mb-4"
-                    type="number" step="1" name="search_seats" id="search_seats" placeholder="{{ __('Seats') }}">
+                    class="rounded-[64px] bg-[#E0E0E0] outline-none border-none placeholder:text-center placeholder:font-lato placeholder:rtl:font-ahlan placeholder:rtl:tracking-normal placeholder:uppercase w-full mb-4"
+                    type="number" step="1" name="search_seats" id="search_seats" placeholder="{{__('nadil.general.seats')}}">
         </div>
         <div class="flex justify-center mb-6">
             <button class="uppercase font-lato rtl:font-ahlan rtl:tracking-normal font-bold bg-[#F8F8F8] shadow-md w-full rounded-lg py-4"

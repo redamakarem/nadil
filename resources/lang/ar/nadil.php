@@ -16,6 +16,8 @@ return array (
     'pick_spot' => 'اختر المكان',
     'meal_type' => 'أنواع الوجبات',
     'seats' => 'عدد المقاعد',
+    'hi' => 'مرحبا',
+    'there' => 'بك',
 ],
   'booking' => [
     'book_now' => 'احجز الان',

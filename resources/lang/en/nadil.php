@@ -20,6 +20,8 @@
             'pick_spot' => 'Pick the spot',
             'meal_type' => 'Browse by meal type',
             'seats' => 'Seats',
+            'hi' => 'Hi',
+            'hi_there' => 'There',
         ],
         'dishes' =>[
             'explore_more' => 'EXPLORE MORE DISHES',

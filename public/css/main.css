@@ -2130,6 +2130,15 @@ select {
 [dir="rtl"] .rtl\:tracking-normal {
     letter-spacing: 0em;
 }
+[dir="rtl"] .placeholder\:rtl\:font-ahlan::-moz-placeholder {
+    font-family: Ahlan-Regular;
+}
+[dir="rtl"] .placeholder\:rtl\:font-ahlan:-ms-input-placeholder {
+    font-family: Ahlan-Regular;
+}
+[dir="rtl"] .placeholder\:rtl\:font-ahlan::placeholder {
+    font-family: Ahlan-Regular;
+}
 [dir="rtl"] .rtl\:placeholder\:font-normal::-moz-placeholder {
     font-weight: 400;
 }
@@ -2138,6 +2147,15 @@ select {
 }
 [dir="rtl"] .rtl\:placeholder\:font-normal::placeholder {
     font-weight: 400;
+}
+[dir="rtl"] .placeholder\:rtl\:tracking-normal::-moz-placeholder {
+    letter-spacing: 0em;
+}
+[dir="rtl"] .placeholder\:rtl\:tracking-normal:-ms-input-placeholder {
+    letter-spacing: 0em;
+}
+[dir="rtl"] .placeholder\:rtl\:tracking-normal::placeholder {
+    letter-spacing: 0em;
 }
 .dark .dark\:border-gray-700 {
     --tw-border-opacity: 1;
