@@ -22,6 +22,9 @@ return array (
     'select_date' => 'اختر التاريخ',
 
 ],
+'dishes' =>[
+  'explore_more' => 'استكشف المزيد من الاطباق',
+],
 
   'footer' => 
   array (

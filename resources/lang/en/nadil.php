@@ -16,6 +16,9 @@
             'email' => 'Email',
             'phone' => 'Phone',
         ],
+        'dishes' =>[
+            'explore_more' => 'EXPLORE MORE DISHES',
+        ],
         'footer' =>[
             'cancellation_policy' => 'cancellation policy',
             'faq' => 'faq',
