@@ -29,7 +29,7 @@
                         <div class="my-8">
                             <h3 class="uppercase font-lato text-center text-xs rtl:font-ahlan rtl:tracking-normal">{{ $dish->{'name_' . app()->getLocale()} }}
                             </h3>
-                            <div class="font-lato mx-3 font-thin text-center text-xs">
+                            <div class="font-lato rtl:font-ahlan rtl:tracking-normal mx-3 font-thin text-center text-xs">
                                 {{ $dish->{'description_' . app()->getLocale()} }}</div>
                         </div>
                     @endif
