@@ -24,7 +24,7 @@
                     <input type="password" placeholder="{{__('nadil.auth.password')}}" name="password"
                            class="flex items-center w-full ltr:font-lato rtl:font-ahlan ltr:placeholder:font-bold text-[19px] rtl:placeholder:font-normal ltr:tracking-[4px] rtl:tracking-normal uppercase border-[#707070] border-2 p-4 rounded-[19px]">
                 </div>
-                <div class="flex w-full justify-end">
+                <div class="justify-center lg:flex w-full justify-end">
                     <button type="submit"
                             class="ltr:font-lato rtl:font-ahlan uppercase px-12 py-4 bg-white shadow-md rounded-[12px] ltr:tracking-[4px] rtl:tracking-normal ltr:font-bold rtl:font-normal">{{__('nadil.auth.login')}}
                     </button>
