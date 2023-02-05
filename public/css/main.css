@@ -2274,6 +2274,9 @@ select {
     .lg\:hidden {
         display: none;
     }
+    .lg\:justify-end {
+        justify-content: flex-end;
+    }
     .lg\:px-8 {
         padding-left: 2rem;
         padding-right: 2rem;
