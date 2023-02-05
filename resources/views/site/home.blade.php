@@ -2,7 +2,7 @@
 @section('content')
     <div id="main-content" class="h-full">
         <div class="flex flex-col px-24 py-[80px]">
-            <div class="greeting uppercase">So, What is the plan</div>
+            <div class="greeting uppercase">{{__('nadil.general.whats_the_plan')}}</div>
             <div>
                 @if ($errors->any())
                             <div class="alert alert-danger">
@@ -34,30 +34,30 @@
                             <div class="bg-gray-600 w-[1px] h-[72px] opacity-40"></div>
 
                             <select
-                                class="flex-1 font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 outline-none rounded-r-lg"
+                                class="flex-1 font-lato rtl:font-ahlan rtl:tracking-normal flex text-center border-none py-6 uppercase bg-nadilBtn-100 outline-none rounded-r-lg"
                                 type="text" name="search_seats" id="search_seats">
-                                    <option value="1">1 guest</option>
-                                    <option value="2">2 guests</option>
-                                    <option value="3" >3 guests</option>
-                                    <option value="4" >4 guests</option>
-                                    <option value="5" >5 guests</option>
-                                    <option value="6">6 guests</option>
-                                    <option value="7">7 guests</option>
-                                    <option value="8">8 guests</option>
-                                    <option value="9">9 guests</option>
-                                    <option value="10">10 guests</option>
-                                    <option value="10+">10+ guests</option>
+                                <option value="1">1 {{__('nadil.booking.guest')}}</option>
+                                <option value="2">2 {{__('nadil.booking.guest')}}</option>
+                                <option value="3">3 {{__('nadil.booking.guest')}}</option>
+                                <option value="4">4 {{__('nadil.booking.guest')}}</option>
+                                <option value="5">5 {{__('nadil.booking.guest')}}</option>
+                                <option value="6">6 {{__('nadil.booking.guest')}}</option>
+                                <option value="7">7 {{__('nadil.booking.guest')}}</option>
+                                <option value="8">8 {{__('nadil.booking.guest')}}</option>
+                                <option value="9">9 {{__('nadil.booking.guest')}}</option>
+                                <option value="10">10 {{__('nadil.booking.guest')}}</option>
+                                <option value="10+">10+ {{__('nadil.booking.guest')}}</option>
                             </select>
                         </div>
 
 
                         <div class="w-1/2 flex">
                             <input
-                            class=" flex-1 font-lato flex text-center border-none py-6 uppercase bg-nadilBtn-100 outline-none rounded-lg mx-6"
-                            type="text" name="search_name" id="search_name" placeholder="Search">
+                            class=" flex-1 font-lato placeholder:font-lato placeholder:rtl:font-ahlan placeholder:rtl:tracking-normal flex text-center border-none py-6 uppercase bg-nadilBtn-100 outline-none rounded-lg mx-6"
+                            type="text" name="search_name" id="search_name" placeholder="{{__('nadil.general.search')}}">
                         <button
-                            class="font-lato border-none px-12 py-6 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg"
-                            type="submit">{{ __('Book Now') }}</button>
+                            class="font-lato rtl:font-ahlan rtl:tracking-normal border-none px-12 py-6 uppercase bg-nadilBtn-100 shadow-md outline-none rounded-lg"
+                            type="submit">{{__('nadil.booking.book_now')}}</button>
                         </div>
                     </div>
                 </form>
@@ -89,7 +89,7 @@
             </div>
 
             {{--   Restaurants by meal types     --}}
-            <div class="greeting uppercase font-lato">Browse by meal type</div>
+            <div class="greeting uppercase font-lato">{{__('nadil.general.meal_type')}}</div>
 
             @foreach ($meal_types as $meal_type)
                 <h2 class="mt-6 uppercase ltr:font-lato rtl:font-ahlan text-[#454545]">
@@ -119,7 +119,7 @@
                         <i class="fa-solid fa-chevron-right"></i></div>
                 </div>
             @endforeach
-            <div class="greeting uppercase font-lato text-[#454545]">{{ __('Pick the cuisine') }}</div>
+            <div class="greeting uppercase font-lato rtl:font-ahlan rtl:tracking-normal text-[#454545]">{{__('nadil.general.pick_cuisine')}}</div>
             <div class="relative carousel-container flex rtl:flex-row-reverse items-center">
                 <div
                     class="absolute bg-nadilBtn-100 carousel-nav p-4 cuisines-prev rounded-full z-10 -left-4 top-[30%] w-12 h-12 flex justify-center items-center shadow-md">
@@ -149,6 +149,7 @@
     <link rel="stylesheet" href="{{ asset('pickadate/lib/themes/default.date.css') }}">
     <link rel="stylesheet" href="{{ asset('pickadate/lib/themes/default.time.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    
     <style>
         .flatpickr-day.selected {
     background: #0a0e14;
@@ -161,9 +162,11 @@
     <script src="{{ asset('pickadate/lib/compressed/picker.time.js') }}"></script>
     <script src="{{ asset('pickadate/lib/compressed/legacy.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/ar.js"></script>
 
     <script>
        var booking_time = flatpickr("#search_time", {
+        
     enableTime: true,
     noCalendar: true,
     dateFormat: "G:i K",
@@ -174,6 +177,7 @@
 });
 
         var booking_date = flatpickr("#search_date", {
+            "locale": "{{app()->getLocale()}}",
         dateFormat: 'Y-m-d',
         minDate:'today',
         defaultDate:'today',
