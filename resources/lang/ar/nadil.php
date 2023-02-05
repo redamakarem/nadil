@@ -6,7 +6,11 @@ return array (
     'email' => 'البريد الالكتروني',
     'login' => 'تسجيل دخول',
     'password' => 'كلمة المرور',
+    'confirm_password' => 'تأكيد كلمة السر',
     'register' => 'انشاء حساب',
+    'name' => 'الاسم',
+    'register_msg' => 'تم انشاء الحساب بنجاح. يمكنك الان ',
+    'reset_password' => 'اعادة تعيين كلمة السر',
   ),
   'general' =>[
     'slogan' => 'مصمم ليوفر لك الأفضل',
@@ -20,6 +24,11 @@ return array (
     'search' => 'بحث',
     'hi' => 'مرحبا',
     'there' => 'بك',
+    'submit' => 'ارسال',
+    'swal_title' => 'هل انت متأكد؟',
+    'swal_text' => 'سيتم الغاء الحجز',
+    'swal_confirm_text' => 'اجل, أريد الغاء الحجز',
+    'swal_cancel_text' => 'اغلاق',
 ],
   'booking' => [
     'book_now' => 'احجز الان',
@@ -30,6 +39,7 @@ return array (
     'select_time' => 'اختر الوقت',
     'select_date' => 'اختر التاريخ',
     'no_available_slots' => 'لا يوجد خانات قابلة للحجز',
+    'cancel_booking' => 'الغاء الحجز',
 
 ],
 'dishes' =>[

@@ -23,6 +23,11 @@
             'search' => 'Search',
             'hi' => 'Hi',
             'there' => 'There',
+            'submit' => 'Submit',
+            'swal_title' => 'Are you sure?',
+            'swal_text' => 'This will cancel the booking',
+            'swal_confirm_text' => 'Yes, cancel booking',
+            'swal_cancel_text' => 'Cancel',
         ],
         'dishes' =>[
             'explore_more' => 'EXPLORE MORE DISHES',
@@ -42,13 +47,18 @@
             'select_time' => 'Select time',
             'select_date' => 'Select date',
             'no_available_slots' => 'No reservable slots on the selected date',
+            'cancel_booking' => 'Cancel Booking',
 
         ],
         'auth' => [
             'email' => 'Email',
+            'name' => 'Name',
             'password' => 'Password',
+            'confirm_password' => 'Confirm Password',
             'login' => 'Login',
             'register' => 'Register',
+            'reset_password' => 'Reset Password',
+            'register_msg' => 'Registration Successful. You can now',
         ],
         'lang' => [
             'ar' =>'عربي'

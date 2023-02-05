@@ -86,7 +86,7 @@
 
                             <div class="bg-green-100 rounded-lg py-5 px-6 mb-4 text-base text-green-700 mb-3" role="alert">
 
-                                Registration Successful. You can now <a href="{{route('login')}}">login</a>
+                                {{__('nadil.auth.register_msg')}} <a href="{{route('login')}}">{{__('nadil.auth.register')}}</a>
 
                             </div>
 
@@ -97,8 +97,8 @@
                         <h2 class="ltr:font-lato rtl:font-ahlan text-center font-bold uppercase text-lg ltr:tracking-[4px] rtl:tracking-normal">{{__('nadil.auth.register')}}</h2>
                     </div>
                 <div class="w-full">
-                    <input type="text" placeholder="Name" wire:model.lazy="profile.name"
-                           class="flex items-center w-full font-lato placeholder:font-bold text-[19px] tracking-[4px] uppercase border-[#707070] border-2 p-4 rounded-[19px]">
+                    <input type="text" placeholder="{{__('nadil.auth.name')}}" wire:model.lazy="profile.name"
+                           class="flex items-center w-full font-lato placeholder:rtl:font-ahlan placeholder:rtl:tracking-normal placeholder:font-bold text-[19px] tracking-[4px] uppercase border-[#707070] border-2 p-4 rounded-[19px]">
                 </div>
                 {{-- <div class="w-full">
                     <div
@@ -119,8 +119,8 @@
                            class="flex items-center w-full font-lato placeholder:font-bold text-[19px] tracking-[4px] uppercase border-[#707070] border-2 p-4 rounded-[19px]">
                 </div> --}}
                 <div class="w-full">
-                    <input type="text" placeholder="Email" wire:model.lazy="profile.email"
-                           class="flex items-center w-full font-lato placeholder:font-bold text-[19px] tracking-[4px] uppercase border-[#707070] border-2 p-4 rounded-[19px]">
+                    <input type="text" placeholder="{{__('nadil.auth.email')}}" wire:model.lazy="profile.email"
+                           class="flex items-center w-full font-lato placeholder:rtl:font-ahlan placeholder:rtl:tracking-normal placeholder:font-bold text-[19px] tracking-[4px] uppercase border-[#707070] border-2 p-4 rounded-[19px]">
                 </div>
 
                 {{-- <div class="w-full">
@@ -137,7 +137,7 @@
                 </div> --}}
                 <div class="flex w-full justify-center lg:justify-end">
                     <button type="submit"
-                            class="font-lato uppercase px-12 py-4 bg-white shadow-md rounded-[12px] tracking-[4px] font-bold">Register!
+                            class="font-lato rtl:font-ahlan rtl:tracking-normal uppercase px-12 py-4 bg-white shadow-md rounded-[12px] tracking-[4px] font-bold">{{__('nadil.auth.register')}}
                     </button>
                 </div>
             </form>
