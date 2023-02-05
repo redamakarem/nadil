@@ -15,6 +15,11 @@
             'slogan' => 'CURATED TO PROVIDE YOU WITH THE BEST',
             'email' => 'Email',
             'phone' => 'Phone',
+            'whats_the_plan' => 'So, whats the plan?',
+            'pick_cuisine' => 'Pick the cuisine',
+            'pick_spot' => 'Pick the spot',
+            'meal_type' => 'Browse by meal type',
+            'seats' => 'Seats',
         ],
         'dishes' =>[
             'explore_more' => 'EXPLORE MORE DISHES',

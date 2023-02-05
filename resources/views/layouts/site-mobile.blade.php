@@ -81,7 +81,7 @@ dir="{{ app()->getLocale()=='en'?'ltr':'rtl' }}"
                     </form>
                 @endrole
                 @guest
-                    <a href="{{ route('login') }}" class=" block uppercase text-black dark:text-white py-3 px-8">Login</a>
+                    <a href="{{ route('login') }}" class=" block uppercase text-black dark:text-white py-3 px-8">{{__('nadil.menu.login')}}</a>
                 @endguest
                 <div>
                     @foreach (config('app.available_locales') as $locale)

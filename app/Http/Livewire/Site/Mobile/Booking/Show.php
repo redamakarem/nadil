@@ -63,6 +63,7 @@ class Show extends Component
 
     public function getTimeSlots($start_time, $end_time, $slot_length)
     {
+        Carbon::setlocale(config('app.locale'));
         $period = CarbonPeriod::create($start_time, $slot_length, $end_time);
         $slots = [];
         foreach ($period as $item) {

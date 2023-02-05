@@ -8,24 +8,24 @@ class="flex flex-col px-4 pt-8">
 @endforeach
 </div>
 @endif
-    <div class="uppercase font-lato rtl:font-ahlan rtl:tracking-normal text-center tracking-[4px] underline underline-offset-[10px] mb-3">{{ $restaurant->name_en}}</div>
-    <div class="uppercase font-lato rtl:font-ahlan rtl:tracking-normal text-center tracking-[4px]">{{ $restaurant->address}}</div>
+    <div class="uppercase font-lato rtl:font-ahlan rtl:tracking-normal text-center tracking-[4px] underline underline-offset-[10px] mb-3">{{ $restaurant->{'name_'.app()->getLocale()} }}</div>
+    <div class="uppercase font-lato rtl:font-ahlan rtl:tracking-normal text-center tracking-[4px]">{{$restaurant->areaa->governate->{'name_'.app()->getLocale()} }}</div>
     <div class="uppercase font-lato rtl:font-ahlan rtl:tracking-normal text-center tracking-[4px]">{{__('nadil.general.slogan')}}</div>
     <div class="uppercase font-lato rtl:font-ahlan rtl:tracking-normal text-center mt-12 mb-4 px-8 py-6 bg-nadilBtn-100 tracking-[4px] rounded-[19px]">{{__('nadil.booking.select_date_time')}}</div>
     <div wire:ignore class="flex justify-center">
         <div id="booking-date" ></div>
     </div>
 
-    <div class="uppercase text-center mt-12 mb-4 px-16 py-6 bg-nadilBtn-100 tracking-[4px] rounded-[19px]">{{$selected_time ?? {{__('nadil.booking.select_time')}}}}</div>
+    <div class="uppercase text-center mt-12 mb-4 px-16 py-6 bg-nadilBtn-100 tracking-[4px] rounded-[19px] rtl:font-ahlan rtl:tracking-normal">{{$selected_time ?? __('nadil.booking.select_time')}}</div>
     <div class="overflow-y-scroll scrollbar scrollbar-thumb-gray-600 scrollbar-track-gray-100 px-8">
         @if($slots)
             @foreach(array_chunk($slots,2,true) as $chunk)
 
 
-                <div class="flex justify-center space-x-4">
+                <div class="flex justify-center">
                     @foreach($chunk as $key => $timeSlot)
-                        <div role="group">
-                            <button type="button" wire:click="setSelectedTime('{{$timeSlot}}')" {{$this->slot_bookable($timeSlot)?'':'disabled'}} class="mb-4 inline-block px-4 py-2 bg-nadilBtn-100 tracking-[4px] rounded-lg disabled:text-gray-400 hover:bg-grey-500 focus:bg-black focus:text-white focus:outline-none focus:ring-0 active:bg-black active:text-white transition duration-150 ease-in-out">{{$timeSlot}}</button>
+                        <div role="group" class="mx-1">
+                            <button type="button" wire:click="setSelectedTime('{{$timeSlot}}')" {{$this->slot_bookable($timeSlot)?'':'disabled'}} class="mb-4 inline-block px-4 py-2 bg-nadilBtn-100 tracking-[4px] rounded-lg disabled:text-gray-400 hover:bg-grey-500 focus:bg-black focus:text-white focus:outline-none focus:ring-0 active:bg-black active:text-white transition duration-150 ease-in-out">{{\Carbon\Carbon::parse($timeSlot)->translatedFormat("h:i A")}}</button>
                         </div>
                     @endforeach
                 </div>
@@ -37,7 +37,7 @@ class="flex flex-col px-4 pt-8">
             </div>
         @endif
     </div>
-    <div class="uppercase text-center mt-12 mb-4 px-16 py-6 bg-nadilBtn-100 tracking-[6px] rounded-[19px]">{{__('How many seats')}}</div>
+    <div class="uppercase text-center mt-12 mb-4 px-16 py-6 bg-nadilBtn-100 tracking-[6px] rounded-[19px] rtl:font-ahlan rtl:tracking-normal">{{__('nadil.booking.how_many_seats')}}</div>
     <div class="my-4 flex justify-center">
         {{-- <input
             class="rounded-[64px] bg-[#E0E0E0] outline-none border-none placeholder:text-center placeholder:font-lato placeholder:uppercase text-center w-full h-12"

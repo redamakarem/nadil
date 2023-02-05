@@ -665,13 +665,13 @@ select {
     margin-left: 1rem;
     margin-right: 1rem;
 }
+.mx-1 {
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+}
 .my-1 {
     margin-top: 0.25rem;
     margin-bottom: 0.25rem;
-}
-.mx-8 {
-    margin-left: 2rem;
-    margin-right: 2rem;
 }
 .ml-3 {
     margin-left: 0.75rem;
@@ -1486,6 +1486,9 @@ select {
 .pb-3 {
     padding-bottom: 0.75rem;
 }
+.pb-4 {
+    padding-bottom: 1rem;
+}
 .pr-2 {
     padding-right: 0.5rem;
 }
@@ -1518,9 +1521,6 @@ select {
 }
 .pb-1 {
     padding-bottom: 0.25rem;
-}
-.pb-4 {
-    padding-bottom: 1rem;
 }
 .text-left {
     text-align: left;
@@ -1659,11 +1659,11 @@ select {
 .tracking-\[0\.5rem\] {
     letter-spacing: 0.5rem;
 }
-.tracking-\[2px\] {
-    letter-spacing: 2px;
-}
 .tracking-widest {
     letter-spacing: 0.1em;
+}
+.tracking-\[2px\] {
+    letter-spacing: 2px;
 }
 .tracking-\[14px\] {
     letter-spacing: 14px;
@@ -2099,9 +2099,6 @@ select {
 }
 [dir="ltr"] .ltr\:tracking-\[2px\] {
     letter-spacing: 2px;
-}
-[dir="ltr"] .ltr\:tracking-normal {
-    letter-spacing: 0em;
 }
 [dir="ltr"] .ltr\:placeholder\:font-bold::-moz-placeholder {
     font-weight: 700;
