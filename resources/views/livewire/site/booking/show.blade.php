@@ -1,6 +1,10 @@
 
 <div class="w-full">
-    <x-loading-indicator-2 />
+    <div wire:loading>
+        <div class="h-screen w-screen flex justify-center items-center fixed bg-gray-500 bg-opacity-25 top-0 left-0">
+            <img src="{{asset('/images/nadil-loader.png')}}" alt="" class="w-24 h-24">
+        </div>
+    </div>
     <div class="flex flex-col items-center w-full ">
         @if($errors->any())
             <div id="validation-errors" class="bg-red-600 px-8 py-12 text-white font-lato uppercase text-md tracking-[6px] rounded-[19px]">
