@@ -6,6 +6,7 @@ use App\Models\Booking;
 use Livewire\Component;
 use App\Models\BookingsTables;
 use Illuminate\Support\Facades\Auth;
+use App\Events\BookingCancelledEvent;
 
 class History extends Component
 {
@@ -42,6 +43,7 @@ class History extends Component
             $bookings = Booking::with('restaurant')->where('user_id',Auth::id())->orderBy('booking_date','desc')->where('booking_status_id','1')->get();
             $this->selected_booking=null;
             
+            
         }
     }
 
@@ -62,6 +64,7 @@ class History extends Component
             $this->bookings =  Booking::with('restaurant')->where('user_id',Auth::id())->orderBy('booking_date','desc')->where('booking_status_id','1')->get();
             $this->selected_booking = null;
             $this->emit('refreshComponent');
+            event(new BookingCancelledEvent(auth()->user(), $booking_to_delete));
         }
     }
 

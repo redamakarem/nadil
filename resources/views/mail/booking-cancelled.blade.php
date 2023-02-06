@@ -185,7 +185,7 @@
                     <td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
                       <div
                         style="font-family:lato;font-size:13px;font-weight:bold;line-height:1;text-align:center;color:#000000;">
-                        Your booking details</div>
+                        The following booking has been cancelled</div>
                     </td>
                   </tr>
                   <tr>
@@ -425,7 +425,7 @@
                     <td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
                       <div
                         style="font-family:cairo;font-size:13px;font-weight:bold;line-height:1;text-align:center;color:#000000;">
-                        تفاصيل الحجز:</div>
+                        لقد تم الغاء الحجز ادناه:</div>
                     </td>
                   </tr>
                   <tr>

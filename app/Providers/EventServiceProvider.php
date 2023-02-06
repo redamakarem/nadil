@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\Events\BookingCancelledEvent;
 use App\Events\NewBookingEvent;
 use App\Events\UserRegistered;
+use App\Listeners\BookingCancelledListener;
 use App\Listeners\NewSiteBookingListener;
 use App\Listeners\UserRegisteredListener;
 use Illuminate\Auth\Events\Registered;
@@ -26,6 +28,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         NewBookingEvent::class => [
             NewSiteBookingListener::class,
+        ],
+        BookingCancelledEvent::class => [
+            BookingCancelledListener::class,
         ],
         UserRegistered::class => [UserRegisteredListener::class],
         SocialiteWasCalled::class => [
