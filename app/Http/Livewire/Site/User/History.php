@@ -20,7 +20,7 @@ class History extends Component
 
     public function mount($bookings, $profile)
     {
-        $this->bookings =  Booking::with('restaurant')->where('user_id',Auth::id())->orderBy('booking_date','desc')->where('booking_status_id','1')->get();
+        $this->bookings =  Booking::with('restaurant')->where('user_id',Auth::id())->orderBy('booking_date','desc')->whereIn('booking_status_id',[1,5])->get();
         $this->profile = $profile;
         $this->selected_booking = null;
     }
