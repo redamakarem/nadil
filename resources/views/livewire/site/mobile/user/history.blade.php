@@ -6,7 +6,9 @@
            <div class="text-white text-center"> {{ $booking->booking_date }}</div>
            <div class="text-white text-center"> {{ $booking->booking_status->{'name_'.app()->getLocale()}  }}</div>
            @if ($booking->booking_date > \Carbon\Carbon::now() && $booking->booking_status_id==1)
-           <a href="#" wire:click.prevent="confirmBookingDeletion({{$booking->id}})" class="text-black" >{{__('nadil.booking.cancel_booking')}}</a>
+           <div class="flex justify-center">
+            <a class="bg-nadilBtn-100 px-8 py-2 rounded-lg font-lato uppercase" href="#" wire:click.prevent="confirmBookingDeletion({{$booking->id}})" class="text-black" >{{__('nadil.booking.cancel_booking')}}</a>
+           </div>
            
            @endif
         
