@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Mail;
+use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Notifications\Notifiable;
+use Lab404\Impersonate\Models\Impersonate;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Lab404\Impersonate\Models\Impersonate;
-use Laravel\Sanctum\HasApiTokens;
-use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
@@ -71,5 +72,23 @@ class User extends Authenticatable
     public function getInitialsAttribute(): string
     {
         return \Illuminate\Support\Str::initials($this->name);
+    }
+
+    public function sendPasswordResetNotification($token){
+        // $this->notify(new MyCustomResetPasswordNotification($token)); <--- remove this, use Mail instead like below
+    
+        $data = [
+            $this->email
+            
+        ];
+    
+        Mail::send('mail.reset-password', [
+            'name'      => $this->name,
+            'password'      => $this->password,
+            'reset_url'     => route('password.reset', ['token' => $token]),
+        ], function($message) use($data){
+            $message->subject('Reset Password Request');
+            $message->to($data[0]);
+        });
     }
 }

@@ -119,8 +119,15 @@ class SiteController extends Controller
 
     public function restaurants_by_cuisine($cuisine)
     {
+        $agent = new Agent();
         $restaurants = Cuisine::findOrFail($cuisine)->restaurants;
+        if ($agent->isDesktop()){
         return view('site.restaurants-by-cuisine',compact(['restaurants']));
+        }
+        else{
+            $result=$restaurants;
+            return view('site.mobile.restaurants-by-cuisine',compact(['result']));
+        }
     }
 
     public function about()

@@ -2,9 +2,11 @@
 
 namespace App\Http\Livewire\Site\User;
 
+use random;
 use App\Models\User;
 use App\Models\Profile;
 use Livewire\Component;
+use Illuminate\Support\Str;
 use App\Events\UserRegistered;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
@@ -43,7 +45,7 @@ class Register extends Component
             $new_user = User::create([
                 'name' => $this->profile->name,
                 'email' => $this->profile->email,
-                'password' => Hash::make('passw0rd')
+                'password' => Str::random(12)
             ]);
             $this->profile->user_id = $new_user->id;
             $this->profile->gender = 1;
@@ -52,6 +54,7 @@ class Register extends Component
             $this->profile->save();
             $this->perform_password_reset();
             event(new UserRegistered($new_user));
+            $new_user->update(['password' => Hash::make($new_user->password)]);
             $this->resetFields();
             session()->flash('success','Check your email to set your password');
         });
