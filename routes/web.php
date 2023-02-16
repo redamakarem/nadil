@@ -1,21 +1,24 @@
 <?php
 
-use App\Http\Controllers\Admin\PermissionsController;
-use App\Http\Controllers\Admin\RestaurantsController;
-use App\Http\Controllers\Admin\RolesController;
-use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\Admin\CuisineController;
-use App\Http\Controllers\Admin\AreaController;
-use App\Http\Controllers\Admin\DishesController;
-use App\Http\Controllers\GoogleSocialiteController;
-use App\Http\Controllers\RestaurantAdmin\CatalogueCategory\CatalogueCategoryController;
-use App\Http\Controllers\RestaurantAdmin\Dish\DishesController as RADishesController;
-use App\Http\Controllers\RestaurantAdmin\Restaurant\RestaurantController;
-use App\Http\Controllers\RestaurantAdmin\ScheduleController as RAScheduleController;
-use App\Http\Controllers\RestaurantAdmin\Booking\BookingController as RABookingController;
-use App\Http\Controllers\RestaurantAdmin\Table\TableController;
+use Carbon\Carbon;
 use App\Models\Restaurant;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\AreaController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\RolesController;
+use App\Http\Controllers\Admin\DishesController;
+use App\Http\Controllers\Admin\CuisineController;
+use App\Http\Controllers\Admin\ReportsController;
+use App\Http\Controllers\GoogleSocialiteController;
+use App\Http\Controllers\Admin\PermissionsController;
+use App\Http\Controllers\Admin\RestaurantsController;
+use App\Http\Controllers\RestaurantAdmin\Table\TableController;
+use App\Http\Controllers\RestaurantAdmin\Restaurant\RestaurantController;
+use App\Http\Controllers\RestaurantAdmin\ScheduleController as RAScheduleController;
+use App\Http\Controllers\RestaurantAdmin\Dish\DishesController as RADishesController;
+use App\Http\Controllers\RestaurantAdmin\CatalogueCategory\CatalogueCategoryController;
+use App\Http\Controllers\RestaurantAdmin\Booking\BookingController as RABookingController;
+use App\Models\Booking;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +30,18 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('update-bookings',function (){
+   
+        foreach (Booking::all() as $booking){
+            
+            $booking->weekday = Carbon::parse($booking->booking_date)->dayOfWeek;
+            $booking->save();
+        }
+
+    
+    return "Done";
+});
 
 Route::get('/',[\App\Http\Controllers\SiteController::class,'index'])->name('site.home');
 Route::get('/restaurants',[\App\Http\Controllers\SiteController::class,'restaurants']);
@@ -220,6 +235,9 @@ Route::group(['prefix' => 'admin', 'middleware'=>['auth','role:super-admin|nadil
     Route::get('areas',[AreaController::class,'index'])->name('admin.areas.index');
     Route::get('areas/create',[AreaController::class,'create'])->name('admin.areas.create');
     Route::get('areas/edit/{id}',[AreaController::class,'edit'])->name('admin.areas.edit');
+
+    // Reports
+    Route::get('reports',[ReportsController::class,'index'])->name('admin.reports.index');
 });
 
 
@@ -235,6 +253,8 @@ Route::group(['prefix' => 'restaurant-admin', 'middleware'=>['auth','role:restau
         ->name('restaurant-admin.restaurants.index');
     Route::get('/restaurant/{id}/edit',[\App\Http\Controllers\RestaurantAdmin\Restaurant\RestaurantController::class,'edit'])
         ->name('restaurant-admin.restaurants.edit');
+    Route::get('/restaurant/{id}/',[\App\Http\Controllers\RestaurantAdmin\Restaurant\RestaurantController::class,'show'])
+        ->name('restaurant-admin.restaurants.show');
     // Menus
     Route::get('restaurant/{restaurant}/menus/',
         [\App\Http\Controllers\RestaurantAdmin\Catalogue\CatalogueController::class,'index'])

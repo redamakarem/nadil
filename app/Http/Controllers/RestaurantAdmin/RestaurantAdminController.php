@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\RestaurantAdmin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Booking;
+use App\Models\Restaurant;
 use Illuminate\Http\Request;
 
 class RestaurantAdminController extends Controller
@@ -14,6 +16,9 @@ class RestaurantAdminController extends Controller
      */
     public function index()
     {
+        $data = array();
+        $restaurant_id = auth()->user()->restaurants->first()->id;
+        $bookings = Booking::where('restaurant_id',$restaurant_id);
         return view('restaurant-admin.index');
     }
 
@@ -46,7 +51,7 @@ class RestaurantAdminController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**

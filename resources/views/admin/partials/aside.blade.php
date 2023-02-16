@@ -58,7 +58,7 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item menu-is-opening menu-open">
+                {{-- <li class="nav-item menu-is-opening menu-open">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-circle"></i>
                         <p>
@@ -118,7 +118,7 @@
                             </a>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a href="{{ route('admin.roles.index') }}" class="nav-link">
                         <i class="fas fa-shield-alt"></i>
@@ -187,6 +187,15 @@
                         <i class="nav-icon fas fa-list"></i>
                         <p>
                             Cuisines
+
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.reports.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-list"></i>
+                        <p>
+                            Reports
 
                         </p>
                     </a>

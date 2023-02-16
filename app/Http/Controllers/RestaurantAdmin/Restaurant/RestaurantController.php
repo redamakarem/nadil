@@ -49,7 +49,8 @@ class RestaurantController extends Controller
      */
     public function show($id)
     {
-        //
+        $restaurant = Restaurant::findOrFail($id);
+        return view('restaurant-admin.restaurant.show',compact('restaurant'));
     }
 
     /**

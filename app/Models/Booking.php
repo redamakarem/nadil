@@ -21,7 +21,13 @@ class Booking extends Model
         'seats',
         'booking_end_time',
         'booking_code',
-        'booking_status_id'
+        'booking_status_id',
+        'weekday'
+    ];
+
+    protected $dates = [
+        'booking_date',
+        
     ];
 
 
