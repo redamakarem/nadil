@@ -166,6 +166,7 @@ class Show extends Component
             $this->booking->seats = $this->seats;
             $this->booking->booking_end_time = Carbon::parse($this->selected_time)->addMinutes($this->restaurant->estimated_dining_time)->format('H:i:s');
             $this->booking->booking_code = substr(str_shuffle("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890"), -5);
+            $this->booking->weekday = Carbon::parse($this->booking->booking_date)->dayOfWeek;
             $new_booking = $this->booking->save();
             $seat_num = $this->seats;
             $tables_to_book = array();
