@@ -9,12 +9,18 @@ class Login extends Component
 {
     public $email;
     public $password;
+    public $showPassword =false;
     protected function rules()
     {
         return [
             'email' => ['required','email'],
             'password' =>['required']
         ];
+    }
+
+    public function togglePasswordVisibility()
+    {
+        $this->showPassword = !$this->showPassword;
     }
     public function render()
     {

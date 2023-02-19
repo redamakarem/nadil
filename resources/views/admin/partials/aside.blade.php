@@ -50,128 +50,131 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.users.index') }}" class="nav-link">
-                        <i class="nav-icon fas fa-users"></i>
+                    <a href="{{ route('admin.reports.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-list"></i>
                         <p>
-                            Users
+                            Reports
 
                         </p>
                     </a>
                 </li>
-                {{-- <li class="nav-item menu-is-opening menu-open">
+                <li class="nav-item menu-is-opening">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-circle"></i>
+                        <i class="nav-icon fas fa-chart-pie"></i>
                         <p>
-                            Userz
+                            Users
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview" style="display: block;">
                         <li class="nav-item">
-                            <a href="{{route('admin.users.roles',['id' =>2])}}" class="nav-link">
+                            <a href="{{route('admin.users.roles',['id' => 2])}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Nadil Admin</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('admin.users.roles',['id' =>3])}}" class="nav-link">
+                            <a href="{{route('admin.users.roles',['id' => 3])}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>
-                                    Nadil Support
-                                </p>
+                                <p>Nadil Support</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('admin.users.roles',['id' =>3])}}" class="nav-link">
+                            <a href="{{route('admin.users.roles',['id' => 4])}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Rest. Super Admin</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('admin.users.roles',['id' =>4])}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Rest. Super Admin</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('admin.users.roles',['id' =>5])}}" class="nav-link">
+                            <a href="{{route('admin.users.roles',['id' => 5])}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Rest. Admin</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('admin.users.roles',['id' =>6])}}" class="nav-link">
+                            <a href="{{route('admin.users.roles',['id' => 6])}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Rest. Host</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('admin.users.roles',['id' =>7])}}" class="nav-link">
+                            <a href="{{route('admin.users.roles',['id' => 7])}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Rest. Manager</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('admin.users.roles',['id' =>8])}}" class="nav-link">
+                            <a href="{{route('admin.users.roles',['id' => 8])}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>User</p>
                             </a>
                         </li>
+                        
                     </ul>
-                </li> --}}
-                <li class="nav-item">
-                    <a href="{{ route('admin.roles.index') }}" class="nav-link">
-                        <i class="fas fa-shield-alt"></i>
-                        <p>
-                            Roles
-
-                        </p>
-                    </a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{ route('admin.dishes-new.index') }}" class="nav-link">
-                        <i class="fas fa-shield-alt"></i>
+                <li class="nav-item menu-is-opening">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-chart-pie"></i>
                         <p>
-                            Dishes
-
+                            Restaurants
+                            <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
+                    <ul class="nav nav-treeview" style="display: block;">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Branches</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Bookings</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Cuisines</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Dishes</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Areas</p>
+                            </a>
+                        </li>                        
+                    </ul>
                 </li>
-                <li class="nav-item">
-                    <a href="{{ route('admin.permissions.index') }}" class="nav-link">
-                        <i class="fas fa-shield-alt"></i>
+                <li class="nav-item menu-is-opening">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-chart-pie"></i>
                         <p>
-                            Permissions
-
+                            Security
+                            <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('admin.areas.index') }}" class="nav-link">
-                        <i class="nav-icon fas fa-map"></i>
-                        <p>
-                            Areas
-
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('admin.restaurants.index') }}" class="nav-link">
-                        <i class="nav-icon fas fa-utensils"></i>
-                        <p>
-                            Branches
-
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('admin.bookings.index') }}" class="nav-link">
-                        <i class="nav-icon fas fa-calendar-alt"></i>
-                        <p>
-                            Bookings
-
-                        </p>
-                    </a>
+                    <ul class="nav nav-treeview" style="display: block;">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Roles</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Permissions</p>
+                            </a>
+                        </li>                     
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('admin.contact-messages.index') }}" class="nav-link">
@@ -182,24 +185,7 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{ route('admin.cuisines.index') }}" class="nav-link">
-                        <i class="nav-icon fas fa-list"></i>
-                        <p>
-                            Cuisines
 
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('admin.reports.index') }}" class="nav-link">
-                        <i class="nav-icon fas fa-list"></i>
-                        <p>
-                            Reports
-
-                        </p>
-                    </a>
-                </li>
                 @role('super-admin')
                     <li class="nav-item">
                         <form action="{{ route('logout') }}" method="POST">

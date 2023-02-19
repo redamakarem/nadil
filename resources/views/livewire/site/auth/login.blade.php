@@ -22,8 +22,11 @@
                            class="flex items-center w-full ltr:font-lato rtl:font-ahlan ltr:placeholder:font-bold rtl:placeholder:font-normal text-[19px] ltr:tracking-[4px] rtl:tracking-normal uppercase border-[#707070] border-2 p-4 rounded-[19px]">
                 </div>
                 <div class="w-full">
-                    <input type="password" placeholder="{{__('nadil.auth.password')}}" wire:model="password"
-                           class="flex items-center w-full ltr:font-lato rtl:font-ahlan ltr:placeholder:font-bold text-[19px] rtl:placeholder:font-normal ltr:tracking-[4px] rtl:tracking-normal uppercase border-[#707070] border-2 p-4 rounded-[19px]">
+                    <div class="border-[#707070] border-2 p-4 rounded-[19px]">
+                        <input type={{$showPassword?"text":"password"}} placeholder="{{__('nadil.auth.password')}}" wire:model="password"
+                           class="flex items-center w-full ltr:font-lato rtl:font-ahlan ltr:placeholder:font-bold text-[19px] rtl:placeholder:font-normal ltr:tracking-[4px] rtl:tracking-normal uppercase rounded-[19px]">
+                           <button type="button" wire:click="togglePasswordVisibility"><i class="fa fa-{{ $showPassword?"eye":"eye-slash" }}"></i></button>
+                    </div>
                 </div>
                 {{-- <div class="w-full flex justify-between">
                     <a href="{{route('password.request')}}">{{__('Forgot Password')}}</a>
