@@ -37,7 +37,6 @@ class Show extends Component
 
     public function mount($restaurant)
     {
-
         $this->restaurant = $restaurant;
         $this->booking = new Booking();
         
@@ -195,6 +194,11 @@ class Show extends Component
         }
         $this->booking_enabled=false;
         
+    }
+
+    public function isProfileComplete()
+    {
+        return auth()->user()->profile->phone !=null;
     }
 
     public function render()

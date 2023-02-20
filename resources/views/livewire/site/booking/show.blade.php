@@ -13,6 +13,12 @@
             @endforeach
             </div>
         @endif
+
+        @if (!$this->isProfileComplete())
+            <div class="bg-green-600 px-8 py-12 text-white font-lato uppercase text-md tracking-[6px] rounded-[19px]"">
+                Please update your profile before booking. <a href="{{route('user.profile.show')}}">Update</a>
+            </div>
+        @endif
     
         <div class="flex font-lato rtl:font-ahlan uppercase text-md ">{{__('nadil.booking.select_date_time')}}</div>
         <div class="flex w-full justify-between space-x-8">
@@ -61,7 +67,7 @@
                 </select>
             </div>
             <div class="w-1/2 flex flex-col items-center">
-                <button {{!$booking_enabled?'disabled':''}} type="button" wire:click="submit" class="mb-4 inline-block px-8 py-6 rtl:font-ahlan rtl:tracking-normal bg-nadilBtn-100 tracking-[6px] rounded-[19px] hover:bg-grey-500 focus:bg-black focus:text-white focus:outline-none focus:ring-0 active:bg-black active:text-white transition duration-150 ease-in-out">{{__('nadil.booking.book_now')}}</button>
+                <button {{!$this->isProfileComplete() ?'disabled':''}} type="button" wire:click="submit" class="mb-4 inline-block px-8 py-6 rtl:font-ahlan rtl:tracking-normal bg-nadilBtn-100 tracking-[6px] rounded-[19px] hover:bg-grey-500 focus:bg-black focus:text-white focus:outline-none focus:ring-0 active:bg-black active:text-white disabled:text-gray-300 transition duration-150 ease-in-out">{{__('nadil.booking.book_now')}}</button>
             </div>
         </div>
     

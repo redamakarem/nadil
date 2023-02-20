@@ -6,7 +6,7 @@
 
         <div class="flex">
             <div id="restaurant-details"
-                 class="flex flex-col items-center ml-5 w-1/4 rounded-[64px] border-2 bg-white">
+                 class="flex flex-col items-center ml-5 w-[375px] rounded-[64px] border-2 bg-white">
                 <h2 class="text-4xl tracking-[14px] mt-16 uppercase text-center rtl:tracking-normal">{{$restaurant->{'name_'.app()->getLocale()} }}</h2>
                 <hr class="h-1 w-48 mt-4" />
                 <h3 class="uppercase font-din rtl:font-ahlan text-xl tracking-[6px] rtl:tracking-normal mt-3">{{$restaurant->areaa->governate->{'name_'.app()->getLocale()} }}</h3>
@@ -19,8 +19,8 @@
                 <div class="flex flex-grow w-full px-4 mt-12">
     
                     <div class="mx-auto space-x-8">
-                        <a href="#" class="uppercase px-8 py-4 bg-nadilBtn-100 rtl:tracking-normal tracking-[6px] rounded-[19px]">{{__('nadil.general.phone')}}</a>
-                        <a href="#" class="uppercase px-8 py-4 bg-nadilBtn-100 rtl:tracking-normal tracking-[6px] rounded-[19px]">{{__('nadil.general.email')}}</a>
+                        <a href="tel://{{$restaurant->phone}}" class="uppercase px-8 py-4 bg-nadilBtn-100 rtl:tracking-normal tracking-[6px] rounded-[19px]">{{__('nadil.general.phone')}}</a>
+                        <a href="mailto:{{$restaurant->email}}" class="uppercase px-8 py-4 bg-nadilBtn-100 rtl:tracking-normal tracking-[6px] rounded-[19px]">{{__('nadil.general.email')}}</a>
                     </div>
     
                 </div>

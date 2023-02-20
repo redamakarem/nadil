@@ -35,7 +35,7 @@
                             </div>
                             <div class="flex w-full space-x-8">
                                 <div class="font-lato font-bold uppercase text-[21px] tracking-[10px]">Address</div>
-                                <div class="font-lato uppercase text-[21px] tracking-[10px]">Test Address</div>
+                                <div class="font-lato uppercase text-[21px] tracking-[10px]">{{$profile->address}}</div>
                             </div>
                             <div class="flex w-full space-x-8">
                                 <div class="font-lato font-bold uppercase text-[21px] tracking-[10px]">Phone</div>
