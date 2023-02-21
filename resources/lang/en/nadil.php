@@ -29,6 +29,9 @@
             'swal_confirm_text' => 'Yes, cancel booking',
             'swal_cancel_text' => 'Cancel',
         ],
+        'messages' =>[
+            'booking_party_size' => 'If you want to book more than :max seats, please contact the restaurant',
+        ],
         'dishes' =>[
             'explore_more' => 'EXPLORE MORE DISHES',
         ],

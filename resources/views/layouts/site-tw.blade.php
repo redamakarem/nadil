@@ -66,7 +66,7 @@
 {{--         style="background-image:url('{{asset('images/profile-bg.png')}}'); background-size:cover;"--}}
 {{--    >--}}
 <div id="desktop-wrapper" class=" h-screen flex-col">
-    <header class="h-[270px]">
+    <header class="h-[200px]">
         <div id="header-wrapper" class="bg-black h-full flex items-center">
             <div id="header-content" class="mx-auto bg-black h-36 h-full w-full">
                 @guest

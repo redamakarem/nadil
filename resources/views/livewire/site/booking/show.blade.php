@@ -19,7 +19,7 @@
                 Please update your profile before booking. <a href="{{route('user.profile.show')}}">Update</a>
             </div>
         @endif
-    
+            <p>{{__('nadil.messages.booking_party_size',['max' => $restaurant->max_party_size])}}</p>
         <div class="flex font-lato rtl:font-ahlan uppercase text-md ">{{__('nadil.booking.select_date_time')}}</div>
         <div class="flex w-full justify-between space-x-8">
             <div class="w-1/2">

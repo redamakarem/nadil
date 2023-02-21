@@ -126,7 +126,7 @@
                     <i class="fa-solid fa-chevron-left"></i></div>
                 <div class="owl-carousel owl-theme cuisines-carousel">
                     @foreach ($cuisines as $cuisine)
-                        <a href="{{ route('site.restaurants.cuisine', ['cuisine' => $cuisine->id]) }}">
+                        <a class="bg-black bg-opacity-50" href="{{ route('site.restaurants.cuisine', ['cuisine' => $cuisine->id]) }}">
                             <div class="item rounded-xl border-2 h-28 flex justify-center items-center"
                                 style="background-image:url('{{ $cuisine->getFirstMediaUrl('cuisine_images') }}'); background-size: cover">
                                 <h4 class="text-center text-white lg:text-2xl uppercase">
