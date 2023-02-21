@@ -3,7 +3,7 @@
     <div class="rounded-[64px] border-2 bg-[#EFEFEF] my-12 px-16 py-12">
         <div class="form-group">
             @if ($errors->any())
-                <div class="alert alert-danger">
+                <div class="text-red">
                     <p><strong>Opps Something went wrong</strong></p>
                     <ul>
                         @foreach ($errors->all() as $error)
