@@ -140,7 +140,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('admin.dishes-new.edit')}}" class="nav-link">
+                            <a href="{{route('admin.dishes-new.index')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Dishes</p>
                             </a>
