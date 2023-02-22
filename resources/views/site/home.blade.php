@@ -36,17 +36,17 @@
                             <select
                                 class="flex-1 font-lato rtl:font-ahlan rtl:tracking-normal flex text-center border-none py-6 uppercase bg-nadilBtn-100 outline-none rounded-r-lg"
                                 type="text" name="search_seats" id="search_seats">
-                                <option value="1">1 {{__('nadil.booking.guest')}}</option>
-                                <option value="2">2 {{__('nadil.booking.guest')}}</option>
-                                <option value="3">3 {{__('nadil.booking.guest')}}</option>
-                                <option value="4">4 {{__('nadil.booking.guest')}}</option>
-                                <option value="5">5 {{__('nadil.booking.guest')}}</option>
-                                <option value="6">6 {{__('nadil.booking.guest')}}</option>
-                                <option value="7">7 {{__('nadil.booking.guest')}}</option>
-                                <option value="8">8 {{__('nadil.booking.guest')}}</option>
-                                <option value="9">9 {{__('nadil.booking.guest')}}</option>
-                                <option value="10">10 {{__('nadil.booking.guest')}}</option>
-                                <option value="10+">10+ {{__('nadil.booking.guest')}}</option>
+                                <option value="1">1 {{trans_choice('nadil.booking.guest',1)}}</option>
+                                <option value="2">2 {{trans_choice('nadil.booking.guest',2)}}</option>
+                                <option value="3">3 {{trans_choice('nadil.booking.guest',3)}}</option>
+                                <option value="4">4 {{trans_choice('nadil.booking.guest',4)}}</option>
+                                <option value="5">5 {{trans_choice('nadil.booking.guest',5)}}</option>
+                                <option value="6">6 {{trans_choice('nadil.booking.guest',6)}}</option>
+                                <option value="7">7 {{trans_choice('nadil.booking.guest',7)}}</option>
+                                <option value="8">8 {{trans_choice('nadil.booking.guest',8)}}</option>
+                                <option value="9">9 {{trans_choice('nadil.booking.guest',9)}}</option>
+                                <option value="10">10 {{trans_choice('nadil.booking.guest',10)}}</option>
+                                <option value="10+">10+ {{trans_choice('nadil.booking.guest',11)}}</option>
                             </select>
                         </div>
 

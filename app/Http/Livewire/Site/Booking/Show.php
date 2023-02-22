@@ -90,7 +90,7 @@ class Show extends Component
 
     public function updatedSelectedDate($value)
     {
-        $this->display_date = $this->selected_date;
+        $this->display_date = Carbon::parse($this->selected_date)->format('d/m/Y');
     }
 
     public function setSelectedTime($time)
