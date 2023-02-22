@@ -198,7 +198,11 @@ class Show extends Component
 
     public function isProfileComplete()
     {
-        return auth()->user()->profile->phone !=null;
+        if(auth()->user()==null){
+            return false;
+        }else{
+            return auth()->user()->profile->phone !=null;
+        }
     }
 
     public function render()
