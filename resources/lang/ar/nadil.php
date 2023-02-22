@@ -37,7 +37,7 @@ return array (
     'book_now' => 'احجز الان',
     'select_date_time' => 'الرجاء اختيار التاريخ و الوقت',
     'how_many_seats' => 'عدد المقاعد',
-    'guest' => 'ضيف',
+    'guest' => 'ضيف|ضيوف',
     'num_guest' => 'عدد الضيوف',
     'select_time' => 'اختر الوقت',
     'select_date' => 'اختر التاريخ',

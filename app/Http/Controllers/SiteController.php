@@ -76,11 +76,11 @@ class SiteController extends Controller
                 'search_date' => ['required'],
                 'search_time' => ['required'],
                 'search_seats' => ['required'],
-                // 'search_name' => ['required']
+                'search_name' => ['required']
              ]
         );
         // dd($validated_data);
-        $result = Restaurant::whereHas('menus')->get()->filter(function ($value, $key) use($validated_data) {
+        $result = Restaurant::whereHas('menus')->where('name_'. app()->getLocale(),'LIKE','%'. $validated_data['search_name'].'%')->get()->filter(function ($value, $key) use($validated_data) {
             return $value->getAvailableSeats($validated_data['search_date'],$validated_data['search_time']) > $validated_data['search_seats'];
         });
         if ($agent->isMobile()) {

@@ -45,7 +45,7 @@
             'book_now' => 'Book Now',
             'select_date_time' => 'Please select date and time',
             'how_many_seats' => 'How many seats?',
-            'guest' => 'guest',
+            'guest' => 'guest|guests',
             'num_guest' => 'Select number of guest',
             'select_time' => 'Select time',
             'select_date' => 'Select date',

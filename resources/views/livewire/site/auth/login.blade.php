@@ -3,11 +3,11 @@
     <div class="rounded-[64px] border-2 bg-[#EFEFEF] my-12 px-16 py-12">
         <div class="form-group">
             @if ($errors->any())
-                <div class="text-red">
+                <div class="text-red-700">
                     <p><strong>Opps Something went wrong</strong></p>
                     <ul>
                         @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
+                            <li class="text-red-700">{{ $error }}</li>
                         @endforeach
                     </ul>
                 </div>
