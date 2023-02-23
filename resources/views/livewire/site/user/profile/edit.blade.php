@@ -2,6 +2,13 @@
     <div class="flex rounded-[64px] border-2 bg-white h-full w-full">
         <div class="flex items-center w-full justify-between">
             <div class="flex flex-col w-full py-8 px-12">
+                @if($errors->any())
+            <div id="validation-errors" class="bg-red-600 px-8 py-12 text-white font-lato uppercase text-md tracking-[6px] rounded-[19px]">
+            @foreach ($errors->all() as $error)
+                <div>{{ $error }}</div>
+            @endforeach
+            </div>
+        @endif
                 <h3 class="font-lato font-italic uppercase text-[21px] tracking-[10px] mb-12">Account Details</h3>
                 <div class="w-full flex flex-col space-y-8">
                     <div class="flex w-full space-x-8">

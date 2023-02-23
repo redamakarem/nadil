@@ -13,11 +13,11 @@ class Edit extends Component
 
     protected $rules =[
         'profile.name' => ['required'],
-        'profile.dob' => ['dob'],
-        'profile.phone' => ['phone'],
+        'profile.dob' => ['required','date'],
+        'profile.phone' => ['numeric'],
         'profile.email' => ['email'],
         'profile.gender' => ['sometimes'],
-        'profile.address' => ['address'],
+        'profile.address' => ['required'],
     ];
 
     public function mount()
@@ -28,6 +28,7 @@ class Edit extends Component
 
     public function submit()
     {
+        $this->validate();
         $this->profile->dob = $this->selected_date;
         $this->profile->save();
     }
