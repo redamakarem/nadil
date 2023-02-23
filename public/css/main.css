@@ -871,6 +871,9 @@ select {
 .h-\[1301px\] {
     height: 1301px;
 }
+.h-60 {
+    height: 15rem;
+}
 .max-h-\[296px\] {
     max-height: 296px;
 }
@@ -975,6 +978,9 @@ select {
 }
 .w-\[1920px\] {
     width: 1920px;
+}
+.w-36 {
+    width: 9rem;
 }
 .min-w-max {
     min-width: -webkit-max-content;
@@ -1132,6 +1138,11 @@ select {
     --tw-space-y-reverse: 0;
     margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
     margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
+}
+.space-x-6 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 0;
+    margin-right: calc(1.5rem * var(--tw-space-x-reverse));
+    margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 .overflow-hidden {
     overflow: hidden;

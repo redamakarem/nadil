@@ -50,3 +50,35 @@
         </div>
     </div>
 </div>
+
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('pickadate/lib/themes/default.css') }}">
+    <link rel="stylesheet" href="{{ asset('pickadate/lib/themes/default.date.css') }}">
+    <link rel="stylesheet" href="{{ asset('pickadate/lib/themes/default.time.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <style>
+        .flatpickr-day.selected {
+            background: #0a0e14;
+        }
+    </style>
+@endpush
+@push('scripts')
+    <script src="{{ asset('pickadate/lib/compressed/picker.js') }}"></script>
+    <script src="{{ asset('pickadate/lib/compressed/picker.date.js') }}"></script>
+    <script src="{{ asset('pickadate/lib/compressed/picker.time.js') }}"></script>
+    <script src="{{ asset('pickadate/lib/compressed/legacy.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <script>
+        
+        var booking_date = flatpickr("#dob", {
+        "locale": "{{app()->getLocale()}}",
+        dateFormat: 'Y-m-d',
+        
+    });
+    booking_date.config.onChange.push(function(selectedDates,dateStr,instance) {
+        console.log(dateStr);
+    @this.selected_date = dateStr;
+    } );
+    </script>
+@endpush

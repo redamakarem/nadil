@@ -47,6 +47,7 @@ class Edit extends Component
         $this->schedule->to_date = $this->end_date;
         $this->schedule->from_time = $this->start_time;
         $this->schedule->to_time = $this->end_time;
+        $this->schedule->slot_length = $this->slot_length;
         $this->schedule->save();
     }
 

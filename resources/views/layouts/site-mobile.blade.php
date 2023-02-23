@@ -95,22 +95,22 @@ dir="{{ app()->getLocale()=='en'?'ltr':'rtl' }}"
                 </div>
             </div>
             @if (!empty($restaurant))
-                <div class="header h-80 bg-black flex-col justify-center bg-cover"
+                <div class="header h-60 bg-black flex-col justify-center bg-cover"
                     style="background-image:url('{{ $restaurant->getFirstMediaUrl('restaurant_images') }}'); background-size: cover">
                 @else
                     <div class="header h-80 bg-black flex-col justify-center bg-cover items-stretch"
                         style="background-image:url('{{ asset('images/nadil@2x.png') }}'); background-size: cover">
             @endif
             <div
-                class="flex justify-between px-8 pt-24 h-20">
-                <div class="avatar bg-black text-white dark:bg-nadilBg-100 dark:text-black h-12 w-12 rounded-full flex justify-center items-center">
+                class="flex justify-end px-8 pt-24 h-20">
+                {{-- <div class="avatar bg-black text-white dark:bg-nadilBg-100 dark:text-black h-12 w-12 rounded-full flex justify-center items-center">
                     @guest
                         <i class="fa fa-user"></i>
                     @endguest
                     @role('user')
                         <div class="uppercase">{{ auth()->user()->initials }}</div>
                     @endrole
-                </div>
+                </div> --}}
                 <div class="avatar bg-black text-white dark:bg-nadilBg-100 dark:text-black h-12 w-12 rounded-full flex justify-center items-center cursor-pointer"
                     @click="isOpen = !isOpen">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"

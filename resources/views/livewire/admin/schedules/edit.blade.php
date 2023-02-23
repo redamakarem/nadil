@@ -22,7 +22,7 @@
             <div class="form-group">
                 <label for="name">Menu Name</label>
                 <input wire:model="name"
-                       type="text" class="form-control" id="name" placeholder="Enter cuisine name">
+                       type="text" class="form-control" id="name" placeholder="Enter schedule name">
             </div>
             <div class="form-group" wire:ignore>
                 <label for="start_date">Start Date</label>
@@ -43,6 +43,11 @@
                 <label for="end_time">End Time</label>
                 <input wire:model="end_time"
                        type="text" class="form-control ptime" id="end_time" placeholder="Choose end time">
+            </div>
+            <div class="form-group">
+                <label for="name">Slot length</label>
+                <input wire:model='slot_length'
+                       type="text" class="form-control" id="name"  placeholder="Enter slot length in minutes">
             </div>
 
         </div>

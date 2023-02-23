@@ -9,6 +9,7 @@ use Livewire\Component;
 class Edit extends Component
 {
     public Profile $profile;
+    public $selected_date;
 
     protected $rules =[
         'profile.name' => ['required'],
@@ -27,6 +28,7 @@ class Edit extends Component
 
     public function submit()
     {
+        $this->profile->dob = $this->selected_date;
         $this->profile->save();
     }
 

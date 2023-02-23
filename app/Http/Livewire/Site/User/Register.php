@@ -33,6 +33,7 @@ class Register extends Component
         return [
             'profile.name' =>['required'],
             'profile.email' =>['required','unique:users,email','email'],
+            'profile.phone' =>['required','numeric'],
             
 
         ];

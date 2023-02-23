@@ -36,11 +36,34 @@
     
             <div id="menu"
                  class="flex flex-col space-y-12 items-center flex-1 px-16 py-16 min-h-80 rounded-[64px] border-2 bg-white">
-                <div class="h-24 flex justify-center items-center uppercase font-lato font-bold mt-12 px-16 py-6 bg-nadilBtn-100 ltr:tracking-[6px] rtl:tracking-normal rounded-[19px]">Your order has been placed</div>
+                <div class="h-24 flex justify-center items-center uppercase font-lato font-bold mt-12 px-16 py-6 bg-nadilBtn-100 ltr:tracking-[6px] rtl:tracking-normal rounded-[19px]">{{__('nadil.booking.reserved_message')}}</div>
                 <img src="{{asset('/images/booking-thanks.png')}}" alt="booking thanks">
-                <div>Order #{{ $booking->booking_code }}</div>
+                <div>
+                    <table>
+                        <tr>
+                            <td class="w-36">Booking Code</td>
+                            <td>{{ $booking->booking_code }}</td>
+                        </tr>
+                        <tr>
+                            <td>Restaurant</td>
+                            <td>{{ $booking->restaurant->{'name_'.app()->getLocale()} }}</td>
+                        </tr>
+                        <tr>
+                            <td>Date</td>
+                            <td>{{ $booking->booking_date->format('d/m/Y') }}</td>
+                        </tr>
+                        <tr>
+                            <td>Time</td>
+                            <td>{{ $booking->booking_time }}</td>
+                        </tr>
+                        <tr>
+                            <td>Seats</td>
+                            <td>{{ $booking->seats }}</td>
+                        </tr>
+                    </table>
+                </div>
                 <div class="flex w-full justify-end">
-                    <a href="#" class="uppercase mt-12 px-16 py-6 bg-nadilBg-100 shadow-md ltr:tracking-[6px] rtl:tracking-normal rounded-[19px]">Back to menu</a>
+                    <a href="{{route('site.restaurants.view',['id' => $booking->restaurant_id])}}" class="uppercase mt-12 px-16 py-6 bg-nadilBg-100 shadow-md ltr:tracking-[6px] rtl:tracking-normal rounded-[19px]">Back to menu</a>
                 </div>
             </div>
         </div>

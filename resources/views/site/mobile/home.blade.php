@@ -5,10 +5,21 @@
         <div class="flex flex-col items-center">
             <form action="{{ route('site.restaurants.search') }}" method="POST">
                 @csrf
+                
+                <div class="my-4">
+                    <input
+                        class="text-center rounded-[64px] bg-[#E0E0E0] outline-none border-none placeholder:text-center placeholder:font-lato placeholder:uppercase w-full"
+                        type="text" name="search_date" id="search_date" placeholder="{{ __('Date') }}">
+                </div>
+                <div class="my-4">
+                    <input
+                        class="text-center rounded-[64px] bg-[#E0E0E0] outline-none border-none placeholder:text-center placeholder:font-lato placeholder:uppercase w-full"
+                        type="text" name="search_time" id="search_time" placeholder="{{ __('Time') }}">
+                </div>
                 <div class="my-4">
                     <select
                         class="text-center rounded-[64px] bg-[#E0E0E0] outline-none border-none placeholder:text-center placeholder:font-lato placeholder:uppercase w-full"
-                        name="people" id="people">
+                        name="search_seats" id="search_seats">
                         <option value="1">1 {{trans_choice('nadil.booking.guest',1)}}</option>
                                 <option value="2">2 {{trans_choice('nadil.booking.guest',2)}}</option>
                                 <option value="3">3 {{trans_choice('nadil.booking.guest',3)}}</option>
@@ -22,22 +33,12 @@
                                 <option value="10+">10+ {{trans_choice('nadil.booking.guest',11)}}</option>
                     </select>
                 </div>
-                <div class="my-4">
-                    <input
-                        class="text-center rounded-[64px] bg-[#E0E0E0] outline-none border-none placeholder:text-center placeholder:font-lato placeholder:uppercase w-full"
-                        type="text" name="search_date" id="search_date" placeholder="{{ __('Date') }}">
-                </div>
-                <div class="my-4">
-                    <input
-                        class="text-center rounded-[64px] bg-[#E0E0E0] outline-none border-none placeholder:text-center placeholder:font-lato placeholder:uppercase w-full"
-                        type="text" name="search_time" id="search_time" placeholder="{{ __('Time') }}">
-                </div>
                 <input
                     class="rounded-[64px] bg-[#E0E0E0] outline-none border-none placeholder:text-center placeholder:font-lato placeholder:rtl:font-ahlan placeholder:rtl:tracking-normal placeholder:uppercase w-full mb-4"
-                    type="number" step="1" name="search_seats" id="search_seats" placeholder="{{__('nadil.general.seats')}}">
+                    type="text"  name="search_name" id="search_name" placeholder="Search">
         </div>
         <div class="flex justify-center mb-6">
-            <button class="uppercase font-lato rtl:font-ahlan rtl:tracking-normal font-bold bg-[#F8F8F8] shadow-md w-full rounded-lg py-4"
+            <button class="uppercase font-lato rtl:font-ahlan rtl:tracking-normal font-bold bg-[#E0E0E0] shadow-md w-full rounded-lg py-4"
                 type="submit">{{__('nadil.booking.book_now')}}</button>
         </div>
         <div class="">

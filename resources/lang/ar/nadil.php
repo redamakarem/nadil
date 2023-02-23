@@ -43,6 +43,7 @@ return array (
     'select_date' => 'اختر التاريخ',
     'no_available_slots' => 'لا يوجد خانات قابلة للحجز',
     'cancel_booking' => 'الغاء الحجز',
+    'reserved_message' => 'تمت عملية الحجز بنجاح'
 
 ],
 'dishes' =>[

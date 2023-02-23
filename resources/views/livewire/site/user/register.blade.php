@@ -123,10 +123,10 @@
                            class="flex items-center w-full font-lato placeholder:rtl:font-ahlan placeholder:rtl:tracking-normal placeholder:font-bold text-[19px] tracking-[4px] uppercase border-[#707070] border-2 p-4 rounded-[19px]">
                 </div>
 
-                {{-- <div class="w-full">
+                <div class="w-full">
                     <input type="text" placeholder="Your Mobile Number" wire:model.lazy="profile.phone"
                            class="flex items-center w-full font-lato placeholder:font-bold text-[19px] tracking-[4px] uppercase border-[#707070] border-2 p-4 rounded-[19px]">
-                </div> --}}
+                </div>
                 {{-- <div class="w-full">
                     <input type="password" placeholder="Password" wire:model.lazy="password"
                            class="flex items-center w-full font-lato placeholder:font-bold text-[19px] tracking-[4px] uppercase border-[#707070] border-2 p-4 rounded-[19px]">

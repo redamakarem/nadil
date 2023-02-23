@@ -170,7 +170,7 @@
             class="content bg-black h-20 flex justify-between"
         >
             <div></div>
-            <div class="flex space-x-2 items-center mx-2">
+            <div class="flex space-x-6 items-center mx-2">
                 <a href="" class="text-white font-bold font-din uppercase tracking-[4px]">Cancellation Policy</a>
                 <a href="" class="text-white font-bold font-din uppercase tracking-[4px]">Contact Us</a>
                 <a href="" class="text-white font-bold font-din uppercase tracking-[4px]">FAQ</a>
