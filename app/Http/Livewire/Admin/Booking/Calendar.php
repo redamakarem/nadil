@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin\Booking;
 
 use App\Models\Booking;
+use Carbon\Carbon;
 use Livewire\Component;
 
 class Calendar extends Component
@@ -23,8 +24,8 @@ class Calendar extends Component
            return [
                'id' => $item->id,
                'title' => 'NDL-'.$item->id,
-               'start' => $item->booking_date.' '.$item->booking_time,
-               'end' => $item->booking_date.' '.$item->booking_end_time,
+               'start' => Carbon::parse($item->booking_date)->format('Y-m-d').' '.$item->booking_time,
+               'end' => Carbon::parse($item->booking_date)->format('Y-m-d').' '.$item->booking_end_time,
                'url' => route('admin.bookings.show',$item->id)
            ];
         });

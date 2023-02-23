@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
+use Carbon\Carbon;
 
 class Booking extends Model
 {
@@ -29,7 +30,10 @@ class Booking extends Model
         'booking_date',
         
     ];
-
+    public function getBookingDateAttribute($value)
+    {
+        return Carbon::parse($value)->format('Y-m-d');
+    }
 
     public function restaurant()
     {
