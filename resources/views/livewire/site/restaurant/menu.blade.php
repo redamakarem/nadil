@@ -41,7 +41,7 @@
                 @endif
             </div>
             <div class="hr-container flex justify-center">
-                <hr class="w-1/2 border-2 text-[#e0e0e0]" />
+                <hr class="w-1/2 border-2 border-black" />
             </div>
         @endforeach
     </div>
