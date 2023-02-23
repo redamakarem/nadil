@@ -4,7 +4,7 @@
         <div class="form-group">
             @if ($errors->any())
                 <div class="text-red-700">
-                    <p><strong>Opps Something went wrong</strong></p>
+                    <p class="bg-red-300 text-center"><strong>Opps Something went wrong</strong></p>
                     <ul>
                         @foreach ($errors->all() as $error)
                             <li class="text-red-700">{{ $error }}</li>
