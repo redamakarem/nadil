@@ -61,7 +61,7 @@
 
 
 
-@extends('layouts.site')
+@extends('layouts.site-tw')
 
 @section('content')
 @livewire('site.user-registration')

@@ -38,8 +38,8 @@
     </div> --}}
 
     <div class="flex space-x-8 w-[80%] mx-auto">
-        <div class="flex flex-col justify-center flex-1">@livewire('site.auth.login')</div>
-        <div class="flex flex-col justify-center flex-1">@livewire('site.user.register')</div>
+        <div class="flex flex-col justify-center flex-1 max-w-4xl mx-auto">@livewire('site.auth.login')</div>
+        {{-- <div class="flex flex-col justify-center flex-1">@livewire('site.user.register')</div> --}}
     </div>
 
 @endsection

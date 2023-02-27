@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Site;
 
 use App\Events\UserRegistered;
+use App\Mail\UserRegistered as MailUserRegistered;
 use App\Mail\UserRegisteredMail;
 use App\Models\Profile;
 use App\Models\User;
@@ -52,7 +53,7 @@ class UserRegistration extends Component
 
             });
             dd(User::latest()->first());
-            Mail::to(User::latest()->first()->email)->send(new UserRegisteredMail(User::latest()->first()));
+            Mail::to(User::latest()->first()->email)->send(new MailUserRegistered(User::latest()->first()));
         } catch (\Throwable $e) {
             dd($e);
         }

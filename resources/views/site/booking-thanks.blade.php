@@ -50,7 +50,7 @@
                         </tr>
                         <tr>
                             <td>Date</td>
-                            <td>{{ $booking->booking_date->format('d/m/Y') }}</td>
+                            <td>{{ $booking->booking_date }}</td>
                         </tr>
                         <tr>
                             <td>Time</td>

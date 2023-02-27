@@ -37,9 +37,12 @@
                     <button type="button" wire:click="togglePasswordVisibility"><i
                             class="fa fa-{{ $showPassword ? 'eye' : 'eye-slash' }}"></i></button>
                 </div>
-                <div class="pt-4 flex justify-end p-8 underline">
+                <div class="pt-4 flex justify-between p-8 underline">
+                    <a class="ltr:font-lato rtl:font-ahlan text-[19px] ltr:tracking-[4px] rtl:tracking-normal uppercase "
+                        href="{{ route('register') }}">{{ __('Create Account') }}</a>
                     <a class="ltr:font-lato rtl:font-ahlan text-[19px] ltr:tracking-[4px] rtl:tracking-normal uppercase "
                         href="{{ route('password.email') }}">{{ __('Forgot Password') }}</a>
+                    
                 </div>
             </div>
             {{-- <div class="w-full flex justify-between">
