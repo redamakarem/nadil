@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -26,5 +27,10 @@ class Profile extends Model
     public function getInitialsAttribute(): string
     {
         return \Illuminate\Support\Str::initials($this->name);
+    }
+
+    public function getAgeAttribute()
+    {
+        return Carbon::parse($this->dob)->age;   
     }
 }

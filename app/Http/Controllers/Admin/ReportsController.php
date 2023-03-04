@@ -29,15 +29,19 @@ class ReportsController extends Controller
         ->select('booking_time', DB::raw('count(*) as count'))
         ->orderby('count','desc')
         ->groupBy('booking_time')
-        ->first();
-        $top_weekday_num= DB::table('bookings')
+        ->take(3)->get();
+        $top_weekday_nums= DB::table('bookings')
         ->select('weekday', DB::raw('count(*) as count'))
         ->orderby('count','desc')
         ->groupBy('weekday')
-        ->first()->weekday;
-        $top_weekday = $this->getDayNameFromDayOfWeek($top_weekday_num);
-        $top_booked=Restaurant::withCount('bookings')->orderBy('bookings_count','desc')->first();
+        ->take(3)->get();
+        // dd($top_weekday_nums);
+        $top_weekdays = array();
+       foreach ($top_weekday_nums as  $top_weekday_num) {
+        array_push($top_weekdays,$this->getDayNameFromDayOfWeek($top_weekday_num->weekday));
+       }
+        $top_booked=Restaurant::withCount('bookings')->orderBy('bookings_count','desc')->take(3)->get();
         
-        return view('admin.reports.index',compact(['top_time','top_booked','top_weekday']));
+        return view('admin.reports.index',compact(['top_time','top_booked','top_weekdays']));
     }
 }

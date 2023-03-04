@@ -18,6 +18,7 @@ use App\Http\Controllers\RestaurantAdmin\ScheduleController as RAScheduleControl
 use App\Http\Controllers\RestaurantAdmin\Dish\DishesController as RADishesController;
 use App\Http\Controllers\RestaurantAdmin\CatalogueCategory\CatalogueCategoryController;
 use App\Http\Controllers\RestaurantAdmin\Booking\BookingController as RABookingController;
+use App\Http\Livewire\Admin\Reports\NewUsers;
 use App\Models\Booking;
 
 /*
@@ -93,6 +94,10 @@ Route::get('/dashboard', function () {
 
 Route::group(['prefix' => 'admin', 'middleware'=>['auth','role:super-admin|nadil-admin|nadil-support']],function()
 {
+
+    Route::get('lw-test',function(){
+        return view('admin.lw-test');
+    });
     Route::get('/',[\App\Http\Controllers\Admin\AdminController::class,'index'])->name('admin.index');
 
     Route::get('user/{user}/impersonate', [UserController::class,'impersonate'])->name('users.impersonate');

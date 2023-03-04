@@ -2,15 +2,18 @@
 
 namespace App\Http\Livewire\Site;
 
-use App\Events\UserRegistered;
-use App\Mail\UserRegistered as MailUserRegistered;
-use App\Mail\UserRegisteredMail;
-use App\Models\Profile;
 use App\Models\User;
+use App\Mail\TestMail;
+use App\Models\Profile;
+use Livewire\Component;
+use Illuminate\Support\Str;
+use App\Events\UserRegistered;
+use App\Mail\UserRegisteredMail;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
-use Livewire\Component;
+use Illuminate\Support\Facades\Password;
+use App\Mail\UserRegistered as MailUserRegistered;
 
 class UserRegistration extends Component
 {
@@ -40,32 +43,48 @@ class UserRegistration extends Component
     public function register()
     {
         $this->validate();
-        try {
-            DB::transaction(function () {
-                $new_user = User::create([
-                    'name' => $this->profile->name,
-                    'email' => $this->profile->email,
-                    'password' => Hash::make($this->password)
-                ]);
-                $this->profile->dob = $this->date_of_birth;
-                $this->profile->user_id = $new_user->id;
-                $this->profile->save();
-
-            });
-            dd(User::latest()->first());
-            Mail::to(User::latest()->first()->email)->send(new MailUserRegistered(User::latest()->first()));
-        } catch (\Throwable $e) {
-            dd($e);
-        }
-
-
-//        $this->reset();
+        DB::transaction(function () {
+            $new_user = User::create([
+                'name' => $this->profile->name,
+                'email' => $this->profile->email,
+                'password' => $this->password
+            ]);
+            $this->profile->user_id = $new_user->id;
+            $this->profile->dob = $this->date_of_birth;
+            $new_user->assignRole('user');
+            $new_user->save();
+            $this->profile->save();
+            // $this->perform_password_reset();
+            event(new UserRegistered($new_user));
+            // $new_user->update(['password' => Hash::make($new_user->password)]);
+            $this->resetFields();
+            // session()->flash('success','Check your email to set your password');
+        });
 
     }
 
     public function render()
     {
         return view('livewire.site.user-registration');
+    }
+
+    private function perform_password_reset()
+    {
+        $status = Password::sendResetLink(
+            ['email' => $this->profile->email]
+        );
+     
+        return $status === Password::RESET_LINK_SENT
+                    ? back()->with(['status' => __($status)])
+                    : back()->withErrors(['email' => __($status)]);
+    }
+
+    private function resetFields()
+    {
+        // $this->user = new User();
+        $this->profile = new Profile();
+        $this->password = '';
+        $this->password_confirmation = '';
     }
 
 }
